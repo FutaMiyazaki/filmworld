@@ -3,13 +3,19 @@ import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Layout/Header";
 import { Footer } from "src/components/Layout/Footer";
 import { Main } from "src/components/Main";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function Home() {
   const [count, setCount] = useState(1);
-  const handleClick = (e) => {
-    setCount((count) => count + 1);
-  };
+
+  const handleClick = useCallback(
+    (e) => {
+      if (count < 10) {
+        setCount((count) => count + 1);
+      }
+    },
+    [count]
+  );
 
   useEffect(() => {
     console.log("foo");
@@ -17,7 +23,7 @@ export default function Home() {
     return () => {
       document.body.style.backgroundColor = "";
     };
-  }, []);
+  }, [count]);
 
   return (
     <div className={styles.container}>
