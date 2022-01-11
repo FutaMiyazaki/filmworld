@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import styles from 'src/styles/Home.module.css'
+import Image from "next/image";
+import styles from "src/styles/Home.module.css";
 
 export function Footer() {
   return (
@@ -9,11 +9,11 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Thanks by{' '}
+        Thanks by{" "}
         <span className={styles.logo}>
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </span>
       </a>
     </footer>
-  )
+  );
 }

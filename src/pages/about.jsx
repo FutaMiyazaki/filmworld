@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import styles from 'src/styles/Home.module.css'
-import { Header } from 'src/components/Layout/Header'
-import { Footer } from 'src/components/Layout/Footer'
-import { Main } from 'src/components/Main'
+import Head from "next/head";
+import styles from "src/styles/Home.module.css";
+import { Header } from "src/components/Layout/Header";
+import { Footer } from "src/components/Layout/Footer";
+import { Main } from "src/components/Main";
 
 export default function Home() {
   return (
@@ -14,5 +14,5 @@ export default function Home() {
       <Main page="about" />
       <Footer />
     </div>
-  )
+  );
 }
