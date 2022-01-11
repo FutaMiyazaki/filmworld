@@ -1,6 +1,6 @@
-import styles from '../styles/Home.module.css'
-import { Links } from '../components/Links'
-import { Headline } from '../components/Headline'
+import styles from 'src/styles/Home.module.css'
+import { Links } from 'src/components/Links'
+import { Headline } from 'src/components/Headline'
 
 export function Main(props) {
   return (
