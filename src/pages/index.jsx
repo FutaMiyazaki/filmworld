@@ -1,23 +1,21 @@
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Layout/Header";
-import { Main } from "src/components/Main";
 import { Footer } from "src/components/Layout/Footer";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Home(props) {
-  const {
-    count,
-    isShow,
-    handleClick,
-    handleDisplay,
-    text,
-    array,
-    handleChange,
-    handleAdd,
-  } = props;
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = useCallback(async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const json = await res.json();
+    setPosts(json);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
 
   return (
     <div className={styles.container}>
@@ -25,22 +23,11 @@ export default function Home(props) {
         <title>indexページ</title>
       </Head>
       <Header />
-
-      {isShow ? <h1>{count}</h1> : null}
-      <button href="/about" onClick={handleClick}>
-        ボタン
-      </button>
-      <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
-
-      <input type="text" value={text} onChange={handleChange} />
-      <button onClick={handleAdd}>追加</button>
-      <ul>
-        {array.map((item) => {
-          return <li key={item}>{item}</li>;
+      <ol>
+        {posts.map((post) => {
+          return <li key={post.id}>{post.title}</li>;
         })}
-      </ul>
-
-      <Main page="index" />
+      </ol>
       <Footer />
     </div>
   );
