@@ -1,5 +1,6 @@
 import "src/styles/globals.css";
 import Head from "next/head";
+import { Container } from "src/components/Layout/Container";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -7,7 +8,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <Container>
+        <Component {...pageProps} />
+      </Container>
     </>
   );
 }

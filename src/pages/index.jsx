@@ -1,10 +1,9 @@
 import Head from "next/head";
-import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Layout/Header";
 
 export default function Index(props) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>aboutページ</title>
       </Head>
