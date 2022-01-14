@@ -8,7 +8,7 @@ export default function Index(props) {
         <title>aboutページ</title>
       </Head>
       <Header />
-      <h1>Next.js学習</h1>
+      <h1 className="text-3xl text-red-500">Next.js学習</h1>
       <p>JSONPlaceholderのAPIを色々叩いてみる</p>
     </div>
   );
