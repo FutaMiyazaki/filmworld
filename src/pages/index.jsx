@@ -1,5 +1,7 @@
+import React from "react";
 import Head from "next/head";
 import { Header } from "src/components/Layout/Header";
+import Button from "@mui/material/Button";
 
 export default function Index(props) {
   return (
@@ -8,8 +10,10 @@ export default function Index(props) {
         <title>aboutページ</title>
       </Head>
       <Header />
-      <h1 className="text-3xl text-red-500">Next.js学習</h1>
+      <h1>Next.js学習</h1>
       <p>JSONPlaceholderのAPIを色々叩いてみる</p>
+      <Button variant="text">Text</Button>
+      <Button variant="contained">Contained</Button>
     </div>
   );
 }
