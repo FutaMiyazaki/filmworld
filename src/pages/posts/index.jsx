@@ -1,14 +1,12 @@
 import Head from "next/head";
-import { Header } from "src/components/Layout/Header";
 import { Posts as PostsComponent } from "src/components/Posts";
 
 export default function Posts() {
   return (
     <div>
       <Head>
-        <title>indexページ</title>
+        <title>投稿一覧</title>
       </Head>
-      <Header />
       <PostsComponent />
     </div>
   );
