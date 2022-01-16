@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { LayoutMain } from "src/components/Layout/LayoutMain";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -13,5 +13,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;
