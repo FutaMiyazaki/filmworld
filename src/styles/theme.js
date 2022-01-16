@@ -40,6 +40,7 @@ const theme = createTheme({
     background: {
       default: "#0A192A",
     },
+    type: "dark",
   },
 });
 
