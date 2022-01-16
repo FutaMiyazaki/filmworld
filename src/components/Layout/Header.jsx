@@ -10,7 +10,7 @@ import {
   Link as MuiLink,
 } from "@mui/material/";
 
-const pages = [
+const links = [
   { path: "/posts", text: "投稿一覧" },
   { path: "/posts", text: "使い方" },
   { path: "/posts", text: "GitHub" },
@@ -60,13 +60,13 @@ export function Header() {
             </MuiLink>
           </NextLink>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <NextLink href={page.path} passHref key={page}>
+            {links.map((link) => (
+              <NextLink href={link.path} passHref key={link.text}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page.text}
+                  {link.text}
                 </Button>
               </NextLink>
             ))}
