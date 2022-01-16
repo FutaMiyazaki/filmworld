@@ -1,7 +1,6 @@
 import React from "react";
 import { Header } from "src/components/Layout/Header";
-import { Grid, Container, Box } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
+import { Grid, Container, Box, CssBaseline } from "@mui/material";
 import { BottomNavi } from "src/components/Layout/BottomNavi";
 
 export function LayoutMain({ children }) {
