@@ -8,13 +8,11 @@ export function LayoutMain({ children }) {
     <div>
       <CssBaseline />
       <Box sx={{ bgcolor: "#0A192A" }}>
-        <Grid container direction="column">
-          <Header />
-          <Container>
-            {children}
-            <BottomNavi />
-          </Container>
-        </Grid>
+        <Header />
+        <Container>
+          {children}
+          <BottomNavi />
+        </Container>
       </Box>
     </div>
   );
