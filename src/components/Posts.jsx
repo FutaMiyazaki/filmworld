@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { Loading } from "src/components/Layout/Loading";
 import { usePosts } from "src/hooks/usePosts";
 
 export function Posts() {
   const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
-    return <div>ローディング中</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <div>データの取得に失敗しました</div>;
   }
 
   if (isEmpty) {
