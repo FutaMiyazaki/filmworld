@@ -16,7 +16,7 @@ export function LayoutMain({ children }) {
         <CssBaseline />
         <Box>
           <Header />
-          <Container>
+          <Container sx={{ mt: 3 }}>
             {children}
             <BottomNavi />
           </Container>
