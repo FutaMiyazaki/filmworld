@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import { Link as MuiLink } from "@mui/material";
+import NextLink from "next/link";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  Container,
+  Button,
+  Link as MuiLink,
+} from "@mui/material/";
 
-const pages = ["投稿一覧", "使い方", "Github"];
+const pages = [
+  { path: "/posts", text: "投稿一覧" },
+  { path: "/posts", text: "使い方" },
+  { path: "/posts", text: "GitHub" },
+];
 
 export function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
