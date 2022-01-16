@@ -1,19 +1,27 @@
 import React from "react";
 import { Header } from "src/components/Layout/Header";
-import { Grid, Container, Box, CssBaseline } from "@mui/material";
+import { Container, Box, CssBaseline } from "@mui/material";
 import { BottomNavi } from "src/components/Layout/BottomNavi";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "src/styles/theme";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
 export function LayoutMain({ children }) {
   return (
     <div>
-      <CssBaseline />
-      <Box sx={{ bgcolor: "#0A192A" }}>
-        <Header />
-        <Container>
-          {children}
-          <BottomNavi />
-        </Container>
-      </Box>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box>
+          <Header />
+          <Container>
+            {children}
+            <BottomNavi />
+          </Container>
+        </Box>
+      </ThemeProvider>
     </div>
   );
 }
