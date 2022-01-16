@@ -27,7 +27,7 @@ export function Header() {
     <AppBar position="static" sx={{ bgcolor: "#0A192A" }}>
       <Container>
         <Toolbar disableGutters>
-          <Link href="/">
+          <NextLink href="/" passHref>
             <MuiLink underline="none">
               <Typography
                 variant="h6"
@@ -42,8 +42,8 @@ export function Header() {
                 映画大辞典
               </Typography>
             </MuiLink>
-          </Link>
-          <Link href="/">
+          </NextLink>
+          <NextLink href="/" passHref>
             <MuiLink underline="none">
               <Typography
                 variant="h6"
@@ -58,17 +58,17 @@ export function Header() {
                 映画大辞典
               </Typography>
             </MuiLink>
-          </Link>
+          </NextLink>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link href="/" passHref key={page}>
+              <NextLink href={page.path} passHref key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  {page.text}
                 </Button>
-              </Link>
+              </NextLink>
             ))}
           </Box>
         </Toolbar>
