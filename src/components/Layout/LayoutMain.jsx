@@ -6,8 +6,8 @@ import { BottomNavi } from "src/components/Layout/BottomNavi";
 export function LayoutMain({ children }) {
   return (
     <div>
+      <CssBaseline />
       <Box sx={{ bgcolor: "#0A192A" }}>
-        <CssBaseline />
         <Grid container direction="column">
           <Header />
           <Container>
