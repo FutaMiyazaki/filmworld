@@ -113,9 +113,10 @@ export default function MoviesId() {
           >
             制作会社
           </Typography>
-          {data.production_companies.map((Company) => {
+          {data.production_companies.map((company) => {
             return (
               <Paper
+                key={company.id}
                 sx={{
                   display: "inline-block",
                   textAlign: "center",
@@ -124,7 +125,7 @@ export default function MoviesId() {
                   mb: 1,
                 }}
               >
-                <Typography variant="body2">{Company.name}</Typography>
+                <Typography variant="body2">{company.name}</Typography>
               </Paper>
             );
           })}
