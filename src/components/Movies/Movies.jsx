@@ -1,21 +1,23 @@
-import NextLink from "next/link";
 import { useMovies } from "src/hooks/useMovies";
+import { useMediaQuery } from "react-responsive";
+import { Loading } from "src/components/Layout/Loading";
+import BasicLink from "src/components/Layout/Link/BasicLink";
 import {
-  Grid,
+  Box,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
-  Button,
+  Grid,
   Typography,
-  Link as MuiLink,
 } from "@mui/material";
 
 export function Movies() {
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 560px)" });
   const { data, error, isLoading, isEmpty } = useMovies();
+  console.log(data);
 
   if (isLoading) {
-    return <div>ローディング中</div>;
+    return <Loading />;
   }
 
   if (error) {
@@ -36,26 +38,46 @@ export function Movies() {
       {data.results.map((movie) => {
         return (
           <Grid key={movie.id} item xs={4} sm={4} md={3}>
-            <NextLink href="/posts" passHref>
-              <MuiLink underline="none">
-                <Card>
-                  <CardMedia
-                    component="img"
-                    alt="green iguana"
-                    height="140"
-                    image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {movie.title}
-                    </Typography>
+            {isMobileScreen ? (
+              <Card sx={{ display: "flex" }}>
+                <CardMedia
+                  component="img"
+                  sx={{ width: 150 }}
+                  image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                  alt="ポスター画像"
+                />
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <CardContent sx={{ flex: "1 0 auto" }}>
+                    <BasicLink
+                      href={{ pathname: `/movies/${movie.id}` }}
+                      tag="subtitle1"
+                      text={movie.title}
+                    />
                   </CardContent>
-                  <CardActions>
-                    <Button size="small">Share</Button>
-                  </CardActions>
-                </Card>
-              </MuiLink>
-            </NextLink>
+                </Box>
+              </Card>
+            ) : (
+              <Card sx={{ maxWidth: 345 }}>
+                <CardMedia
+                  component="img"
+                  height="400"
+                  image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                  alt="ポスター画像"
+                />
+                <CardContent>
+                  <BasicLink
+                    href={{ pathname: `/movies/${movie.id}` }}
+                    tag="subtitle1"
+                    text={movie.title}
+                  />
+                  <Typography variant="body2" color="text.secondary">
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
+                </CardContent>
+              </Card>
+            )}
           </Grid>
         );
       })}
