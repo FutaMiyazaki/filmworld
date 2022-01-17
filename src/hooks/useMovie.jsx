@@ -6,7 +6,7 @@ export const useMovie = () => {
   const router = useRouter();
   const { data, error } = useSWR(
     router.query.id
-      ? `https://api.themoviedb.org/3/movie/${router.query.id}?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=jp-JP`
+      ? `https://api.themoviedb.org/3/movie/${router.query.id}?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=ja-JP`
       : null,
     fetcher
   );
