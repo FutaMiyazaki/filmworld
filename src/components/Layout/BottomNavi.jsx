@@ -15,13 +15,19 @@ export function BottomNavi() {
 
   return (
     <Paper
-      sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-      elevation={3}
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        display: { xs: "block", sm: "none" },
+      }}
+      elevation={20}
     >
       <BottomNavigation
         showLabels
         value={value}
-        sx={{ bgcolor: "#0A192A" }}
+        sx={{ bgcolor: "#2D2D2D" }}
         onChange={async (event, newValue) => {
           setValue(newValue);
           router.push(newValue);
