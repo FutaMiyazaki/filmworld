@@ -9,22 +9,18 @@ import {
   Button,
   Link as MuiLink,
 } from "@mui/material/";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const links = [
   { path: "/posts", text: "投稿一覧" },
   { path: "/posts", text: "使い方" },
-  { path: "/posts", text: "GitHub" },
 ];
 
 export function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
-    <AppBar position="static" sx={{ bgcolor: "#0A192A" }}>
+    <AppBar position="static">
       <Container>
         <Toolbar disableGutters>
           <NextLink href="/" passHref>
@@ -62,14 +58,23 @@ export function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {links.map((link) => (
               <NextLink href={link.path} passHref key={link.text}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {link.text}
-                </Button>
+                <MuiLink underline="hover">
+                  <Button sx={{ my: 2, color: "white", display: "block" }}>
+                    {link.text}
+                  </Button>
+                </MuiLink>
               </NextLink>
             ))}
+            <MuiLink
+              href="https://github.com/FutaMiyazaki/miya-react-app"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+            >
+              <Button startIcon={<GitHubIcon />} sx={{ my: 2, color: "white" }}>
+                GitHub
+              </Button>
+            </MuiLink>
           </Box>
         </Toolbar>
       </Container>
