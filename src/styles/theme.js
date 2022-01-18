@@ -5,7 +5,7 @@ const theme = createTheme({
     primary: {
       main: "#69D2E7",
       light: "#B1E2EC",
-      dark: "#001E3D",
+      dark: "#51A4B5",
     },
     secondary: {
       main: "#FA6900",
@@ -38,7 +38,7 @@ const theme = createTheme({
     },
     tonalOffset: 0.2,
     background: {
-      default: "#0A192A",
+      default: "#2D2D2D",
     },
     mode: "dark",
   },
