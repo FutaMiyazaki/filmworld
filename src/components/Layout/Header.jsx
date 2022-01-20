@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import NextLink from "next/link";
 import {
   AppBar,
@@ -10,6 +9,7 @@ import {
   Link as MuiLink,
 } from "@mui/material/";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 
 const links = [
   { path: "/posts", text: "投稿一覧" },
@@ -17,8 +17,6 @@ const links = [
 ];
 
 export function Header() {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-
   return (
     <AppBar position="static">
       <Container>
@@ -76,6 +74,7 @@ export function Header() {
               </Button>
             </MuiLink>
           </Box>
+          <HeaderTextField />
         </Toolbar>
       </Container>
     </AppBar>
