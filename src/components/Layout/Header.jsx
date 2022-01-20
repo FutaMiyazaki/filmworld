@@ -53,7 +53,7 @@ export function Header() {
               </Typography>
             </MuiLink>
           </NextLink>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
             {links.map((link) => (
               <NextLink href={link.path} passHref key={link.text}>
                 <MuiLink underline="hover">
@@ -74,7 +74,9 @@ export function Header() {
               </Button>
             </MuiLink>
           </Box>
-          <HeaderTextField />
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <HeaderTextField />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
