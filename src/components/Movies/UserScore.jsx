@@ -1,5 +1,4 @@
 import { Box, Rating, Typography } from "@mui/material";
-import { yellow } from "@mui/material/colors";
 
 export function UserScore(props) {
   return (
@@ -15,6 +14,7 @@ export function UserScore(props) {
         name="read-only"
         value={props?.voteAverage / 2}
         precision={0.1}
+        size={props?.size}
       />
       <Box sx={{ ml: 2 }}>
         <Typography

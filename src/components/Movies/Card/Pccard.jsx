@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Grid,
   Link as MuiLink,
   Typography,
 } from "@mui/material";
@@ -46,6 +45,7 @@ export function PcCard(props) {
             <UserScore
               voteAverage={props.movie.vote_average}
               voteCount={props.movie.vote_count}
+              size="medium"
             />
             <BasicLink
               href={{ pathname: `/movies/${props.movie.id}` }}

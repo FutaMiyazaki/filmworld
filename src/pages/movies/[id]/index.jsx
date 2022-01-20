@@ -101,6 +101,7 @@ export default function MoviesId() {
             <UserScore
               voteAverage={movieInfo.vote_average}
               voteCount={movieInfo.vote_count}
+              size="medium"
             />
           )}
           {movieInfo?.overview && (
@@ -186,6 +187,7 @@ export default function MoviesId() {
           <UserScore
             voteAverage={movieInfo.vote_average}
             voteCount={movieInfo.vote_count}
+            size="medium"
           />
         </Grid>
         {movieInfo?.overview && (
