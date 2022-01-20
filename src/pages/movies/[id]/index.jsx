@@ -97,7 +97,12 @@ export default function MoviesId() {
               />
             );
           })}
-          {!isMobileScreen && <UserScore score={movieInfo?.vote_average} />}
+          {!isMobileScreen && (
+            <UserScore
+              voteAverage={movieInfo.vote_average}
+              voteCount={movieInfo.vote_count}
+            />
+          )}
           {movieInfo?.overview && (
             <Box sx={{ display: { xs: "none", sm: "block" }, my: 1 }}>
               <Typography
@@ -178,7 +183,10 @@ export default function MoviesId() {
           </Box>
         </Grid>
         <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
-          <UserScore score={movieInfo?.vote_average} />
+          <UserScore
+            voteAverage={movieInfo.vote_average}
+            voteCount={movieInfo.vote_count}
+          />
         </Grid>
         {movieInfo?.overview && (
           <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
