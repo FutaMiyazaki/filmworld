@@ -13,7 +13,7 @@ export function UserScore(props) {
       <Rating
         readOnly
         name="read-only"
-        value={props.voteAverage / 2}
+        value={props?.voteAverage / 2}
         precision={0.1}
       />
       <Box sx={{ ml: 2 }}>
@@ -22,10 +22,10 @@ export function UserScore(props) {
           color="#FBBD30"
           sx={{ mr: 1, display: "inline" }}
         >
-          {props.voteAverage / 2}
+          {props?.voteAverage / 2}
         </Typography>
         <Typography variant="caption" color="white">
-          ({props.voteCount})
+          ({props?.voteCount})
         </Typography>
       </Box>
     </Box>
