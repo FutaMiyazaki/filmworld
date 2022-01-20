@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import {
   Box,
   Card,
@@ -21,7 +22,6 @@ export default function MoviesId() {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const releaseDate = movieInfo?.release_date.replace(/-/g, "/");
-  console.log(movieCredits);
 
   if (isLoading) {
     return <Loading />;
@@ -42,8 +42,8 @@ export default function MoviesId() {
           title={movieInfo?.title}
           originalTitle={movieInfo?.original_title}
         />
-        <Grid item xs={2} sm={2} md={4}>
-          {isMobileScreen ? (
+        {isMobileScreen ? (
+          <Grid item xs={2} md={4}>
             <Card sx={{ mb: 1 }}>
               <CardMedia
                 component="img"
@@ -54,20 +54,24 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </Card>
-          ) : (
-            <Card sx={{ mb: 1 }}>
-              <CardMedia
-                component="img"
-                sx={{
-                  width: "30vh",
-                }}
-                image={`https://image.tmdb.org/t/p/w185${movieInfo?.poster_path}`}
+          </Grid>
+        ) : (
+          <Grid item xs={2} md={4}>
+            <div style={{ position: "relative", width: "100%", height: 450 }}>
+              <Image
+                src={`https://image.tmdb.org/t/p/w185${movieInfo?.poster_path}`}
+                layout="fill"
+                objectFit="contain"
                 alt="ポスター画像"
               />
-            </Card>
-          )}
-          <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-        </Grid>
+            </div>
+            <Grid container justifyContent="center" sx={{ mt: 1 }}>
+              <Grid item>
+                <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+              </Grid>
+            </Grid>
+          </Grid>
+        )}
         <Grid item xs={3} md={8}>
           <TitleHeader
             xsDisplay="none"
@@ -75,6 +79,9 @@ export default function MoviesId() {
             title={movieInfo?.title}
             originalTitle={movieInfo?.original_title}
           />
+          {isMobileScreen && (
+            <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+          )}
           <Typography variant="body1" color="white" sx={{ mb: 1 }}>
             公開日: {releaseDate}
           </Typography>
@@ -133,8 +140,10 @@ export default function MoviesId() {
             })}
             <InfoHeader text="脚本" />
             {movieCredits?.crew.map((crew) => {
-              return crew.job ===
-                ("Original Film Writer" || "Story" || "Writing") ? (
+              return crew.job === "Story" ||
+                crew.job === "Writer" ||
+                crew.job === "Screenstory" ||
+                crew.job === "Original Film Writer" ? (
                 <Paper
                   key={crew.id}
                   sx={{
@@ -213,8 +222,10 @@ export default function MoviesId() {
           })}
           <InfoHeader text="脚本" />
           {movieCredits?.crew.map((crew) => {
-            return crew.job ===
-              ("Original Film Writer" || "Story" || "Writing") ? (
+            return crew.job === "Story" ||
+              crew.job === "Writer" ||
+              crew.job === "Screenstory" ||
+              crew.job === "Original Film Writer" ? (
               <Paper
                 key={crew.id}
                 sx={{
