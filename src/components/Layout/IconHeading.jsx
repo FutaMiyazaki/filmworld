@@ -12,7 +12,7 @@ export function IconHeading(props) {
         })}
       </Grid>
       <Grid item>
-        <Typography component="div" variant="h4" sx={{ color: "white" }}>
+        <Typography component="div" variant="h5" sx={{ color: "white" }}>
           {props.text}
         </Typography>
       </Grid>
