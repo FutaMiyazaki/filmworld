@@ -66,11 +66,11 @@ export default function MoviesId() {
               />
             </div>
             {movieInfo?.homepage && (
-            <Grid container justifyContent="center" sx={{ mt: 1 }}>
-              <Grid item>
-                <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+              <Grid container justifyContent="center" sx={{ mt: 1 }}>
+                <Grid item>
+                  <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+                </Grid>
               </Grid>
-            </Grid>
             )}
           </Grid>
         )}
@@ -101,8 +101,8 @@ export default function MoviesId() {
           })}
           {!isMobileScreen && (
             <UserScore
-              voteAverage={movieInfo.vote_average}
-              voteCount={movieInfo.vote_count}
+              voteAverage={movieInfo?.vote_average}
+              voteCount={movieInfo?.vote_count}
               size="medium"
             />
           )}
@@ -187,8 +187,8 @@ export default function MoviesId() {
         </Grid>
         <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
           <UserScore
-            voteAverage={movieInfo.vote_average}
-            voteCount={movieInfo.vote_count}
+            voteAverage={movieInfo?.vote_average}
+            voteCount={movieInfo?.vote_count}
             size="medium"
           />
         </Grid>
