@@ -19,8 +19,6 @@ export function HeaderTextField() {
     router.push(`/search?keyword=${keyword}`);
   });
 
-  console.log(keyword);
-
   return (
     <form action="" onSubmit={handleSubmit}>
       <TextField
