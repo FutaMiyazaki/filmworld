@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Movies } from "src/components/Movies/Movies";
+import { PopularMovies } from "src/components/Movies/PopularMovies";
 import { IconHeading } from "src/components/Layout/IconHeading";
 
 export default function Index() {
@@ -9,7 +9,8 @@ export default function Index() {
         <title>トップページ</title>
       </Head>
       <IconHeading icon="TrendingUp" text="人気の映画" />
-      <Movies />
+      <PopularMovies />
+      <IconHeading icon="TrendingUp" text="最新の映画" />
     </div>
   );
 }
