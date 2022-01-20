@@ -65,11 +65,13 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </div>
+            {movieInfo?.homepage && (
             <Grid container justifyContent="center" sx={{ mt: 1 }}>
               <Grid item>
                 <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
               </Grid>
             </Grid>
+            )}
           </Grid>
         )}
         <Grid item xs={3} md={8}>
