@@ -26,8 +26,8 @@ export function SimilarMovies() {
       justifyContent="center"
       columns={{ xs: 4, sm: 8 }}
     >
-      {similarMovies.results.map((movie) => {
-        return (
+      {similarMovies.results?.map((movie, i) => {
+        return i < 10 ? (
           <Grid key={movie.id} item xs={4} sm={4}>
             {isMobileScreen ? (
               <MobileCard movie={movie} />
@@ -35,7 +35,7 @@ export function SimilarMovies() {
               <PcCard movie={movie} />
             )}
           </Grid>
-        );
+        ) : null;
       })}
     </Grid>
   );
