@@ -10,6 +10,7 @@ import {
 } from "@mui/material/";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
+import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 const links = [
   { path: "/posts", text: "投稿一覧" },
@@ -21,6 +22,23 @@ export function Header() {
     <AppBar position="static">
       <Container>
         <Toolbar disableGutters>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <NextLink href="/" passHref>
+              <MuiLink underline="none">
+                <Typography
+                  noWrap
+                  variant="h6"
+                  component="div"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  映画大辞典
+                </Typography>
+              </MuiLink>
+            </NextLink>
+          </Box>
+          <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
+            <TemporaryDrawer />
+          </Box>
           <NextLink href="/" passHref>
             <MuiLink underline="none">
               <Typography
@@ -30,22 +48,6 @@ export function Header() {
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
-                  fontWeight: "bold",
-                }}
-              >
-                映画大辞典
-              </Typography>
-            </MuiLink>
-          </NextLink>
-          <NextLink href="/" passHref>
-            <MuiLink underline="none">
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  flexGrow: 1,
-                  display: { xs: "flex", md: "none" },
                   fontWeight: "bold",
                 }}
               >
