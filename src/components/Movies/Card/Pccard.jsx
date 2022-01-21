@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import BasicLink from "src/components/Layout/Link/BasicLink";
-import { UserScore } from "src/components/Movies/UserScore";
+import { UserScore } from "src/components/Movies/Info/UserScore";
 
 export function PcCard(props) {
   return (

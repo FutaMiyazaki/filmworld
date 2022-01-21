@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { ExternalLink } from "src/components/Layout/Link/ExternalLink";
-import { UserScore } from "src/components/Movies/UserScore";
+import { UserScore } from "src/components/Movies/Info/UserScore";
 import { TitleHeader } from "src/components/Movies/Info/TitleHeader";
 import { Overview } from "src/components/Movies/Info/Overview";
 import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
@@ -27,6 +27,7 @@ export default function MoviesId() {
   if (error) {
     return <div>{error.message}</div>;
   }
+
   return (
     <div>
       <Head>
