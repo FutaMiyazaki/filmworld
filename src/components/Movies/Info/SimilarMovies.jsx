@@ -17,8 +17,6 @@ export function SimilarMovies() {
     return <div>{similarMoviesError.message}</div>;
   }
 
-  console.log(similarMovies);
-
   return (
     <Grid
       container
