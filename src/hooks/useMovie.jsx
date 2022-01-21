@@ -4,6 +4,7 @@ import useSWR from "swr";
 
 export function useMovie() {
   const router = useRouter();
+
   const { data: movieInfo, error: movieInfoError } = useSWR(
     router.query.id
       ? `https://api.themoviedb.org/3/movie/${router.query.id}?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=ja-JP`
@@ -18,24 +19,11 @@ export function useMovie() {
     fetcher
   );
 
-  const { data: similarMovies, error: similarMoviesError } = useSWR(
-    router.query.id
-      ? `https://api.themoviedb.org/3/movie/${router.query.id}/similar?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=ja-JP`
-      : null,
-    fetcher
-  );
-
   return {
     movieInfo,
     movieCredits,
-    similarMovies,
-    error: movieInfoError || movieCreditsError || similarMoviesError,
+    error: movieInfoError || movieCreditsError,
     isLoading:
-      !movieInfo &&
-      !movieCredits &&
-      !similarMovies &&
-      !movieInfoError &&
-      !movieCreditsError &&
-      !similarMoviesError,
+      !movieInfo && !movieCredits && !movieInfoError && !movieCreditsError,
   };
 }
