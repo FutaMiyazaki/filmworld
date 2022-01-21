@@ -18,11 +18,24 @@ export function useMovie() {
     fetcher
   );
 
+  const { data: similarMovies, error: similarMoviesError } = useSWR(
+    router.query.id
+      ? `https://api.themoviedb.org/3/movie/${router.query.id}/similar?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=ja-JP`
+      : null,
+    fetcher
+  );
+
   return {
     movieInfo,
     movieCredits,
-    error: movieInfoError || movieCreditsError,
+    similarMovies,
+    error: movieInfoError || movieCreditsError || similarMoviesError,
     isLoading:
-      !movieInfo && !movieCredits && !movieInfoError && !movieCreditsError,
+      !movieInfo &&
+      !movieCredits &&
+      !similarMovies &&
+      !movieInfoError &&
+      !movieCreditsError &&
+      !similarMoviesError,
   };
 }
