@@ -1,27 +1,24 @@
 import Head from "next/head";
 import Image from "next/image";
-import {
-  Box,
-  Card,
-  CardMedia,
-  Chip,
-  Grid,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardMedia, Grid } from "@mui/material";
 import { useMediaQuery } from "react-responsive";
 import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { ExternalLink } from "src/components/Layout/Link/ExternalLink";
-import { InfoHeader } from "src/components/Movies/InfoHeader";
-import { PaperText } from "src/components/Layout/PaperText";
 import { UserScore } from "src/components/Movies/UserScore";
-import { TitleHeader } from "src/components/Movies/TitleHeader";
+import { TitleHeader } from "src/components/Movies/Info/TitleHeader";
+import { Overview } from "src/components/Movies/Info/Overview";
+import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
+import { Director } from "src/components/Movies/Info/Director";
+import { Screenwriter } from "src/components/Movies/Info/ScreenWriter";
+import { Cast } from "src/components/Movies/Info/Cast";
+import { ReleaseDate } from "src/components/Movies/Info/ReleaseDate";
+import { Genres } from "src/components/Movies/Info/Genres";
 
 export default function MoviesId() {
-  const { movieInfo, movieCredits, error, isLoading } = useMovie();
+  const { movieInfo, movieCredits, similarMovies, error, isLoading } =
+    useMovie();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-  const releaseDate = movieInfo?.release_date.replace(/-/g, "/");
 
   if (isLoading) {
     return <Loading />;
@@ -42,8 +39,8 @@ export default function MoviesId() {
           title={movieInfo?.title}
           originalTitle={movieInfo?.original_title}
         />
-        {isMobileScreen ? (
-          <Grid item xs={2} md={4}>
+        <Grid item xs={2} md={4}>
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
             <Card sx={{ mb: 1 }}>
               <CardMedia
                 component="img"
@@ -54,9 +51,8 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </Card>
-          </Grid>
-        ) : (
-          <Grid item xs={2} md={4}>
+          </Box>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <div style={{ position: "relative", width: "100%", height: 450 }}>
               <Image
                 src={`https://image.tmdb.org/t/p/w185${movieInfo?.poster_path}`}
@@ -72,8 +68,9 @@ export default function MoviesId() {
                 </Grid>
               </Grid>
             )}
-          </Grid>
-        )}
+          </Box>
+        </Grid>
+
         <Grid item xs={3} md={8}>
           <TitleHeader
             xsDisplay="none"
@@ -84,21 +81,8 @@ export default function MoviesId() {
           {isMobileScreen && (
             <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
           )}
-          <Typography variant="body1" color="white" sx={{ mb: 1 }}>
-            公開日: {releaseDate}
-          </Typography>
-          {movieInfo?.genres.map((genre) => {
-            return (
-              <Chip
-                key={genre.id}
-                label={genre.name}
-                size="small"
-                color="primary"
-                variant="outlined"
-                sx={{ mr: 1, mb: 1 }}
-              />
-            );
-          })}
+          <ReleaseDate releaseDate={movieInfo?.release_date} />
+          <Genres genres={movieInfo?.genres} />
           {!isMobileScreen && (
             <UserScore
               voteAverage={movieInfo?.vote_average}
@@ -108,167 +92,31 @@ export default function MoviesId() {
           )}
           {movieInfo?.overview && (
             <Box sx={{ display: { xs: "none", sm: "block" }, my: 1 }}>
-              <Typography
-                variant="subtitle1"
-                color="white"
-                sx={{ fontWeight: "bold" }}
-              >
-                あらすじ
-              </Typography>
-              <Typography variant="body2" color="white" sx={{ mb: 2 }}>
-                {movieInfo?.overview}
-              </Typography>
+              <Overview overview={movieInfo?.overview} />
             </Box>
           )}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <InfoHeader text="制作会社" />
-            {movieInfo?.production_companies.map((company) => {
-              return (
-                <PaperText key={company.id}>
-                  <Typography variant="body2">{company.name}</Typography>
-                </PaperText>
-              );
-            })}
-            <InfoHeader text="監督" />
-            {movieCredits?.crew.map((crew) => {
-              return crew.job === "Director" ? (
-                <Paper
-                  key={crew.id}
-                  sx={{
-                    display: "inline-block",
-                    textAlign: "center",
-                    px: 1,
-                    mr: 1,
-                    mb: 1,
-                  }}
-                >
-                  <Typography variant="body2">{crew.name}</Typography>
-                </Paper>
-              ) : null;
-            })}
-            <InfoHeader text="脚本" />
-            {movieCredits?.crew.map((crew) => {
-              return crew.job === "Story" ||
-                crew.job === "Writer" ||
-                crew.job === "Screenstory" ||
-                crew.job === "Original Film Writer" ? (
-                <Paper
-                  key={crew.id}
-                  sx={{
-                    display: "inline-block",
-                    textAlign: "center",
-                    px: 1,
-                    mr: 1,
-                    mb: 1,
-                  }}
-                >
-                  <Typography variant="body2">{crew.name}</Typography>
-                </Paper>
-              ) : null;
-            })}
-            <InfoHeader text="出演者" />
-            {movieCredits?.cast.map((cast, i) => {
-              return i < 10 ? (
-                <Paper
-                  key={cast.id}
-                  sx={{
-                    display: "inline-block",
-                    textAlign: "center",
-                    px: 1,
-                    mr: 1,
-                    mb: 1,
-                  }}
-                >
-                  <Typography variant="body2">{cast.name}</Typography>
-                </Paper>
-              ) : null;
-            })}
+            <ProductionCompanies
+              productionCompanies={movieInfo?.production_companies}
+            />
+            <Director crew={movieCredits?.crew} />
+            <Screenwriter crew={movieCredits?.crew} />
+            <Cast cast={movieCredits?.cast} />
           </Box>
         </Grid>
-        <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
+        <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
           <UserScore
             voteAverage={movieInfo?.vote_average}
             voteCount={movieInfo?.vote_count}
             size="medium"
           />
-        </Grid>
-        {movieInfo?.overview && (
-          <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
-            <Typography
-              variant="subtitle1"
-              color="white"
-              sx={{ fontWeight: "bold" }}
-            >
-              あらすじ
-            </Typography>
-            <Typography variant="body2" color="white">
-              {movieInfo?.overview}
-            </Typography>
-          </Grid>
-        )}
-        <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
-          <InfoHeader text="制作会社" />
-          {movieInfo?.production_companies.map((company) => {
-            return (
-              <PaperText key={company.id}>
-                <Typography variant="body2">{company.name}</Typography>
-              </PaperText>
-            );
-          })}
-          <InfoHeader text="監督" />
-          {movieCredits?.crew.map((crew) => {
-            return crew.job === "Director" ? (
-              <Paper
-                key={crew.id}
-                sx={{
-                  display: "inline-block",
-                  textAlign: "center",
-                  px: 1,
-                  mr: 1,
-                  mb: 1,
-                }}
-              >
-                <Typography variant="body2">{crew.name}</Typography>
-              </Paper>
-            ) : null;
-          })}
-          <InfoHeader text="脚本" />
-          {movieCredits?.crew.map((crew) => {
-            return crew.job === "Story" ||
-              crew.job === "Writer" ||
-              crew.job === "Screenstory" ||
-              crew.job === "Original Film Writer" ? (
-              <Paper
-                key={crew.id}
-                sx={{
-                  display: "inline-block",
-                  textAlign: "center",
-                  px: 1,
-                  mr: 1,
-                  mb: 1,
-                }}
-              >
-                <Typography variant="body2">{crew.name}</Typography>
-              </Paper>
-            ) : null;
-          })}
-          <InfoHeader text="出演者" />
-          {movieCredits?.cast.map((cast, i) => {
-            return i < 10 ? (
-              <Paper
-                key={cast.id}
-                sx={{
-                  display: "inline-block",
-                  textAlign: "center",
-                  px: 1,
-                  mr: 1,
-                  mb: 1,
-                }}
-              >
-                <Typography variant="body2">{cast.name}</Typography>
-              </Paper>
-            ) : null;
-          })}
+          {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
+          <ProductionCompanies
+            productionCompanies={movieInfo?.production_companies}
+          />
+          <Director crew={movieCredits?.crew} />
+          <Screenwriter crew={movieCredits?.crew} />
+          <Cast cast={movieCredits?.cast} />
         </Grid>
       </Grid>
     </div>
