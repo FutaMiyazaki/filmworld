@@ -70,7 +70,6 @@ export default function MoviesId() {
             )}
           </Box>
         </Grid>
-
         <Grid item xs={3} md={8}>
           <TitleHeader
             xsDisplay="none"
