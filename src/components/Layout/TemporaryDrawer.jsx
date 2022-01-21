@@ -56,9 +56,14 @@ export function TemporaryDrawer() {
               alignItems: "center",
               justifyContent: "flex-end",
             }}
-            sx={{ pr: 2, py: 2 }}
+            sx={{ pr: 1, py: 1 }}
           >
-            <CloseIcon />
+            <IconButton
+              aria-label="close drawer"
+              onClick={toggleDrawer("right", false)}
+            >
+              <CloseIcon />
+            </IconButton>
           </Box>
           <List>
             {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
