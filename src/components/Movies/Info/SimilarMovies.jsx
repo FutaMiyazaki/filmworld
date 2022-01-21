@@ -23,6 +23,7 @@ export function SimilarMovies() {
       spacing={2}
       justifyContent="center"
       columns={{ xs: 4, sm: 8 }}
+      sx={{ mt: 3 }}
     >
       {similarMovies.results?.map((movie, i) => {
         return i < 10 ? (
