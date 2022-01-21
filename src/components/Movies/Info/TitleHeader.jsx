@@ -8,21 +8,21 @@ export function TitleHeader(props) {
     <Grid
       item
       xs={5}
-      sx={{ display: { xs: props.xsDisplay, sm: props.smDisplay } }}
+      sx={{ display: { xs: props?.xsDisplay, sm: props?.smDisplay } }}
     >
       <Typography
         variant={isMobileScreen ? "h5" : "h4"}
         color="white"
         sx={{ fontWeight: "bold" }}
       >
-        {props.title}
+        {props?.title}
       </Typography>
       <Typography
         variant={isMobileScreen ? "subtitle2" : "subtitle1"}
         color="gray"
         sx={{ mb: 2 }}
       >
-        {props.originalTitle}
+        {props?.originalTitle}
       </Typography>
     </Grid>
   );

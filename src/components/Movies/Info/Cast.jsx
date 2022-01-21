@@ -5,7 +5,7 @@ export function Cast(props) {
   return (
     <Box>
       <InfoHeader text="出演者" />
-      {props?.cast.map((cast, i) => {
+      {props.cast?.map((cast, i) => {
         return i < 10 ? (
           <Paper
             key={cast.id}

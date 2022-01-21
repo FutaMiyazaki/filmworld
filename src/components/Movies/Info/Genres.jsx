@@ -3,7 +3,7 @@ import { Box, Chip } from "@mui/material";
 export function Genres(props) {
   return (
     <Box>
-      {props?.genres.map((genre) => {
+      {props.genres?.map((genre) => {
         return (
           <Chip
             key={genre.id}

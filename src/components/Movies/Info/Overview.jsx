@@ -6,7 +6,7 @@ export function Overview(props) {
     <Box>
       <InfoHeader text="あらすじ" />
       <Typography variant="body2" color="white">
-        {props.overview}
+        {props?.overview}
       </Typography>
     </Box>
   );

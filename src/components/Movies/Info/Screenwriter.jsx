@@ -5,7 +5,7 @@ export function Screenwriter(props) {
   return (
     <Box>
       <InfoHeader text="脚本" />
-      {props?.movieCredits.crew.map((crew) => {
+      {props.crew?.map((crew) => {
         return crew.job === "Story" ||
           crew.job === "Writer" ||
           crew.job === "Screenstory" ||

@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
 
 export function Director(props) {
   return (
     <Box>
       <InfoHeader text="監督" />
-      {props?.crew.map((crew) => {
+      {props.crew?.map((crew) => {
         return crew.job === "Director" ? (
           <Paper
             key={crew.id}
