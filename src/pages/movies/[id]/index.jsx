@@ -10,7 +10,7 @@ import { TitleHeader } from "src/components/Movies/Info/TitleHeader";
 import { Overview } from "src/components/Movies/Info/Overview";
 import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
 import { Director } from "src/components/Movies/Info/Director";
-import { Screenwriter } from "src/components/Movies/Info/ScreenWriter";
+import { Screenwriter } from "src/components/Movies/Info/Screenwriter";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { ReleaseDate } from "src/components/Movies/Info/ReleaseDate";
 import { Genres } from "src/components/Movies/Info/Genres";
