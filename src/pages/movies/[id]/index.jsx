@@ -14,10 +14,10 @@ import { Screenwriter } from "src/components/Movies/Info/ScreenWriter";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { ReleaseDate } from "src/components/Movies/Info/ReleaseDate";
 import { Genres } from "src/components/Movies/Info/Genres";
+import { SimilarMovies } from "src/components/Movies/Info/SimilarMovies";
 
 export default function MoviesId() {
-  const { movieInfo, movieCredits, similarMovies, error, isLoading } =
-    useMovie();
+  const { movieInfo, movieCredits, error, isLoading } = useMovie();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   if (isLoading) {
@@ -119,6 +119,7 @@ export default function MoviesId() {
           <Cast cast={movieCredits?.cast} />
         </Grid>
       </Grid>
+      <SimilarMovies />
     </div>
   );
 }
