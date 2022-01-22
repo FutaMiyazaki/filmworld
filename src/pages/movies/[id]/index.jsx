@@ -15,6 +15,7 @@ import { Cast } from "src/components/Movies/Info/Cast";
 import { ReleaseDate } from "src/components/Movies/Info/ReleaseDate";
 import { Genres } from "src/components/Movies/Info/Genres";
 import { SimilarMovies } from "src/components/Movies/Info/SimilarMovies";
+import { PageHeading } from "src/components/Layout/PageHeading";
 
 export default function MoviesId() {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
@@ -33,7 +34,7 @@ export default function MoviesId() {
       <Head>
         <title>{movieInfo?.title}</title>
       </Head>
-      <Grid container columns={{ xs: 5, md: 12 }} spacing={2}>
+      <Grid container columns={{ xs: 5, md: 12 }} spacing={2} sx={{ mb: 4 }}>
         <TitleHeader
           xsDisplay="block"
           smDisplay="none"
@@ -119,6 +120,7 @@ export default function MoviesId() {
           <Cast cast={movieCredits?.cast} />
         </Grid>
       </Grid>
+      <PageHeading text="似ている作品" />
       <SimilarMovies />
     </div>
   );

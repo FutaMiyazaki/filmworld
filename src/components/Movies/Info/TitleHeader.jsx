@@ -5,11 +5,7 @@ export function TitleHeader(props) {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
-    <Grid
-      item
-      xs={5}
-      sx={{ display: { xs: props?.xsDisplay, sm: props?.smDisplay } }}
-    >
+    <Grid item sx={{ display: { xs: props?.xsDisplay, sm: props?.smDisplay } }}>
       <Typography
         variant={isMobileScreen ? "h5" : "h4"}
         color="white"
