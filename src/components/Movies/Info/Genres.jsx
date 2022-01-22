@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { Box, Chip } from "@mui/material";
 
 export function Genres(props) {
@@ -5,14 +6,21 @@ export function Genres(props) {
     <Box>
       {props.genres?.map((genre) => {
         return (
-          <Chip
+          <NextLink
             key={genre.id}
-            label={genre.name}
-            size="small"
-            color="primary"
-            variant="outlined"
-            sx={{ mr: 1, mb: 1 }}
-          />
+            href={`/genres/movies?with=${genre.name}&page=1`}
+            passHref
+          >
+            <Chip
+              component="a"
+              label={genre.name}
+              size="small"
+              color="primary"
+              variant="outlined"
+              clickable
+              sx={{ mr: 1, mb: 1 }}
+            />
+          </NextLink>
         );
       })}
     </Box>
