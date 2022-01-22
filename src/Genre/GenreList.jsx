@@ -14,8 +14,6 @@ export function GenreList() {
     return <div>{error.message}</div>;
   }
 
-  console.log(data);
-
   return (
     <Grid
       container
@@ -26,7 +24,10 @@ export function GenreList() {
       {data.genres.map((genre) => {
         return (
           <Grid item xs="auto" sm={2} key={genre.id}>
-            <NextLink href={`/genres/${genre.id}`} passHref>
+            <NextLink
+              href={`/genres/movies?with=${genre.name}&page=1`}
+              passHref
+            >
               <MuiLink underline="none">
                 <Chip
                   label={genre.name}
