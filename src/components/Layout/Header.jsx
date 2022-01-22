@@ -13,8 +13,8 @@ import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 const links = [
+  { path: "/genres", text: "ジャンル一覧" },
   { path: "/posts", text: "投稿一覧" },
-  { path: "/posts", text: "使い方" },
 ];
 
 export function Header() {
