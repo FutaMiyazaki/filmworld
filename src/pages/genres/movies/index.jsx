@@ -9,9 +9,9 @@ export default function Posts() {
   return (
     <div>
       <Head>
-        <title>ジャンルの映画一覧</title>
+        <title>映画一覧</title>
       </Head>
-      <PageHeading text={`「${router.query.with}」の映画一覧`} />
+      <PageHeading text="映画一覧" />
       <GenreMovies />
     </div>
   );

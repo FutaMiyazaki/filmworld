@@ -16,7 +16,9 @@ export function GenreMovies() {
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
-    router.push(`/genres/movies?with=${router.query.with}&page=${clickPage}`);
+    router.push(
+      `/genres/movies?genre_id=${router.query.genre_id}&page=${clickPage}`
+    );
   };
 
   if (isLoading) {

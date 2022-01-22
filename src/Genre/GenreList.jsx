@@ -25,7 +25,7 @@ export function GenreList() {
         return (
           <Grid item xs="auto" sm={2} key={genre.id}>
             <NextLink
-              href={`/genres/movies?with=${genre.name}&page=1`}
+              href={`/genres/movies?genre_id=${genre.id}&page=1`}
               passHref
             >
               <MuiLink underline="none">
