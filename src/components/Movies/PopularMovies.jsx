@@ -5,13 +5,13 @@ import { Grid, Pagination, Typography } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
-import { useRankinghMovies } from "src/hooks/useRankingMovies";
+import { usePopularMovies } from "src/hooks/usePopularMovies";
 
-export function RankingMovies() {
+export function PopularMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
   const [page, setPage] = useState(1);
-  const { data, error, isLoading } = useRankinghMovies();
+  const { data, error, isLoading } = usePopularMovies();
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);

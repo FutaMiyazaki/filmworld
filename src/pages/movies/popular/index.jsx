@@ -1,16 +1,13 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { RankingMovies } from "src/components/Movies/RankingMovies";
+import { PopularMovies } from "src/components/Movies/PopularMovies";
 
-export default function Search() {
-  const router = useRouter();
-
+export default function index() {
   return (
     <div>
       <Head>
         <title>人気の映画 - FilmWorld</title>
       </Head>
-      <RankingMovies />
+      <PopularMovies />
     </div>
   );
 }
