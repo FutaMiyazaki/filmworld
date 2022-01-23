@@ -1,4 +1,4 @@
-import { usePopularMovies } from "src/hooks/usePopularMovies";
+import { usePopularMovies } from "src/hooks/usePopularMoviesTop";
 import { useMediaQuery } from "react-responsive";
 import { Loading } from "src/components/Layout/Loading";
 import { Grid } from "@mui/material";
