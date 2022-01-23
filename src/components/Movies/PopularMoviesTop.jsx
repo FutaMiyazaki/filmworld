@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
 
-export function PopularMovies() {
+export function PopularMoviesTop() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const { data, error, isLoading } = useMoviesTop();
 
