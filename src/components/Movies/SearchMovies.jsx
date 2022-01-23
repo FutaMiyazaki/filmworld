@@ -67,16 +67,18 @@ export function SearchMovies() {
           );
         })}
       </Grid>
-      <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
-        <Pagination
-          count={data.total_pages}
-          variant="outlined"
-          shape="rounded"
-          color="primary"
-          size={isMobileScreen ? "small" : "medium"}
-          onChange={handlePage}
-        />
-      </Grid>
+      {data.total_pages === 1 ? null : (
+        <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
+          <Pagination
+            count={data.total_pages}
+            variant="outlined"
+            shape="rounded"
+            color="primary"
+            size={isMobileScreen ? "small" : "medium"}
+            onChange={handlePage}
+          />
+        </Grid>
+      )}
     </div>
   );
 }
