@@ -34,14 +34,14 @@ export default function MoviesId() {
       <Head>
         <title>{movieInfo?.title}</title>
       </Head>
-      <Grid container columns={{ xs: 5, md: 12 }} spacing={2} sx={{ mb: 4 }}>
+      <Grid container columns={{ xs: 5, sm: 12 }} spacing={2} sx={{ mb: 4 }}>
         <TitleHeader
           xsDisplay="block"
           smDisplay="none"
           title={movieInfo?.title}
           originalTitle={movieInfo?.original_title}
         />
-        <Grid item xs={2} md={4}>
+        <Grid item xs={2} sm={4}>
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
             <Card sx={{ mb: 1 }}>
               <CardMedia
@@ -72,7 +72,7 @@ export default function MoviesId() {
             )}
           </Box>
         </Grid>
-        <Grid item xs={3} md={8}>
+        <Grid item xs={3} sm={8}>
           <TitleHeader
             xsDisplay="none"
             smDisplay="block"
