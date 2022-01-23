@@ -10,7 +10,6 @@ export default function Index() {
       </Head>
       <IconHeading icon="TrendingUp" text="人気の映画" />
       <PopularMoviesTop />
-      <IconHeading icon="TrendingUp" text="最新の映画" />
     </div>
   );
 }
