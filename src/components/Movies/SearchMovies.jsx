@@ -30,8 +30,6 @@ export function SearchMovies() {
     return <div>見つかりませんでした</div>;
   }
 
-  console.log(data);
-
   return (
     <div>
       <Grid
