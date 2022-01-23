@@ -1,4 +1,4 @@
-import { usePopularMovies } from "src/hooks/usePopularMoviesTop";
+import { useMoviesTop } from "src/hooks/useMoviesTop";
 import { useMediaQuery } from "react-responsive";
 import { Loading } from "src/components/Layout/Loading";
 import { Grid } from "@mui/material";
@@ -7,7 +7,7 @@ import { PcCard } from "src/components/Movies/Card/Pccard";
 
 export function PopularMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-  const { data, error, isLoading, isEmpty } = usePopularMovies();
+  const { data, error, isLoading } = useMoviesTop();
 
   if (isLoading) {
     return <Loading />;
@@ -15,10 +15,6 @@ export function PopularMovies() {
 
   if (error) {
     return <div>{error.message}</div>;
-  }
-
-  if (isEmpty) {
-    return <div>データは空です</div>;
   }
 
   return (
