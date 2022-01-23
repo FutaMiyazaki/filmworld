@@ -8,6 +8,7 @@ export function Screenwriter(props) {
       {props.crew?.map((crew) => {
         return crew.job === "Story" ||
           crew.job === "Writer" ||
+          crew.job === "Screenplay" ||
           crew.job === "Screenstory" ||
           crew.job === "Original Film Writer" ? (
           <Paper
