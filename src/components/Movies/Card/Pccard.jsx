@@ -40,7 +40,7 @@ export function PcCard(props) {
               color="white"
               sx={{ display: "inline" }}
             >
-              公開日: {props.movie.release_date.replace(/-/g, "/")}
+              公開日: {props.movie.release_date?.replace(/-/g, "/")}
             </Typography>
             <UserScore
               voteAverage={props.movie.vote_average}
