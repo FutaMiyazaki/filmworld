@@ -14,7 +14,7 @@ import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 const links = [
   { path: "/genres", text: "ジャンル一覧" },
-  { path: "/posts", text: "投稿一覧" },
+  { path: "/movies/popular?page=1", text: "人気の映画" },
 ];
 
 export function Header() {

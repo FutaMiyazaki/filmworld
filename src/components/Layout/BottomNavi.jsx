@@ -31,7 +31,6 @@ export function BottomNavi() {
   const listItems = [
     { path: "/movies/popular?page=1", text: "人気の映画から探す" },
     { path: "/genres", text: "ジャンル一覧から探す" },
-    { path: "/search", text: "投稿一覧から探す" },
   ];
 
   const handleClickOpen = () => {
