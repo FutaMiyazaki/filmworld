@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import {
@@ -21,7 +21,6 @@ import {
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
-import { MobileDialogList } from "src/components/Layout/MobileDialogList";
 
 export function BottomNavi() {
   const router = useRouter();
