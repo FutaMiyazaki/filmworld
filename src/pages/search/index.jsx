@@ -8,7 +8,7 @@ export default function Search() {
   return (
     <div>
       <Head>
-        <title>{router.query.keyword} - Movie</title>
+        <title>{router.query.keyword}の検索結果 - FilmWorld</title>
       </Head>
       <SearchMovies />
     </div>

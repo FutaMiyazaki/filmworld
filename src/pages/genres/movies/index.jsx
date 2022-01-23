@@ -9,7 +9,7 @@ export default function Posts() {
   return (
     <div>
       <Head>
-        <title>映画一覧</title>
+        <title>ジャンルの映画一覧 - FilmWorld</title>
       </Head>
       <PageHeading text="映画一覧" />
       <GenreMovies />

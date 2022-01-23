@@ -32,7 +32,7 @@ export default function MoviesId() {
   return (
     <div>
       <Head>
-        <title>{movieInfo?.title}</title>
+        <title>{movieInfo?.title} - FilmWorld</title>
       </Head>
       <Grid container columns={{ xs: 5, sm: 12 }} spacing={2} sx={{ mb: 4 }}>
         <TitleHeader

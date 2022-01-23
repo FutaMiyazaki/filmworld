@@ -6,7 +6,7 @@ export default function Index() {
   return (
     <div>
       <Head>
-        <title>トップページ</title>
+        <title>FilmWorld</title>
       </Head>
       <IconHeading icon="TrendingUp" text="人気の映画" />
       <PopularMoviesTop />

@@ -31,7 +31,7 @@ export function Header() {
                   component="div"
                   sx={{ fontWeight: "bold" }}
                 >
-                  映画大辞典
+                  FilmWorld
                 </Typography>
               </MuiLink>
             </NextLink>
@@ -51,7 +51,7 @@ export function Header() {
                   fontWeight: "bold",
                 }}
               >
-                映画大辞典
+                FilmWorld
               </Typography>
             </MuiLink>
           </NextLink>
