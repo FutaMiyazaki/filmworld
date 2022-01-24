@@ -1,11 +1,20 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { useCallback } from "react";
 import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
 
 export function Screenwriter(props) {
+  const unique = useCallback((values, f = (v) => v) => {
+    return Array.from(
+      new Map(values?.map((value) => [f(value), value])).values()
+    );
+  }, []);
+
+  const uniqueCrew = unique(props?.crew, (crew) => crew.id);
+
   return (
     <Box>
       <InfoHeader text="脚本" />
-      {props.crew?.map((crew) => {
+      {uniqueCrew?.map((crew) => {
         return crew.job === "Story" ||
           crew.job === "Writer" ||
           crew.job === "Screenplay" ||
