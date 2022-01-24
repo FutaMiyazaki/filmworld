@@ -10,7 +10,7 @@ export function Cast(props) {
         return i < 10 ? (
           <NextLink
             key={cast.name}
-            href={`/movies/cast?cast_id=${cast.id}&page=1`}
+            href={`/movies/cast?id=${cast.id}&page=1`}
             passHref
           >
             <MuiLink underline="none">

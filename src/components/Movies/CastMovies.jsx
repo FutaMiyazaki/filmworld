@@ -17,9 +17,7 @@ export function CastMovies() {
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
-    router.push(
-      `/movies/cast?cast_id=${router.query.cast_id}&page=${clickPage}`
-    );
+    router.push(`/movies/cast?id=${router.query.id}&page=${clickPage}`);
   };
 
   if (isLoading) {
