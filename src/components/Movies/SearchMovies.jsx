@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination, Typography } from "@mui/material";
+import { Grid, Pagination } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
+import { PageHeading } from "src/components/Layout/PageHeading";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
 export function SearchMovies() {
@@ -32,27 +33,16 @@ export function SearchMovies() {
 
   return (
     <div>
+      <PageHeading
+        primaryText={router.query.keyword}
+        text={`の検索結果: ${data.total_results}件`}
+      />
       <Grid
         container
         spacing={2}
         justifyContent="center"
         columns={{ xs: 4, sm: 8 }}
       >
-        <Grid item xs={4} sm={8} sx={{ mb: 2 }}>
-          <Typography
-            variant="h5"
-            color="primary"
-            sx={{ display: "inline", fontWeight: "bold" }}
-          >
-            {router.query.keyword}
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ display: "inline", fontWeight: "bold" }}
-          >
-            の検索結果:{data.total_results}件
-          </Typography>
-        </Grid>
         {data.results.map((movie) => {
           return (
             <Grid key={movie.id} item xs={4} sm={4}>
