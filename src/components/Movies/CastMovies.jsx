@@ -22,8 +22,6 @@ export function CastMovies() {
     );
   };
 
-  console.log(data);
-
   if (isLoading) {
     return <Loading />;
   }
