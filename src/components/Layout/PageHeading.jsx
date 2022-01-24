@@ -1,17 +1,17 @@
 import { Grid, Typography } from "@mui/material";
-import { useMediaQuery } from "react-responsive";
 
 export function PageHeading(props) {
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-
   return (
     <Grid container direction="row" alignItems="center" sx={{ mb: 2 }}>
       <Grid item>
         <Typography
-          variant={isMobileScreen ? "subtitle1" : "h5"}
-          color="white"
-          sx={{ fontWeight: "bold" }}
+          variant="h5"
+          color="primary"
+          sx={{ display: "inline", fontWeight: "bold" }}
         >
+          {props.primaryText}
+        </Typography>
+        <Typography variant="h6" sx={{ display: "inline", fontWeight: "bold" }}>
           {props.text}
         </Typography>
       </Grid>
