@@ -62,7 +62,6 @@ export function SearchMovies() {
             variant="outlined"
             shape="rounded"
             color="primary"
-            size={isMobileScreen ? "small" : "medium"}
             onChange={handlePage}
           />
         </Grid>

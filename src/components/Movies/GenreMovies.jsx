@@ -55,7 +55,6 @@ export function GenreMovies() {
           variant="outlined"
           shape="rounded"
           color="primary"
-          size={isMobileScreen ? "small" : "medium"}
           onChange={handlePage}
         />
       </Grid>
