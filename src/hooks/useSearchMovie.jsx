@@ -4,10 +4,9 @@ import useSWR from "swr";
 
 export const useSearchMovies = () => {
   const router = useRouter();
-  const query = router.query;
   const { data, error } = useSWR(
     router.query.page && router.query.keyword
-      ? `https://api.themoviedb.org/3/search/movie?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&page=${router.query.page}&query=${query.keyword}&language=ja-JP&include_adult=false`
+      ? `https://api.themoviedb.org/3/search/movie?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&page=${router.query.page}&query=${router.query.keyword}&language=ja-JP&include_adult=false`
       : null,
     fetcher
   );
