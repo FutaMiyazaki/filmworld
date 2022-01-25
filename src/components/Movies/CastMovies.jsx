@@ -84,15 +84,17 @@ export function CastMovies() {
           );
         })}
       </Grid>
-      <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
-        <Pagination
-          count={movies?.total_pages}
-          variant="outlined"
-          shape="rounded"
-          color="primary"
-          onChange={handlePage}
-        />
-      </Grid>
+      {movies?.total_pages === 1 ? null : (
+        <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
+          <Pagination
+            count={movies?.total_pages}
+            variant="outlined"
+            shape="rounded"
+            color="primary"
+            onChange={handlePage}
+          />
+        </Grid>
+      )}
     </div>
   );
 }
