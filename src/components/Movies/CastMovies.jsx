@@ -56,20 +56,13 @@ export function CastMovies() {
         sm={12}
         sx={{ mt: 2, mb: 4 }}
       >
-        <Grid item xs="12" sm="4">
+        <Grid item xs="12" sm="3">
           <FormControl fullWidth>
-            <Select
-              labelId="select-sort-label"
-              id="select-sort"
-              value={sort}
-              label="Sort"
-              onChange={handleChange}
-            >
+            <Select id="select-sort" value={sort} onChange={handleChange}>
               <MenuItem value="popularity.desc">人気順</MenuItem>
               <MenuItem value="release_date.desc">公開日</MenuItem>
               <MenuItem value="revenue.desc">興行収入</MenuItem>
             </Select>
-            <FormHelperText>ソート順</FormHelperText>
           </FormControl>
         </Grid>
       </Grid>
