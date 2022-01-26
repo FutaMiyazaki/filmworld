@@ -12,16 +12,14 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
-const links = [
-  { path: "/genres", text: "ジャンル一覧" },
-  { path: "/movies/popular?page=1", text: "人気の映画" },
-];
-
 export function Header() {
   return (
     <AppBar position="static">
       <Container>
         <Toolbar disableGutters>
+          <Box sx={{ mr: 2, flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
+            <TemporaryDrawer />
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <NextLink href="/" passHref>
               <MuiLink underline="none">
@@ -35,9 +33,6 @@ export function Header() {
                 </Typography>
               </MuiLink>
             </NextLink>
-          </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
-            <TemporaryDrawer />
           </Box>
           <NextLink href="/" passHref>
             <MuiLink underline="none">
@@ -55,27 +50,7 @@ export function Header() {
               </Typography>
             </MuiLink>
           </NextLink>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
-            {links.map((link) => (
-              <NextLink href={link.path} passHref key={link.text}>
-                <MuiLink underline="hover">
-                  <Button sx={{ my: 2, color: "white", display: "block" }}>
-                    {link.text}
-                  </Button>
-                </MuiLink>
-              </NextLink>
-            ))}
-            <MuiLink
-              href="https://github.com/FutaMiyazaki/miya-react-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="hover"
-            >
-              <Button startIcon={<GitHubIcon />} sx={{ my: 2, color: "white" }}>
-                GitHub
-              </Button>
-            </MuiLink>
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }} />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <HeaderTextField />
           </Box>
