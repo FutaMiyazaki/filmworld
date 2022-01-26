@@ -1,6 +1,7 @@
 import Head from "next/head";
-import { PopularMoviesTop } from "src/components/Movies/PopularMoviesTop";
-import { IconHeading } from "src/components/Layout/IconHeading";
+import { PageHeading } from "src/components/Layout/PageHeading";
+import { PopularMovies } from "src/components/Movies/Top/PopularMovies";
+import { RevenueMovies } from "src/components/Movies/Top/RevenueMovies";
 
 export default function Index() {
   return (
@@ -8,8 +9,10 @@ export default function Index() {
       <Head>
         <title>FilmWorld</title>
       </Head>
-      <IconHeading icon="TrendingUp" text="人気の映画" />
-      <PopularMoviesTop />
+      <PageHeading text="人気の映画 ※毎日更新されます" />
+      <PopularMovies />
+      <PageHeading text="興行収入ランキング" />
+      <RevenueMovies />
     </div>
   );
 }
