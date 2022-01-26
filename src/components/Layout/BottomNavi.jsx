@@ -2,22 +2,25 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 import {
-  Dialog,
-  Paper,
+  Button,
   BottomNavigation,
   BottomNavigationAction,
-  Button,
-  DialogTitle,
-  DialogContent,
-  Link as MuiLink,
+  Collapse,
+  Dialog,
   DialogActions,
-  TextField,
+  DialogContent,
+  InputAdornment,
+  Link as MuiLink,
+  List,
   ListItem,
   ListItemText,
   ListItemButton,
-  List,
+  Paper,
+  TextField,
   Typography,
 } from "@mui/material";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
@@ -26,10 +29,55 @@ export function BottomNavi() {
   const router = useRouter();
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
   const listItems = [
-    { path: "/movies/popular?page=1", text: "人気の映画から探す" },
-    { path: "/genres", text: "ジャンル一覧から探す" },
+    { path: "/movies/popular?page=1", text: "人気の映画" },
+    { path: "/movies/revenue?page=1", text: "歴代興行収入" },
+  ];
+  const genres1 = [
+    {
+      text: "アクション",
+      id: "28",
+    },
+    {
+      text: "アドベンチャー",
+      id: "12",
+    },
+    {
+      text: "アニメーション",
+      id: "16",
+    },
+    {
+      text: "コメディ",
+      id: "35",
+    },
+  ];
+  const genres2 = [
+    {
+      text: "ドキュメンタリー",
+      id: "99",
+    },
+    {
+      text: "ファミリー",
+      id: "10751",
+    },
+    {
+      text: "ファンタジー",
+      id: "14",
+    },
+    {
+      text: "ホラー",
+      id: "27",
+    },
+    {
+      text: "ロマンス",
+      id: "10749",
+    },
+    {
+      text: "サイエンスフィクション",
+      id: "878",
+    },
   ];
 
   const handleClickOpen = () => {
@@ -60,6 +108,10 @@ export function BottomNavi() {
     [keyword]
   );
 
+  const handleMoreOpen = () => {
+    setMoreOpen(!moreOpen);
+  };
+
   return (
     <div>
       <Paper
@@ -84,6 +136,9 @@ export function BottomNavi() {
             label="ホーム"
             icon={<HomeIcon />}
             value="home"
+            onClick={() => {
+              router.push("/");
+            }}
           />
           <BottomNavigationAction
             label="検索"
@@ -105,9 +160,6 @@ export function BottomNavi() {
         aria-labelledby="responsive-dialog-title"
         sx={{ display: { xs: "block", sm: "none" } }}
       >
-        <DialogTitle id="responsive-dialog-title" sx={{ fontWeight: "bold" }}>
-          映画を探す
-        </DialogTitle>
         <DialogContent>
           <form action="" onSubmit={handleSubmit}>
             <TextField
@@ -118,28 +170,90 @@ export function BottomNavi() {
               size="small"
               placeholder="キーワードを入力"
               variant="outlined"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
           </form>
           <List sx={{ mt: 2 }}>
+            <ListItem>
+              <ListItemText>
+                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                  ランキングで探す
+                </Typography>
+              </ListItemText>
+            </ListItem>
             {listItems.map((listItem) => {
               return (
-                <ListItem
-                  key={listItem.path}
-                  disablePadding
-                  onClick={handleClose}
-                >
-                  <ListItemButton>
-                    <NextLink href={listItem.path} passHref>
-                      <MuiLink underline="none">
-                        <ListItemText>
-                          <Typography color="white">{listItem.text}</Typography>
-                        </ListItemText>
-                      </MuiLink>
-                    </NextLink>
-                  </ListItemButton>
-                </ListItem>
+                <NextLink key={listItem.path} href={listItem.path} passHref>
+                  <MuiLink underline="none" color="white">
+                    <ListItem dense onClick={handleClose}>
+                      <ListItemButton>
+                        <ListItemText>{listItem.text}</ListItemText>
+                      </ListItemButton>
+                    </ListItem>
+                  </MuiLink>
+                </NextLink>
               );
             })}
+            <ListItem>
+              <ListItemText>
+                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                  ジャンルで探す
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            {genres1.map((genre) => (
+              <NextLink
+                key={genre.id}
+                href={`/genres/movies?genre_id=${genre.id}&page=1`}
+                passHref
+              >
+                <MuiLink underline="none" color="white">
+                  <ListItem dense onClick={handleClose}>
+                    <ListItemButton>
+                      <ListItemText>{genre.text}</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </NextLink>
+            ))}
+            <ListItem dense>
+              <ListItemButton onClick={handleMoreOpen}>
+                <ListItemText>さらに表示</ListItemText>
+                {moreOpen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+            </ListItem>
+            <Collapse in={moreOpen} timeout="auto" unmountOnExit>
+              {genres2.map((genre) => (
+                <NextLink
+                  key={genre.id}
+                  href={`/genres/movies?genre_id=${genre.id}&page=1`}
+                  passHref
+                >
+                  <MuiLink underline="none" color="white">
+                    <ListItem dense onClick={handleClose}>
+                      <ListItemButton>
+                        <ListItemText>{genre.text}</ListItemText>
+                      </ListItemButton>
+                    </ListItem>
+                  </MuiLink>
+                </NextLink>
+              ))}
+              <NextLink href="/genres" passHref>
+                <MuiLink underline="none" color="white">
+                  <ListItem dense onClick={handleClose}>
+                    <ListItemButton>
+                      <ListItemText>ジャンル一覧を表示</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </NextLink>
+            </Collapse>
           </List>
         </DialogContent>
         <DialogActions>
