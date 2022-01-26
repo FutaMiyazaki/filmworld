@@ -34,21 +34,6 @@ export function PopularMovies() {
         justifyContent="center"
         columns={{ xs: 4, sm: 8 }}
       >
-        <Grid item xs={4} sm={8} sx={{ mb: 1 }}>
-          <Typography
-            variant="h5"
-            color="primary"
-            sx={{ display: "inline", fontWeight: "bold" }}
-          >
-            {router.query.keyword}
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{ display: "inline", fontWeight: "bold" }}
-          >
-            人気の映画
-          </Typography>
-        </Grid>
         {data.results.map((movie) => {
           return (
             <Grid key={movie.id} item xs={4} sm={4}>
