@@ -11,7 +11,7 @@ export default function Index() {
       </Head>
       <PageHeading text="人気の映画 ※毎日更新されます" />
       <PopularMovies />
-      <PageHeading text="興行収入ランキング" />
+      <PageHeading text="歴代興行収入ランキング" />
       <RevenueMovies />
     </div>
   );
