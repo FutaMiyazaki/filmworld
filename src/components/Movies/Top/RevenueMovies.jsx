@@ -38,7 +38,7 @@ export function RevenueMovies() {
         ) : null;
       })}
       <Grid item sx={{ mt: 1 }}>
-        <NextLink href="/movies/popular?page=1" passHref>
+        <NextLink href="/movies/revenue?page=1" passHref>
           <MuiLink underline="hover" sx={{ fontWeight: "bold" }}>
             もっと見る
           </MuiLink>
