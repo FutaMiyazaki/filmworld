@@ -9,19 +9,20 @@ export default function Posts() {
   const router = useRouter();
   const { data, error, isLoading } = useGenres();
 
-  const genreName = useCallback(
+  const genreSearch = useCallback(
     data?.genres.filter((genre) => {
       return genre.id == router.query.genre_id;
     }),
     []
   );
+  const genreName = genreSearch[0].name;
 
   return (
     <div>
       <Head>
-        <title>{`${genreName[0]?.name}の映画 - FilmWorld`}</title>
+        <title>{`${genreName}の映画 - FilmWorld`}</title>
       </Head>
-      <PageHeading primaryText={genreName[0]?.name} text="の映画" />
+      <PageHeading primaryText={genreName} text="の映画" />
       <GenreMovies />
     </div>
   );
