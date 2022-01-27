@@ -1,21 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Box, Card, CardMedia, Grid } from "@mui/material";
 import { useMediaQuery } from "react-responsive";
+import { Box, Card, CardMedia, Grid } from "@mui/material";
 import { useMovie } from "src/hooks/useMovie";
-import { Loading } from "src/components/Layout/Loading";
 import { ExternalLink } from "src/components/Layout/Link/ExternalLink";
-import { UserScore } from "src/components/Movies/Info/UserScore";
-import { TitleHeader } from "src/components/Movies/Info/TitleHeader";
+import { Loading } from "src/components/Layout/Loading";
+import { PageHeading } from "src/components/Layout/PageHeading";
+import { Cast } from "src/components/Movies/Info/Cast";
+import { Director } from "src/components/Movies/Info/Director";
+import { Genres } from "src/components/Movies/Info/Genres";
 import { Overview } from "src/components/Movies/Info/Overview";
 import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
-import { Director } from "src/components/Movies/Info/Director";
-import { Screenwriter } from "src/components/Movies/Info/Screenwriter";
-import { Cast } from "src/components/Movies/Info/Cast";
 import { ReleaseDate } from "src/components/Movies/Info/ReleaseDate";
-import { Genres } from "src/components/Movies/Info/Genres";
+import { Screenwriter } from "src/components/Movies/Info/Screenwriter";
 import { SimilarMovies } from "src/components/Movies/Info/SimilarMovies";
-import { PageHeading } from "src/components/Layout/PageHeading";
+import { TitleHeader } from "src/components/Movies/Info/TitleHeader";
+import { UserScore } from "src/components/Movies/Info/UserScore";
 
 export default function MoviesId() {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
@@ -84,19 +84,13 @@ export default function MoviesId() {
           )}
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <Genres genres={movieInfo?.genres} />
-          {!isMobileScreen && (
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <UserScore
               voteAverage={movieInfo?.vote_average}
               voteCount={movieInfo?.vote_count}
               size="medium"
             />
-          )}
-          {movieInfo?.overview && (
-            <Box sx={{ display: { xs: "none", sm: "block" }, my: 1 }}>
-              <Overview overview={movieInfo?.overview} />
-            </Box>
-          )}
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
             <ProductionCompanies
               productionCompanies={movieInfo?.production_companies}
             />
