@@ -3,7 +3,7 @@ import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
 
 export function Director(props) {
   return (
-    <Box>
+    <Box sx={{ mb: 1 }}>
       <InfoHeader text="監督" />
       {props.crew?.map((crew) => {
         return crew.job === "Director" ? (

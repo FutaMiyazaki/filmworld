@@ -12,7 +12,7 @@ export function Screenwriter(props) {
   const uniqueCrew = unique(props?.crew, (crew) => crew.id);
 
   return (
-    <Box>
+    <Box sx={{ mb: 1 }}>
       <InfoHeader text="脚本" />
       {uniqueCrew?.map((crew) => {
         return crew.job === "Story" ||

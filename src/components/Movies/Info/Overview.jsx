@@ -3,7 +3,7 @@ import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
 
 export function Overview(props) {
   return (
-    <Box>
+    <Box sx={{ mb: 1 }}>
       <InfoHeader text="あらすじ" />
       <Paper sx={{ p: 1 }}>
         <Typography variant="body2" color="white">

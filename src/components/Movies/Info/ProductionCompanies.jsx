@@ -4,7 +4,7 @@ import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
 
 export function ProductionCompanies(props) {
   return (
-    <Box>
+    <Box sx={{ mb: 1 }}>
       <InfoHeader text="制作会社" />
       {props.productionCompanies?.map((company) => {
         return (
