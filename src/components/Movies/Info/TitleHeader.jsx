@@ -7,7 +7,8 @@ export function TitleHeader(props) {
   return (
     <Grid
       item
-      xs={5}
+      xs="5"
+      sm="auto"
       sx={{ display: { xs: props?.xsDisplay, sm: props?.smDisplay } }}
     >
       <Typography
