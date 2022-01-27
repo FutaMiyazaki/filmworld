@@ -55,7 +55,7 @@ export function SearchMovies() {
           );
         })}
       </Grid>
-      {data.total_pages === 1 ? null : (
+      {data.total_pages <= 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
             count={data.total_pages}
