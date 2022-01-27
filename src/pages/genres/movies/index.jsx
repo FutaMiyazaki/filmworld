@@ -19,9 +19,9 @@ export default function Posts() {
   return (
     <div>
       <Head>
-        <title>{`${genreName[0].name}の映画 - FilmWorld`}</title>
+        <title>{`${genreName[0]?.name}の映画 - FilmWorld`}</title>
       </Head>
-      <PageHeading primaryText={genreName[0].name} text="の映画" />
+      <PageHeading primaryText={genreName[0]?.name} text="の映画" />
       <GenreMovies />
     </div>
   );
