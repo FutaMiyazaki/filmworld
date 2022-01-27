@@ -91,9 +91,11 @@ export default function MoviesId() {
               size="medium"
             />
             {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
-            <ProductionCompanies
-              productionCompanies={movieInfo?.production_companies}
-            />
+            {movieInfo?.production_companies && (
+              <ProductionCompanies
+                productionCompanies={movieInfo?.production_companies}
+              />
+            )}
             <Director crew={movieCredits?.crew} />
             <Screenwriter crew={movieCredits?.crew} />
             <Cast cast={movieCredits?.cast} />
