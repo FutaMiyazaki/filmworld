@@ -24,11 +24,11 @@ export function UserScore(props) {
         <Typography
           variant="subtitle1"
           color="#FBBD30"
-          sx={{ mr: 1, display: "inline" }}
+          sx={{ mr: 1, display: "inline", fontWeight: "bold" }}
         >
           {shapingScore(props?.voteAverage)}
         </Typography>
-        <Typography variant="caption" color="white">
+        <Typography variant="caption" color="white" sx={{ fontWeight: "bold" }}>
           ({props?.voteCount})
         </Typography>
       </Box>
