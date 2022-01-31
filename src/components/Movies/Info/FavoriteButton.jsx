@@ -57,6 +57,7 @@ export function FavoriteButton(props) {
     <div>
       {favorite ? (
         <Button
+          fullWidth
           variant="outlined"
           onClick={removeFavorite}
           sx={{ fontWeight: "bold" }}
@@ -65,6 +66,7 @@ export function FavoriteButton(props) {
         </Button>
       ) : (
         <Button
+          fullWidth
           variant="contained"
           onClick={addFavorite}
           startIcon={<AddIcon />}
