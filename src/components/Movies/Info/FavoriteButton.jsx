@@ -13,10 +13,12 @@ export function FavoriteButton(props) {
   }, []);
 
   useEffect(() => {
-    const existsIndex = nowFavoMovies.findIndex(
-      (movie) => movie.id == props?.id
-    );
-    existsIndex == -1 ? setFavorite(false) : setFavorite(true);
+    if (nowFavoMovies) {
+      const existsIndex = nowFavoMovies.findIndex(
+        (movie) => movie.id == props?.id
+      );
+      existsIndex == -1 ? setFavorite(false) : setFavorite(true);
+    }
   }, [nowFavoMovies]);
 
   const addFavorite = useCallback(() => {
