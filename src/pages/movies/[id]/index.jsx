@@ -64,18 +64,16 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </div>
-            <Grid container justifyContent="center" sx={{ mt: 3 }}>
-              <Grid item>
+            <Grid container justifyContent="center" spacing="10" sx={{ mt: 1 }}>
+              {movieInfo?.homepage && (
+                <Grid item xs="1/2" sm="1/2">
+                  <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+                </Grid>
+              )}
+              <Grid item xs="1/2" sm="1/2">
                 <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
               </Grid>
             </Grid>
-            {movieInfo?.homepage && (
-              <Grid container justifyContent="center" sx={{ mt: 1 }}>
-                <Grid item>
-                  <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-                </Grid>
-              </Grid>
-            )}
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>
@@ -85,11 +83,16 @@ export default function MoviesId() {
             title={movieInfo?.title}
             originalTitle={movieInfo?.original_title}
           />
-          {isMobileScreen && (
-            <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-          )}
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <Genres genres={movieInfo?.genres} />
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            {movieInfo?.homepage && (
+              <Box sx={{ mb: 1 }}>
+                <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+              </Box>
+            )}
+            <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
+          </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <UserScore
               voteAverage={movieInfo?.vote_average}
