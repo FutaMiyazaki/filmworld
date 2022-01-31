@@ -208,6 +208,15 @@ export function TemporaryDrawer() {
                 </Typography>
               </ListItemText>
             </ListItem>
+            <NextLink href="/favorite" passHref>
+              <MuiLink underline="none" color="white">
+                <ListItem dense onClick={toggleDrawer("left", false)}>
+                  <ListItemButton>
+                    <ListItemText>観たい!映画</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </MuiLink>
+            </NextLink>
             <MuiLink
               href="https://github.com/FutaMiyazaki/miya-react-app"
               target="_blank"

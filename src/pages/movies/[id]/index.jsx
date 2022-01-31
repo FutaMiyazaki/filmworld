@@ -8,6 +8,7 @@ import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { Director } from "src/components/Movies/Info/Director";
+import { FavoriteButton } from "src/components/Movies/Info/FavoriteButton";
 import { Genres } from "src/components/Movies/Info/Genres";
 import { Overview } from "src/components/Movies/Info/Overview";
 import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
@@ -63,13 +64,16 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </div>
-            {movieInfo?.homepage && (
-              <Grid container justifyContent="center" sx={{ mt: 1 }}>
-                <Grid item>
+            <Grid container justifyContent="center" spacing="10" sx={{ mt: 1 }}>
+              {movieInfo?.homepage && (
+                <Grid item xs="1/2" sm="1/2">
                   <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
                 </Grid>
+              )}
+              <Grid item xs="1/2" sm="1/2">
+                <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
               </Grid>
-            )}
+            </Grid>
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>
@@ -79,11 +83,16 @@ export default function MoviesId() {
             title={movieInfo?.title}
             originalTitle={movieInfo?.original_title}
           />
-          {isMobileScreen && (
-            <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-          )}
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <Genres genres={movieInfo?.genres} />
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            {movieInfo?.homepage && (
+              <Box sx={{ mb: 1 }}>
+                <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+              </Box>
+            )}
+            <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
+          </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <UserScore
               voteAverage={movieInfo?.vote_average}
@@ -101,7 +110,7 @@ export default function MoviesId() {
             <Cast cast={movieCredits?.cast} />
           </Box>
         </Grid>
-        <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
+        <Grid item xs="5" sx={{ display: { xs: "block", sm: "none" } }}>
           <UserScore
             voteAverage={movieInfo?.vote_average}
             voteCount={movieInfo?.vote_count}

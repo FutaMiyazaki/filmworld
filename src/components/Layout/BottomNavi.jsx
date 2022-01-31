@@ -150,6 +150,9 @@ export function BottomNavi() {
             label="お気に入り"
             icon={<StarIcon />}
             value="favorite"
+            onClick={() => {
+              router.push("/favorite");
+            }}
           />
         </BottomNavigation>
       </Paper>
