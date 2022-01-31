@@ -8,6 +8,7 @@ import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { Director } from "src/components/Movies/Info/Director";
+import { FavoriteButton } from "src/components/Movies/Info/FavoriteButton";
 import { Genres } from "src/components/Movies/Info/Genres";
 import { Overview } from "src/components/Movies/Info/Overview";
 import { ProductionCompanies } from "src/components/Movies/Info/ProductionCompanies";
@@ -63,6 +64,11 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </div>
+            <Grid container justifyContent="center" sx={{ mt: 3 }}>
+              <Grid item>
+                <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
+              </Grid>
+            </Grid>
             {movieInfo?.homepage && (
               <Grid container justifyContent="center" sx={{ mt: 1 }}>
                 <Grid item>
@@ -101,7 +107,7 @@ export default function MoviesId() {
             <Cast cast={movieCredits?.cast} />
           </Box>
         </Grid>
-        <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
+        <Grid item xs="5" sx={{ display: { xs: "block", sm: "none" } }}>
           <UserScore
             voteAverage={movieInfo?.vote_average}
             voteCount={movieInfo?.vote_count}
