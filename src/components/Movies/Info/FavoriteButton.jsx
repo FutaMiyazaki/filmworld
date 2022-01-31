@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { Button } from "@mui/material";
-import StarIcon from "@mui/icons-material/Star";
+import AddIcon from "@mui/icons-material/Add";
 
 export function FavoriteButton(props) {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
@@ -57,19 +57,20 @@ export function FavoriteButton(props) {
     <div>
       {favorite ? (
         <Button
-          variant="contained"
-          startIcon={<StarIcon />}
+          variant="outlined"
           onClick={removeFavorite}
+          sx={{ fontWeight: "bold" }}
         >
-          解除
+          登録済み
         </Button>
       ) : (
         <Button
           variant="contained"
-          startIcon={<StarIcon />}
           onClick={addFavorite}
+          startIcon={<AddIcon />}
+          sx={{ fontWeight: "bold" }}
         >
-          お気に入り
+          観たい!
         </Button>
       )}
     </div>
