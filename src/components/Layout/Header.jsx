@@ -2,13 +2,11 @@ import NextLink from "next/link";
 import {
   AppBar,
   Box,
+  Container,
+  Link as MuiLink,
   Toolbar,
   Typography,
-  Container,
-  Button,
-  Link as MuiLink,
 } from "@mui/material/";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
