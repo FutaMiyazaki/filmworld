@@ -74,7 +74,11 @@ export default function MoviesId() {
                 </Grid>
               )}
               <Grid item xs="1/2" sm="1/2">
-                <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
+                <FavoriteButton
+                  id={movieInfo?.id}
+                  title={movieInfo?.title}
+                  poster_path={movieInfo?.poster_path}
+                />
               </Grid>
             </Grid>
           </Box>
@@ -96,7 +100,11 @@ export default function MoviesId() {
             />
           )}
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
-            <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
+            <FavoriteButton
+              id={movieInfo?.id}
+              title={movieInfo?.title}
+              poster_path={movieInfo?.poster_path}
+            />
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <UserScore
