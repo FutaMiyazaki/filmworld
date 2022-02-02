@@ -212,7 +212,7 @@ export function TemporaryDrawer() {
               <MuiLink underline="none" color="white">
                 <ListItem dense onClick={toggleDrawer("left", false)}>
                   <ListItemButton>
-                    <ListItemText>観たい!映画</ListItemText>
+                    <ListItemText>あなたの観たい!映画</ListItemText>
                   </ListItemButton>
                 </ListItem>
               </MuiLink>
