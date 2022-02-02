@@ -54,6 +54,9 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </Card>
+            {movieInfo?.homepage && (
+              <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+            )}
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <div style={{ position: "relative", width: "100%", height: 450 }}>
@@ -85,12 +88,14 @@ export default function MoviesId() {
           />
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <Genres genres={movieInfo?.genres} />
+          {isMobileScreen && (
+            <UserScore
+              voteAverage={movieInfo?.vote_average}
+              voteCount={movieInfo?.vote_count}
+              size="small"
+            />
+          )}
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
-            {movieInfo?.homepage && (
-              <Box sx={{ mb: 1 }}>
-                <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-              </Box>
-            )}
             <FavoriteButton id={movieInfo?.id} title={movieInfo?.title} />
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -111,11 +116,6 @@ export default function MoviesId() {
           </Box>
         </Grid>
         <Grid item xs="5" sx={{ display: { xs: "block", sm: "none" } }}>
-          <UserScore
-            voteAverage={movieInfo?.vote_average}
-            voteCount={movieInfo?.vote_count}
-            size="medium"
-          />
           {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
           <ProductionCompanies
             productionCompanies={movieInfo?.production_companies}
