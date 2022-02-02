@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
   ListItemButton,
+  ListItemIcon,
   ListItemText,
   Typography,
 } from "@mui/material";
@@ -17,6 +18,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export function TemporaryDrawer() {
   const [state, setState] = useState({
@@ -212,6 +215,9 @@ export function TemporaryDrawer() {
               <MuiLink underline="none" color="white">
                 <ListItem dense onClick={toggleDrawer("left", false)}>
                   <ListItemButton>
+                    <ListItemIcon>
+                      <VideoLibraryIcon />
+                    </ListItemIcon>
                     <ListItemText>あなたの観たい!映画</ListItemText>
                   </ListItemButton>
                 </ListItem>
@@ -226,6 +232,9 @@ export function TemporaryDrawer() {
             >
               <ListItem dense onClick={toggleDrawer("left", false)}>
                 <ListItemButton>
+                  <ListItemIcon>
+                    <GitHubIcon />
+                  </ListItemIcon>
                   <ListItemText>GitHub</ListItemText>
                 </ListItemButton>
               </ListItem>
