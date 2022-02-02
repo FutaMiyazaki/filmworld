@@ -6,7 +6,7 @@ import {
   DialogContent,
   DialogContentText,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 export function FavoriteButton(props) {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
@@ -87,7 +87,7 @@ export function FavoriteButton(props) {
           fullWidth
           variant="contained"
           onClick={addFavorite}
-          startIcon={<AddIcon />}
+          startIcon={<LibraryAddIcon />}
           sx={{ fontWeight: "bold" }}
         >
           観たい!
