@@ -23,7 +23,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-import StarIcon from "@mui/icons-material/Star";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export function BottomNavi() {
   const router = useRouter();
@@ -147,8 +147,8 @@ export function BottomNavi() {
             value="search"
           />
           <BottomNavigationAction
-            label="お気に入り"
-            icon={<StarIcon />}
+            label="観たい!"
+            icon={<VideoLibraryIcon />}
             value="favorite"
             onClick={() => {
               router.push("/favorite");
