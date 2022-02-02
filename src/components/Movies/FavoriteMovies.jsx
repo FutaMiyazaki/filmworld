@@ -1,62 +1,70 @@
-import { useState, useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 import NextLink from "next/link";
+import { useMediaQuery } from "react-responsive";
 import {
-  IconButton,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
   Link as MuiLink,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
+  Typography,
 } from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export function FavoriteMovies(props) {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const storageKey = "favoMovies";
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   useEffect(() => {
     const storage = localStorage.getItem(storageKey);
     setNowFavoMovies(JSON.parse(storage));
   }, []);
 
-  // 今後保存した映画を削除する関数を追加予定
-  // const removeFavorite = useCallback(
-  //   (movieId) => {
-  //     if (nowFavoMovies) {
-  //       const newFavoMovies = nowFavoMovies.filter(
-  //         (movie) => movie.id != movieId
-  //       );
-  //       const setJson = JSON.stringify(newFavoMovies);
-  //       localStorage.setItem(storageKey, setJson);
-  //       setNowFavoMovies(newFavoMovies);
-  //     }
-  //   },
-  //   [nowFavoMovies]
-  // );
-
   return (
-    <List>
-      {nowFavoMovies.map((movie) => {
-        return (
-          <ListItem
-            disablePadding
-            key={movie.id}
-            // secondaryAction={
-            //   <IconButton edge="end" onClick={removeFavorite(movie.id)}>
-            //     <DeleteOutlineIcon />
-            //   </IconButton>
-            // }
-          >
-            <NextLink href={`/movies/${movie.id}`} passHref>
-              <MuiLink underline="none" color="white">
-                <ListItemButton>
-                  <ListItemText>{movie.title}</ListItemText>
-                </ListItemButton>
-              </MuiLink>
-            </NextLink>
-          </ListItem>
-        );
-      })}
-    </List>
+    <div>
+      {nowFavoMovies && nowFavoMovies.length > 0 ? (
+        <Grid
+          container
+          columns={{ xs: 4, sm: 8 }}
+          justifyContent="flex-start"
+          spacing="10"
+        >
+          {nowFavoMovies.map((movie) => {
+            return (
+              <Grid item xs="2" sm="2" key={movie.id}>
+                <NextLink href={`/movies/${movie.id}`} passHref>
+                  <MuiLink underline="none">
+                    <Card>
+                      <CardMedia
+                        component="img"
+                        height={isMobileScreen ? "300" : "450"}
+                        image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                        alt="ポスター画像"
+                      />
+                      <CardContent>
+                        <Typography variant="body2">{movie.title}</Typography>
+                      </CardContent>
+                    </Card>
+                  </MuiLink>
+                </NextLink>
+              </Grid>
+            );
+          })}
+        </Grid>
+      ) : (
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid item sx={{ mb: 4 }}>
+            <VideoLibraryIcon sx={{ fontSize: 80 }} />
+          </Grid>
+          <Grid item>観たい映画の登録はありません</Grid>
+        </Grid>
+      )}
+    </div>
   );
 }
