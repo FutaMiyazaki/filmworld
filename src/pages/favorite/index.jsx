@@ -8,7 +8,7 @@ export default function Favorite() {
       <Head>
         <title>観たい映画 - FilmWorld</title>
       </Head>
-      <PageHeading text="観たい!映画" />
+      <PageHeading text="観たい映画" />
       <FavoriteMovies />
     </div>
   );
