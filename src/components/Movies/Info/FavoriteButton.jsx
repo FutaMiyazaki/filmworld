@@ -30,19 +30,25 @@ export function FavoriteButton(props) {
 
   const addFavorite = useCallback(() => {
     if (nowFavoMovies) {
-      const exists = nowFavoMovies.findIndex((movie) => movie.id == props?.id);
-      if (exists == -1) {
-        const newFavoMovies = [
-          ...nowFavoMovies,
-          {
-            id: props?.id,
-            title: props?.title,
-            poster_path: props?.poster_path,
-          },
-        ];
-        const setJson = JSON.stringify(newFavoMovies);
-        localStorage.setItem(storageKey, setJson);
-        setNowFavoMovies(newFavoMovies);
+      if (nowFavoMovies.length == 20) {
+        window.alert("保存できる映画の数は20個までです");
+      } else {
+        const exists = nowFavoMovies.findIndex(
+          (movie) => movie.id == props?.id
+        );
+        if (exists == -1) {
+          const newFavoMovies = [
+            ...nowFavoMovies,
+            {
+              id: props?.id,
+              title: props?.title,
+              poster_path: props?.poster_path,
+            },
+          ];
+          const setJson = JSON.stringify(newFavoMovies);
+          localStorage.setItem(storageKey, setJson);
+          setNowFavoMovies(newFavoMovies);
+        }
       }
     } else {
       const newFavoMovies = new Array({
