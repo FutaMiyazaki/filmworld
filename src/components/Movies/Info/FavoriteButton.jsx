@@ -34,14 +34,22 @@ export function FavoriteButton(props) {
       if (exists == -1) {
         const newFavoMovies = [
           ...nowFavoMovies,
-          { id: props?.id, title: props?.title },
+          {
+            id: props?.id,
+            title: props?.title,
+            poster_path: props?.poster_path,
+          },
         ];
         const setJson = JSON.stringify(newFavoMovies);
         localStorage.setItem(storageKey, setJson);
         setNowFavoMovies(newFavoMovies);
       }
     } else {
-      const newFavoMovies = new Array({ id: props?.id, title: props?.title });
+      const newFavoMovies = new Array({
+        id: props?.id,
+        title: props?.title,
+        poster_path: props?.poster_path,
+      });
       const setJson = JSON.stringify(newFavoMovies);
       localStorage.setItem(storageKey, setJson);
       setNowFavoMovies(newFavoMovies);
