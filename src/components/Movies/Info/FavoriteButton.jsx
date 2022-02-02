@@ -1,10 +1,17 @@
 import { useState, useCallback, useEffect } from "react";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 export function FavoriteButton(props) {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const [favorite, setFavorite] = useState(false);
+  const [open, setOpen] = useState(false);
   const storageKey = "favoMovies";
 
   useEffect(() => {
@@ -53,7 +60,16 @@ export function FavoriteButton(props) {
         setNowFavoMovies(newFavoMovies);
       }
     }
+    setOpen(false);
   }, [nowFavoMovies]);
+
+  const handleClickOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   return (
     <div>
@@ -61,7 +77,7 @@ export function FavoriteButton(props) {
         <Button
           fullWidth
           variant="outlined"
-          onClick={removeFavorite}
+          onClick={handleClickOpen}
           sx={{ fontWeight: "bold" }}
         >
           登録済み
@@ -77,6 +93,24 @@ export function FavoriteButton(props) {
           観たい!
         </Button>
       )}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            観たい!映画から削除しますか？
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>キャンセル</Button>
+          <Button onClick={removeFavorite} autoFocus>
+            削除
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
