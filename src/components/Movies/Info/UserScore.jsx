@@ -10,7 +10,7 @@ export function UserScore(props) {
       sx={{
         display: "flex",
         alignItems: "center",
-        my: 1,
+        mb: 1,
       }}
     >
       <Rating
