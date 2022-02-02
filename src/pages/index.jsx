@@ -9,7 +9,7 @@ export default function Index() {
       <Head>
         <title>FilmWorld</title>
       </Head>
-      <PageHeading text="人気の映画 ※毎日更新されます" />
+      <PageHeading text="今週の人気ランキング" />
       <PopularMovies />
       <PageHeading text="歴代興行収入ランキング" />
       <RevenueMovies />

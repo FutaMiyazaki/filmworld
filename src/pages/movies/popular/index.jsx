@@ -6,9 +6,9 @@ export default function index() {
   return (
     <div>
       <Head>
-        <title>人気の映画 - FilmWorld</title>
+        <title>今週の人気ランキング - FilmWorld</title>
       </Head>
-      <PageHeading text="人気の映画" />
+      <PageHeading text="今週の人気ランキング" />
       <PopularMovies />
     </div>
   );
