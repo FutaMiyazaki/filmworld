@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FilmWorld
 
-## Getting Started
+## URL: https://filmworld.app/
 
-First, run the development server:
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## トップページ
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/152686017-24bb7afa-80ab-4c2b-8adf-4cbc71edffba.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## レスポンシブ対応
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/152686490-37e5b583-746b-47b7-bbb3-8c8e093f3e35.png)
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+## アプリケーション概要
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+フロントエンドフレームワークに [Next.js](https://nextjs.org/) を、外部 API に [TMDb](https://www.themoviedb.org/) を使用した映画情報検索アプリケーションです。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br>
 
-## Deploy on Vercel
+## 使用した技術
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- react 17.0.2
+- Next.js 12.0.7
+- Material-UI 5.2.8
+- ESLint 8.6.0
+- swr 1.1.2
+- Jest (今後追加予定)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br>
+
+## インフラ
+
+![filmworld_infrastructure](https://user-images.githubusercontent.com/74496398/152685644-41643163-c550-4df6-aefc-6e42f3df71e9.png)
+
+<br>
+
+## 機能・特徴一覧
+
+- swr を利用した外部 API からのデータ取得
+  - カスタムフックの作成
+- 映画表示機能
+  - 各種情報に応じた一覧表示
+    - 人気
+    - 歴代興行収入
+    - ジャンル
+    - 出演キャスト
+  - ソート機能
+    - 人気順
+    - 興行収入順
+    - 公開日順
+  - ページネーション機能
+    - Material-UI の pagination component を利用
+- お気に入り保存機能
+  - データの保存先は、localstorage を利用
+- Material-UI を使用したモダンな UI
+- レスポンシブ対応
+  - PC・タブレットでは、ドロワーメニュー
+  - スマートフォンでは、ボトムメニュー
