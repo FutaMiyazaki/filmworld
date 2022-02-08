@@ -15,7 +15,7 @@ export default function Posts() {
 
   const genreSearch = useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
-      if (genres?.genres[i].id == router.query.genre_id) {
+      if (genres?.genres[i].id == router.query.id) {
         setGenre(genres?.genres[i].name);
       }
     }
