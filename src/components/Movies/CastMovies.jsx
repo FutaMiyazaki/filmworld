@@ -37,7 +37,7 @@ export function CastMovies({ movies }) {
           );
         })}
       </Grid>
-      {movies?.total_pages === 1 ? null : (
+      {movies?.total_pages == 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
           <Pagination
             page={page}
