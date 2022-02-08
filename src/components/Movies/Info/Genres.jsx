@@ -8,7 +8,7 @@ export function Genres(props) {
         return (
           <NextLink
             key={genre.id}
-            href={`/genres/movies?genre_id=${genre.id}&page=1`}
+            href={`/movies/genre?id=${genre.id}&page=1&sort=popularity.desc`}
             passHref
           >
             <Chip
