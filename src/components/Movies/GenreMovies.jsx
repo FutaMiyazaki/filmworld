@@ -40,6 +40,7 @@ export function GenreMovies({ movies }) {
       {movies?.total_pages == 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
           <Pagination
+            page={page}
             count={movies?.total_pages}
             variant="outlined"
             shape="rounded"

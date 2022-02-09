@@ -48,6 +48,7 @@ export function RevenueMovies() {
       </Grid>
       <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
         <Pagination
+          page={page}
           count={revenueMovies.total_pages}
           variant="outlined"
           shape="rounded"

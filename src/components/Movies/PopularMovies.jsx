@@ -49,6 +49,7 @@ export function PopularMovies() {
       {movies?.total_pages === 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
+            page={page}
             count={movies.total_pages}
             variant="outlined"
             shape="rounded"

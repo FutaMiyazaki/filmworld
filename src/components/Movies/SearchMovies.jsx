@@ -58,6 +58,7 @@ export function SearchMovies() {
       {data.total_pages <= 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
+            page={page}
             count={data.total_pages}
             variant="outlined"
             shape="rounded"
