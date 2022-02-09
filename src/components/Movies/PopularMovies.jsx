@@ -31,7 +31,7 @@ export function PopularMovies() {
       <Grid
         container
         spacing={2}
-        justifyContent="center"
+        justifyContent="flex-start"
         columns={{ xs: 4, sm: 8 }}
       >
         {data.results.map((movie) => {
