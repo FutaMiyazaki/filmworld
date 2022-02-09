@@ -28,7 +28,7 @@ export function FilterByYear({ path }) {
     >
       <Grid item xs="12" sm="3">
         <FormHelperText sx={{ fontWeight: "bold" }}>
-          年代で絞り込む
+          年代で絞り込む(1950~2022年)
         </FormHelperText>
         <form action="" onSubmit={handleSubmit}>
           <TextField
