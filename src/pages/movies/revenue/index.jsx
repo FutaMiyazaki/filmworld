@@ -10,7 +10,11 @@ export default function MoviesRevenue() {
   return (
     <div>
       <Head>
-        <title>興行収入ランキング - FilmWorld</title>
+        <title>
+          {router.query.year
+            ? `${router.query.year}年代の興行収入ランキング - FilmWorld`
+            : "興行収入ランキング - FilmWorld"}
+        </title>
       </Head>
       <PageHeading
         primaryText={router.query.year}

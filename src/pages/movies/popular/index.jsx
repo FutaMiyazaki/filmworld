@@ -10,7 +10,11 @@ export default function MoviesPopular() {
   return (
     <div>
       <Head>
-        <title>人気ランキング - FilmWorld</title>
+        <title>
+          {router.query.year
+            ? `${router.query.year}年代の人気ランキング - FilmWorld`
+            : "人気ランキング - FilmWorld"}
+        </title>
       </Head>
       <PageHeading
         primaryText={router.query.year}
