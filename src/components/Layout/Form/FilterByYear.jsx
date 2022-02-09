@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import { FormHelperText, Grid, InputAdornment, TextField } from "@mui/material";
 
-export function FilterByYear() {
+export function FilterByYear({ path }) {
   const router = useRouter();
   const [year, setYear] = useState();
 
@@ -15,7 +15,7 @@ export function FilterByYear() {
     if (year < 1950 || year > 2022) {
       return;
     }
-    router.push(`/movies/popular?page=1&year=${year}`);
+    router.push(`${path}&year=${year}`);
   });
 
   return (

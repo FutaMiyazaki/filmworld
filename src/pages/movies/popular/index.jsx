@@ -16,7 +16,7 @@ export default function MoviesPopular() {
         primaryText={router.query.year}
         text={router.query.year ? "年代の人気ランキング" : "人気ランキング"}
       />
-      <FilterByYear />
+      <FilterByYear path="/movies/popular?page=1" />
       <PopularMovies />
     </div>
   );
