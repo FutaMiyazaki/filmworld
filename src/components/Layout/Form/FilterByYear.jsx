@@ -4,7 +4,7 @@ import { FormHelperText, Grid, InputAdornment, TextField } from "@mui/material";
 
 export function FilterByYear({ path }) {
   const router = useRouter();
-  const [year, setYear] = useState();
+  const [year, setYear] = useState("");
 
   const handleChange = useCallback((e) => {
     setYear(e.target.value);
@@ -38,7 +38,7 @@ export function FilterByYear({ path }) {
             type="number"
             value={year}
             onChange={handleChange}
-            error={year < 1950 || year > 2022 ? true : false}
+            error={year && (year < 1950 || year > 2022) ? true : false}
             variant="outlined"
             placeholder="年代を入力してください"
             InputProps={{
