@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { Grid, Pagination } from "@mui/material";
@@ -17,6 +17,10 @@ export function RevenueMovies() {
     setPage((page) => clickPage);
     router.push(`/movies/revenue?page=${clickPage}`);
   };
+
+  useEffect(() => {
+    setPage(1);
+  }, [router.query.year]);
 
   if (isLoading) {
     return <Loading />;
