@@ -168,6 +168,7 @@ export function BottomNavi() {
             <TextField
               fullWidth
               id="search-dialog-form"
+              type="text"
               value={keyword}
               onChange={handleSearch}
               size="small"

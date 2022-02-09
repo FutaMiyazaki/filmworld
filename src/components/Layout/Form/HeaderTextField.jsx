@@ -23,6 +23,7 @@ export function HeaderTextField() {
     <form action="" onSubmit={handleSubmit}>
       <TextField
         id="header-form"
+        type="text"
         value={keyword}
         onChange={handleSearch}
         size="small"
