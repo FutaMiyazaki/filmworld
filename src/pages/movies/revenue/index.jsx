@@ -2,7 +2,7 @@ import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { RevenueMovies } from "src/components/Movies/RevenueMovies";
 
-export default function index() {
+export default function MoviesRevenue() {
   return (
     <div>
       <Head>

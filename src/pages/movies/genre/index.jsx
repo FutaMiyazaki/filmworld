@@ -7,7 +7,7 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { GenreMovies } from "src/components/Movies/GenreMovies";
 import { useGenreMovies } from "src/hooks/useGenreMovies";
 
-export default function Posts() {
+export default function MoviesGenre() {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const [sort, setSort] = useState("popularity.desc");
