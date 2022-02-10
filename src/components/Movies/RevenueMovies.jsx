@@ -1,26 +1,16 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination } from "@mui/material";
-import { useRevenueMovies } from "src/hooks/useRevenueMovies";
+import { Grid } from "@mui/material";
+import { AppPagination } from "src/components/Layout/AppPagination";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
+import { useRevenueMovies } from "src/hooks/useRevenueMovies";
 
 export function RevenueMovies() {
-  const [page, setPage] = useState(1);
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-  const { revenueMovies, error, isLoading } = useRevenueMovies();
-
-  const handlePage = (e, clickPage) => {
-    setPage((page) => clickPage);
-    router.push(`/movies/revenue?page=${clickPage}`);
-  };
-
-  useEffect(() => {
-    setPage(1);
-  }, [router.query.year]);
+  const { movies, error, isLoading } = useRevenueMovies();
 
   if (isLoading) {
     return <Loading />;
@@ -35,10 +25,10 @@ export function RevenueMovies() {
       <Grid
         container
         spacing={2}
-        justifyContent="center"
+        justifyContent="flex-start"
         columns={{ xs: 4, sm: 8 }}
       >
-        {revenueMovies.results.map((movie) => {
+        {movies.results.map((movie) => {
           return (
             <Grid key={movie.id} item xs={4} sm={4}>
               {isMobileScreen ? (
@@ -50,17 +40,14 @@ export function RevenueMovies() {
           );
         })}
       </Grid>
-      <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
-        <Pagination
-          page={page}
-          count={revenueMovies.total_pages}
-          variant="outlined"
-          shape="rounded"
-          color="primary"
-          size="medium"
-          onChange={handlePage}
-        />
-      </Grid>
+      <AppPagination
+        movies={movies}
+        path={
+          router.query.year
+            ? `/movies/revenue?year=${router.query.year}&`
+            : `/movies/revenue?`
+        }
+      />
     </div>
   );
 }
