@@ -1,17 +1,16 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { Loading } from "src/components/Layout/Loading";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { GenreMovies } from "src/components/Movies/GenreMovies";
-import { useGenreMovies } from "src/hooks/useGenreMovies";
+import { useGenres } from "src/hooks/useGenres";
 
 export default function MoviesGenre() {
   const router = useRouter();
   const [genre, setGenre] = useState("");
+  const { genres, error } = useGenres();
   const [sort, setSort] = useState("popularity.desc");
-  const { movies, genres, error, isLoading } = useGenreMovies();
 
   const genreSearch = useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
@@ -25,7 +24,7 @@ export default function MoviesGenre() {
     (e) => {
       const newSort = e.target.value;
       setSort(newSort);
-      router.push(`/movies/genre?id=${router.query.id}&page=1&sort=${newSort}`);
+      router.push(`/movies/genre?id=${router.query.id}&sort=${newSort}&page=1`);
     },
     [sort]
   );
@@ -37,13 +36,7 @@ export default function MoviesGenre() {
       </Head>
       <PageHeading primaryText={genre} text="の映画" />
       <SortMenu sort={sort} handleChangeSort={handleChangeSort} />
-      {isLoading ? (
-        <Loading />
-      ) : error ? (
-        <div>{error.message}</div>
-      ) : (
-        <GenreMovies movies={movies} />
-      )}
+      <GenreMovies />
     </div>
   );
 }
