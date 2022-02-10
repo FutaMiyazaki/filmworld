@@ -12,6 +12,7 @@ export function SearchMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
   const [page, setPage] = useState(router.query.page);
+  const { movies, error, isLoading, isEmpty } = useSearchMovies();
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
@@ -34,7 +35,7 @@ export function SearchMovies() {
     <div>
       <PageHeading
         primaryText={router.query.keyword}
-        text={`の検索結果: ${data.total_results}件`}
+        text={`の検索結果: ${movies?.total_results}件`}
       />
       <Grid
         container
@@ -42,7 +43,7 @@ export function SearchMovies() {
         justifyContent="flex-start"
         columns={{ xs: 4, sm: 8 }}
       >
-        {data.results.map((movie) => {
+        {movies?.results.map((movie) => {
           return (
             <Grid key={movie.id} item xs={4} sm={4}>
               {isMobileScreen ? (
@@ -54,14 +55,15 @@ export function SearchMovies() {
           );
         })}
       </Grid>
-      {data.total_pages <= 1 ? null : (
+      {movies?.total_pages <= 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
             page={page}
-            count={data.total_pages}
+            count={movies?.total_pages}
             variant="outlined"
             shape="rounded"
             color="primary"
+            size={isMobileScreen ? "small" : "medium"}
             onChange={handlePage}
           />
         </Grid>
