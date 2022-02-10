@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { Grid } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
@@ -7,6 +8,7 @@ import { PcCard } from "src/components/Movies/Card/Pccard";
 import { useCastMovies } from "src/hooks/useCastMovies";
 
 export function CastMovies() {
+  const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const { movies, error, isLoading } = useCastMovies();
 
@@ -38,7 +40,10 @@ export function CastMovies() {
           );
         })}
       </Grid>
-      <AppPagination movies={movies} />
+      <AppPagination
+        movies={movies}
+        path={`/movies/cast?id=${router.query.id}&sort=${router.query.sort}`}
+      />
     </div>
   );
 }
