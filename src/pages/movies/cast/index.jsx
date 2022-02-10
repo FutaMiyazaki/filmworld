@@ -4,8 +4,8 @@ import { useCallback, useState } from "react";
 import { CastMovies } from "src/components/Movies/CastMovies";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { useCastMovies } from "src/hooks/useCastMovies";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
+import { useCastMovies } from "src/hooks/useCastMovies";
 
 export default function MoviesCast() {
   const router = useRouter();
