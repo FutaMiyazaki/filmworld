@@ -13,7 +13,7 @@ export function GenreMovies({ movies }) {
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
     router.push(
-      `/genres/movies?genre_id=${router.query.genre_id}&page=${clickPage}&sort=${router.query.sort}`
+      `/movies/genre?id=${router.query.id}&page=${clickPage}&sort=${router.query.sort}`
     );
   };
 
