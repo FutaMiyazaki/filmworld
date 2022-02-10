@@ -15,7 +15,7 @@ export function FilterByYear({ path }) {
     if (year < 1950 || year > 2022) {
       return;
     }
-    router.push(`${path}&year=${year}`);
+    router.push(`${path}year=${year}&page=1`);
   });
 
   return (

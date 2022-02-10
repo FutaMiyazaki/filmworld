@@ -22,7 +22,7 @@ export default function MoviesRevenue() {
           router.query.year ? "年代の興行収入ランキング" : "興行収入ランキング"
         }
       />
-      <FilterByYear path="/movies/revenue?page=1" />
+      <FilterByYear path="/movies/revenue?" />
       <RevenueMovies />
     </div>
   );
