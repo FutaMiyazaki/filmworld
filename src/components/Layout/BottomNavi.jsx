@@ -214,7 +214,7 @@ export function BottomNavi() {
             {genres1.map((genre) => (
               <NextLink
                 key={genre.id}
-                href={`/genres/movies?genre_id=${genre.id}&page=1`}
+                href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
                 passHref
               >
                 <MuiLink underline="none" color="white">
@@ -236,7 +236,7 @@ export function BottomNavi() {
               {genres2.map((genre) => (
                 <NextLink
                   key={genre.id}
-                  href={`/genres/movies?genre_id=${genre.id}&page=1`}
+                  href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
                   passHref
                 >
                   <MuiLink underline="none" color="white">
