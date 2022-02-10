@@ -1,21 +1,13 @@
+import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination } from "@mui/material";
+import { Grid } from "@mui/material";
+import { AppPagination } from "src/components/Layout/AppPagination";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
-import { useState } from "react";
-import { useRouter } from "next/router";
 
 export function GenreMovies({ movies }) {
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-  const [page, setPage] = useState(1);
-
-  const handlePage = (e, clickPage) => {
-    setPage((page) => clickPage);
-    router.push(
-      `/movies/genre?id=${router.query.id}&page=${clickPage}&sort=${router.query.sort}`
-    );
-  };
 
   return (
     <div>
@@ -37,18 +29,10 @@ export function GenreMovies({ movies }) {
           );
         })}
       </Grid>
-      {movies?.total_pages == 1 ? null : (
-        <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
-          <Pagination
-            page={page}
-            count={movies?.total_pages}
-            variant="outlined"
-            shape="rounded"
-            color="primary"
-            onChange={handlePage}
-          />
-        </Grid>
-      )}
+      <AppPagination
+        movies={movies}
+        path={`/movies/genre?id=${router.query.id}&sort=${router.query.sort}`}
+      />
     </div>
   );
 }
