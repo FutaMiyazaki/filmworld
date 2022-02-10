@@ -4,7 +4,7 @@ import useSWR from "swr";
 
 export const useRevenueMovies = () => {
   const router = useRouter();
-  const { data: revenueMovies, error } = useSWR(
+  const { data: movies, error } = useSWR(
     router.query.page
       ? router.query.year
         ? `https://api.themoviedb.org/3/discover/movie?api_key=a9f5f6a6a7d86b9c7a665290b1dc19ca&language=ja-JP&include_adult=false&page=${router.query.page}&year=${router.query.year}&sort_by=revenue.desc&region=JP`
@@ -13,8 +13,8 @@ export const useRevenueMovies = () => {
     fetcher
   );
   return {
-    revenueMovies,
+    movies,
     error,
-    isLoading: !revenueMovies && !error,
+    isLoading: !movies && !error,
   };
 };
