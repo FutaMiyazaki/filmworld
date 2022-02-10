@@ -11,8 +11,7 @@ import { useSearchMovies } from "src/hooks/useSearchMovie";
 export function SearchMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
-  const [page, setPage] = useState(1);
-  const { data, error, isLoading, isEmpty } = useSearchMovies();
+  const [page, setPage] = useState(router.query.page);
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
