@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { Grid, Pagination } from "@mui/material";
@@ -10,8 +10,12 @@ export function AppPagination({ movies, path }) {
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
-    router.push(`${path}&page=${clickPage}`);
+    router.push(`${path}page=${clickPage}`);
   };
+
+  useEffect(() => {
+    setPage(1);
+  }, [router.query.year]);
 
   return (
     <div>

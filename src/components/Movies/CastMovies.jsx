@@ -42,7 +42,7 @@ export function CastMovies() {
       </Grid>
       <AppPagination
         movies={movies}
-        path={`/movies/cast?id=${router.query.id}&sort=${router.query.sort}`}
+        path={`/movies/cast?id=${router.query.id}&sort=${router.query.sort}&`}
       />
     </div>
   );
