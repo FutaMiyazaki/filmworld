@@ -4,14 +4,14 @@ import { Loading } from "src/components/Layout/Loading";
 import { Chip, Grid, Link as MuiLink } from "@mui/material";
 
 export function GenreList() {
-  const { data, error, isLoading } = useGenres();
+  const { genres, genresError, isLoading } = useGenres();
 
   if (isLoading) {
     return <Loading />;
   }
 
-  if (error) {
-    return <div>{error.message}</div>;
+  if (genresError) {
+    return <div>{genresError.message}</div>;
   }
 
   return (
@@ -21,7 +21,7 @@ export function GenreList() {
       justifyContent="center"
       columns={{ xs: 4, sm: 6 }}
     >
-      {data.genres.map((genre) => {
+      {genres?.genres.map((genre) => {
         return (
           <Grid item xs="auto" sm={2} key={genre.id}>
             <NextLink
