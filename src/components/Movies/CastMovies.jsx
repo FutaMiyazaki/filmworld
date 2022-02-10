@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination } from "@mui/material";
+import { Grid } from "@mui/material";
+import { Loading } from "src/components/Layout/Loading";
+import { AppPagination } from "src/components/Layout/AppPagination";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
 
@@ -37,18 +39,7 @@ export function CastMovies({ movies }) {
           );
         })}
       </Grid>
-      {movies?.total_pages == 1 ? null : (
-        <Grid container justifyContent="center" spacing={1} sx={{ mt: 3 }}>
-          <Pagination
-            page={page}
-            count={movies?.total_pages}
-            variant="outlined"
-            shape="rounded"
-            color="primary"
-            onChange={handlePage}
-          />
-        </Grid>
-      )}
+      <AppPagination movies={movies} />
     </div>
   );
 }
