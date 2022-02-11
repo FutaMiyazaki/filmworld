@@ -12,7 +12,7 @@ import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 export function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container>
         <Toolbar disableGutters>
           <Box sx={{ mr: 2, flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
