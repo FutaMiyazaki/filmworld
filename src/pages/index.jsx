@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PageHeading } from "src/components/Layout/PageHeading";
+import { PageHeadingLink } from "src/components/Layout/Link/PageHeadingLink";
 import { PopularMovies } from "src/components/Movies/Top/PopularMovies";
 import { RevenueMovies } from "src/components/Movies/Top/RevenueMovies";
 
@@ -9,9 +9,12 @@ export default function Index() {
       <Head>
         <title>FilmWorld</title>
       </Head>
-      <PageHeading text="今週の人気ランキング" />
+      <PageHeadingLink path="/movies/popular?page=1" text="人気ランキング" />
       <PopularMovies />
-      <PageHeading text="歴代興行収入ランキング" />
+      <PageHeadingLink
+        path="/movies/popular?page=1"
+        text="興行収入ランキング"
+      />
       <RevenueMovies />
     </div>
   );
