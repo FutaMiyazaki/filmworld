@@ -24,6 +24,8 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import MenuIcon from "@mui/icons-material/Menu";
+import { MobileTemporaryDrawer } from "src/components/Layout/MobileTemporaryDrawer";
 
 export function BottomNavi() {
   const router = useRouter();
@@ -147,12 +149,17 @@ export function BottomNavi() {
             value="search"
           />
           <BottomNavigationAction
-            label="観たい!"
+            label="ライブラリ"
             icon={<VideoLibraryIcon />}
             value="favorite"
             onClick={() => {
               router.push("/favorite");
             }}
+          />
+          <BottomNavigationAction
+            label="メニュー"
+            icon={<MobileTemporaryDrawer />}
+            value="menu"
           />
         </BottomNavigation>
       </Paper>
