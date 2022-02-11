@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { useMediaQuery } from "react-responsive";
 import {
   AppBar,
   Box,
@@ -11,8 +12,10 @@ import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 export function Header() {
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
+
   return (
-    <AppBar position="fixed">
+    <AppBar position={isMobileScreen ? "relative" : "fixed"}>
       <Container>
         <Toolbar disableGutters>
           <Box sx={{ mr: 2, flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
