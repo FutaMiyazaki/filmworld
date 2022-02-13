@@ -1,4 +1,10 @@
-import { FormControl, Grid, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  FormHelperText,
+  Grid,
+  MenuItem,
+  Select,
+} from "@mui/material";
 
 export function SortMenu({ sort, handleChangeSort }) {
   return (
@@ -10,6 +16,7 @@ export function SortMenu({ sort, handleChangeSort }) {
       sx={{ mt: 2, mb: 4 }}
     >
       <Grid item xs="12" sm="3">
+        <FormHelperText sx={{ fontWeight: "bold" }}>並び替え</FormHelperText>
         <FormControl fullWidth>
           <Select id="select-sort" value={sort} onChange={handleChangeSort}>
             <MenuItem value="popularity.desc">人気順</MenuItem>
