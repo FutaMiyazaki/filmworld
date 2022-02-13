@@ -104,7 +104,7 @@ export function BottomNavi() {
         return;
       } else {
         handleClose();
-        router.push(`/search?keyword=${keyword}&page=1`);
+        router.push(`/search/movies?keyword=${keyword}&page=1`);
       }
     },
     [keyword]

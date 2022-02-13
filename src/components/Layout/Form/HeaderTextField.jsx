@@ -16,7 +16,7 @@ export function HeaderTextField() {
     if (keyword.length === 0) {
       return;
     }
-    router.push(`/search?keyword=${keyword}&page=1`);
+    router.push(`/search/movies?keyword=${keyword}&page=1`);
   });
 
   return (
