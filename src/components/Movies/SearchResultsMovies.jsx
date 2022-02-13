@@ -8,7 +8,7 @@ import { PcCard } from "src/components/Movies/Card/Pccard";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
-export function SearchMovies() {
+export function SearchResultsMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
   const [page, setPage] = useState(router.query.page);
