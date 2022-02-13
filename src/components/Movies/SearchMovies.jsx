@@ -16,7 +16,13 @@ export function SearchMovies() {
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
-    router.push(`/search?keyword=${router.query.keyword}&page=${clickPage}`);
+    if (router.query.keyword) {
+      router.push(`/search?keyword=${router.query.keyword}&page=${clickPage}`);
+    } else {
+      router.push(
+        `/search?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&page=${clickPage}`
+      );
+    }
   };
 
   if (isLoading) {
@@ -33,10 +39,14 @@ export function SearchMovies() {
 
   return (
     <div>
-      <PageHeading
-        primaryText={router.query.keyword}
-        text={`の検索結果: ${movies?.total_results}件`}
-      />
+      {router.query.keyword ? (
+        <PageHeading
+          primaryText={router.query.keyword}
+          text={`の検索結果: ${movies?.total_results}件`}
+        />
+      ) : (
+        <PageHeading text={`検索結果: ${movies?.total_results}件`} />
+      )}
       <Grid
         container
         spacing={2}
