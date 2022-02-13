@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useGenres } from "src/hooks/useGenres";
 import { SearchMovies } from "src/components/Movies/SearchMovies";
 
-export default function Search() {
+export default function SearchMovies() {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const { genres, error } = useGenres();
