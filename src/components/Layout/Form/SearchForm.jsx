@@ -55,11 +55,11 @@ export function SearchForm() {
         justifyContent="center"
         alignItems="center"
         columns={{ xs: 12, sm: 12 }}
-        spacing={4}
-        sx={{ mt: 2, mb: 4 }}
+        spacing={2}
+        sx={{ mt: 1, mb: 4 }}
       >
-        <Grid item xs="12" sm="4" sx={{ mb: 2 }}>
-          <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 3 }}>
+        <Grid item xs="12" sm="4" sx={{ m: 2 }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 1 }}>
             ジャンル
           </Typography>
           <FormControl fullWidth>
@@ -94,21 +94,19 @@ export function SearchForm() {
             )}
           </FormControl>
         </Grid>
-        <Grid item xs="12" sm="4">
-          <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 3 }}>
+        <Grid item xs="12" sm="4" sx={{ mx: 2 }}>
+          <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 1 }}>
             公開年
           </Typography>
-          <Box sx={{ width: isMobileScreen ? "80vw" : "30vw" }}>
-            <Slider
-              max={2022}
-              min={1950}
-              value={year}
-              onChange={handleChangeYear}
-              valueLabelDisplay="auto"
-              marks={marks}
-              sx={{ ml: 3 }}
-            />
-          </Box>
+          <Slider
+            defaultValue=""
+            max={2022}
+            min={1950}
+            value={year}
+            onChange={handleChangeYear}
+            valueLabelDisplay="auto"
+            marks={marks}
+          />
         </Grid>
       </Grid>
       <Grid
