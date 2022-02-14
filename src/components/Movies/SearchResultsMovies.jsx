@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination } from "@mui/material";
+import { Grid, Pagination, Typography } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
 import { PageHeading } from "src/components/Layout/PageHeading";
+import { useGenres } from "src/hooks/useGenres";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
 export function SearchResultsMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
+  const [genre, setGenre] = useState("");
+  const { genres } = useGenres();
   const [page, setPage] = useState(router.query.page);
   const { movies, error, isLoading, isEmpty } = useSearchMovies();
+
+  const genreSet = useEffect(() => {
+    for (let i = 0; i < genres?.genres.length; i++) {
+      if (genres?.genres[i].id == router.query.genre) {
+        setGenre(genres?.genres[i].name);
+      }
+    }
+  });
 
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
@@ -47,7 +58,49 @@ export function SearchResultsMovies() {
           text={`の検索結果: ${movies?.total_results}件`}
         />
       ) : (
-        <PageHeading text={`検索結果: ${movies?.total_results}件`} />
+        <Grid container direction="row" alignItems="center" sx={{ mb: 2 }}>
+          <Grid item>
+            <Typography
+              variant="h5"
+              color="primary"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              {router.query.year_start}
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              ~
+            </Typography>
+            <Typography
+              variant="h5"
+              color="primary"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              {router.query.year_end}
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              年に公開された
+            </Typography>
+            <Typography
+              variant="h5"
+              color="primary"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              {genre}
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              {`のおすすめ映画: ${movies?.total_results}件`}
+            </Typography>
+          </Grid>
+        </Grid>
       )}
       <Grid
         container
