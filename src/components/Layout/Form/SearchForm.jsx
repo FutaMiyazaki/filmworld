@@ -6,7 +6,6 @@ import {
   MenuItem,
   NativeSelect,
   Slider,
-  Box,
   Button,
   Typography,
   FormControl,
