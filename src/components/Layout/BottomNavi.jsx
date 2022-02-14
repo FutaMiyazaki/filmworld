@@ -39,7 +39,7 @@ export function BottomNavi() {
             }}
           />
           <BottomNavigationAction
-            label="検索"
+            label="見つける"
             icon={<SearchIcon />}
             onClick={() => {
               router.push("/search");
