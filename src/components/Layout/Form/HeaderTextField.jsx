@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
-import { InputAdornment, TextField } from "@mui/material/";
+import { FormControl, InputAdornment, TextField } from "@mui/material/";
 import SearchIcon from "@mui/icons-material/Search";
 
 export function HeaderTextField() {
@@ -21,22 +21,24 @@ export function HeaderTextField() {
 
   return (
     <form action="" onSubmit={handleSubmit}>
-      <TextField
-        id="header-form"
-        type="text"
-        value={keyword}
-        onChange={handleSearch}
-        size="small"
-        placeholder="キーワードを入力"
-        variant="outlined"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-      />
+      <FormControl sx={{ width: "30vw" }}>
+        <TextField
+          id="header-form"
+          type="text"
+          value={keyword}
+          onChange={handleSearch}
+          size="small"
+          placeholder="キーワードを入力"
+          variant="outlined"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </FormControl>
     </form>
   );
 }
