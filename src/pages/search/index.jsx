@@ -1,16 +1,15 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { SearchMovies } from "src/components/Movies/SearchMovies";
+import { SearchForm } from "src/components/Layout/Form/SearchForm";
+import { PageHeading } from "src/components/Layout/PageHeading";
 
 export default function Search() {
-  const router = useRouter();
-
   return (
     <div>
       <Head>
-        <title>{router.query.keyword}の検索結果 - FilmWorld</title>
+        <title>映画を探す - FilmWorld</title>
       </Head>
-      <SearchMovies />
+      <PageHeading text="映画を探す" />
+      <SearchForm />
     </div>
   );
 }

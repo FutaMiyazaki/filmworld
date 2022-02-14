@@ -130,6 +130,19 @@ export function TemporaryDrawer() {
             </IconButton>
           </Box>
           <List>
+            <NextLink href="/search" passHref>
+              <MuiLink underline="none" color="white">
+                <ListItem disablePadding onClick={toggleDrawer("left", false)}>
+                  <ListItemButton>
+                    <ListItemText>
+                      <Typography color="primary" sx={{ fontWeight: "bold" }}>
+                        映画を探す
+                      </Typography>
+                    </ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </MuiLink>
+            </NextLink>
             <ListItem>
               <ListItemText>
                 <Typography color="white" sx={{ fontWeight: "bold" }}>
