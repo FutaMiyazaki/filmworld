@@ -96,7 +96,7 @@ export function SearchForm() {
         </Grid>
         <Grid item xs="12" sm="4" sx={{ mx: 2 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 1 }}>
-            公開年
+            公開年 {year[0]}~{year[1]}年
           </Typography>
           <Slider
             defaultValue=""
