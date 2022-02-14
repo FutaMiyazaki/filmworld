@@ -17,10 +17,12 @@ export function SearchResultsMovies() {
   const handlePage = (e, clickPage) => {
     setPage((page) => clickPage);
     if (router.query.keyword) {
-      router.push(`/search?keyword=${router.query.keyword}&page=${clickPage}`);
+      router.push(
+        `/search/movies?keyword=${router.query.keyword}&page=${clickPage}`
+      );
     } else {
       router.push(
-        `/search?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&page=${clickPage}`
+        `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&page=${clickPage}`
       );
     }
   };
