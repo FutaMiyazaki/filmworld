@@ -55,7 +55,7 @@ export function SearchResultsMovies() {
       {router.query.keyword ? (
         <PageHeading
           primaryText={router.query.keyword}
-          text={`の検索結果: ${movies?.total_results}件`}
+          text={`の検索結果 ${movies?.total_results}件`}
         />
       ) : (
         <Grid container direction="row" alignItems="center" sx={{ mb: 2 }}>
@@ -95,9 +95,22 @@ export function SearchResultsMovies() {
             </Typography>
             <Typography
               variant="h6"
+              sx={{ display: "inline", fontWeight: "bold", mr: 2 }}
+            >
+              のおすすめ映画
+            </Typography>
+            <Typography
+              variant="h5"
+              color="primary"
               sx={{ display: "inline", fontWeight: "bold" }}
             >
-              {`のおすすめ映画: ${movies?.total_results}件`}
+              {movies?.total_results}
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ display: "inline", fontWeight: "bold" }}
+            >
+              件
             </Typography>
           </Grid>
         </Grid>
