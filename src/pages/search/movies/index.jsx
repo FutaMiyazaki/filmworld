@@ -11,7 +11,7 @@ export default function SearchMovies() {
 
   const genreSet = useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
-      if (genres?.genres[i].id == router.query.id) {
+      if (genres?.genres[i].id == router.query.genre) {
         setGenre(genres?.genres[i].name);
       }
     }
@@ -23,7 +23,7 @@ export default function SearchMovies() {
         <title>
           {router.query.keyword
             ? `${router.query.keyword}の検索結果 - FilmWorld`
-            : `${router.query.year_start}~${router.query.year_end}年に公開された${genre}の映画 - FilmWorld`}
+            : `${router.query.year_start}~${router.query.year_end}年に公開された${genre}のおすすめ映画 - FilmWorld`}
         </title>
       </Head>
       <SearchResultsMovies />
