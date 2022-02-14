@@ -1,29 +1,35 @@
-import { useState } from "react";
 import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { useCallback, useState } from "react";
 import {
   Box,
   Collapse,
   Divider,
   Drawer,
+  InputAdornment,
   Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  TextField,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export function MobileTemporaryDrawer() {
+  const router = useRouter();
   const [state, setState] = useState({
     right: false,
   });
   const [open, setOpen] = useState(false);
+  const [keyword, setKeyword] = useState("");
   const rankingListItems = [
     {
       text: "人気の映画",
@@ -93,6 +99,19 @@ export function MobileTemporaryDrawer() {
     setOpen(!open);
   };
 
+  const handleSearch = useCallback((e) => {
+    setKeyword(e.target.value);
+  }, []);
+
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+    if (keyword.length === 0) {
+      return;
+    }
+    setState({ ...state, right: false });
+    router.push(`/search/movies?keyword=${keyword}&page=1`);
+  });
+
   return (
     <div>
       <MenuIcon onClick={toggleDrawer("right", true)} />
@@ -101,11 +120,28 @@ export function MobileTemporaryDrawer() {
         open={state["right"]}
         onClose={toggleDrawer("right", false)}
       >
-        <Box
-          role="presentation"
-          onKeyDown={toggleDrawer("right", false)}
-          sx={{ width: "70vw" }}
-        >
+        <Box role="presentation" sx={{ width: "70vw" }}>
+          <Box sx={{ m: 1 }}>
+            <form action="" onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                id="header-form"
+                type="text"
+                value={keyword}
+                onChange={handleSearch}
+                size="small"
+                placeholder="キーワードを入力"
+                variant="outlined"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </form>
+          </Box>
           <List>
             <ListItem>
               <ListItemText>
