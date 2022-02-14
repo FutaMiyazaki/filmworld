@@ -145,7 +145,9 @@ export function BottomNavi() {
           <BottomNavigationAction
             label="検索"
             icon={<SearchIcon />}
-            onClick={handleClickOpen}
+            onClick={() => {
+              router.push("/search");
+            }}
             value="search"
           />
           <BottomNavigationAction
