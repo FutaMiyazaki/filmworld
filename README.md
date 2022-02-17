@@ -6,19 +6,25 @@
 
 ## トップページ
 
-![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/152686017-24bb7afa-80ab-4c2b-8adf-4cbc71edffba.png)
+![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/154425823-7db3b915-ed83-4e3e-ac3b-a797fdf3559a.png)
 
 <br>
 
 ## レスポンシブ対応
 
-![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/152686490-37e5b583-746b-47b7-bbb3-8c8e093f3e35.png)
+![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/154426145-7bae4c82-ef7c-46b5-8ad0-64a8e68affd3.png)
 
 <br>
 
 ## アプリケーション概要
 
 フロントエンドフレームワークに [Next.js](https://nextjs.org/) を、外部 API に [TMDb](https://www.themoviedb.org/) を使用した映画情報検索アプリケーションです。
+
+<br>
+
+## 作成の背景
+
+様々なサブスプリクションサービスが広まり、最新の映画だけでなく過去に公開された映画を観る機会が増えているかと思います。ですが、これまで公開された膨大な数の映画の中から自分の観たいと思う映画を新発見するのは簡単なことではないと感じました。そこで映画探しの手助けとなるような存在を目指して、本アプリケーションを作成しました。
 
 <br>
 
@@ -53,11 +59,14 @@
     - 人気順
     - 興行収入順
     - 公開日順
+  - 公開年による絞り込み機能
+  - おすすめ映画表示機能
   - ページネーション機能
     - Material-UI の pagination component を利用
 - お気に入り保存機能
   - データの保存先は、localstorage を利用
-- Material-UI を使用したモダンな UI
+- MUI を使用した レイアウト・UI
 - レスポンシブ対応
+  - MUI の Grid コンポーネントを利用することで、レスポンシブ対応を実現
   - PC・タブレットでは、ドロワーメニュー
   - スマートフォンでは、ボトムメニュー
