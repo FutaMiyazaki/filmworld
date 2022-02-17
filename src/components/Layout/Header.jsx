@@ -22,13 +22,13 @@ export function Header() {
           <Box sx={{ mr: 2, flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
             <TemporaryDrawer />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: "flex" }}>
             <NextLink href="/" passHref>
               <MuiLink underline="none">
                 <NextImage
                   src="/images/header_icon.png"
-                  width={15}
-                  height={15}
+                  width={isMobileScreen ? 15 : 17}
+                  height={isMobileScreen ? 15 : 17}
                   objectFit="contain"
                   alt="header icon"
                   sx={{ display: "inline" }}
@@ -37,27 +37,6 @@ export function Header() {
                   noWrap
                   variant="h6"
                   component="div"
-                  sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
-                >
-                  FilmWorld
-                </Typography>
-              </MuiLink>
-            </NextLink>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <NextLink href="/" passHref>
-              <MuiLink underline="none">
-                <NextImage
-                  src="/images/header_icon.png"
-                  width={17}
-                  height={17}
-                  objectFit="contain"
-                  alt="header icon"
-                  sx={{ display: "inline" }}
-                />
-                <Typography
-                  variant="h6"
-                  noWrap
                   sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
                 >
                   FilmWorld
