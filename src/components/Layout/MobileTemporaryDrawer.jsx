@@ -121,27 +121,6 @@ export function MobileTemporaryDrawer() {
         onClose={toggleDrawer("right", false)}
       >
         <Box role="presentation" sx={{ width: "70vw" }}>
-          <Box sx={{ m: 1 }}>
-            <form action="" onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                id="header-form"
-                type="text"
-                value={keyword}
-                onChange={handleSearch}
-                size="small"
-                placeholder="キーワードを入力"
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </form>
-          </Box>
           <List>
             <ListItem>
               <ListItemText>
@@ -253,6 +232,27 @@ export function MobileTemporaryDrawer() {
               </ListItem>
             </MuiLink>
           </List>
+          <Box sx={{ m: 1 }}>
+            <form action="" onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                id="header-form"
+                type="text"
+                value={keyword}
+                onChange={handleSearch}
+                size="small"
+                placeholder="キーワードを入力"
+                variant="outlined"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </form>
+          </Box>
         </Box>
       </Drawer>
     </div>
