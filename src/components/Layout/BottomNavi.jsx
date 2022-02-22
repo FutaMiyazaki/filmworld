@@ -259,7 +259,7 @@ export function BottomNavi() {
                     <ListItemIcon>
                       <VideoLibraryIcon />
                     </ListItemIcon>
-                    <ListItemText>あなたの観たい!映画</ListItemText>
+                    <ListItemText>ウォッチリスト</ListItemText>
                   </ListItemButton>
                 </ListItem>
               </MuiLink>
