@@ -1,9 +1,7 @@
 import NextLink from "next/link";
 import { Button, Link as MuiLink, Typography } from "@mui/material";
 
-export function LinkButton(props) {
-  const { href, text } = props;
-
+export function LinkButton({ href, text }) {
   return (
     <NextLink href={href} passHref>
       <MuiLink underline="none">

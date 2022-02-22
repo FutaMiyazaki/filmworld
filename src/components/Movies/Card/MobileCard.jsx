@@ -10,25 +10,25 @@ import {
 import BasicLink from "src/components/Layout/Link/BasicLink";
 import { UserScore } from "src/components/Movies/Info/UserScore";
 
-export function MobileCard(props) {
+export function MobileCard({ movie }) {
   return (
     <Card>
       <CardContent sx={{ pa: 1 }}>
         <Box sx={{ mb: 1 }}>
           <BasicLink
-            href={{ pathname: `/movies/${props.movie.id}` }}
+            href={{ pathname: `/movies/${movie.id}` }}
             tag="subtitle1"
-            text={props.movie.title}
+            text={movie.title}
           />
         </Box>
         <Box sx={{ display: "flex" }}>
           <Box>
-            <NextLink passHref href={`/movies/${props.movie.id}`}>
+            <NextLink passHref href={`/movies/${movie.id}`}>
               <MuiLink underline="none">
                 <CardMedia
                   component="img"
                   sx={{ width: 100 }}
-                  image={`https://image.tmdb.org/t/p/w185${props.movie.poster_path}`}
+                  image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
                   alt="ポスター画像"
                 />
               </MuiLink>
@@ -40,15 +40,15 @@ export function MobileCard(props) {
               color="white"
               sx={{ display: "inline" }}
             >
-              公開日: {props.movie.release_date?.replace(/-/g, "/")}
+              公開日: {movie.release_date?.replace(/-/g, "/")}
             </Typography>
             <UserScore
-              voteAverage={props.movie.vote_average}
-              voteCount={props.movie.vote_count}
+              voteAverage={movie.vote_average}
+              voteCount={movie.vote_count}
               size="small"
             />
             <BasicLink
-              href={{ pathname: `/movies/${props.movie.id}` }}
+              href={{ pathname: `/movies/${movie.id}` }}
               tag="subtitle2"
               text=">>詳しい情報を見る"
             />
