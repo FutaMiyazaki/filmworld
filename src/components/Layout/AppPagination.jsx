@@ -9,7 +9,7 @@ export function AppPagination({ movies, path }) {
   const [page, setPage] = useState(Number(router.query.page));
 
   const handlePage = (e, clickPage) => {
-    setPage((page) => clickPage);
+    setPage(clickPage);
     router.push(`${path}page=${clickPage}`);
   };
 
