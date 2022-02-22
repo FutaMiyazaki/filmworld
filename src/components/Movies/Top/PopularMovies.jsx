@@ -1,10 +1,10 @@
-import NextLink from "next/link";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Link as MuiLink } from "@mui/material";
-import { usePopularMovies } from "src/hooks/topMovies/usePopularMovies";
+import { Grid } from "@mui/material";
+import { LinkButton } from "src/components/Layout/Link/LinkButton";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
+import { usePopularMovies } from "src/hooks/topMovies/usePopularMovies";
 
 export function PopularMovies() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
@@ -24,7 +24,7 @@ export function PopularMovies() {
       spacing={2}
       justifyContent="center"
       columns={{ xs: 4, sm: 8 }}
-      sx={{ mb: 4 }}
+      sx={{ mb: 5 }}
     >
       {popularMovies.results.map((movie, i) => {
         return i < 8 ? (
@@ -37,12 +37,8 @@ export function PopularMovies() {
           </Grid>
         ) : null;
       })}
-      <Grid item sx={{ mt: 1 }}>
-        <NextLink href="/movies/popular?page=1" passHref>
-          <MuiLink underline="hover" sx={{ fontWeight: "bold" }}>
-            もっと見る
-          </MuiLink>
-        </NextLink>
+      <Grid item xs={4} sm={4} sx={{ mt: 1 }}>
+        <LinkButton href="/movies/popular?page=1" text="もっと見る" />
       </Grid>
     </Grid>
   );
