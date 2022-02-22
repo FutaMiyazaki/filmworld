@@ -149,7 +149,7 @@ export function BottomNavi() {
             value="search"
           />
           <BottomNavigationAction
-            label="ライブラリ"
+            label="リスト"
             icon={<VideoLibraryIcon />}
             value="favorite"
             onClick={() => {

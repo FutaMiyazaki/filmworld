@@ -6,9 +6,9 @@ export default function Favorite() {
   return (
     <div>
       <Head>
-        <title>観たい映画 - FilmWorld</title>
+        <title>ウォッチリスト - FilmWorld</title>
       </Head>
-      <PageHeading text="観たい映画" />
+      <PageHeading text="ウォッチリスト" />
       <FavoriteMovies />
     </div>
   );
