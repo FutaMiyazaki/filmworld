@@ -64,6 +64,7 @@ export function SearchForm() {
           <FormControl fullWidth>
             {isMobileScreen ? (
               <NativeSelect
+                id="select-genre-mobile"
                 defaultValue=""
                 value={genre}
                 onChange={handleChangeGenre}
@@ -78,7 +79,7 @@ export function SearchForm() {
               </NativeSelect>
             ) : (
               <Select
-                id="select-genre"
+                id="select-genre-pc"
                 value={genre}
                 onChange={handleChangeGenre}
               >
