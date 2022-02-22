@@ -24,10 +24,10 @@ export function AppPagination({ movies, path }) {
           <Pagination
             page={page}
             count={movies?.total_pages}
-            variant="outlined"
             shape="rounded"
+            variant="outlined"
             color="primary"
-            size={isMobileScreen ? "small" : "medium"}
+            size="medium"
             onChange={handlePage}
           />
         </Grid>
