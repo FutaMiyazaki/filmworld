@@ -122,7 +122,11 @@ export function SearchResultsMovies() {
       </Grid>
       <AppPagination
         movies={movies}
-        path={`/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`}
+        path={
+          router.query.keyword
+            ? `/search/movies?keyword=${router.query.keyword}&`
+            : `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`
+        }
       />
     </div>
   );
