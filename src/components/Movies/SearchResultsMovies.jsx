@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
-import { Grid, Pagination, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
+import { AppPagination } from "src/components/Layout/AppPagination";
 import { Loading } from "src/components/Layout/Loading";
 import { MobileCard } from "src/components/Movies/Card/MobileCard";
 import { PcCard } from "src/components/Movies/Card/Pccard";
@@ -10,11 +11,10 @@ import { useGenres } from "src/hooks/useGenres";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
 export function SearchResultsMovies() {
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const router = useRouter();
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const [genre, setGenre] = useState("");
   const { genres } = useGenres();
-  const [page, setPage] = useState(router.query.page);
   const { movies, error, isLoading, isEmpty } = useSearchMovies();
 
   const genreSet = useEffect(() => {
@@ -24,19 +24,6 @@ export function SearchResultsMovies() {
       }
     }
   });
-
-  const handlePage = (e, clickPage) => {
-    setPage((page) => clickPage);
-    if (router.query.keyword) {
-      router.push(
-        `/search/movies?keyword=${router.query.keyword}&page=${clickPage}`
-      );
-    } else {
-      router.push(
-        `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&page=${clickPage}`
-      );
-    }
-  };
 
   if (isLoading) {
     return <Loading />;
@@ -133,19 +120,10 @@ export function SearchResultsMovies() {
           );
         })}
       </Grid>
-      {movies?.total_pages <= 1 ? null : (
-        <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
-          <Pagination
-            page={page}
-            count={movies?.total_pages}
-            variant="outlined"
-            shape="rounded"
-            color="primary"
-            size={isMobileScreen ? "small" : "medium"}
-            onChange={handlePage}
-          />
-        </Grid>
-      )}
+      <AppPagination
+        movies={movies}
+        path={`/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`}
+      />
     </div>
   );
 }
