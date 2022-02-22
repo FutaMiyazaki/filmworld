@@ -64,7 +64,7 @@ export function SearchForm() {
           <FormControl fullWidth>
             {isMobileScreen ? (
               <NativeSelect
-                id="select-genre"
+                defaultValue=""
                 value={genre}
                 onChange={handleChangeGenre}
               >
@@ -98,7 +98,6 @@ export function SearchForm() {
             公開年 {year[0]}~{year[1]}年
           </Typography>
           <Slider
-            defaultValue=""
             max={2022}
             min={1950}
             value={year}
