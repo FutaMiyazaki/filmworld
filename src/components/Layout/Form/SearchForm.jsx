@@ -62,36 +62,19 @@ export function SearchForm() {
             ジャンル
           </Typography>
           <FormControl fullWidth>
-            {isMobileScreen ? (
-              <NativeSelect
-                id="select-genre-mobile"
-                defaultValue=""
-                value={genre}
-                onChange={handleChangeGenre}
-              >
-                {genres?.genres.map((genreData) => {
-                  return (
-                    <option key={genreData.id} value={genreData.id}>
-                      {genreData.name}
-                    </option>
-                  );
-                })}
-              </NativeSelect>
-            ) : (
-              <Select
-                id="select-genre-pc"
-                value={genre}
-                onChange={handleChangeGenre}
-              >
-                {genres?.genres.map((genreData) => {
-                  return (
-                    <MenuItem key={genreData.id} value={genreData.id}>
-                      {genreData.name}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            )}
+            <Select
+              id="select-genre"
+              value={genre}
+              onChange={handleChangeGenre}
+            >
+              {genres?.genres.map((genreData) => {
+                return (
+                  <MenuItem key={genreData.id} value={genreData.id}>
+                    {genreData.name}
+                  </MenuItem>
+                );
+              })}
+            </Select>
           </FormControl>
         </Grid>
         <Grid item xs="12" sm="4" sx={{ mx: 2 }}>
