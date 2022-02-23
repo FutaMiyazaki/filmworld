@@ -9,8 +9,9 @@ import {
   Link as MuiLink,
   Typography,
 } from "@mui/material";
+import LinkIcon from "@mui/icons-material/Link";
 
-export function ButtonDialog({ url }) {
+export function ExternalLinkDialog({ url }) {
   const [open, setOpen] = useState(false);
 
   const openDialog = useCallback(() => {
@@ -24,25 +25,21 @@ export function ButtonDialog({ url }) {
   return (
     <div>
       <Button
-        variant="outlined"
+        startIcon={<LinkIcon />}
         onClick={openDialog}
         sx={{ fontWeight: "bold" }}
       >
         公式サイト
       </Button>
       <Dialog open={open} onClose={closeDialog}>
-        <DialogTitle id="official-site-dialog-title">
+        <DialogTitle>
           下記の外部サイトに移動してよろしいでしょうか？
-          <br />
         </DialogTitle>
         <DialogContent>
-          <DialogContentText
-            id="official-site-dialog-content-url"
-            sx={{ mb: 3, textAlign: "center" }}
-          >
+          <DialogContentText sx={{ mb: 3, textAlign: "center" }}>
             <Typography color="primary">{url}</Typography>
           </DialogContentText>
-          <DialogContentText id="official-site-dialog-content-alert">
+          <DialogContentText>
             ※FilmWorldは、リンク先の内容に関して、またそのウェブサイトを利用した際に生じたいかなる損害についても一切の責任を負いません。他のウェブサイトについては、お客様自身の責任において閲覧・利用するものとします。
           </DialogContentText>
         </DialogContent>
