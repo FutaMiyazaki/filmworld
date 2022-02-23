@@ -97,13 +97,15 @@ export function SearchResultsMovies() {
       >
         {movies?.results.map((movie) => {
           return (
-            <Grid key={movie.id} item xs={4} sm={4}>
-              {isMobileScreen ? (
-                <MobileCard movie={movie} />
-              ) : (
-                <PcCard movie={movie} />
-              )}
-            </Grid>
+            movie.poster_path && (
+              <Grid key={movie.id} item xs={4} sm={4}>
+                {isMobileScreen ? (
+                  <MobileCard movie={movie} />
+                ) : (
+                  <PcCard movie={movie} />
+                )}
+              </Grid>
+            )
           );
         })}
       </Grid>
