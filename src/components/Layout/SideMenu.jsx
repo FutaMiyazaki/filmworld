@@ -79,20 +79,7 @@ export function SideMenu() {
   return (
     <div>
       <List sx={{ pt: 0, position: "fixed" }}>
-        <NextLink href="/search" passHref>
-          <MuiLink underline="none" color="white">
-            <ListItem disablePadding>
-              <ListItemButton sx={{ py: 0 }}>
-                <ListItemText>
-                  <Typography color="primary" sx={{ fontWeight: "bold" }}>
-                    おすすめの映画を探す
-                  </Typography>
-                </ListItemText>
-              </ListItemButton>
-            </ListItem>
-          </MuiLink>
-        </NextLink>
-        <ListItem>
+        <ListItem sx={{ pt: 0 }}>
           <ListItemText>
             <Typography color="white" sx={{ fontWeight: "bold" }}>
               ランキングで探す
