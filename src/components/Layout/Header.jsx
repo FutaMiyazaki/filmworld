@@ -45,7 +45,11 @@ export function Header() {
               </MuiLink>
             </NextLink>
             <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
-              <LinkButton href="/search" text="オススメの映画を探す" />
+              <LinkButton
+                href="/search"
+                variant="text"
+                text="オススメの映画を探す"
+              />
             </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }} />
