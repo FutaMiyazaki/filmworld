@@ -5,7 +5,7 @@ import { Box, Card, CardMedia, Grid } from "@mui/material";
 import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { ButtonDialog } from "src/components/Movies/Info/ButtonDialog";
+import { ExternalLinkDialog } from "src/components/Movies/Info/ExternalLinkDialog";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { Director } from "src/components/Movies/Info/Director";
 import { FavoriteButton } from "src/components/Movies/Info/FavoriteButton";
@@ -54,7 +54,9 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </Card>
-            {movieInfo?.homepage && <ButtonDialog url={movieInfo?.homepage} />}
+            {movieInfo?.homepage && (
+              <ExternalLinkDialog url={movieInfo?.homepage} />
+            )}
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <div style={{ position: "relative", width: "100%", height: 450 }}>
@@ -68,7 +70,7 @@ export default function MoviesId() {
             <Grid container justifyContent="center" spacing="10" sx={{ mt: 1 }}>
               {movieInfo?.homepage && (
                 <Grid item xs="1/2" sm="1/2">
-                  <ButtonDialog url={movieInfo?.homepage} />
+                  <ExternalLinkDialog url={movieInfo?.homepage} />
                 </Grid>
               )}
               <Grid item xs="1/2" sm="1/2">
