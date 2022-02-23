@@ -84,20 +84,7 @@ export function SearchResultsMovies() {
               variant="h6"
               sx={{ display: "inline", fontWeight: "bold", mr: 2 }}
             >
-              のおすすめ映画
-            </Typography>
-            <Typography
-              variant="h5"
-              color="primary"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              {movies?.total_results}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              件
+              のオススメ映画
             </Typography>
           </Grid>
         </Grid>
