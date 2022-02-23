@@ -6,6 +6,7 @@ import { useMovie } from "src/hooks/useMovie";
 import { ExternalLink } from "src/components/Layout/Link/ExternalLink";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
+import { ButtonDialog } from "src/components/Movies/Info/ButtonDialog";
 import { Cast } from "src/components/Movies/Info/Cast";
 import { Director } from "src/components/Movies/Info/Director";
 import { FavoriteButton } from "src/components/Movies/Info/FavoriteButton";
@@ -54,9 +55,7 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </Card>
-            {movieInfo?.homepage && (
-              <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
-            )}
+            {movieInfo?.homepage && <ButtonDialog url={movieInfo?.homepage} />}
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <div style={{ position: "relative", width: "100%", height: 450 }}>
@@ -70,7 +69,7 @@ export default function MoviesId() {
             <Grid container justifyContent="center" spacing="10" sx={{ mt: 1 }}>
               {movieInfo?.homepage && (
                 <Grid item xs="1/2" sm="1/2">
-                  <ExternalLink url={movieInfo?.homepage} text="公式サイト" />
+                  <ButtonDialog url={movieInfo?.homepage} />
                 </Grid>
               )}
               <Grid item xs="1/2" sm="1/2">
