@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import { Box, Card, CardMedia, Grid } from "@mui/material";
 import { useMovie } from "src/hooks/useMovie";
-import { ExternalLink } from "src/components/Layout/Link/ExternalLink";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { ButtonDialog } from "src/components/Movies/Info/ButtonDialog";
