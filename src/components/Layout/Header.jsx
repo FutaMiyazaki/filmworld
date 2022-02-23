@@ -9,6 +9,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material/";
+import { LinkButton } from "src/components/Layout/Link/LinkButton";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
@@ -16,7 +17,7 @@ export function Header() {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
-    <AppBar position={isMobileScreen ? "relative" : "fixed"}>
+    <AppBar position={isMobileScreen ? "static" : "fixed"}>
       <Container>
         <Toolbar disableGutters>
           <Box sx={{ mr: 2, flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
@@ -43,6 +44,9 @@ export function Header() {
                 </Typography>
               </MuiLink>
             </NextLink>
+            <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
+              <LinkButton href="/search" text="オススメの映画を探す" />
+            </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }} />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
