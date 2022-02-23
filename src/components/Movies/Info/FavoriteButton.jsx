@@ -5,6 +5,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
+  DialogTitle,
 } from "@mui/material";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
@@ -107,21 +108,21 @@ export function FavoriteButton(props) {
           観たい!
         </Button>
       )}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            観たい!映画から削除しますか？
-          </DialogContentText>
-        </DialogContent>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>ウォッチリストから削除しますか？</DialogTitle>
         <DialogActions>
-          <Button onClick={handleClose}>キャンセル</Button>
-          <Button onClick={removeFavorite} autoFocus>
-            削除
+          <Button fullWidth variant="outlined" onClick={handleClose}>
+            キャンセル
+          </Button>
+        </DialogActions>
+        <DialogActions sx={{ mb: 2 }}>
+          <Button
+            autoFocus
+            fullWidth
+            variant="contained"
+            onClick={removeFavorite}
+          >
+            削除する
           </Button>
         </DialogActions>
       </Dialog>
