@@ -52,26 +52,13 @@ export function SearchResultsMovies() {
               color="primary"
               sx={{ display: "inline", fontWeight: "bold" }}
             >
-              {router.query.year_start}
+              {router.query.year_start}~{router.query.year_end}年
             </Typography>
             <Typography
               variant="h6"
               sx={{ display: "inline", fontWeight: "bold" }}
             >
-              ~
-            </Typography>
-            <Typography
-              variant="h5"
-              color="primary"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              {router.query.year_end}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              年に公開された
+              に公開された
             </Typography>
             <Typography
               variant="h5"
