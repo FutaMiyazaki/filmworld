@@ -6,13 +6,13 @@
 
 ## トップページ
 
-![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/154425823-7db3b915-ed83-4e3e-ac3b-a797fdf3559a.png)
+![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/155354498-7e6e4f86-25c5-44b7-9700-411a24e0458e.png)
 
 <br>
 
 ## レスポンシブ対応
 
-![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/154426145-7bae4c82-ef7c-46b5-8ad0-64a8e68affd3.png)
+![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/155354821-4430933f-af21-456f-9fcb-b12de970042f.png)
 
 <br>
 
@@ -43,6 +43,11 @@
 
 ![filmworld_infrastructure](https://user-images.githubusercontent.com/74496398/152685644-41643163-c550-4df6-aefc-6e42f3df71e9.png)
 
+### Vervel の選定理由
+
+- Next.js も Vercel サーバーも Vercel 社製であり、親和性が高いため
+- インフラレイヤを考えることなくアプリケーション開発に集中するため
+
 <br>
 
 ## 機能・特徴一覧
@@ -60,7 +65,8 @@
     - 興行収入順
     - 公開日順
   - 公開年による絞り込み機能
-  - おすすめ映画表示機能
+  - オススメ映画表示機能
+    - ジャンルおよび公開年を選択するだけでオススメの映画を表示する
   - ページネーション機能
     - Material-UI の pagination component を利用
 - お気に入り保存機能
