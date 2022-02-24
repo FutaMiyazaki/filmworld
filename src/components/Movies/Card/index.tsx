@@ -1,12 +1,14 @@
 import NextLink from "next/link";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
   Link as MuiLink,
   Typography,
 } from "@mui/material";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useMediaQuery } from "react-responsive";
 import { UserScore } from "src/components/Movies/Info/UserScore";
 
@@ -71,10 +73,14 @@ export function MoviesCard(props: MoviesCardProps) {
                   size={isMobileScreen ? "small" : "medium"}
                 />
                 <NextLink href={`/movies/${movie.id}`} passHref>
-                  <MuiLink underline="hover">
-                    <Typography variant="subtitle2" sx={{ display: "inline" }}>
-                      詳しい情報はこちら
-                    </Typography>
+                  <MuiLink underline="none">
+                    <Button
+                      fullWidth={isMobileScreen}
+                      variant="outlined"
+                      endIcon={<ChevronRightIcon />}
+                    >
+                      詳細を見る
+                    </Button>
                   </MuiLink>
                 </NextLink>
               </Box>
