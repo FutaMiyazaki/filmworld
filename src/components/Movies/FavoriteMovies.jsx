@@ -64,7 +64,7 @@ export function FavoriteMovies(props) {
             <VideoLibraryIcon sx={{ fontSize: 80 }} />
           </Grid>
           <Grid item sx={{ mb: 4 }}>
-            ウオッチリストへの登録はありません
+            ウォッチリストへの登録はありません
           </Grid>
           <Grid item>
             <NextLink href="/search" passHref>
