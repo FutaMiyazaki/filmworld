@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useMediaQuery } from "react-responsive";
 import {
+  Button,
   Card,
   CardContent,
   CardMedia,
@@ -64,6 +65,15 @@ export function FavoriteMovies(props) {
           </Grid>
           <Grid item sx={{ mb: 4 }}>
             ウオッチリストへの登録はありません
+          </Grid>
+          <Grid item>
+            <NextLink href="/search" passHref>
+              <MuiLink underline="none">
+                <Button variant="outlined">
+                  <Typography>次に観る映画を探す</Typography>
+                </Button>
+              </MuiLink>
+            </NextLink>
           </Grid>
         </Grid>
       )}
