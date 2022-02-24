@@ -41,40 +41,12 @@ export function SearchResultsMovies() {
     <div>
       {router.query.keyword ? (
         <PageHeading
-          primaryText={router.query.keyword}
-          text={`の検索結果 ${movies?.total_results}件`}
+          text={`${router.query.keyword}の検索結果 ${movies?.total_results}件`}
         />
       ) : (
-        <Grid container direction="row" alignItems="center" sx={{ mb: 2 }}>
-          <Grid item>
-            <Typography
-              variant="h5"
-              color="primary"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              {router.query.year_start}~{router.query.year_end}年
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              に公開された
-            </Typography>
-            <Typography
-              variant="h5"
-              color="primary"
-              sx={{ display: "inline", fontWeight: "bold" }}
-            >
-              {genre}
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ display: "inline", fontWeight: "bold", mr: 2 }}
-            >
-              のオススメ映画
-            </Typography>
-          </Grid>
-        </Grid>
+        <PageHeading
+          text={`${router.query.year_start}~${router.query.year_end}年に公開された${genre}のオススメ映画`}
+        />
       )}
       <Grid
         container
