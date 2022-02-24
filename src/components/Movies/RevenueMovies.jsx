@@ -28,7 +28,16 @@ export function RevenueMovies() {
         {movies.results.map((movie) => {
           return (
             <Grid key={movie.id} item xs={4} sm={4}>
-              <MoviesCard movie={movie} />
+              <MoviesCard
+                movie={{
+                  id: movie.id,
+                  title: movie.title,
+                  posterPath: movie.poster_path,
+                  releaseDate: movie.release_date,
+                  voteAverage: movie.vote_average,
+                  voteCount: movie.vote_count,
+                }}
+              />
             </Grid>
           );
         })}
