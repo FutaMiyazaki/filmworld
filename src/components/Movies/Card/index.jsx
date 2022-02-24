@@ -7,17 +7,20 @@ import {
   Link as MuiLink,
   Typography,
 } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 import BasicLink from "src/components/Layout/Link/BasicLink";
 import { UserScore } from "src/components/Movies/Info/UserScore";
 
-export function MobileCard({ movie }) {
+export function MoviesCard({ movie }) {
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
+
   return (
     <Card>
       <CardContent sx={{ pa: 1 }}>
         <Box sx={{ mb: 1 }}>
           <BasicLink
             href={{ pathname: `/movies/${movie.id}` }}
-            tag="subtitle1"
+            tag={isMobileScreen ? "subtitle1" : "h6"}
             text={movie.title}
           />
         </Box>
@@ -27,7 +30,7 @@ export function MobileCard({ movie }) {
               <MuiLink underline="none">
                 <CardMedia
                   component="img"
-                  sx={{ width: 100 }}
+                  sx={{ width: isMobileScreen ? "100" : "150" }}
                   image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
                   alt="ポスター画像"
                 />
@@ -36,7 +39,7 @@ export function MobileCard({ movie }) {
           </Box>
           <Box sx={{ ml: 2 }}>
             <Typography
-              variant="subtitle2"
+              variant={isMobileScreen ? "subtitle2" : "subtitle1"}
               color="white"
               sx={{ display: "inline" }}
             >
@@ -46,6 +49,7 @@ export function MobileCard({ movie }) {
               voteAverage={movie.vote_average}
               voteCount={movie.vote_count}
               size="small"
+              size={isMobileScreen ? "small" : "medium"}
             />
             <BasicLink
               href={{ pathname: `/movies/${movie.id}` }}
