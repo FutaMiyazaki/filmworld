@@ -6,7 +6,7 @@ import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { ExternalLinkDialog } from "src/components/Movies/Info/ExternalLinkDialog";
-import { Cast } from "src/components/Movies/Info/Cast";
+import { CastInformation } from "src/components/Movies/Info/CastInformation";
 import { Director } from "src/components/Movies/Info/Director";
 import { FavoriteButton } from "src/components/Movies/Info/FavoriteButton";
 import { Genres } from "src/components/Movies/Info/Genres";
@@ -120,7 +120,7 @@ export default function MoviesId() {
             )}
             <Director crew={movieCredits?.crew} />
             <Screenwriter crew={movieCredits?.crew} />
-            <Cast cast={movieCredits?.cast} />
+            <CastInformation cast={movieCredits?.cast} />
           </Box>
         </Grid>
         <Grid item xs="5" sx={{ display: { xs: "block", sm: "none" } }}>
@@ -130,7 +130,7 @@ export default function MoviesId() {
           />
           <Director crew={movieCredits?.crew} />
           <Screenwriter crew={movieCredits?.crew} />
-          <Cast cast={movieCredits?.cast} />
+          <CastInformation cast={movieCredits?.cast} />
         </Grid>
       </Grid>
       <PageHeading text="似ている作品" />
