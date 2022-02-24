@@ -25,7 +25,7 @@ export default function MoviesCast() {
       <Head>
         <title>{cast?.name}が出演している映画 - FilmWorld</title>
       </Head>
-      <PageHeading primaryText={cast?.name} text="が出演している映画" />
+      <PageHeading text={`${cast?.name}が出演している映画`} />
       <SortMenu sort={sort} handleChangeSort={handleChangeSort} />
       <CastMovies />
     </div>
