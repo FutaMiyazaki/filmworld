@@ -34,7 +34,7 @@ export default function MoviesGenre() {
       <Head>
         <title>{`${genre}の映画 - FilmWorld`}</title>
       </Head>
-      <PageHeading primaryText={genre} text="の映画" />
+      <PageHeading text={`${genre}の映画`} />
       <SortMenu sort={sort} handleChangeSort={handleChangeSort} />
       <GenreMovies />
     </div>

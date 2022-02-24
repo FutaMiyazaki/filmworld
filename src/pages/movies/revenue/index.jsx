@@ -19,7 +19,9 @@ export default function MoviesRevenue() {
       <PageHeading
         primaryText={router.query.year}
         text={
-          router.query.year ? "年代の興行収入ランキング" : "興行収入ランキング"
+          router.query.year
+            ? `${router.query.year}年代の興行収入ランキング`
+            : "興行収入ランキング"
         }
       />
       <FilterByYear path="/movies/revenue?" />
