@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useMediaQuery } from "react-responsive";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { AppPagination } from "src/components/Layout/AppPagination";
 import { Loading } from "src/components/Layout/Loading";
-import { MobileCard } from "src/components/Movies/Card/MobileCard";
-import { PcCard } from "src/components/Movies/Card/Pccard";
+import { MoviesCard } from "src/components/Movies/Card/index";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { useGenres } from "src/hooks/useGenres";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
 export function SearchResultsMovies() {
   const router = useRouter();
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const [genre, setGenre] = useState("");
   const { genres } = useGenres();
   const { movies, error, isLoading, isEmpty } = useSearchMovies();
@@ -58,11 +55,7 @@ export function SearchResultsMovies() {
           return (
             movie.poster_path && (
               <Grid key={movie.id} item xs={4} sm={4}>
-                {isMobileScreen ? (
-                  <MobileCard movie={movie} />
-                ) : (
-                  <PcCard movie={movie} />
-                )}
+                <MoviesCard movie={movie} />
               </Grid>
             )
           );
