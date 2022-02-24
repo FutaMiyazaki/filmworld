@@ -111,11 +111,6 @@ export function FavoriteButton(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>ウォッチリストから削除しますか？</DialogTitle>
         <DialogActions>
-          <Button fullWidth variant="outlined" onClick={handleClose}>
-            キャンセル
-          </Button>
-        </DialogActions>
-        <DialogActions sx={{ mb: 2 }}>
           <Button
             autoFocus
             fullWidth
@@ -123,6 +118,11 @@ export function FavoriteButton(props) {
             onClick={removeFavorite}
           >
             削除する
+          </Button>
+        </DialogActions>
+        <DialogActions sx={{ mb: 2 }}>
+          <Button fullWidth variant="outlined" onClick={handleClose}>
+            キャンセル
           </Button>
         </DialogActions>
       </Dialog>
