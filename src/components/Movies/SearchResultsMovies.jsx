@@ -53,20 +53,18 @@ export function SearchResultsMovies() {
       >
         {movies?.results.map((movie) => {
           return (
-            movie.poster_path && (
-              <Grid key={movie.id} item xs={4} sm={4}>
-                <MoviesCard
-                  movie={{
-                    id: movie.id,
-                    title: movie.title,
-                    posterPath: movie.poster_path,
-                    releaseDate: movie.release_date,
-                    voteAverage: movie.vote_average,
-                    voteCount: movie.vote_count,
-                  }}
-                />
-              </Grid>
-            )
+            <Grid key={movie.id} item xs={4} sm={4}>
+              <MoviesCard
+                movie={{
+                  id: movie.id,
+                  title: movie.title,
+                  posterPath: movie.poster_path,
+                  releaseDate: movie.release_date,
+                  voteAverage: movie.vote_average,
+                  voteCount: movie.vote_count,
+                }}
+              />
+            </Grid>
           );
         })}
       </Grid>
