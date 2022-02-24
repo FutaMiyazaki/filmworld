@@ -8,21 +8,37 @@ import {
   Typography,
 } from "@mui/material";
 import { useMediaQuery } from "react-responsive";
-import BasicLink from "src/components/Layout/Link/BasicLink";
 import { UserScore } from "src/components/Movies/Info/UserScore";
 
-export function MoviesCard({ movie }) {
+type MoviesCardProps = {
+  movie: {
+    id: number;
+    title: string;
+    posterPath: string;
+    releaseDate: string;
+    voteAverage: number;
+    voteCount: number;
+  };
+};
+
+export function MoviesCard(props: MoviesCardProps) {
+  const { movie } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
     <Card>
       <CardContent sx={{ pa: 1 }}>
         <Box sx={{ mb: 1 }}>
-          <BasicLink
-            href={{ pathname: `/movies/${movie.id}` }}
-            tag={isMobileScreen ? "subtitle1" : "h6"}
-            text={movie.title}
-          />
+          <NextLink href={`/movies/${movie.id}`} passHref>
+            <MuiLink underline="hover">
+              <Typography
+                variant={isMobileScreen ? "subtitle1" : "h6"}
+                sx={{ display: "inline" }}
+              >
+                {movie.title}
+              </Typography>
+            </MuiLink>
+          </NextLink>
         </Box>
         <Box sx={{ display: "flex" }}>
           <Box>
@@ -31,7 +47,7 @@ export function MoviesCard({ movie }) {
                 <CardMedia
                   component="img"
                   sx={{ width: isMobileScreen ? "100" : "150" }}
-                  image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                  image={`https://image.tmdb.org/t/p/w185${movie.posterPath}`}
                   alt="ポスター画像"
                 />
               </MuiLink>
@@ -43,19 +59,20 @@ export function MoviesCard({ movie }) {
               color="white"
               sx={{ display: "inline" }}
             >
-              公開日: {movie.release_date?.replace(/-/g, "/")}
+              公開日: {movie.releaseDate?.replace(/-/g, "/")}
             </Typography>
             <UserScore
-              voteAverage={movie.vote_average}
-              voteCount={movie.vote_count}
-              size="small"
+              voteAverage={movie.voteAverage}
+              voteCount={movie.voteCount}
               size={isMobileScreen ? "small" : "medium"}
             />
-            <BasicLink
-              href={{ pathname: `/movies/${movie.id}` }}
-              tag="subtitle2"
-              text=">>詳しい情報を見る"
-            />
+            <NextLink href={`/movies/${movie.id}`} passHref>
+              <MuiLink underline="hover">
+                <Typography variant="subtitle2" sx={{ display: "inline" }}>
+                  詳しい情報はこちら
+                </Typography>
+              </MuiLink>
+            </NextLink>
           </Box>
         </Box>
       </CardContent>
