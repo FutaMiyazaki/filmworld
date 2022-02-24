@@ -62,7 +62,9 @@ export function FavoriteMovies(props) {
           <Grid item sx={{ mb: 4 }}>
             <VideoLibraryIcon sx={{ fontSize: 80 }} />
           </Grid>
-          <Grid item>観たい映画の登録はありません</Grid>
+          <Grid item sx={{ mb: 4 }}>
+            ウオッチリストへの登録はありません
+          </Grid>
         </Grid>
       )}
     </div>
