@@ -123,7 +123,7 @@ export default function MoviesId() {
             <CastInfo cast={movieCredits?.cast} />
           </Box>
         </Grid>
-        <Grid item xs="5" sx={{ display: { xs: "block", sm: "none" } }}>
+        <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
           {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
           <ProductionCompanies
             productionCompanies={movieInfo?.production_companies}
