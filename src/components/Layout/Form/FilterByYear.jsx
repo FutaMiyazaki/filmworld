@@ -19,14 +19,8 @@ export function FilterByYear({ path }) {
   });
 
   return (
-    <Grid
-      container
-      justifyContent="flex-start"
-      alignItems="center"
-      columns={{ xs: 12, sm: 12 }}
-      sx={{ mt: 2, mb: 4 }}
-    >
-      <Grid item xs="12" sm="3">
+    <Grid container columns={{ xs: 4, sm: 8 }} sx={{ mt: 2, mb: 4 }}>
+      <Grid item xs={4} sm={2}>
         <FormHelperText sx={{ fontWeight: "bold" }}>
           年代で絞り込む(1950~2022年)
         </FormHelperText>
