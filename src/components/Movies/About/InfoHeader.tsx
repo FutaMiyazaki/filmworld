@@ -1,9 +1,14 @@
 import { Typography } from "@mui/material";
 
-export function InfoHeader(props) {
+type InfoHeaderProps = {
+  text: string;
+};
+
+export function InfoHeader(props: InfoHeaderProps) {
+  const { text } = props;
   return (
     <Typography variant="subtitle1" color="white" sx={{ fontWeight: "bold" }}>
-      {props?.text}
+      {text}
     </Typography>
   );
 }
