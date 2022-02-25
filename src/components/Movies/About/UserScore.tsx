@@ -2,8 +2,8 @@ import { Box, Rating, Typography } from "@mui/material";
 
 type UserScoreProps = {
   size: "small" | "medium" | "large";
-  voteAverage: number;
-  voteCount: number;
+  voteAverage: 0;
+  voteCount: 0;
 };
 
 export const UserScore = (props: UserScoreProps) => {

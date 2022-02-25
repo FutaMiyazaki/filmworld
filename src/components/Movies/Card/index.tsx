@@ -18,8 +18,8 @@ type MoviesCardProps = {
     title: string;
     posterPath?: string;
     releaseDate?: string;
-    voteAverage?: number;
-    voteCount?: number;
+    voteAverage: 0;
+    voteCount: 0;
   };
 };
 
@@ -68,8 +68,8 @@ export function MoviesCard(props: MoviesCardProps) {
                   </Typography>
                 ) : null}
                 <UserScore
-                  voteAverage={movie.voteAverage}
-                  voteCount={movie.voteCount}
+                  voteAverage={movie?.voteAverage}
+                  voteCount={movie?.voteCount}
                   size={isMobileScreen ? "small" : "medium"}
                 />
                 <NextLink href={`/movies/${movie.id}`} passHref>
