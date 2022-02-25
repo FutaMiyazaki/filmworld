@@ -11,7 +11,12 @@ import {
 } from "@mui/material";
 import LinkIcon from "@mui/icons-material/Link";
 
-export function ExternalLinkDialog({ url }) {
+type ExternalLinkDialogProps = {
+  url: string;
+};
+
+export function ExternalLinkDialog(props: ExternalLinkDialogProps) {
+  const { url } = props;
   const [open, setOpen] = useState(false);
 
   const openDialog = useCallback(() => {
