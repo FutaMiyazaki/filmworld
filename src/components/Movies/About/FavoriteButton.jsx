@@ -1,12 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 export function FavoriteButton(props) {
