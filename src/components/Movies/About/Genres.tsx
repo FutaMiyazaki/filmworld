@@ -1,10 +1,23 @@
 import NextLink from "next/link";
+import { useMediaQuery } from "react-responsive";
 import { Box, Chip } from "@mui/material";
 
-export function Genres(props) {
+type GenresData = {
+  id?: number;
+  name?: string;
+}[];
+
+type GenresProps = {
+  genres: GenresData;
+};
+
+export function Genres(props: GenresProps) {
+  const { genres } = props;
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
+
   return (
     <Box>
-      {props.genres?.map((genre) => {
+      {genres?.map((genre) => {
         return (
           <NextLink
             key={genre.id}
@@ -14,7 +27,7 @@ export function Genres(props) {
             <Chip
               component="a"
               label={genre.name}
-              size="small"
+              size={isMobileScreen ? "small" : "medium"}
               color="primary"
               variant="outlined"
               clickable
