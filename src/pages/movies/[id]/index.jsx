@@ -115,7 +115,7 @@ export default function MoviesId() {
             {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
             {movieInfo?.production_companies && (
               <ProductionCompanies
-                productionCompanies={movieInfo?.production_companies}
+                companies={movieInfo?.production_companies}
               />
             )}
             <DirectorInfo crew={movieCredits?.crew} />
@@ -125,9 +125,7 @@ export default function MoviesId() {
         </Grid>
         <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
           {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
-          <ProductionCompanies
-            productionCompanies={movieInfo?.production_companies}
-          />
+          <ProductionCompanies companies={movieInfo?.production_companies} />
           <DirectorInfo crew={movieCredits?.crew} />
           <Screenwriter crew={movieCredits?.crew} />
           <CastInfo cast={movieCredits?.cast} />
