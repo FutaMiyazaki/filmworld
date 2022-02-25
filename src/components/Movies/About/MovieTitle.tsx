@@ -1,16 +1,16 @@
-import { Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useMediaQuery } from "react-responsive";
 
-export function TitleHeader(props) {
+type MovieTitleProps = {
+  title: string;
+  originalTitle: string;
+};
+
+export function MovieTitle(props: MovieTitleProps) {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
-    <Grid
-      item
-      xs="5"
-      sm="auto"
-      sx={{ display: { xs: props?.xsDisplay, sm: props?.smDisplay } }}
-    >
+    <>
       <Typography
         variant={isMobileScreen ? "h5" : "h4"}
         color="white"
@@ -25,6 +25,6 @@ export function TitleHeader(props) {
       >
         {props?.originalTitle}
       </Typography>
-    </Grid>
+    </>
   );
 }
