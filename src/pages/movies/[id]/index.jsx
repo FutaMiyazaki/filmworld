@@ -10,12 +10,12 @@ import { CastInfo } from "src/components/Movies/About/CastInfo";
 import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
 import { Genres } from "src/components/Movies/About/Genres";
+import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
 import { ReleaseDate } from "src/components/Movies/About/ReleaseDate";
 import { Screenwriter } from "src/components/Movies/About/Screenwriter";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
-import { TitleHeader } from "src/components/Movies/About/TitleHeader";
 import { UserScore } from "src/components/Movies/About/UserScore";
 
 export default function MoviesId() {
@@ -36,12 +36,12 @@ export default function MoviesId() {
         <title>{movieInfo?.title} - FilmWorld</title>
       </Head>
       <Grid container columns={{ xs: 5, sm: 12 }} spacing={2} sx={{ mb: 4 }}>
-        <TitleHeader
-          xsDisplay="block"
-          smDisplay="none"
-          title={movieInfo?.title}
-          originalTitle={movieInfo?.original_title}
-        />
+        <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
+          <MovieTitle
+            title={movieInfo?.title}
+            originalTitle={movieInfo?.original_title}
+          />
+        </Grid>
         <Grid item xs={2} sm={4}>
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
             <Card sx={{ mb: 1 }}>
@@ -86,9 +86,7 @@ export default function MoviesId() {
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>
-          <TitleHeader
-            xsDisplay="none"
-            smDisplay="block"
+          <MovieTitle
             title={movieInfo?.title}
             originalTitle={movieInfo?.original_title}
           />
