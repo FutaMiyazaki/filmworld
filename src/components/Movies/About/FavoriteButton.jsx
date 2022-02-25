@@ -80,7 +80,7 @@ export function FavoriteButton(props) {
   }, []);
 
   return (
-    <div>
+    <>
       {favorite ? (
         <Button
           fullWidth
@@ -119,6 +119,6 @@ export function FavoriteButton(props) {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }
