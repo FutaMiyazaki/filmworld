@@ -50,7 +50,12 @@ export function MoviesCard(props: MoviesCardProps) {
                   <MuiLink underline="none">
                     <CardMedia
                       component="img"
-                      sx={{ width: isMobileScreen ? "100" : "150" }}
+                      sx={{
+                        width: isMobileScreen ? "100" : "150",
+                        "&:hover": {
+                          opacity: 0.7,
+                        },
+                      }}
                       image={`https://image.tmdb.org/t/p/w185${movie.posterPath}`}
                       alt="ポスター画像"
                     />
