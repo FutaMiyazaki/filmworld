@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
-import { Box, Card, CardMedia, Grid } from "@mui/material";
+import { Box, Card, CardMedia, Grid, Stack } from "@mui/material";
 import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
@@ -67,20 +67,22 @@ export default function MoviesId() {
                 alt="ポスター画像"
               />
             </div>
-            <Grid container justifyContent="center" spacing="10" sx={{ mt: 1 }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              spacing={2}
+              sx={{ mt: 2 }}
+            >
               {movieInfo?.homepage && (
-                <Grid item xs="1/2" sm="1/2">
-                  <ExternalLinkDialog url={movieInfo?.homepage} />
-                </Grid>
+                <ExternalLinkDialog url={movieInfo?.homepage} />
               )}
-              <Grid item xs="1/2" sm="1/2">
-                <FavoriteButton
-                  id={movieInfo?.id}
-                  title={movieInfo?.title}
-                  poster_path={movieInfo?.poster_path}
-                />
-              </Grid>
-            </Grid>
+              <FavoriteButton
+                id={movieInfo?.id}
+                title={movieInfo?.title}
+                poster_path={movieInfo?.poster_path}
+              />
+            </Stack>
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
@@ -7,6 +8,7 @@ export function FavoriteButton(props) {
   const [favorite, setFavorite] = useState(false);
   const [open, setOpen] = useState(false);
   const storageKey = "favoMovies";
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   useEffect(() => {
     const storage = localStorage.getItem(storageKey);
@@ -83,7 +85,7 @@ export function FavoriteButton(props) {
     <>
       {favorite ? (
         <Button
-          fullWidth
+          fullWidth={isMobileScreen}
           variant="outlined"
           onClick={handleClickOpen}
           sx={{ fontWeight: "bold" }}
@@ -92,7 +94,7 @@ export function FavoriteButton(props) {
         </Button>
       ) : (
         <Button
-          fullWidth
+          fullWidth={isMobileScreen}
           variant="contained"
           onClick={addFavorite}
           startIcon={<LibraryAddIcon />}
