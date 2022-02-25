@@ -1,7 +1,14 @@
 import { Box, Rating, Typography } from "@mui/material";
 
-export function UserScore(props) {
-  const shapingScore = (score) => {
+type UserScoreProps = {
+  size: "small" | "medium" | "large";
+  voteAverage: number;
+  voteCount: number;
+};
+
+export const UserScore = (props: UserScoreProps) => {
+  const { size, voteAverage, voteCount } = props;
+  const shapingScore = (score: number) => {
     return Math.floor((score / 2) * Math.pow(10, 1)) / Math.pow(10, 1);
   };
 
@@ -16,9 +23,9 @@ export function UserScore(props) {
       <Rating
         readOnly
         name="read-only"
-        value={shapingScore(props?.voteAverage)}
+        value={shapingScore(voteAverage)}
         precision={0.1}
-        size={props?.size}
+        size={size}
       />
       <Box sx={{ ml: 1 }}>
         <Typography
@@ -26,12 +33,12 @@ export function UserScore(props) {
           color="#FBBD30"
           sx={{ mr: 1, display: "inline", fontWeight: "bold" }}
         >
-          {shapingScore(props?.voteAverage)}
+          {shapingScore(voteAverage)}
         </Typography>
         <Typography variant="caption" color="white" sx={{ fontWeight: "bold" }}>
-          ({props?.voteCount})
+          ({voteCount})
         </Typography>
       </Box>
     </Box>
   );
-}
+};
