@@ -1,14 +1,26 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
-export function Director(props) {
+type CrewData = {
+  id: number;
+  job: string;
+  name: string;
+}[];
+
+type DirectorProps = {
+  crew: CrewData;
+};
+
+export function DirectorInfo(props: DirectorProps) {
+  const { crew } = props;
+
   return (
     <Box sx={{ mb: 1 }}>
       <InfoHeader text="監督" />
-      {props.crew?.map((crew) => {
-        return crew.job === "Director" ? (
+      {crew?.map(({ id, job, name }) => {
+        return job === "Director" ? (
           <Paper
-            key={crew.id}
+            key={id}
             sx={{
               display: "inline-block",
               textAlign: "center",
@@ -17,7 +29,7 @@ export function Director(props) {
               mb: 1,
             }}
           >
-            <Typography variant="body2">{crew.name}</Typography>
+            <Typography variant="body2">{name}</Typography>
           </Paper>
         ) : null;
       })}
