@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useMediaQuery } from "react-responsive";
-import { UserScore } from "src/components/Movies/Info/UserScore";
+import { UserScore } from "src/components/Movies/About/UserScore";
 
 type MoviesCardProps = {
   movie: {

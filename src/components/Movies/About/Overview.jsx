@@ -1,5 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material";
-import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
+import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 export function Overview(props) {
   return (

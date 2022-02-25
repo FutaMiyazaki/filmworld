@@ -1,6 +1,6 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { useCallback } from "react";
-import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
+import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 export function Screenwriter(props) {
   const unique = useCallback((values, f = (v) => v) => {

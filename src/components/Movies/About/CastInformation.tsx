@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { Box, Link as MuiLink, Paper, Typography } from "@mui/material";
-import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
+import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 type CastData = {
   id: number;

@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { PaperText } from "src/components/Layout/PaperText";
-import { InfoHeader } from "src/components/Movies/Info/InfoHeader";
+import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 export function ProductionCompanies(props) {
   return (
