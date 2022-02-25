@@ -7,7 +7,7 @@ import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { CastInfo } from "src/components/Movies/About/CastInfo";
-import { Director } from "src/components/Movies/About/Director";
+import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
 import { Genres } from "src/components/Movies/About/Genres";
 import { Overview } from "src/components/Movies/About/Overview";
@@ -118,7 +118,7 @@ export default function MoviesId() {
                 productionCompanies={movieInfo?.production_companies}
               />
             )}
-            <Director crew={movieCredits?.crew} />
+            <DirectorInfo crew={movieCredits?.crew} />
             <Screenwriter crew={movieCredits?.crew} />
             <CastInfo cast={movieCredits?.cast} />
           </Box>
@@ -128,7 +128,7 @@ export default function MoviesId() {
           <ProductionCompanies
             productionCompanies={movieInfo?.production_companies}
           />
-          <Director crew={movieCredits?.crew} />
+          <DirectorInfo crew={movieCredits?.crew} />
           <Screenwriter crew={movieCredits?.crew} />
           <CastInfo cast={movieCredits?.cast} />
         </Grid>
