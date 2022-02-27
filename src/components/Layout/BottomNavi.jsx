@@ -27,7 +27,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export function BottomNavi() {
+export const BottomNavi = () => {
   const router = useRouter();
   const [value, setValue] = useState("");
   const [state, setState] = useState({
@@ -306,4 +306,4 @@ export function BottomNavi() {
       </Drawer>
     </div>
   );
-}
+};

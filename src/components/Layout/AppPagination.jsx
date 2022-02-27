@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { Grid, Pagination } from "@mui/material";
 
-export function AppPagination({ movies, path }) {
+export const AppPagination = ({ movies, path }) => {
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const [page, setPage] = useState(Number(router.query.page));
@@ -34,4 +34,4 @@ export function AppPagination({ movies, path }) {
       )}
     </div>
   );
-}
+};

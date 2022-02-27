@@ -6,7 +6,7 @@ import {
   Select,
 } from "@mui/material";
 
-export function SortMenu({ sort, handleChangeSort }) {
+export const SortMenu = ({ sort, handleChangeSort }) => {
   return (
     <Grid
       container
@@ -26,4 +26,4 @@ export function SortMenu({ sort, handleChangeSort }) {
       </Grid>
     </Grid>
   );
-}
+};

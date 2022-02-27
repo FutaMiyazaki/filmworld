@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Button, Link as MuiLink, Typography } from "@mui/material";
 
-export function LinkButton({ href, variant = "outlined", text }) {
+export const LinkButton = ({ href, variant = "outlined", text }) => {
   return (
     <NextLink href={href} passHref>
       <MuiLink underline="none">
@@ -11,4 +11,4 @@ export function LinkButton({ href, variant = "outlined", text }) {
       </MuiLink>
     </NextLink>
   );
-}
+};

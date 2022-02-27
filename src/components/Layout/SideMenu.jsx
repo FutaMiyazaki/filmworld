@@ -15,7 +15,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export function SideMenu() {
+export const SideMenu = () => {
   const [open, setOpen] = useState(false);
   const rankingListItems = [
     {
@@ -168,4 +168,4 @@ export function SideMenu() {
       </List>
     </div>
   );
-}
+};

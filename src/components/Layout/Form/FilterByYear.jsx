@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import { FormHelperText, Grid, InputAdornment, TextField } from "@mui/material";
 
-export function FilterByYear({ path }) {
+export const FilterByYear = ({ path }) => {
   const router = useRouter();
   const [year, setYear] = useState("");
 
@@ -45,4 +45,4 @@ export function FilterByYear({ path }) {
       </Grid>
     </Grid>
   );
-}
+};

@@ -1,6 +1,6 @@
 import { Paper } from "@mui/material";
 
-export function PaperText({ children }) {
+export const PaperText = ({ children }) => {
   return (
     <Paper
       sx={{
@@ -14,4 +14,4 @@ export function PaperText({ children }) {
       {children}
     </Paper>
   );
-}
+};

@@ -23,7 +23,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export function MobileTemporaryDrawer() {
+export const MobileTemporaryDrawer = () => {
   const router = useRouter();
   const [state, setState] = useState({
     right: false,
@@ -251,4 +251,4 @@ export function MobileTemporaryDrawer() {
       </Drawer>
     </div>
   );
-}
+};

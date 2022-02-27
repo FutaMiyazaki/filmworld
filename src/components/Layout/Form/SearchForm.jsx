@@ -13,7 +13,7 @@ import {
 import { useGenres } from "src/hooks/useGenres";
 import { useMediaQuery } from "react-responsive";
 
-export function SearchForm() {
+export const SearchForm = () => {
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const { genres, genresError, isLoading } = useGenres();
@@ -111,4 +111,4 @@ export function SearchForm() {
       </Grid>
     </div>
   );
-}
+};

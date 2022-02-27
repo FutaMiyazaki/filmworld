@@ -10,7 +10,7 @@ import "@fontsource/roboto/700.css";
 import { BottomNavi } from "src/components/Layout/BottomNavi";
 import { Header } from "src/components/Layout/Header";
 
-export function LayoutMain({ children }) {
+export const LayoutMain = ({ children }) => {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
@@ -27,4 +27,4 @@ export function LayoutMain({ children }) {
       </ThemeProvider>
     </div>
   );
-}
+};

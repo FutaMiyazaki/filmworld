@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { FormControl, InputAdornment, TextField } from "@mui/material/";
 import SearchIcon from "@mui/icons-material/Search";
 
-export function HeaderTextField() {
+export const HeaderTextField = () => {
   const router = useRouter();
   const [keyword, setKeyword] = useState("");
 
@@ -41,4 +41,4 @@ export function HeaderTextField() {
       </FormControl>
     </form>
   );
-}
+};

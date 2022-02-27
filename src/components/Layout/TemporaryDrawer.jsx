@@ -21,7 +21,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export function TemporaryDrawer() {
+export const TemporaryDrawer = () => {
   const [state, setState] = useState({
     left: false,
   });
@@ -244,4 +244,4 @@ export function TemporaryDrawer() {
       </Drawer>
     </div>
   );
-}
+};

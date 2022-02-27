@@ -6,7 +6,7 @@ type PageHeadingProps = {
   text: string;
 };
 
-export function PageHeading(props: PageHeadingProps) {
+export const PageHeading = (props: PageHeadingProps) => {
   const { path, text } = props;
 
   return (
@@ -31,4 +31,4 @@ export function PageHeading(props: PageHeadingProps) {
       </Grid>
     </Grid>
   );
-}
+};

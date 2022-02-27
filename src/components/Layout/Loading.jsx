@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Grid } from "@mui/material";
 
-export function Loading() {
+export const Loading = () => {
   return (
     <Box>
       <Grid container justifyContent="center" alignItems="center">
@@ -8,4 +8,4 @@ export function Loading() {
       </Grid>
     </Box>
   );
-}
+};
