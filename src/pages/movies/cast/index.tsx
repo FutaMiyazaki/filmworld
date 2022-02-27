@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
@@ -6,10 +7,10 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { useCast } from "src/hooks/useCast";
 
-const MoviesCast = () => {
+const MoviesCast: NextPage = () => {
   const router = useRouter();
   const [sort, setSort] = useState("popularity.desc");
-  const { cast, castError } = useCast();
+  const { cast } = useCast();
 
   const handleChangeSort = useCallback(
     (e) => {

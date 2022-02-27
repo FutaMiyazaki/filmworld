@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
@@ -18,7 +19,7 @@ import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { UserScore } from "src/components/Movies/About/UserScore";
 
-const MoviesId = () => {
+const MoviesId: NextPage = () => {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 

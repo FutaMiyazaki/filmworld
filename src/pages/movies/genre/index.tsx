@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
@@ -6,10 +7,10 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { GenreMovies } from "src/components/Movies/GenreMovies";
 import { useGenres } from "src/hooks/useGenres";
 
-const MoviesGenre = () => {
+const MoviesGenre: NextPage = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
-  const { genres, error } = useGenres();
+  const { genres } = useGenres();
   const [sort, setSort] = useState("popularity.desc");
 
   const genreSearch = useEffect(() => {
