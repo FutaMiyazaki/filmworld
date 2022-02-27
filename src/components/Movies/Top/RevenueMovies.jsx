@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { LinkButton } from "src/components/Layout/Link/LinkButton";
+import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { Loading } from "src/components/Layout/Loading";
 import { MoviesCard } from "src/components/Movies/Card/index";
 import { useRevenueMovies } from "src/hooks/topMovies/useRevenueMovies";
@@ -40,7 +40,11 @@ export const RevenueMovies = () => {
         ) : null;
       })}
       <Grid item xs={4} sm={4} sx={{ mt: 1 }}>
-        <LinkButton href="/movies/revenue?page=1" text="もっと見る" />
+        <ButtonLink
+          path="/movies/revenue?page=1"
+          text="もっと見る"
+          variant="outlined"
+        />
       </Grid>
     </Grid>
   );

@@ -11,7 +11,7 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material/";
-import { LinkButton } from "src/components/Layout/Link/LinkButton";
+import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
@@ -95,10 +95,10 @@ export const Header = (props) => {
                   </MuiLink>
                 </NextLink>
                 <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
-                  <LinkButton
-                    href="/search"
-                    variant="text"
+                  <ButtonLink
+                    path="/search"
                     text="オススメの映画を探す"
+                    variant="text"
                   />
                 </Box>
               </Box>
