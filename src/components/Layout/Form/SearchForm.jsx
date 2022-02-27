@@ -4,18 +4,15 @@ import {
   Grid,
   Select,
   MenuItem,
-  NativeSelect,
   Slider,
   Button,
   Typography,
   FormControl,
 } from "@mui/material";
 import { useGenres } from "src/hooks/useGenres";
-import { useMediaQuery } from "react-responsive";
 
 export const SearchForm = () => {
   const router = useRouter();
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const { genres, genresError, isLoading } = useGenres();
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState([1950, 2022]);
