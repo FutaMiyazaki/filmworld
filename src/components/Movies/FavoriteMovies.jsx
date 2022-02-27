@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export const FavoriteMovies = (props) => {
+export const FavoriteMovies = () => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const storageKey = "favoMovies";
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
