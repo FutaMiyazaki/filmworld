@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { GenreList } from "src/components/Genre/GenreList";
 
-const Genres = () => {
+const Genres: NextPage = () => {
   return (
     <div>
       <Head>
