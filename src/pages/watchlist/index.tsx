@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { FavoriteMovies } from "src/components/Movies/FavoriteMovies";
 
-const Watchlist = () => {
+const Watchlist: NextPage = () => {
   return (
     <div>
       <Head>

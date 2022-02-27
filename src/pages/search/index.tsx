@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { SearchForm } from "src/components/Layout/Form/SearchForm";
 import { PageHeading } from "src/components/Layout/PageHeading";
 
-const Search = () => {
+const Search: NextPage = () => {
   return (
     <div>
       <Head>

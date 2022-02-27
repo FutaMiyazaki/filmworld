@@ -1,13 +1,14 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useGenres } from "src/hooks/useGenres";
 import { SearchResultsMovies } from "src/components/Movies/SearchResultsMovies";
 
-const SearchMovies = () => {
+const SearchMovies: NextPage = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
-  const { genres, error } = useGenres();
+  const { genres } = useGenres();
 
   const genreSet = useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
