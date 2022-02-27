@@ -1,9 +1,17 @@
 import NextLink from "next/link";
 import { Button, Link as MuiLink, Typography } from "@mui/material";
 
-export const LinkButton = ({ href, variant = "outlined", text }) => {
+type ButtonLinkProps = {
+  path: string;
+  text: string;
+  variant: "text" | "outlined" | "contained" | undefined;
+};
+
+export const ButtonLink = (props: ButtonLinkProps) => {
+  const { path, text, variant } = props;
+
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={path} passHref>
       <MuiLink underline="none">
         <Button fullWidth variant={variant}>
           <Typography>{text}</Typography>
