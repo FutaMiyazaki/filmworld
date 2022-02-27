@@ -151,9 +151,9 @@ export const BottomNavi = () => {
           <BottomNavigationAction
             label="リスト"
             icon={<VideoLibraryIcon />}
-            value="favorite"
+            value="watchlist"
             onClick={() => {
-              router.push("/favorite");
+              router.push("/watchlist");
             }}
           />
           <BottomNavigationAction
@@ -252,7 +252,7 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            <NextLink href="/favorite" passHref>
+            <NextLink href="/watchlist" passHref>
               <MuiLink underline="none" color="white">
                 <ListItem dense onClick={toggleDrawer("right", false)}>
                   <ListItemButton>

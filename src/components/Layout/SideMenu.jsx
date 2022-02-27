@@ -153,7 +153,7 @@ export const SideMenu = () => {
           </NextLink>
         </Collapse>
         <Divider />
-        <NextLink href="/favorite" passHref>
+        <NextLink href="/watchlist" passHref>
           <MuiLink underline="none" color="white">
             <ListItem dense>
               <ListItemButton>

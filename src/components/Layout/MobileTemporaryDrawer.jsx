@@ -197,7 +197,7 @@ export const MobileTemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            <NextLink href="/favorite" passHref>
+            <NextLink href="/watchlist" passHref>
               <MuiLink underline="none" color="white">
                 <ListItem dense onClick={toggleDrawer("right", false)}>
                   <ListItemButton>
