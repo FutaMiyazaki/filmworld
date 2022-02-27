@@ -33,7 +33,7 @@ export const FavoriteMovies = (props) => {
         >
           {nowFavoMovies.map((movie) => {
             return (
-              <Grid item xs="2" sm="2" key={movie.id}>
+              <Grid item xs={2} sm={2} key={movie.id}>
                 <NextLink href={`/movies/${movie.id}`} passHref>
                   <MuiLink underline="none">
                     <Card>
