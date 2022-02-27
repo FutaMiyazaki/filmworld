@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 import {
   Button,
   Card,
-  CardContent,
   CardMedia,
   Grid,
   Link as MuiLink,
@@ -33,23 +32,32 @@ export const FavoriteMovies = () => {
         >
           {nowFavoMovies.map((movie) => {
             return (
-              <Grid item xs={2} sm={2} key={movie.id}>
-                <NextLink href={`/movies/${movie.id}`} passHref>
-                  <MuiLink underline="none">
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        height={isMobileScreen ? "300" : "450"}
-                        image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-                        alt="ポスター画像"
-                      />
-                      <CardContent>
-                        <Typography variant="body2">{movie.title}</Typography>
-                      </CardContent>
-                    </Card>
-                  </MuiLink>
-                </NextLink>
-              </Grid>
+              movie.id && (
+                <Grid
+                  item
+                  xs={2}
+                  sm={2}
+                  key={movie.id}
+                  sx={{
+                    "&:hover": {
+                      opacity: 0.6,
+                    },
+                  }}
+                >
+                  <NextLink href={`/movies/${movie.id}`} passHref>
+                    <MuiLink underline="none">
+                      <Card>
+                        <CardMedia
+                          component="img"
+                          height={isMobileScreen ? "250" : "400"}
+                          image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                          alt="ポスター画像"
+                        />
+                      </Card>
+                    </MuiLink>
+                  </NextLink>
+                </Grid>
+              )
             );
           })}
         </Grid>
