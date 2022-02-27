@@ -5,7 +5,7 @@ import { AppPagination } from "src/components/Layout/AppPagination";
 import { MoviesCard } from "src/components/Movies/Card/index";
 import { useCastMovies } from "src/hooks/useCastMovies";
 
-export function CastMovies() {
+export const CastMovies = () => {
   const router = useRouter();
   const { movies, error, isLoading } = useCastMovies();
 
@@ -27,18 +27,20 @@ export function CastMovies() {
       >
         {movies?.results.map((movie) => {
           return (
-            <Grid key={movie.id} item xs={4} sm={4}>
-              <MoviesCard
-                movie={{
-                  id: movie.id,
-                  title: movie.title,
-                  posterPath: movie.poster_path,
-                  releaseDate: movie.release_date,
-                  voteAverage: movie.vote_average,
-                  voteCount: movie.vote_count,
-                }}
-              />
-            </Grid>
+            movie.poster_path && (
+              <Grid key={movie.id} item xs={4} sm={4}>
+                <MoviesCard
+                  movie={{
+                    id: movie.id,
+                    title: movie.title,
+                    posterPath: movie.poster_path,
+                    releaseDate: movie.release_date,
+                    voteAverage: movie.vote_average,
+                    voteCount: movie.vote_count,
+                  }}
+                />
+              </Grid>
+            )
           );
         })}
       </Grid>
@@ -48,4 +50,4 @@ export function CastMovies() {
       />
     </div>
   );
-}
+};

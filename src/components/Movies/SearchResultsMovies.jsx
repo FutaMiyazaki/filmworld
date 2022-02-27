@@ -8,7 +8,7 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { useGenres } from "src/hooks/useGenres";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 
-export function SearchResultsMovies() {
+export const SearchResultsMovies = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const { genres } = useGenres();
@@ -53,18 +53,20 @@ export function SearchResultsMovies() {
       >
         {movies?.results.map((movie) => {
           return (
-            <Grid key={movie.id} item xs={4} sm={4}>
-              <MoviesCard
-                movie={{
-                  id: movie.id,
-                  title: movie.title,
-                  posterPath: movie.poster_path,
-                  releaseDate: movie.release_date,
-                  voteAverage: movie.vote_average,
-                  voteCount: movie.vote_count,
-                }}
-              />
-            </Grid>
+            movie.poster_path && (
+              <Grid key={movie.id} item xs={4} sm={4}>
+                <MoviesCard
+                  movie={{
+                    id: movie.id,
+                    title: movie.title,
+                    posterPath: movie.poster_path,
+                    releaseDate: movie.release_date,
+                    voteAverage: movie.vote_average,
+                    voteCount: movie.vote_count,
+                  }}
+                />
+              </Grid>
+            )
           );
         })}
       </Grid>
@@ -78,4 +80,4 @@ export function SearchResultsMovies() {
       />
     </div>
   );
-}
+};
