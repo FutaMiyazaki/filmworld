@@ -2,7 +2,7 @@ import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { FavoriteMovies } from "src/components/Movies/FavoriteMovies";
 
-export default function Favorite() {
+const Watchlist = () => {
   return (
     <div>
       <Head>
@@ -12,4 +12,6 @@ export default function Favorite() {
       <FavoriteMovies />
     </div>
   );
-}
+};
+
+export default Watchlist;
