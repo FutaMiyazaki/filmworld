@@ -9,7 +9,7 @@ import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDial
 import { CastInfo } from "src/components/Movies/About/CastInfo";
 import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
-import { Genres } from "src/components/Movies/About/Genres";
+import { GenresInfo } from "src/components/Movies/About/GenresInfo";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
@@ -91,7 +91,7 @@ export default function MoviesId() {
             originalTitle={movieInfo?.original_title}
           />
           <ReleaseDate releaseDate={movieInfo?.release_date} />
-          <Genres genres={movieInfo?.genres} />
+          <GenresInfo genres={movieInfo?.genres} />
           {isMobileScreen && (
             <UserScore
               voteAverage={movieInfo?.vote_average}
