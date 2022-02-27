@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { GenreList } from "src/Genre/GenreList";
+import { GenreList } from "src/components/Genre/GenreList";
 
 const Genres = () => {
   return (
