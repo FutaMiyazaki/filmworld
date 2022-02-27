@@ -1,8 +1,9 @@
 import NextLink from "next/link";
 import { Link as MuiLink, Typography } from "@mui/material";
 
-type BasicLinkProps = {
+type TextLinkProps = {
   path: string;
+  text: string;
   variant:
     | "h1"
     | "h2"
@@ -18,21 +19,16 @@ type BasicLinkProps = {
     | "button"
     | "overline"
     | "inherit";
-  text: string;
 };
 
-const BasicLink = (props: BasicLinkProps) => {
-  const { path, variant, text } = props;
+export const TextLink = (props: TextLinkProps) => {
+  const { path, text, variant } = props;
 
   return (
     <NextLink href={path} passHref>
       <MuiLink underline="hover">
-        <Typography variant={variant} sx={{ display: "inline" }}>
-          {text}
-        </Typography>
+        <Typography variant={variant}>{text}</Typography>
       </MuiLink>
     </NextLink>
   );
 };
-
-export default BasicLink;
