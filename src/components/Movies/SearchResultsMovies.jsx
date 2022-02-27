@@ -71,12 +71,12 @@ export const SearchResultsMovies = () => {
         })}
       </Grid>
       <AppPagination
-        movies={movies}
         path={
           router.query.keyword
             ? `/search/movies?keyword=${router.query.keyword}&`
             : `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`
         }
+        totalPages={movies?.total_pages}
       />
     </div>
   );

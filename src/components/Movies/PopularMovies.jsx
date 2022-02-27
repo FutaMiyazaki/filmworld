@@ -45,12 +45,12 @@ export const PopularMovies = () => {
         })}
       </Grid>
       <AppPagination
-        movies={movies}
         path={
           router.query.year
             ? `/movies/popular?year=${router.query.year}&`
             : `/movies/popular?`
         }
+        totalPages={movies?.total_pages}
       />
     </div>
   );

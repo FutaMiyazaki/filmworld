@@ -45,8 +45,8 @@ export const GenreMovies = () => {
         })}
       </Grid>
       <AppPagination
-        movies={movies}
         path={`/movies/genre?id=${router.query.id}&sort=${router.query.sort}&`}
+        totalPages={movies?.total_pages}
       />
     </div>
   );
