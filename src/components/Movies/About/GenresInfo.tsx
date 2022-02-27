@@ -7,11 +7,11 @@ type GenresData = {
   name?: string;
 }[];
 
-type GenresProps = {
+type GenresInfoProps = {
   genres: GenresData;
 };
 
-export const Genres = (props: GenresProps) => {
+export const GenresInfo = (props: GenresInfoProps) => {
   const { genres } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
