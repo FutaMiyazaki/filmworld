@@ -3,12 +3,18 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "react-responsive";
 import { Grid, Pagination } from "@mui/material";
 
-export const AppPagination = ({ movies, path }) => {
+type AppPaginationProps = {
+  path: string;
+  totalPages: number;
+};
+
+export const AppPagination = (props: AppPaginationProps) => {
+  const { path, totalPages } = props;
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const [page, setPage] = useState(Number(router.query.page));
 
-  const handlePage = (e, clickPage) => {
+  const handlePage = (e: {}, clickPage: number) => {
     setPage(clickPage);
     router.push(`${path}page=${clickPage}`);
   };
@@ -19,11 +25,11 @@ export const AppPagination = ({ movies, path }) => {
 
   return (
     <div>
-      {movies?.total_pages == 1 ? null : (
+      {totalPages == 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
             page={page}
-            count={movies?.total_pages}
+            count={totalPages}
             shape="rounded"
             variant="outlined"
             color="primary"
