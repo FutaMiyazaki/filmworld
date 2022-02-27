@@ -18,7 +18,7 @@ import { Screenwriter } from "src/components/Movies/About/Screenwriter";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { UserScore } from "src/components/Movies/About/UserScore";
 
-export default function MoviesId() {
+const MoviesId = () => {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
@@ -135,4 +135,6 @@ export default function MoviesId() {
       <SimilarMovies />
     </div>
   );
-}
+};
+
+export default MoviesId;

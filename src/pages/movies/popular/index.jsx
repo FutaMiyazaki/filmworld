@@ -4,7 +4,7 @@ import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { PopularMovies } from "src/components/Movies/PopularMovies";
 
-export default function MoviesPopular() {
+const MoviesPopular = () => {
   const router = useRouter();
 
   return (
@@ -27,4 +27,6 @@ export default function MoviesPopular() {
       <PopularMovies />
     </div>
   );
-}
+};
+
+export default MoviesPopular;

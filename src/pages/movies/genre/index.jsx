@@ -6,7 +6,7 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { GenreMovies } from "src/components/Movies/GenreMovies";
 import { useGenres } from "src/hooks/useGenres";
 
-export default function MoviesGenre() {
+const MoviesGenre = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const { genres, error } = useGenres();
@@ -39,4 +39,6 @@ export default function MoviesGenre() {
       <GenreMovies />
     </div>
   );
-}
+};
+
+export default MoviesGenre;

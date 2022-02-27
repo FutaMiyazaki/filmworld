@@ -2,7 +2,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { LayoutMain } from "src/components/Layout/LayoutMain";
 
-export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -13,4 +13,6 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       </LayoutMain>
     </>
   );
-}
+};
+
+export default MyApp;

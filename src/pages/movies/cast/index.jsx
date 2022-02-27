@@ -6,7 +6,7 @@ import { PageHeading } from "src/components/Layout/PageHeading";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { useCast } from "src/hooks/useCast";
 
-export default function MoviesCast() {
+const MoviesCast = () => {
   const router = useRouter();
   const [sort, setSort] = useState("popularity.desc");
   const { cast, castError } = useCast();
@@ -30,4 +30,6 @@ export default function MoviesCast() {
       <CastMovies />
     </div>
   );
-}
+};
+
+export default MoviesCast;

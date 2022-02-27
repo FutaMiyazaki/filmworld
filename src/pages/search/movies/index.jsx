@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useGenres } from "src/hooks/useGenres";
 import { SearchResultsMovies } from "src/components/Movies/SearchResultsMovies";
 
-export default function SearchMovies() {
+const SearchMovies = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const { genres, error } = useGenres();
@@ -29,4 +29,6 @@ export default function SearchMovies() {
       <SearchResultsMovies />
     </div>
   );
-}
+};
+
+export default SearchMovies;

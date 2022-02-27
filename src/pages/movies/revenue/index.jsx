@@ -4,7 +4,7 @@ import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { RevenueMovies } from "src/components/Movies/RevenueMovies";
 
-export default function MoviesRevenue() {
+const MoviesRevenue = () => {
   const router = useRouter();
 
   return (
@@ -28,4 +28,6 @@ export default function MoviesRevenue() {
       <RevenueMovies />
     </div>
   );
-}
+};
+
+export default MoviesRevenue;

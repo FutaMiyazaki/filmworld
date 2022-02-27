@@ -2,7 +2,7 @@ import Head from "next/head";
 import { SearchForm } from "src/components/Layout/Form/SearchForm";
 import { PageHeading } from "src/components/Layout/PageHeading";
 
-export default function Search() {
+const Search = () => {
   return (
     <div>
       <Head>
@@ -12,4 +12,6 @@ export default function Search() {
       <SearchForm />
     </div>
   );
-}
+};
+
+export default Search;
