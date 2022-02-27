@@ -14,7 +14,7 @@ import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
 import { ReleaseDate } from "src/components/Movies/About/ReleaseDate";
-import { Screenwriter } from "src/components/Movies/About/Screenwriter";
+import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { UserScore } from "src/components/Movies/About/UserScore";
 
@@ -119,7 +119,7 @@ const MoviesId = () => {
               />
             )}
             <DirectorInfo crew={movieCredits?.crew} />
-            <Screenwriter crew={movieCredits?.crew} />
+            <ScreenwriterInfo crew={movieCredits?.crew} />
             <CastInfo cast={movieCredits?.cast} />
           </Box>
         </Grid>
@@ -127,7 +127,7 @@ const MoviesId = () => {
           {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
           <ProductionCompanies companies={movieInfo?.production_companies} />
           <DirectorInfo crew={movieCredits?.crew} />
-          <Screenwriter crew={movieCredits?.crew} />
+          <ScreenwriterInfo crew={movieCredits?.crew} />
           <CastInfo cast={movieCredits?.cast} />
         </Grid>
       </Grid>
