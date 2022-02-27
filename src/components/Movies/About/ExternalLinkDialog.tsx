@@ -15,7 +15,7 @@ type ExternalLinkDialogProps = {
   url: string;
 };
 
-export function ExternalLinkDialog(props: ExternalLinkDialogProps) {
+export const ExternalLinkDialog = (props: ExternalLinkDialogProps) => {
   const { url } = props;
   const [open, setOpen] = useState(false);
 
@@ -71,4 +71,4 @@ export function ExternalLinkDialog(props: ExternalLinkDialogProps) {
       </Dialog>
     </div>
   );
-}
+};

@@ -3,7 +3,7 @@ import { useSimilarMovies } from "src/hooks/useSimilarMovies";
 import { Loading } from "src/components/Layout/Loading";
 import { MoviesCard } from "src/components/Movies/Card/index";
 
-export function SimilarMovies() {
+export const SimilarMovies = () => {
   const { similarMovies, similarMoviesError, isLoading } = useSimilarMovies();
 
   if (isLoading) {
@@ -39,4 +39,4 @@ export function SimilarMovies() {
       })}
     </Grid>
   );
-}
+};

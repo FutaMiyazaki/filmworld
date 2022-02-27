@@ -11,7 +11,7 @@ type GenresProps = {
   genres: GenresData;
 };
 
-export function Genres(props: GenresProps) {
+export const Genres = (props: GenresProps) => {
   const { genres } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
@@ -38,4 +38,4 @@ export function Genres(props: GenresProps) {
       })}
     </Box>
   );
-}
+};

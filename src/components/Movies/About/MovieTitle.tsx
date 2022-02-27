@@ -6,7 +6,7 @@ type MovieTitleProps = {
   originalTitle: string;
 };
 
-export function MovieTitle(props: MovieTitleProps) {
+export const MovieTitle = (props: MovieTitleProps) => {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
@@ -27,4 +27,4 @@ export function MovieTitle(props: MovieTitleProps) {
       </Typography>
     </>
   );
-}
+};

@@ -4,7 +4,7 @@ import { Loading } from "src/components/Layout/Loading";
 import { MoviesCard } from "src/components/Movies/Card/index";
 import { useRevenueMovies } from "src/hooks/topMovies/useRevenueMovies";
 
-export function RevenueMovies() {
+export const RevenueMovies = () => {
   const { revenueMovies, error, isLoading } = useRevenueMovies();
 
   if (isLoading) {
@@ -44,4 +44,4 @@ export function RevenueMovies() {
       </Grid>
     </Grid>
   );
-}
+};

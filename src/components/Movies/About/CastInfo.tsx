@@ -11,7 +11,7 @@ type CastProps = {
   cast: CastData;
 };
 
-export function CastInfo(props: CastProps) {
+export const CastInfo = (props: CastProps) => {
   const { cast } = props;
 
   return (
@@ -49,4 +49,4 @@ export function CastInfo(props: CastProps) {
       ) : null}
     </>
   );
-}
+};

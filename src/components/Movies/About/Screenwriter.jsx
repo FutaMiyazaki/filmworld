@@ -2,7 +2,7 @@ import { Box, Paper, Typography } from "@mui/material";
 import { useCallback } from "react";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
-export function Screenwriter(props) {
+export const Screenwriter = (props) => {
   const unique = useCallback((values, f = (v) => v) => {
     return Array.from(
       new Map(values?.map((value) => [f(value), value])).values()
@@ -36,4 +36,4 @@ export function Screenwriter(props) {
       })}
     </Box>
   );
-}
+};

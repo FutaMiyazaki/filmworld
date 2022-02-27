@@ -4,7 +4,7 @@ import { Loading } from "src/components/Layout/Loading";
 import { MoviesCard } from "src/components/Movies/Card/index";
 import { usePopularMovies } from "src/hooks/topMovies/usePopularMovies";
 
-export function PopularMovies() {
+export const PopularMovies = () => {
   const { popularMovies, error, isLoading } = usePopularMovies();
 
   if (isLoading) {
@@ -44,4 +44,4 @@ export function PopularMovies() {
       </Grid>
     </Grid>
   );
-}
+};

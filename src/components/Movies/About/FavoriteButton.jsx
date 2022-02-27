@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
-export function FavoriteButton(props) {
+export const FavoriteButton = (props) => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const [favorite, setFavorite] = useState(false);
   const [open, setOpen] = useState(false);
@@ -123,4 +123,4 @@ export function FavoriteButton(props) {
       </Dialog>
     </>
   );
-}
+};

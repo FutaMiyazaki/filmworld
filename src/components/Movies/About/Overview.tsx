@@ -5,7 +5,7 @@ type OverviewProps = {
   overview: string;
 };
 
-export function Overview(props: OverviewProps) {
+export const Overview = (props: OverviewProps) => {
   const { overview } = props;
   return (
     <Box sx={{ mb: 2 }}>
@@ -17,4 +17,4 @@ export function Overview(props: OverviewProps) {
       </Paper>
     </Box>
   );
-}
+};

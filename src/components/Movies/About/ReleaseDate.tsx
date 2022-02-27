@@ -4,7 +4,7 @@ type ReleaseDateProps = {
   releaseDate?: string;
 };
 
-export function ReleaseDate(props: ReleaseDateProps) {
+export const ReleaseDate = (props: ReleaseDateProps) => {
   const releaseDate = props.releaseDate?.replace(/-/g, "/");
 
   return (
@@ -16,4 +16,4 @@ export function ReleaseDate(props: ReleaseDateProps) {
       ) : null}
     </>
   );
-}
+};

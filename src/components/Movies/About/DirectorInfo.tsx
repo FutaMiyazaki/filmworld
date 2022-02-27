@@ -11,7 +11,7 @@ type DirectorProps = {
   crew: CrewData;
 };
 
-export function DirectorInfo(props: DirectorProps) {
+export const DirectorInfo = (props: DirectorProps) => {
   const { crew } = props;
 
   return (
@@ -35,4 +35,4 @@ export function DirectorInfo(props: DirectorProps) {
       })}
     </Box>
   );
-}
+};
