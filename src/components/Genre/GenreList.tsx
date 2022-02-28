@@ -1,9 +1,10 @@
 import NextLink from "next/link";
+import type { VFC } from "react";
 import { useGenres } from "src/hooks/useGenres";
 import { Loading } from "src/components/Layout/Loading";
 import { Chip, Grid, Link as MuiLink } from "@mui/material";
 
-export function GenreList() {
+export const GenreList: VFC = () => {
   const { genres, genresError, isLoading } = useGenres();
 
   if (isLoading) {
@@ -17,23 +18,23 @@ export function GenreList() {
   return (
     <Grid
       container
-      spacing={2}
-      justifyContent="center"
       columns={{ xs: 4, sm: 6 }}
+      justifyContent="center"
+      spacing={2}
     >
-      {genres?.genres.map((genre) => {
+      {genres?.genres.map((genre: { id: number; name: string }) => {
         return (
-          <Grid item xs="auto" sm={2} key={genre.id}>
+          <Grid item key={genre.id} xs="auto" sm={2}>
             <NextLink
               href={`/movies/genre?id=${genre.id}&sort=popularity.desc&page=1`}
               passHref
             >
               <MuiLink underline="none">
                 <Chip
-                  label={genre.name}
-                  color="primary"
-                  variant="outlined"
                   clickable
+                  color="primary"
+                  label={genre.name}
+                  variant="outlined"
                 />
               </MuiLink>
             </NextLink>
@@ -42,4 +43,4 @@ export function GenreList() {
       })}
     </Grid>
   );
-}
+};
