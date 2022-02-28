@@ -29,12 +29,13 @@ export const AppPagination = (props: AppPaginationProps) => {
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
             page={page}
-            count={totalPages}
-            shape="rounded"
-            variant="outlined"
             color="primary"
-            size="medium"
+            count={totalPages}
             onChange={handlePage}
+            shape="rounded"
+            siblingCount={0}
+            size="medium"
+            variant="outlined"
           />
         </Grid>
       )}
