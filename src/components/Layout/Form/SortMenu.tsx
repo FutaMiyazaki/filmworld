@@ -2,7 +2,12 @@ import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
 
-export const SortMenu = ({ path }) => {
+type SortMenuProps = {
+  path: string;
+};
+
+export const SortMenu = (props: SortMenuProps) => {
+  const { path } = props;
   const router = useRouter();
   const [sort, setSort] = useState("popularity.desc");
 
