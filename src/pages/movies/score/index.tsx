@@ -14,15 +14,15 @@ const MoviesScore: NextPage = () => {
       <Head>
         <title>
           {router.query.year
-            ? `${router.query.year}年代の評価数ランキング - FilmWorld`
-            : "評価数ランキング - FilmWorld"}
+            ? `${router.query.year}年公開で話題の映画ランキング - FilmWorld`
+            : "話題の映画ランキング - FilmWorld"}
         </title>
       </Head>
       <PageHeading
         text={
           router.query.year
-            ? `${router.query.year}年代の評価数ランキング`
-            : "評価数ランキング"
+            ? `${router.query.year}年公開で話題の映画ランキング`
+            : "話題の映画ランキング"
         }
       />
       <RankingButtonLinks />
