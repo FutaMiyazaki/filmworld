@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Grid } from "@mui/material";
 import { CompanyMovies } from "src/components/Movies/CompanyMovies";
 import { PageHeading } from "src/components/Layout/PageHeading";
+import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { useCompany } from "src/hooks/useCompany";
 
@@ -25,6 +26,11 @@ const MoviesCompany: NextPage = () => {
         sx={{ mb: 4 }}
       >
         <Grid item xs={4} sm={2}>
+          <FilterByYear
+            path={`/movies/company?id=${router.query.id}&sort=${router.query.sort}&`}
+          />
+        </Grid>
+        <Grid item xs={4} sm={3}>
           <SortMenu path={`/movies/company?id=${router.query.id}`} />
         </Grid>
       </Grid>
