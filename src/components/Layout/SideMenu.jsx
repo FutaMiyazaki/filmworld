@@ -14,66 +14,37 @@ import {
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import { ListItemLink } from "src/components/Layout/Link/ListItemLink";
 
 export const SideMenu = () => {
   const [open, setOpen] = useState(false);
   const rankingListItems = [
     {
-      text: "人気の映画",
       path: "/movies/popular?page=1",
+      text: "人気の映画",
     },
     {
-      text: "歴代興行収入",
       path: "/movies/revenue?page=1",
+      text: "歴代興行収入",
     },
     {
-      text: "話題の映画",
       path: "/movies/topic?page=1",
+      text: "話題の映画",
     },
   ];
   const genres1 = [
-    {
-      text: "アクション",
-      id: "28",
-    },
-    {
-      text: "アドベンチャー",
-      id: "12",
-    },
-    {
-      text: "アニメーション",
-      id: "16",
-    },
-    {
-      text: "コメディ",
-      id: "35",
-    },
+    { id: "28", text: "アクション" },
+    { id: "12", text: "アドベンチャー" },
+    { id: "16", text: "アニメーション" },
+    { id: "35", text: "コメディ" },
   ];
   const genres2 = [
-    {
-      text: "ドキュメンタリー",
-      id: "99",
-    },
-    {
-      text: "ファミリー",
-      id: "10751",
-    },
-    {
-      text: "ファンタジー",
-      id: "14",
-    },
-    {
-      text: "ホラー",
-      id: "27",
-    },
-    {
-      text: "ロマンス",
-      id: "10749",
-    },
-    {
-      text: "サイエンスフィクション",
-      id: "878",
-    },
+    { id: "99", text: "ドキュメンタリー" },
+    { id: "10751", text: "ファミリー" },
+    { id: "14", text: "ファンタジー" },
+    { id: "27", text: "ホラー" },
+    { id: "10749", text: "ロマンス" },
+    { id: "878", text: "サイエンスフィクション" },
   ];
 
   const handleMoreOpen = () => {
@@ -90,17 +61,9 @@ export const SideMenu = () => {
             </Typography>
           </ListItemText>
         </ListItem>
-        {rankingListItems.map((listItem) => (
-          <NextLink key={listItem.text} href={listItem.path} passHref>
-            <MuiLink underline="none" color="white">
-              <ListItem dense>
-                <ListItemButton>
-                  <ListItemText>{listItem.text}</ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </MuiLink>
-          </NextLink>
-        ))}
+        {rankingListItems.map(({ path, text }) => {
+          return <ListItemLink key={text} path={path} text={text} />;
+        })}
         <Divider />
         <ListItem>
           <ListItemText>
@@ -109,21 +72,15 @@ export const SideMenu = () => {
             </Typography>
           </ListItemText>
         </ListItem>
-        {genres1.map((genre) => (
-          <NextLink
-            key={genre.id}
-            href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
-            passHref
-          >
-            <MuiLink underline="none" color="white">
-              <ListItem dense>
-                <ListItemButton>
-                  <ListItemText>{genre.text}</ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </MuiLink>
-          </NextLink>
-        ))}
+        {genres1.map(({ id, text }) => {
+          return (
+            <ListItemLink
+              key={id}
+              path={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+              text={text}
+            />
+          );
+        })}
         <ListItem dense>
           <ListItemButton onClick={handleMoreOpen}>
             <ListItemText>さらに表示</ListItemText>
@@ -131,30 +88,16 @@ export const SideMenu = () => {
           </ListItemButton>
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
-          {genres2.map((genre) => (
-            <NextLink
-              key={genre.id}
-              href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
-              passHref
-            >
-              <MuiLink underline="none" color="white">
-                <ListItem dense>
-                  <ListItemButton>
-                    <ListItemText>{genre.text}</ListItemText>
-                  </ListItemButton>
-                </ListItem>
-              </MuiLink>
-            </NextLink>
-          ))}
-          <NextLink href="/genres" passHref>
-            <MuiLink underline="none" color="white">
-              <ListItem dense>
-                <ListItemButton>
-                  <ListItemText>ジャンル一覧を表示</ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </MuiLink>
-          </NextLink>
+          {genres2.map(({ id, text }) => {
+            return (
+              <ListItemLink
+                key={id}
+                path={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                text={text}
+              />
+            );
+          })}
+          <ListItemLink path="/genres" text="ジャンル一覧を表示" />
         </Collapse>
         <Divider />
         <NextLink href="/watchlist" passHref>
