@@ -46,7 +46,7 @@ export const BottomNavi = () => {
       path: "/movies/revenue?page=1",
     },
     {
-      text: "評価数",
+      text: "話題の映画",
       path: "/movies/score?page=1",
     },
   ];
