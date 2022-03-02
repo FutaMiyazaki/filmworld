@@ -41,13 +41,7 @@ const MoviesGenre: NextPage = () => {
           />
         </Grid>
         <Grid item xs={4} sm={3}>
-          <SortMenu
-            path={
-              router.query.year
-                ? `/movies/genre?id=${router.query.id}&year=${router.query.year}`
-                : `/movies/genre?id=${router.query.id}`
-            }
-          />
+          <SortMenu path={`/movies/genre?id=${router.query.id}`} />
         </Grid>
       </Grid>
       <GenreMovies />
