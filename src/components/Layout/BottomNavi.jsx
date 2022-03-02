@@ -47,7 +47,7 @@ export const BottomNavi = () => {
     },
     {
       text: "話題の映画",
-      path: "/movies/score?page=1",
+      path: "/movies/topic?page=1",
     },
   ];
   const genres1 = [

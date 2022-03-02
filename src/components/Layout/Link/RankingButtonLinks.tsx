@@ -30,7 +30,7 @@ export const RankingButtonLinks = () => {
       mobileText: "興行収入",
     },
     {
-      path: "/movies/score?page=1",
+      path: "/movies/topic?page=1",
       text: "話題の映画ランキング",
       mobileText: "話題の映画",
     },
