@@ -20,7 +20,7 @@ export const AppPagination = (props: AppPaginationProps) => {
   };
 
   useEffect(() => {
-    setPage(1);
+    setPage(Number(router.query.page));
   }, [router.query.year]);
 
   return (
