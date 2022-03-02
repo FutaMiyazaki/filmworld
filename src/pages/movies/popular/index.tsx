@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
@@ -26,7 +27,17 @@ const MoviesPopular: NextPage = () => {
         }
       />
       <RankingButtonLinks />
-      <FilterByYear path="/movies/popular?" />
+      <Grid
+        container
+        spacing={2}
+        justifyContent="flex-start"
+        columns={{ xs: 4, sm: 8 }}
+        sx={{ mb: 4 }}
+      >
+        <Grid item xs={4} sm={2}>
+          <FilterByYear path="/movies/popular?" />
+        </Grid>
+      </Grid>
       <PopularMovies />
     </div>
   );
