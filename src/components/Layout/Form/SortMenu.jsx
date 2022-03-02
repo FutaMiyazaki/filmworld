@@ -8,12 +8,7 @@ import {
 
 export const SortMenu = ({ sort, handleChangeSort }) => {
   return (
-    <Grid
-      container
-      justifyContent="flex-end"
-      columns={{ xs: 4, sm: 12 }}
-      sx={{ mt: 2, mb: 4 }}
-    >
+    <Grid container columns={{ xs: 4, sm: 12 }} sx={{ mt: 2, mb: 4 }}>
       <Grid item xs={4} sm={3}>
         <FormHelperText sx={{ fontWeight: "bold" }}>並び替え</FormHelperText>
         <FormControl fullWidth>
