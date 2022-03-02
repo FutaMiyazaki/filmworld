@@ -28,10 +28,10 @@ export const AppPagination = (props: AppPaginationProps) => {
       {totalPages == 1 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
-            page={page}
             color="primary"
             count={totalPages}
             onChange={handlePage}
+            page={page}
             shape="rounded"
             siblingCount={0}
             size="medium"
