@@ -10,7 +10,11 @@ export const SortMenu = ({ path }) => {
     (e) => {
       const newSort = e.target.value;
       setSort(newSort);
-      router.push(`${path}&sort=${newSort}&page=1`);
+      router.push(
+        router.query.year
+          ? `${path}&sort=${newSort}&year=${router.query.year}&page=1`
+          : `${path}&sort=${newSort}&page=1`
+      );
     },
     [sort]
   );
