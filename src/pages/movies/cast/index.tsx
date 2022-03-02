@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
+import { Grid } from "@mui/material";
 import { CastMovies } from "src/components/Movies/CastMovies";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
@@ -9,17 +9,7 @@ import { useCast } from "src/hooks/useCast";
 
 const MoviesCast: NextPage = () => {
   const router = useRouter();
-  const [sort, setSort] = useState("popularity.desc");
   const { cast } = useCast();
-
-  const handleChangeSort = useCallback(
-    (e) => {
-      const newSort = e.target.value;
-      setSort(newSort);
-      router.push(`/movies/cast?id=${router.query.id}&page=1&sort=${newSort}`);
-    },
-    [sort]
-  );
 
   return (
     <div>
@@ -27,7 +17,17 @@ const MoviesCast: NextPage = () => {
         <title>{cast?.name}が出演している映画 - FilmWorld</title>
       </Head>
       <PageHeading text={`${cast?.name}が出演している映画`} />
-      <SortMenu sort={sort} handleChangeSort={handleChangeSort} />
+      <Grid
+        container
+        spacing={2}
+        justifyContent="flex-start"
+        columns={{ xs: 4, sm: 8 }}
+        sx={{ mb: 4 }}
+      >
+        <Grid item xs={4} sm={2}>
+          <SortMenu path={`/movies/cast?id=${router.query.id}`} />
+        </Grid>
+      </Grid>
       <CastMovies />
     </div>
   );
