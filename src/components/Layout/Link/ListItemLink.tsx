@@ -16,7 +16,7 @@ export const ListItemLink = (props: ListItemLinkProps) => {
 
   return (
     <NextLink href={path} passHref>
-      <MuiLink underline="none" color="white">
+      <MuiLink color="white" underline="none">
         <ListItem dense>
           <ListItemButton>
             <ListItemText>{text}</ListItemText>

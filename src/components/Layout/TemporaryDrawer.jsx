@@ -111,12 +111,12 @@ export const TemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {rankingListItems.map((listItem) => (
-              <NextLink key={listItem.text} href={listItem.path} passHref>
-                <MuiLink underline="none" color="white">
+            {rankingListItems.map(({ path, text }) => (
+              <NextLink key={text} href={path} passHref>
+                <MuiLink color="white" underline="none">
                   <ListItem dense onClick={toggleDrawer("left", false)}>
                     <ListItemButton>
-                      <ListItemText>{listItem.text}</ListItemText>
+                      <ListItemText>{text}</ListItemText>
                     </ListItemButton>
                   </ListItem>
                 </MuiLink>
@@ -130,21 +130,23 @@ export const TemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {genres1.map((genre) => (
-              <NextLink
-                key={genre.id}
-                href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
-                passHref
-              >
-                <MuiLink underline="none" color="white">
-                  <ListItem dense onClick={toggleDrawer("left", false)}>
-                    <ListItemButton>
-                      <ListItemText>{genre.text}</ListItemText>
-                    </ListItemButton>
-                  </ListItem>
-                </MuiLink>
-              </NextLink>
-            ))}
+            {genres1.map(({ id, text }) => {
+              return (
+                <NextLink
+                  key={id}
+                  href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                  passHref
+                >
+                  <MuiLink color="white" underline="none">
+                    <ListItem dense onClick={toggleDrawer("left", false)}>
+                      <ListItemButton>
+                        <ListItemText>{text}</ListItemText>
+                      </ListItemButton>
+                    </ListItem>
+                  </MuiLink>
+                </NextLink>
+              );
+            })}
             <ListItem dense>
               <ListItemButton onClick={handleMoreOpen}>
                 <ListItemText>さらに表示</ListItemText>
@@ -152,23 +154,25 @@ export const TemporaryDrawer = () => {
               </ListItemButton>
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
-              {genres2.map((genre) => (
-                <NextLink
-                  key={genre.id}
-                  href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
-                  passHref
-                >
-                  <MuiLink underline="none" color="white">
-                    <ListItem dense onClick={toggleDrawer("left", false)}>
-                      <ListItemButton>
-                        <ListItemText>{genre.text}</ListItemText>
-                      </ListItemButton>
-                    </ListItem>
-                  </MuiLink>
-                </NextLink>
-              ))}
+              {genres2.map(({ id, text }) => {
+                return (
+                  <NextLink
+                    key={id}
+                    href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                    passHref
+                  >
+                    <MuiLink color="white" underline="none">
+                      <ListItem dense onClick={toggleDrawer("left", false)}>
+                        <ListItemButton>
+                          <ListItemText>{text}</ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                    </MuiLink>
+                  </NextLink>
+                );
+              })}
               <NextLink href="/genres" passHref>
-                <MuiLink underline="none" color="white">
+                <MuiLink color="white" underline="none">
                   <ListItem dense onClick={toggleDrawer("left", false)}>
                     <ListItemButton>
                       <ListItemText>ジャンル一覧を表示</ListItemText>
@@ -186,7 +190,7 @@ export const TemporaryDrawer = () => {
               </ListItemText>
             </ListItem>
             <NextLink href="/watchlist" passHref>
-              <MuiLink underline="none" color="white">
+              <MuiLink color="white" underline="none">
                 <ListItem dense onClick={toggleDrawer("left", false)}>
                   <ListItemButton>
                     <ListItemIcon>
@@ -198,11 +202,11 @@ export const TemporaryDrawer = () => {
               </MuiLink>
             </NextLink>
             <MuiLink
-              href="https://github.com/FutaMiyazaki/miya-react-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="none"
               color="white"
+              href="https://github.com/FutaMiyazaki/miya-react-app"
+              rel="noopener noreferrer"
+              target="_blank"
+              underline="none"
             >
               <ListItem dense onClick={toggleDrawer("left", false)}>
                 <ListItemButton>
