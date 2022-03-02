@@ -26,6 +26,10 @@ export const SideMenu = () => {
       text: "歴代興行収入",
       path: "/movies/revenue?page=1",
     },
+    {
+      text: "評価数",
+      path: "/movies/score?page=1",
+    },
   ];
   const genres1 = [
     {
