@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
+import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { PopularMovies } from "src/components/Movies/PopularMovies";
 
@@ -24,6 +25,7 @@ const MoviesPopular: NextPage = () => {
             : "人気ランキング"
         }
       />
+      <RankingButtonLinks />
       <FilterByYear path="/movies/popular?" />
       <PopularMovies />
     </div>

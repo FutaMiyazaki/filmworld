@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
+import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { ScoreMovies } from "src/components/Movies/ScoreMovies";
 
@@ -24,6 +25,7 @@ const MoviesScore: NextPage = () => {
             : "評価数ランキング"
         }
       />
+      <RankingButtonLinks />
       <FilterByYear path="/movies/score?" />
       <ScoreMovies />
     </div>
