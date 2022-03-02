@@ -28,7 +28,7 @@ export const SortMenu = (props: SortMenuProps) => {
           : `${path}&sort=${newSort}&page=1`
       );
     },
-    [sort]
+    [sort, router.query.year]
   );
 
   return (
