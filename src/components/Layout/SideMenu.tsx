@@ -100,8 +100,8 @@ export const SideMenu = () => {
           <ListItemLink path="/genres" text="ジャンル一覧を表示" />
         </Collapse>
         <Divider />
-        <NextLink href="/watchlist" passHref>
-          <MuiLink underline="none" color="white">
+        <NextLink passHref href="/watchlist">
+          <MuiLink color="white" underline="none">
             <ListItem dense>
               <ListItemButton>
                 <ListItemIcon>
