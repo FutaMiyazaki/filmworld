@@ -6,6 +6,13 @@ export const SortMenu = ({ path }) => {
   const router = useRouter();
   const [sort, setSort] = useState("popularity.desc");
 
+  const MenuItems = [
+    { text: "人気順", value: "popularity.desc" },
+    { text: "公開日順", value: "release_date.desc" },
+    { text: "興行収入が多い順", value: "revenue.desc" },
+    { text: "評価数が多い順", value: "vote_count.desc" },
+  ];
+
   const handleChangeSort = useCallback(
     (e) => {
       const newSort = e.target.value;
@@ -29,9 +36,13 @@ export const SortMenu = ({ path }) => {
           size="small"
           value={sort}
         >
-          <MenuItem value="popularity.desc">人気順</MenuItem>
-          <MenuItem value="release_date.desc">公開日順</MenuItem>
-          <MenuItem value="revenue.desc">興行収入が多い順</MenuItem>
+          {MenuItems.map(({ text, value }) => {
+            return (
+              <MenuItem key={text} value={value}>
+                {text}
+              </MenuItem>
+            );
+          })}
         </Select>
       </FormControl>
     </>
