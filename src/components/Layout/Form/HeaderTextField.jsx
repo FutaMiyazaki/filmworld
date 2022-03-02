@@ -21,7 +21,7 @@ export const HeaderTextField = () => {
 
   return (
     <form action="" onSubmit={handleSubmit}>
-      <FormControl sx={{ width: "30vw" }}>
+      <FormControl sx={{ width: "25vw" }}>
         <TextField
           id="header-form"
           type="text"
