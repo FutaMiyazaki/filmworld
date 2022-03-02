@@ -39,7 +39,7 @@ export const RankingButtonLinks = () => {
   return (
     <Box sx={{ mt: 1, mb: 2 }}>
       <Typography variant="subtitle1" sx={{ display: "inline", mr: 2 }}>
-        並び替え順
+        並び替え
       </Typography>
       <ButtonGroup size="large" sx={{ display: "inline" }}>
         {buttonItems.map(({ path, text, mobileText }) => {
