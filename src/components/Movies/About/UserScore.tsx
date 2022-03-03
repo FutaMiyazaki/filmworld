@@ -1,3 +1,4 @@
+import { VFC } from "react";
 import { Box, Rating, Typography } from "@mui/material";
 
 type UserScoreProps = {
@@ -6,7 +7,7 @@ type UserScoreProps = {
   voteCount: 0;
 };
 
-export const UserScore = (props: UserScoreProps) => {
+export const UserScore: VFC<UserScoreProps> = (props) => {
   const { size, voteAverage, voteCount } = props;
   const shapingScore = (score: number) => {
     return Math.floor((score / 2) * Math.pow(10, 1)) / Math.pow(10, 1);

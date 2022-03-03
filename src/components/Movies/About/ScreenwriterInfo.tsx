@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, VFC } from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
@@ -12,7 +12,7 @@ type ScreenwriterProps = {
   crew: CrewData;
 };
 
-export const ScreenwriterInfo = (props: ScreenwriterProps) => {
+export const ScreenwriterInfo: VFC<ScreenwriterProps> = (props) => {
   const { crew } = props;
   const unique = useCallback(
     (

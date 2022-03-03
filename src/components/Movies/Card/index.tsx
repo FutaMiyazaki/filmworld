@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import {
   Box,
   Button,
@@ -24,7 +25,7 @@ type MoviesCardProps = {
   };
 };
 
-export const MoviesCard = (props: MoviesCardProps) => {
+export const MoviesCard: VFC<MoviesCardProps> = (props) => {
   const { movie } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
