@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import type { VFC } from "react";
+import { VFC } from "react";
 import { useGenres } from "src/hooks/useGenres";
 import { Loading } from "src/components/Layout/Loading";
 import { Chip, Grid, Link as MuiLink } from "@mui/material";
