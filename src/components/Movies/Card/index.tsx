@@ -35,8 +35,8 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
         <Box sx={{ mb: 1 }}>
           <TextLink
             path={`/movies/${movie.id}`}
-            variant={isMobileScreen ? "subtitle1" : "h6"}
             text={movie.title}
+            variant={isMobileScreen ? "subtitle1" : "h6"}
           />
         </Box>
         <Box sx={{ display: "flex" }}>
@@ -44,15 +44,15 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
             <NextLink passHref href={`/movies/${movie.id}`}>
               <MuiLink underline="none">
                 <CardMedia
+                  alt="ポスター画像"
                   component="img"
+                  image={`https://image.tmdb.org/t/p/w185${movie.posterPath}`}
                   sx={{
                     width: isMobileScreen ? "100" : "150",
                     "&:hover": {
                       opacity: 0.7,
                     },
                   }}
-                  image={`https://image.tmdb.org/t/p/w185${movie.posterPath}`}
-                  alt="ポスター画像"
                 />
               </MuiLink>
             </NextLink>
@@ -60,24 +60,24 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
           <Box sx={{ ml: 2 }}>
             {movie.releaseDate ? (
               <Typography
-                variant={isMobileScreen ? "subtitle2" : "subtitle1"}
                 color="white"
+                variant={isMobileScreen ? "subtitle2" : "subtitle1"}
                 sx={{ display: "inline" }}
               >
                 公開日: {movie.releaseDate?.replace(/-/g, "/")}
               </Typography>
             ) : null}
             <UserScore
+              size={isMobileScreen ? "small" : "medium"}
               voteAverage={movie?.voteAverage}
               voteCount={movie?.voteCount}
-              size={isMobileScreen ? "small" : "medium"}
             />
             <NextLink href={`/movies/${movie.id}`} passHref>
               <MuiLink underline="none">
                 <Button
+                  endIcon={<ChevronRightIcon />}
                   fullWidth={isMobileScreen}
                   variant="outlined"
-                  endIcon={<ChevronRightIcon />}
                 >
                   詳細を見る
                 </Button>

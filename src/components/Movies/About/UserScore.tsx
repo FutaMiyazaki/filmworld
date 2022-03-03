@@ -24,19 +24,19 @@ export const UserScore: VFC<UserScoreProps> = (props) => {
       <Rating
         readOnly
         name="read-only"
-        value={shapingScore(voteAverage)}
         precision={0.1}
         size={size}
+        value={shapingScore(voteAverage)}
       />
       <Box sx={{ ml: 1 }}>
         <Typography
-          variant="subtitle1"
           color="#FBBD30"
+          variant="subtitle1"
           sx={{ mr: 1, display: "inline", fontWeight: "bold" }}
         >
           {shapingScore(voteAverage)}
         </Typography>
-        <Typography variant="caption" color="white" sx={{ fontWeight: "bold" }}>
+        <Typography color="white" variant="caption" sx={{ fontWeight: "bold" }}>
           ({voteCount})
         </Typography>
       </Box>

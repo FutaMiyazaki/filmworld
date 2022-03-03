@@ -8,7 +8,7 @@ type InfoHeaderProps = {
 export const InfoHeader: VFC<InfoHeaderProps> = (props) => {
   const { text } = props;
   return (
-    <Typography variant="subtitle1" color="white" sx={{ fontWeight: "bold" }}>
+    <Typography color="white" variant="subtitle1" sx={{ fontWeight: "bold" }}>
       {text}
     </Typography>
   );

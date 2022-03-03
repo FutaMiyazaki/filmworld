@@ -26,12 +26,12 @@ export const GenresInfo: VFC<GenresInfoProps> = (props) => {
             passHref
           >
             <Chip
+              clickable
               component="a"
+              color="primary"
               label={genre.name}
               size={isMobileScreen ? "small" : "medium"}
-              color="primary"
               variant="outlined"
-              clickable
               sx={{ mr: 1, mb: 1 }}
             />
           </NextLink>
