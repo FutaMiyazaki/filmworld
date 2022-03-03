@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { Button, Link as MuiLink, Typography } from "@mui/material";
 
 type ButtonLinkProps = {
@@ -7,7 +8,7 @@ type ButtonLinkProps = {
   variant: "text" | "outlined" | "contained" | undefined;
 };
 
-export const ButtonLink = (props: ButtonLinkProps) => {
+export const ButtonLink: VFC<ButtonLinkProps> = (props) => {
   const { path, text, variant } = props;
 
   return (

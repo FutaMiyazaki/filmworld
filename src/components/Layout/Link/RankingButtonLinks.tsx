@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import { VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   Box,
@@ -15,7 +16,7 @@ type ButtonItems = {
   mobileText: string;
 }[];
 
-export const RankingButtonLinks = () => {
+export const RankingButtonLinks: VFC = () => {
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const buttonItems: ButtonItems = [

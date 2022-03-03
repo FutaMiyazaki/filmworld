@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
+import { useCallback, useState, VFC } from "react";
 import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
 
 type SortMenuProps = {
   path: string;
 };
 
-export const SortMenu = (props: SortMenuProps) => {
+export const SortMenu: VFC<SortMenuProps> = (props) => {
   const { path } = props;
   const router = useRouter();
   const [sort, setSort] = useState("popularity.desc");

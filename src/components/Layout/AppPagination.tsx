@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useMediaQuery } from "react-responsive";
+import { VFC } from "react";
 import { Grid, Pagination } from "@mui/material";
 
 type AppPaginationProps = {
@@ -8,7 +8,7 @@ type AppPaginationProps = {
   totalPages: number;
 };
 
-export const AppPagination = (props: AppPaginationProps) => {
+export const AppPagination: VFC<AppPaginationProps> = (props) => {
   const { path, totalPages } = props;
   const router = useRouter();
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });

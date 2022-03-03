@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import {
   Link as MuiLink,
   ListItem,
@@ -11,7 +12,7 @@ type ListItemLinkProps = {
   text: string;
 };
 
-export const ListItemLink = (props: ListItemLinkProps) => {
+export const ListItemLink: VFC<ListItemLinkProps> = (props) => {
   const { path, text } = props;
 
   return (

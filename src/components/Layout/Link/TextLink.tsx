@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { Link as MuiLink, Typography } from "@mui/material";
 
 type TextLinkProps = {
@@ -21,7 +22,7 @@ type TextLinkProps = {
     | "inherit";
 };
 
-export const TextLink = (props: TextLinkProps) => {
+export const TextLink: VFC<TextLinkProps> = (props) => {
   const { path, text, variant } = props;
 
   return (
