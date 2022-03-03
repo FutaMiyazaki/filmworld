@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Box, Chip } from "@mui/material";
 
@@ -11,7 +12,7 @@ type GenresInfoProps = {
   genres: GenresData;
 };
 
-export const GenresInfo = (props: GenresInfoProps) => {
+export const GenresInfo: VFC<GenresInfoProps> = (props) => {
   const { genres } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 

@@ -1,3 +1,4 @@
+import { VFC } from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
@@ -11,7 +12,7 @@ type DirectorProps = {
   crew: CrewData;
 };
 
-export const DirectorInfo = (props: DirectorProps) => {
+export const DirectorInfo: VFC<DirectorProps> = (props) => {
   const { crew } = props;
 
   return (

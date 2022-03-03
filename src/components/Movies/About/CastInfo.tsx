@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { Box, Link as MuiLink, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
@@ -11,7 +12,7 @@ type CastProps = {
   cast: CastData;
 };
 
-export const CastInfo = (props: CastProps) => {
+export const CastInfo: VFC<CastProps> = (props) => {
   const { cast } = props;
 
   return (

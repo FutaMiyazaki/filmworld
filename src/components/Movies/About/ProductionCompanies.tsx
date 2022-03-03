@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { Box, Link as MuiLink, Paper, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
@@ -11,7 +12,7 @@ type ProductionCompaniesProps = {
   companies: CompaniesData;
 };
 
-export const ProductionCompanies = (props: ProductionCompaniesProps) => {
+export const ProductionCompanies: VFC<ProductionCompaniesProps> = (props) => {
   const { companies } = props;
 
   return (

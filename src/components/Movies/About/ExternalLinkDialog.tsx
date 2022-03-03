@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, VFC } from "react";
 import {
   Button,
   Dialog,
@@ -15,7 +15,7 @@ type ExternalLinkDialogProps = {
   url: string;
 };
 
-export const ExternalLinkDialog = (props: ExternalLinkDialogProps) => {
+export const ExternalLinkDialog: VFC<ExternalLinkDialogProps> = (props) => {
   const { url } = props;
   const [open, setOpen] = useState(false);
 
