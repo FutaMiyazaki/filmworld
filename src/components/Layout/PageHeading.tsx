@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { VFC } from "react";
 import { Grid, Link as MuiLink, Typography } from "@mui/material";
 
 type PageHeadingProps = {
@@ -6,7 +7,7 @@ type PageHeadingProps = {
   text: string;
 };
 
-export const PageHeading = (props: PageHeadingProps) => {
+export const PageHeading: VFC<PageHeadingProps> = (props) => {
   const { path, text } = props;
 
   return (

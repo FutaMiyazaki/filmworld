@@ -1,6 +1,7 @@
+import { VFC } from "react";
 import { Box, CircularProgress, Grid } from "@mui/material";
 
-export const Loading = () => {
+export const Loading: VFC = () => {
   return (
     <Box>
       <Grid container alignItems="center" justifyContent="center">

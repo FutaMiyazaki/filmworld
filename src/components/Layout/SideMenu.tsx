@@ -1,5 +1,5 @@
-import { useState } from "react";
 import NextLink from "next/link";
+import { useState, VFC } from "react";
 import {
   Collapse,
   Divider,
@@ -16,7 +16,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import { ListItemLink } from "src/components/Layout/Link/ListItemLink";
 
-export const SideMenu = () => {
+export const SideMenu: VFC = () => {
   const [open, setOpen] = useState(false);
   const rankingListItems = [
     {
