@@ -11,7 +11,6 @@ type AppPaginationProps = {
 export const AppPagination: VFC<AppPaginationProps> = (props) => {
   const { path, totalPages } = props;
   const router = useRouter();
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   const [page, setPage] = useState(Number(router.query.page));
 
   const handlePage = (e: {}, clickPage: number) => {
