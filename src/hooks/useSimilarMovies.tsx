@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
+import { fetcher } from "src/utils/fetcher";
 
 export function useSimilarMovies() {
   const router = useRouter();
