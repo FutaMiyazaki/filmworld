@@ -35,14 +35,17 @@ export const SearchForm = () => {
     setYear(newYear);
   }, []);
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    if (genre) {
-      router.push(
-        `/search/movies?genre=${genre}&year_start=${year[0]}&year_end=${year[1]}&page=1`
-      );
-    }
-  });
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (genre) {
+        router.push(
+          `/search/movies?genre=${genre}&year_start=${year[0]}&year_end=${year[1]}&page=1`
+        );
+      }
+    },
+    [genre, year]
+  );
 
   return (
     <div>
