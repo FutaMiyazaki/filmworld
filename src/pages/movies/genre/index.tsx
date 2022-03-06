@@ -6,13 +6,16 @@ import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { GenreMovies } from "src/components/Movies/GenreMovies";
+import { Movies } from "src/components/Movies/index";
 import { useGenres } from "src/hooks/useGenres";
+import { useGenreMovies } from "src/hooks/useGenreMovies";
 
 const MoviesGenre: NextPage = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
+  const [path, setPath] = useState("");
   const { genres } = useGenres();
+  const { movies, error, isLoading } = useGenreMovies();
 
   const genreSearch = useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
@@ -21,6 +24,16 @@ const MoviesGenre: NextPage = () => {
       }
     }
   });
+
+  useEffect(() => {
+    router.query.year
+      ? setPath(
+          `/movies/genre?id=${router.query.id}&sort=${router.query.sort}&year=${router.query.year}&`
+        )
+      : setPath(
+          `/movies/genre?id=${router.query.id}&sort=${router.query.sort}&`
+        );
+  }, [router]);
 
   return (
     <div>
@@ -44,7 +57,13 @@ const MoviesGenre: NextPage = () => {
           <SortMenu path={`/movies/genre?id=${router.query.id}`} />
         </Grid>
       </Grid>
-      <GenreMovies />
+      <Movies
+        movies={movies?.results}
+        error={error}
+        isLoading={isLoading}
+        path={path}
+        totalPages={movies?.total_pages}
+      />
     </div>
   );
 };
