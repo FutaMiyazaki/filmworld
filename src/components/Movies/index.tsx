@@ -50,7 +50,7 @@ export const Movies: VFC<MoviesProps> = (props) => {
     <>
       <Grid container columns={{ xs: 4, sm: 8 }} spacing={2}>
         {movies.map((movie: movieType, i: number) => {
-          return i < maxDisplay ? (
+          return i < maxDisplay && movie?.poster_path ? (
             <Grid key={movie.id} item xs={4} sm={4}>
               <MoviesCard
                 movie={{
