@@ -40,7 +40,7 @@ export const RankingButtonLinks: VFC = () => {
               <MuiLink underline="none">
                 <Button
                   disabled={`${router.pathname}?page=1` === path}
-                  variant="text"
+                  variant="contained"
                   sx={{ mr: 1, fontWeight: "bold" }}
                 >
                   {isMobileScreen ? mobileText : text}
