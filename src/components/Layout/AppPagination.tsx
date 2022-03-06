@@ -20,7 +20,7 @@ export const AppPagination: VFC<AppPaginationProps> = (props) => {
 
   useEffect(() => {
     setPage(Number(router.query.page));
-  }, [router.query.year, router.query.sort]);
+  }, [router.query]);
 
   return (
     <div>
