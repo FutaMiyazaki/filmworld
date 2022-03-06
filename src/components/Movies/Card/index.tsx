@@ -17,9 +17,9 @@ import { UserScore } from "src/components/Movies/About/UserScore";
 type MoviesCardProps = {
   movie: {
     id: number;
-    title: string;
     posterPath?: string;
     releaseDate?: string;
+    title: string;
     voteAverage: 0;
     voteCount: 0;
   };
