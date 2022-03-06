@@ -5,10 +5,20 @@ import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { RevenueMovies } from "src/components/Movies/RevenueMovies";
+import { Movies } from "src/components/Movies/index";
+import { useRevenueMovies } from "src/hooks/useRevenueMovies";
+import { useEffect, useState } from "react";
 
 const MoviesRevenue: NextPage = () => {
   const router = useRouter();
+  const [path, setPath] = useState("");
+  const { movies, error, isLoading } = useRevenueMovies();
+
+  useEffect(() => {
+    router.query.year
+      ? setPath(`/movies/revenue?year=${router.query.year}&`)
+      : setPath(`/movies/revenue?`);
+  }, [router]);
 
   return (
     <div>
@@ -37,7 +47,13 @@ const MoviesRevenue: NextPage = () => {
           <FilterByYear path="/movies/revenue?" />
         </Grid>
       </Grid>
-      <RevenueMovies />
+      <Movies
+        movies={movies?.results}
+        error={error}
+        isLoading={isLoading}
+        path={path}
+        totalPages={movies?.total_pages}
+      />
     </div>
   );
 };
