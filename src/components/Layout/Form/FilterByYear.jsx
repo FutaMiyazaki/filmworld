@@ -10,13 +10,16 @@ export const FilterByYear = ({ path }) => {
     setYear(e.target.value);
   }, []);
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    if (year < 1950 || year > 2022) {
-      return;
-    }
-    router.push(`${path}year=${year}&page=1`);
-  });
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (year < 1950 || year > 2022) {
+        return;
+      }
+      router.push(`${path}year=${year}&page=1`);
+    },
+    [year]
+  );
 
   return (
     <>
