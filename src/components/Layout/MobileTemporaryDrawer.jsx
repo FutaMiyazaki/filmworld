@@ -97,14 +97,17 @@ export const MobileTemporaryDrawer = () => {
     setKeyword(e.target.value);
   }, []);
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    if (keyword.length === 0) {
-      return;
-    }
-    setState({ ...state, right: false });
-    router.push(`/search/movies?keyword=${keyword}&page=1`);
-  });
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (keyword.length === 0) {
+        return;
+      }
+      setState({ ...state, right: false });
+      router.push(`/search/movies?keyword=${keyword}&page=1`);
+    },
+    [keyword]
+  );
 
   return (
     <div>
