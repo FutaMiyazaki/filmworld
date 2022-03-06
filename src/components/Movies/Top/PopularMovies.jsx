@@ -19,7 +19,7 @@ export const PopularMovies = () => {
         container
         justifyContent="center"
         columns={{ xs: 4, sm: 8 }}
-        sx={{ my: 4 }}
+        sx={{ mt: 2, mb: 4 }}
       >
         <Grid item xs={4} sm={4}>
           <ButtonLink
