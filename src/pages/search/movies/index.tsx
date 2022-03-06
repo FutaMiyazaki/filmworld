@@ -20,7 +20,7 @@ const SearchMovies: NextPage = () => {
         setGenre(genres?.genres[i].name);
       }
     }
-  });
+  }, [genres?.genres, router.query.genre]);
 
   useEffect(() => {
     router.query.keyword

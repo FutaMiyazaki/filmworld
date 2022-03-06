@@ -23,7 +23,7 @@ const MoviesGenre: NextPage = () => {
         setGenre(genres?.genres[i].name);
       }
     }
-  });
+  }, [genres?.genres, router.query.id]);
 
   useEffect(() => {
     router.query.year
