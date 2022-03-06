@@ -1,6 +1,11 @@
+import { VFC, ReactNode } from "react";
 import { Paper } from "@mui/material";
 
-export const PaperText = ({ children }) => {
+type PaperTextProps = {
+  children: ReactNode;
+};
+
+export const PaperText: VFC<PaperTextProps> = ({ children }) => {
   return (
     <Paper
       sx={{
