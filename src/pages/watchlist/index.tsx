@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { FavoriteMovies } from "src/components/Movies/FavoriteMovies";
+import { MoviesFavorite } from "src/components/Movies/Favorite/index";
 
 const Watchlist: NextPage = () => {
   return (
@@ -10,7 +10,7 @@ const Watchlist: NextPage = () => {
         <title>ウォッチリスト - FilmWorld</title>
       </Head>
       <PageHeading text="ウォッチリスト" />
-      <FavoriteMovies />
+      <MoviesFavorite />
     </div>
   );
 };

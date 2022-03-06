@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import NextLink from "next/link";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   Button,
@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export const FavoriteMovies = () => {
+export const MoviesFavorite = () => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const storageKey = "favoMovies";
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
