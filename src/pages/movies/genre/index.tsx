@@ -17,7 +17,7 @@ const MoviesGenre: NextPage = () => {
   const { genres } = useGenres();
   const { movies, error, isLoading } = useGenreMovies();
 
-  const genreSearch = useEffect(() => {
+  useEffect(() => {
     for (let i = 0; i < genres?.genres.length; i++) {
       if (genres?.genres[i].id == router.query.id) {
         setGenre(genres?.genres[i].name);
