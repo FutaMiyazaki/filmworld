@@ -12,6 +12,7 @@ export const PopularMovies = () => {
         movies={movies?.results}
         error={error}
         isLoading={isLoading}
+        maxDisplay={8}
         path="/"
         totalPages={1}
       />

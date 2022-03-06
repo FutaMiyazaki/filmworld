@@ -40,6 +40,7 @@ const MoviesCast: NextPage = () => {
         movies={movies?.results}
         error={error}
         isLoading={isLoading}
+        maxDisplay={20}
         path={`/movies/cast?id=${router.query.id}&sort=${router.query.sort}&`}
         totalPages={movies?.total_pages}
       />

@@ -52,6 +52,7 @@ const MoviesTopic: NextPage = () => {
         movies={movies?.results}
         error={error}
         isLoading={isLoading}
+        maxDisplay={20}
         path={path}
         totalPages={movies?.total_pages}
       />

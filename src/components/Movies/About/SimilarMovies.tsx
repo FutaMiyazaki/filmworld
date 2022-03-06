@@ -9,6 +9,7 @@ export const SimilarMovies = () => {
       movies={similarMovies?.results}
       error={error}
       isLoading={isLoading}
+      maxDisplay={10}
       path="/"
       totalPages={1}
     />
