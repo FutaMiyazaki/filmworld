@@ -1,14 +1,24 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { ScoreMovies } from "src/components/Movies/ScoreMovies";
+import { Movies } from "src/components/Movies/index";
+import { useScoreMovies } from "src/hooks/useScoreMovies";
 
-const MoviesScore: NextPage = () => {
+const MoviesTopic: NextPage = () => {
   const router = useRouter();
+  const [path, setPath] = useState("");
+  const { movies, error, isLoading } = useScoreMovies();
+
+  useEffect(() => {
+    router.query.year
+      ? setPath(`/movies/topic?year=${router.query.year}&`)
+      : setPath(`/movies/topic?`);
+  }, [router]);
 
   return (
     <div>
@@ -35,12 +45,18 @@ const MoviesScore: NextPage = () => {
         sx={{ mb: 4 }}
       >
         <Grid item xs={4} sm={2}>
-          <FilterByYear path="/movies/score?" />
+          <FilterByYear path="/movies/topic?" />
         </Grid>
       </Grid>
-      <ScoreMovies />
+      <Movies
+        movies={movies?.results}
+        error={error}
+        isLoading={isLoading}
+        path={path}
+        totalPages={movies?.total_pages}
+      />
     </div>
   );
 };
 
-export default MoviesScore;
+export default MoviesTopic;
