@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
 import { NextPage } from "next";
 import Head from "next/head";
+import { Grid } from "@mui/material";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { SideMenu } from "src/components/Layout/SideMenu";
 import { PopularMovies } from "src/components/Movies/Top/PopularMovies";
