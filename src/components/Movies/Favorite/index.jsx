@@ -24,12 +24,7 @@ export const MoviesFavorite = () => {
   return (
     <div>
       {nowFavoMovies && nowFavoMovies.length > 0 ? (
-        <Grid
-          container
-          columns={{ xs: 4, sm: 8 }}
-          justifyContent="flex-start"
-          spacing="10"
-        >
+        <Grid container columns={{ xs: 4, sm: 8 }} spacing="10">
           {nowFavoMovies.map((movie) => {
             return (
               movie.id && (
