@@ -3,8 +3,8 @@ import Head from "next/head";
 import { Grid } from "@mui/material";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { SideMenu } from "src/components/Layout/SideMenu";
-import { PopularMovies } from "src/components/Movies/Top/PopularMovies";
-import { RevenueMovies } from "src/components/Movies/Top/RevenueMovies";
+import { MoviesTopPopular } from "src/components/Movies/Top/Popular";
+import { MoviesTopRevenue } from "src/components/Movies/Top/Revenue";
 
 const Index: NextPage = () => {
   return (
@@ -18,12 +18,12 @@ const Index: NextPage = () => {
         </Grid>
         <Grid item xs={4} sm={6}>
           <PageHeading path="/movies/popular?page=1" text="人気ランキング" />
-          <PopularMovies />
+          <MoviesTopPopular />
           <PageHeading
             path="/movies/popular?page=1"
             text="興行収入ランキング"
           />
-          <RevenueMovies />
+          <MoviesTopRevenue />
         </Grid>
       </Grid>
     </div>
