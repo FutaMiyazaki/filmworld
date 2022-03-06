@@ -2,15 +2,17 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Grid } from "@mui/material";
-import { CastMovies } from "src/components/Movies/CastMovies";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
+import { Movies } from "src/components/Movies/index";
 import { useCast } from "src/hooks/useCast";
+import { useCastMovies } from "src/hooks/useCastMovies";
 
 const MoviesCast: NextPage = () => {
   const router = useRouter();
   const { cast } = useCast();
+  const { movies, error, isLoading } = useCastMovies();
 
   return (
     <div>
@@ -34,7 +36,13 @@ const MoviesCast: NextPage = () => {
           <SortMenu path={`/movies/cast?id=${router.query.id}`} />
         </Grid>
       </Grid>
-      <CastMovies />
+      <Movies
+        movies={movies?.results}
+        error={error}
+        isLoading={isLoading}
+        path={`/movies/cast?id=${router.query.id}&sort=${router.query.sort}&`}
+        totalPages={movies?.total_pages}
+      />
     </div>
   );
 };
