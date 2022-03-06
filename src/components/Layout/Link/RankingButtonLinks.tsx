@@ -2,13 +2,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { VFC } from "react";
 import { useMediaQuery } from "react-responsive";
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Link as MuiLink,
-  Typography,
-} from "@mui/material";
+import { Box, Button, ButtonGroup, Link as MuiLink } from "@mui/material";
 
 type ButtonItems = {
   path: string;
@@ -39,9 +33,6 @@ export const RankingButtonLinks: VFC = () => {
 
   return (
     <Box sx={{ mt: 1, mb: 2 }}>
-      <Typography variant="subtitle1" sx={{ display: "inline", mr: 2 }}>
-        並び替え
-      </Typography>
       <ButtonGroup size="large" sx={{ display: "inline" }}>
         {buttonItems.map(({ path, text, mobileText }) => {
           return (
