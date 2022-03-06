@@ -1,11 +1,10 @@
-import { VFC } from "react";
 import { Grid } from "@mui/material";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { Movies } from "src/components/Movies/index";
-import { usePopularMovies } from "src/hooks/topMovies/usePopularMovies";
+import { useRevenueMovies } from "src/hooks/topMovies/useRevenueMovies";
 
-export const PopularMovies: VFC = () => {
-  const { movies, error, isLoading } = usePopularMovies();
+export const RevenueMovies = () => {
+  const { movies, error, isLoading } = useRevenueMovies();
 
   return (
     <>
@@ -24,7 +23,7 @@ export const PopularMovies: VFC = () => {
       >
         <Grid item xs={4} sm={4}>
           <ButtonLink
-            path="/movies/popular?page=1"
+            path="/movies/revenue?page=1"
             text="もっと見る"
             variant="outlined"
           />
