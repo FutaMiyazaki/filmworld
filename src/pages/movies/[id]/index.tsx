@@ -14,6 +14,7 @@ import { GenresInfo } from "src/components/Movies/About/GenresInfo";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
+import { ProductionCountries } from "src/components/Movies/About/ProductionCountries";
 import { ReleaseDate } from "src/components/Movies/About/ReleaseDate";
 import { RunningTime } from "src/components/Movies/About/RunningTime";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
@@ -119,6 +120,11 @@ const MoviesId: NextPage = () => {
             {movieInfo?.production_companies && (
               <ProductionCompanies
                 companies={movieInfo?.production_companies}
+              />
+            )}
+            {movieInfo?.production_countries && (
+              <ProductionCountries
+                countries={movieInfo?.production_countries}
               />
             )}
             <DirectorInfo crew={movieCredits?.crew} />
