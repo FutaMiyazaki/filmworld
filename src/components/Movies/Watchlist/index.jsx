@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export const MoviesFavorite = () => {
+export const MoviesWatchlist = () => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const storageKey = "favoMovies";
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
@@ -59,9 +59,9 @@ export const MoviesFavorite = () => {
       ) : (
         <Grid
           container
+          alignItems="center"
           direction="column"
           justifyContent="center"
-          alignItems="center"
         >
           <Grid item sx={{ mb: 4 }}>
             <VideoLibraryIcon sx={{ fontSize: 80 }} />
