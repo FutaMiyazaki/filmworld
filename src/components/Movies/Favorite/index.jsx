@@ -45,7 +45,7 @@ export const MoviesFavorite = () => {
                         <CardMedia
                           component="img"
                           height={isMobileScreen ? "250" : "400"}
-                          image={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+                          image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                           alt="ポスター画像"
                         />
                       </Card>

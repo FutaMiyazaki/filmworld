@@ -46,7 +46,7 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                 <CardMedia
                   alt="ポスター画像"
                   component="img"
-                  image={`https://image.tmdb.org/t/p/w185${movie.posterPath}`}
+                  image={`https://image.tmdb.org/t/p/w300${movie.posterPath}`}
                   sx={{
                     width: isMobileScreen ? "100" : "150",
                     "&:hover": {

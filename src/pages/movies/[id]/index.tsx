@@ -53,7 +53,7 @@ const MoviesId: NextPage = () => {
                 sx={{
                   height: "30vh",
                 }}
-                image={`https://image.tmdb.org/t/p/w185${movieInfo?.poster_path}`}
+                image={`https://image.tmdb.org/t/p/w300${movieInfo?.poster_path}`}
                 alt="ポスター画像"
               />
             </Card>
@@ -64,7 +64,7 @@ const MoviesId: NextPage = () => {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <div style={{ position: "relative", width: "100%", height: 450 }}>
               <Image
-                src={`https://image.tmdb.org/t/p/w185${movieInfo?.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w300${movieInfo?.poster_path}`}
                 layout="fill"
                 objectFit="contain"
                 alt="ポスター画像"
