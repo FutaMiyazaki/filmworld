@@ -89,10 +89,12 @@ const MoviesId: NextPage = () => {
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>
-          <MovieTitle
-            title={movieInfo?.title}
-            originalTitle={movieInfo?.original_title}
-          />
+          {isMobileScreen ? null : (
+            <MovieTitle
+              title={movieInfo?.title}
+              originalTitle={movieInfo?.original_title}
+            />
+          )}
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <RunningTime runtime={movieInfo?.runtime} />
           <GenresInfo genres={movieInfo?.genres} />
