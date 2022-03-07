@@ -3,12 +3,11 @@ import Head from "next/head";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import { Box, Card, CardMedia, Grid, Stack } from "@mui/material";
-import { useMovie } from "src/hooks/useMovie";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { CastInfo } from "src/components/Movies/About/CastInfo";
 import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
+import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
 import { GenresInfo } from "src/components/Movies/About/GenresInfo";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
@@ -20,6 +19,7 @@ import { RunningTime } from "src/components/Movies/About/RunningTime";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { UserScore } from "src/components/Movies/About/UserScore";
+import { useMovie } from "src/hooks/useMovie";
 
 const MoviesId: NextPage = () => {
   const { movieInfo, movieCredits, error, isLoading } = useMovie();
