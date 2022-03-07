@@ -19,9 +19,10 @@ export const ProductionCountries: VFC<ProductionCountriesProps> = (props) => {
       {countries?.length ? (
         <Box sx={{ mb: 1 }}>
           <InfoHeader text="制作国" />
-          {countries?.map(({ name }) => {
+          {countries?.map(({ id, name }) => {
             return (
               <Paper
+                key={id}
                 sx={{
                   display: "inline-block",
                   textAlign: "center",
