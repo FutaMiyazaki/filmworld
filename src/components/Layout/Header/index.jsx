@@ -14,6 +14,7 @@ import {
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
+import { SearchButton } from "src/components/Layout/Header/SearchButton";
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -57,6 +58,7 @@ export const Header = (props) => {
                     </Typography>
                   </MuiLink>
                 </NextLink>
+                <SearchButton />
               </Toolbar>
             </Container>
           </AppBar>
