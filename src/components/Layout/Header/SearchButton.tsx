@@ -9,6 +9,7 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 
 export const SearchButton: VFC = () => {
@@ -39,6 +40,10 @@ export const SearchButton: VFC = () => {
     },
     [keyword]
   );
+
+  const handleDeleteKeyword = useCallback(() => {
+    setKeyword("");
+  }, []);
 
   return (
     <>
@@ -75,6 +80,11 @@ export const SearchButton: VFC = () => {
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <CloseIcon fontSize="small" onClick={handleDeleteKeyword} />
                   </InputAdornment>
                 ),
               }}
