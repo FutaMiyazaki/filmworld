@@ -8,7 +8,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { BottomNavi } from "src/components/Layout/BottomNavi";
-import { Header } from "src/components/Layout/Header";
+import { Header } from "src/components/Layout/Header/index";
 
 export const LayoutMain = ({ children }) => {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
