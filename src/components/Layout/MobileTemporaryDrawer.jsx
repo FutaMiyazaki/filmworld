@@ -1,35 +1,29 @@
 import NextLink from "next/link";
-import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Collapse,
   Divider,
   Drawer,
-  InputAdornment,
   Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  TextField,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export const MobileTemporaryDrawer = () => {
-  const router = useRouter();
   const [state, setState] = useState({
     right: false,
   });
   const [open, setOpen] = useState(false);
-  const [keyword, setKeyword] = useState("");
   const rankingListItems = [
     {
       text: "人気の映画",
@@ -92,22 +86,6 @@ export const MobileTemporaryDrawer = () => {
   const handleMoreOpen = () => {
     setOpen(!open);
   };
-
-  const handleSearch = useCallback((e) => {
-    setKeyword(e.target.value);
-  }, []);
-
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      if (keyword.length === 0) {
-        return;
-      }
-      setState({ ...state, right: false });
-      router.push(`/search/movies?keyword=${keyword}&page=1`);
-    },
-    [keyword]
-  );
 
   return (
     <div>
@@ -229,27 +207,6 @@ export const MobileTemporaryDrawer = () => {
               </ListItem>
             </MuiLink>
           </List>
-          <Box sx={{ m: 1 }}>
-            <form action="" onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                id="header-form"
-                type="text"
-                value={keyword}
-                onChange={handleSearch}
-                size="small"
-                placeholder="キーワードを入力"
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </form>
-          </Box>
         </Box>
       </Drawer>
     </div>
