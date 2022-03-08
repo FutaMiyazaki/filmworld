@@ -25,18 +25,17 @@ export const SearchButton: VFC = () => {
     setOpen(false);
   }, []);
 
-  const handleSearch = useCallback((e) => {
+  const handleChange = useCallback((e) => {
     setKeyword(e.target.value);
   }, []);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (keyword.length === 0) {
-        return;
+      if (keyword.length < 30) {
+        setOpen(false);
+        router.push(`/search/movies?keyword=${keyword}&page=1`);
       }
-      setOpen(false);
-      router.push(`/search/movies?keyword=${keyword}&page=1`);
     },
     [keyword]
   );
@@ -59,7 +58,7 @@ export const SearchButton: VFC = () => {
           <Button
             onClick={closeDialog}
             variant="text"
-            sx={{ ml: "auto", display: "block" }}
+            sx={{ display: "block", fontWeight: "bold", ml: "auto" }}
           >
             キャンセル
           </Button>
@@ -70,8 +69,9 @@ export const SearchButton: VFC = () => {
               autoFocus
               fullWidth
               id="mobile-header-form"
-              onChange={handleSearch}
+              onChange={handleChange}
               placeholder="キーワードを入力"
+              required
               size="small"
               type="text"
               value={keyword}
