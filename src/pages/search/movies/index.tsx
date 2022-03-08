@@ -2,10 +2,12 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useGenres } from "src/hooks/useGenres";
+import { Grid } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { Movies } from "src/components/Movies/index";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 import { PageHeading } from "src/components/Layout/PageHeading";
+import { useGenres } from "src/hooks/useGenres";
 
 const SearchMovies: NextPage = () => {
   const router = useRouter();
@@ -49,7 +51,17 @@ const SearchMovies: NextPage = () => {
         />
       )}
       {isEmpty ? (
-        <div>見つかりませんでした</div>
+        <Grid
+          container
+          alignItems="center"
+          direction="column"
+          justifyContent="center"
+        >
+          <Grid item sx={{ my: 3 }}>
+            <SearchIcon sx={{ fontSize: 80 }} />
+          </Grid>
+          <Grid item>一致する検索結果はありませんでした</Grid>
+        </Grid>
       ) : (
         <Movies
           movies={movies?.results}
