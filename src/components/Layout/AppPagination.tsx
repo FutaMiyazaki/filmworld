@@ -24,7 +24,7 @@ export const AppPagination: VFC<AppPaginationProps> = (props) => {
 
   return (
     <div>
-      {totalPages == 1 ? null : (
+      {totalPages < 2 ? null : (
         <Grid container justifyContent="center" spacing={1} sx={{ mt: 4 }}>
           <Pagination
             color="primary"
