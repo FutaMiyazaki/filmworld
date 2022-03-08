@@ -20,6 +20,6 @@ export const useSearchMovies = () => {
     movies,
     error,
     isLoading: !movies && !error,
-    isEmpty: movies && movies.length === 0,
+    isEmpty: movies?.results?.length === 0,
   };
 };
