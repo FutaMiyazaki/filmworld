@@ -8,7 +8,6 @@ import {
   Collapse,
   Divider,
   Drawer,
-  InputAdornment,
   Link as MuiLink,
   List,
   ListItem,
@@ -16,7 +15,6 @@ import {
   ListItemIcon,
   ListItemText,
   Paper,
-  TextField,
   Typography,
 } from "@mui/material";
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -34,7 +32,6 @@ export const BottomNavi = () => {
     right: false,
   });
   const [open, setOpen] = useState(false);
-  const [keyword, setKeyword] = useState("");
 
   const rankingListItems = [
     {
@@ -102,22 +99,6 @@ export const BottomNavi = () => {
   const handleMoreOpen = () => {
     setOpen(!open);
   };
-
-  const handleSearch = useCallback((e) => {
-    setKeyword(e.target.value);
-  }, []);
-
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      if (keyword.length === 0) {
-        return;
-      }
-      setState({ ...state, right: false });
-      router.push(`/search/movies?keyword=${keyword}&page=1`);
-    },
-    [keyword]
-  );
 
   return (
     <div>
@@ -288,27 +269,6 @@ export const BottomNavi = () => {
               </ListItem>
             </MuiLink>
           </List>
-          <Box sx={{ m: 1 }}>
-            <form action="" onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                id="header-form"
-                type="text"
-                value={keyword}
-                onChange={handleSearch}
-                size="small"
-                placeholder="キーワードを入力"
-                variant="outlined"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </form>
-          </Box>
         </Box>
       </Drawer>
     </div>
