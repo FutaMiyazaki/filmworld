@@ -12,7 +12,7 @@ export const RunningTime: VFC<RunningTimeProps> = (props) => {
     <>
       {runtime ? (
         <Typography color="white" variant="body1" sx={{ mb: 1 }}>
-          {`上映時間: ${runtime}分`}
+          {`上映時間： ${runtime}分`}
         </Typography>
       ) : null}
     </>

@@ -12,7 +12,7 @@ export const ReleaseDate: VFC<ReleaseDateProps> = (props) => {
     <>
       {releaseDate ? (
         <Typography color="white" variant="body1" sx={{ mb: 1 }}>
-          公開日: {releaseDate}
+          公開日： {releaseDate}
         </Typography>
       ) : null}
     </>

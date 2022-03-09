@@ -64,7 +64,7 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                 variant={isMobileScreen ? "subtitle2" : "subtitle1"}
                 sx={{ display: "inline" }}
               >
-                公開日: {movie.releaseDate?.replace(/-/g, "/")}
+                公開日： {movie.releaseDate?.replace(/-/g, "/")}
               </Typography>
             ) : null}
             <UserScore
