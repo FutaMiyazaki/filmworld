@@ -14,7 +14,7 @@ export const HeaderTextField: VFC = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (keyword.length < 30) {
+      if (keyword.length > 0 && keyword.length < 30) {
         router.push(`/search/movies?keyword=${keyword}&page=1`);
       }
     },
