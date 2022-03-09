@@ -25,7 +25,6 @@ export const HeaderTextField: VFC = () => {
     <form action="" onSubmit={handleSubmit}>
       <FormControl sx={{ width: "25vw" }}>
         <TextField
-          autoFocus
           id="header-form"
           onChange={handleSearch}
           placeholder="キーワードを入力"
