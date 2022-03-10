@@ -51,7 +51,7 @@ const MoviesPopular: NextPage = () => {
       <Movies
         movies={movies?.results}
         error={error}
-        gridSm={2}
+        gridSm={3}
         gridXs={1}
         isLoading={isLoading}
         maxDisplay={20}

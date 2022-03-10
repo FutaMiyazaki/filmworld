@@ -8,8 +8,10 @@ export const SimilarMovies = () => {
     <Movies
       movies={similarMovies?.results}
       error={error}
+      gridSm={3}
+      gridXs={1}
       isLoading={isLoading}
-      maxDisplay={10}
+      maxDisplay={12}
       path="/"
       totalPages={1}
     />
