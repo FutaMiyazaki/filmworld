@@ -1,11 +1,11 @@
 import NextLink from "next/link";
 import { VFC } from "react";
 import {
-  Box,
   Button,
   Card,
   CardContent,
   CardMedia,
+  Grid,
   Link as MuiLink,
   Typography,
 } from "@mui/material";
@@ -31,9 +31,9 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
 
   return (
     <Card>
-      <CardContent sx={{ pa: 1 }}>
-        <Box sx={{ display: "flex" }}>
-          <Box>
+      <CardContent>
+        <Grid container columns={{ xs: 5 }} spacing={2}>
+          <Grid item xs={2}>
             <NextLink passHref href={`/movies/${movie.id}`}>
               <MuiLink underline="none">
                 <CardMedia
@@ -41,8 +41,6 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                   component="img"
                   image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
                   sx={{
-                    width: isMobileScreen ? "90" : "150",
-                    height: isMobileScreen ? "120" : "200",
                     "&:hover": {
                       opacity: 0.7,
                     },
@@ -50,8 +48,8 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                 />
               </MuiLink>
             </NextLink>
-          </Box>
-          <Box sx={{ ml: 2 }}>
+          </Grid>
+          <Grid item xs={3}>
             <TextLink
               path={`/movies/${movie.id}`}
               text={movie.title}
@@ -82,8 +80,8 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                 </Button>
               </MuiLink>
             </NextLink>
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );
