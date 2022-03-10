@@ -29,6 +29,8 @@ type errorData = {
 type MoviesProps = {
   movies: moviesData;
   error: errorData;
+  gridSm: number;
+  gridXs: number;
   isLoading: boolean;
   maxDisplay: number;
   path: string;
@@ -36,7 +38,16 @@ type MoviesProps = {
 };
 
 export const Movies: VFC<MoviesProps> = (props) => {
-  const { movies, error, isLoading, maxDisplay, path, totalPages } = props;
+  const {
+    movies,
+    error,
+    gridSm,
+    gridXs,
+    isLoading,
+    maxDisplay,
+    path,
+    totalPages,
+  } = props;
 
   if (error) {
     return <div>{error.message}</div>;
@@ -48,10 +59,10 @@ export const Movies: VFC<MoviesProps> = (props) => {
 
   return (
     <>
-      <Grid container columns={{ xs: 4, sm: 8 }} spacing={2}>
+      <Grid container columns={{ xs: gridXs, sm: gridSm }} spacing={2}>
         {movies.map((movie: movieType, i: number) => {
           return i < maxDisplay && movie?.poster_path ? (
-            <Grid key={movie.id} item xs={4} sm={4}>
+            <Grid key={movie.id} item xs={1} sm={1}>
               <MoviesCard
                 movie={{
                   id: movie.id,

@@ -12,6 +12,8 @@ export const MoviesTopRevenue: VFC = () => {
       <Movies
         movies={movies?.results}
         error={error}
+        gridSm={2}
+        gridXs={1}
         isLoading={isLoading}
         maxDisplay={8}
         path="/"

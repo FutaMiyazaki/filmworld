@@ -50,6 +50,8 @@ const MoviesRevenue: NextPage = () => {
       <Movies
         movies={movies?.results}
         error={error}
+        gridSm={2}
+        gridXs={1}
         isLoading={isLoading}
         maxDisplay={20}
         path={path}
