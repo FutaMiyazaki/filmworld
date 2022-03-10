@@ -15,6 +15,7 @@ import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
 import { ProductionCountries } from "src/components/Movies/About/ProductionCountries";
 import { ReleaseDate } from "src/components/Movies/About/ReleaseDate";
+import { Revenue } from "src/components/Movies/About/Revenue";
 import { RunningTime } from "src/components/Movies/About/RunningTime";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
@@ -97,6 +98,7 @@ const MoviesId: NextPage = () => {
           )}
           <ReleaseDate releaseDate={movieInfo?.release_date} />
           <RunningTime runtime={movieInfo?.runtime} />
+          <Revenue revenue={movieInfo?.revenue} />
           <GenresInfo genres={movieInfo?.genres} />
           {isMobileScreen && (
             <UserScore
