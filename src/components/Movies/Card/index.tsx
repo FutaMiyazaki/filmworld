@@ -73,7 +73,8 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
               <MuiLink underline="none">
                 <Button
                   endIcon={<ChevronRightIcon />}
-                  fullWidth={isMobileScreen}
+                  fullWidth
+                  size="small"
                   variant="outlined"
                 >
                   詳細を見る
