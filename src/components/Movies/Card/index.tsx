@@ -32,13 +32,6 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
   return (
     <Card>
       <CardContent sx={{ pa: 1 }}>
-        <Box sx={{ mb: 1 }}>
-          <TextLink
-            path={`/movies/${movie.id}`}
-            text={movie.title}
-            variant={isMobileScreen ? "subtitle1" : "h6"}
-          />
-        </Box>
         <Box sx={{ display: "flex" }}>
           <Box>
             <NextLink passHref href={`/movies/${movie.id}`}>
@@ -46,9 +39,10 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                 <CardMedia
                   alt="ポスター画像"
                   component="img"
-                  image={`https://image.tmdb.org/t/p/w200${movie.posterPath}`}
+                  image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
                   sx={{
-                    width: isMobileScreen ? "100" : "150",
+                    width: isMobileScreen ? "90" : "150",
+                    height: isMobileScreen ? "120" : "200",
                     "&:hover": {
                       opacity: 0.7,
                     },
@@ -58,6 +52,11 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
             </NextLink>
           </Box>
           <Box sx={{ ml: 2 }}>
+            <TextLink
+              path={`/movies/${movie.id}`}
+              text={movie.title}
+              variant={isMobileScreen ? "subtitle2" : "subtitle1"}
+            />
             {movie.releaseDate ? (
               <Typography
                 color="white"
