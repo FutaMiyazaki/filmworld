@@ -6,13 +6,13 @@
 
 ## トップページ
 
-![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/155354498-7e6e4f86-25c5-44b7-9700-411a24e0458e.png)
+![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/157682943-0c297de3-2c6e-4da3-80ff-3b1bc57ab000.png)
 
 <br>
 
 ## レスポンシブ対応
 
-![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/155354821-4430933f-af21-456f-9fcb-b12de970042f.png)
+![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/157683539-756da445-1c81-4f5e-bbe5-9693fe4ab0d3.png)
 
 <br>
 
@@ -36,7 +36,7 @@
 - Material-UI 5.2.8
 - ESLint 8.6.0
 - swr 1.1.2
-- Jest (今後追加予定)
+- Jest (追加予定)
 
 <br>
 
@@ -61,6 +61,7 @@
     - 歴代興行収入
     - ジャンル
     - 出演キャスト
+    - 制作会社
   - ソート機能
     - 人気順
     - 興行収入順
