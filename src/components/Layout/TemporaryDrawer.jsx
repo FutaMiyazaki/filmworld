@@ -54,6 +54,13 @@ export const TemporaryDrawer = () => {
     { id: "10749", text: "ロマンス" },
     { id: "878", text: "サイエンスフィクション" },
   ];
+  const companies = [
+    { id: "2", text: "ディズニー" },
+    { id: "4", text: "パラマウント" },
+    { id: "5", text: "コロンビア" },
+    { id: "33", text: "ユニバーサル" },
+    { id: "174", text: "ワーナー・ブラザーズ" },
+  ];
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -181,6 +188,31 @@ export const TemporaryDrawer = () => {
                 </MuiLink>
               </NextLink>
             </Collapse>
+            <Divider />
+            <ListItem>
+              <ListItemText>
+                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                  制作会社から探す
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            {companies.map(({ id, text }) => {
+              return (
+                <NextLink
+                  key={id}
+                  href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                  passHref
+                >
+                  <MuiLink color="white" underline="none">
+                    <ListItem dense onClick={toggleDrawer("left", false)}>
+                      <ListItemButton>
+                        <ListItemText>{text}</ListItemText>
+                      </ListItemButton>
+                    </ListItem>
+                  </MuiLink>
+                </NextLink>
+              );
+            })}
             <Divider />
             <ListItem>
               <ListItemText>
