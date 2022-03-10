@@ -113,7 +113,7 @@ export const TemporaryDrawer = () => {
           <List>
             <ListItem>
               <ListItemText>
-                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold" }}>
                   ランキングで探す
                 </Typography>
               </ListItemText>
@@ -132,7 +132,7 @@ export const TemporaryDrawer = () => {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold" }}>
                   ジャンルで探す
                 </Typography>
               </ListItemText>
@@ -191,7 +191,7 @@ export const TemporaryDrawer = () => {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Typography color="white" sx={{ fontWeight: "bold" }}>
+                <Typography sx={{ fontWeight: "bold" }}>
                   制作会社から探す
                 </Typography>
               </ListItemText>
@@ -216,9 +216,7 @@ export const TemporaryDrawer = () => {
             <Divider />
             <ListItem>
               <ListItemText>
-                <Typography color="white" sx={{ fontWeight: "bold" }}>
-                  その他
-                </Typography>
+                <Typography sx={{ fontWeight: "bold" }}>その他</Typography>
               </ListItemText>
             </ListItem>
             <NextLink href="/watchlist" passHref>
