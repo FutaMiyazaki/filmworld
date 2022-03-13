@@ -96,14 +96,14 @@ export const SideMenu: VFC = () => {
             />
           ) : null;
         })}
-        <ListItem dense>
-          <ListItemButton onClick={handleMoreOpenGenre}>
-            <ListItemText>
-              {openGenre ? "折りたたむ" : "さらに表示"}
-            </ListItemText>
-            {openGenre ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-        </ListItem>
+        {!openGenre ? (
+          <ListItem dense>
+            <ListItemButton onClick={handleMoreOpenGenre}>
+              <ListItemText>すべてを表示</ListItemText>
+              <ExpandMore />
+            </ListItemButton>
+          </ListItem>
+        ) : null}
         <Collapse in={openGenre} timeout="auto" unmountOnExit>
           {genreLists.map(({ id, text }, i: number) => {
             return i > maxListDisplay ? (
@@ -115,6 +115,14 @@ export const SideMenu: VFC = () => {
             ) : null;
           })}
           <ListItemLink path="/genres" text="ジャンル一覧を表示" />
+          {openGenre ? (
+            <ListItem dense>
+              <ListItemButton onClick={handleMoreOpenGenre}>
+                <ListItemText>折りたたむ</ListItemText>
+                <ExpandLess />
+              </ListItemButton>
+            </ListItem>
+          ) : null}
         </Collapse>
         <Divider />
         <ListItem>
@@ -133,14 +141,14 @@ export const SideMenu: VFC = () => {
             />
           ) : null;
         })}
-        <ListItem dense>
-          <ListItemButton onClick={handleMoreOpenCompany}>
-            <ListItemText>
-              {openCompany ? "折りたたむ" : "さらに表示"}
-            </ListItemText>
-            {openCompany ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-        </ListItem>
+        {!openCompany ? (
+          <ListItem dense>
+            <ListItemButton onClick={handleMoreOpenCompany}>
+              <ListItemText>すべてを表示</ListItemText>
+              <ExpandMore />
+            </ListItemButton>
+          </ListItem>
+        ) : null}
         <Collapse in={openCompany} timeout="auto" unmountOnExit>
           {companyLists.map(({ id, text }, i: number) => {
             return i > maxListDisplay ? (
@@ -151,6 +159,14 @@ export const SideMenu: VFC = () => {
               />
             ) : null;
           })}
+          {openCompany ? (
+            <ListItem dense>
+              <ListItemButton onClick={handleMoreOpenCompany}>
+                <ListItemText>折りたたむ</ListItemText>
+                <ExpandLess />
+              </ListItemButton>
+            </ListItem>
+          ) : null}
         </Collapse>
         <Divider />
         <NextLink passHref href="/watchlist">
