@@ -1,4 +1,4 @@
-import { VFC, ReactNode } from "react";
+import { ReactNode, VFC } from "react";
 import { Paper } from "@mui/material";
 
 type PaperTextProps = {
