@@ -114,7 +114,7 @@ export const SideMenu: VFC = () => {
               />
             ) : null;
           })}
-          <ListItemLink path="/genres" text="ジャンル一覧" />
+          <ListItemLink path="/genres" text="ジャンル一覧を表示" />
         </Collapse>
         <Divider />
         <ListItem sx={{ pt: 0 }}>
