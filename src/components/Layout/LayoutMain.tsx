@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Container, Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -10,7 +10,11 @@ import "@fontsource/roboto/700.css";
 import { BottomNavi } from "src/components/Layout/BottomNavi";
 import { Header } from "src/components/Layout/Header/index";
 
-export const LayoutMain = ({ children }) => {
+type LayoutMainProps = {
+  children: ReactNode;
+};
+
+export const LayoutMain: VFC<LayoutMainProps> = ({ children }) => {
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
