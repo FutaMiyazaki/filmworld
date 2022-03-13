@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
+import { useCallback, useState, VFC } from "react";
 import {
   Grid,
   Select,
@@ -12,7 +12,7 @@ import {
 import { Loading } from "src/components/Layout/Loading";
 import { useGenres } from "src/hooks/useGenres";
 
-export const SearchForm = () => {
+export const SearchForm: VFC = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState([1980, 2022]);
@@ -76,10 +76,10 @@ export const SearchForm = () => {
               value={genre}
               onChange={handleChangeGenre}
             >
-              {genres?.genres.map((genreData) => {
+              {genres?.genres.map((genre: { id: number; name: string }) => {
                 return (
-                  <MenuItem key={genreData.id} value={genreData.id}>
-                    {genreData.name}
+                  <MenuItem key={genre.id} value={genre.id}>
+                    {genre.name}
                   </MenuItem>
                 );
               })}
