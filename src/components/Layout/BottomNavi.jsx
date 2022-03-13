@@ -31,9 +31,8 @@ export const BottomNavi = () => {
   const [state, setState] = useState({
     right: false,
   });
-  const [open, setOpen] = useState(false);
-
-  const rankingListItems = [
+  const [openCompany, setOpenCompany] = useState(false);
+  const maxListDisplay = 4;
     {
       text: "人気の映画",
       path: "/movies/popular?page=1",
@@ -65,39 +64,25 @@ export const BottomNavi = () => {
       id: "35",
     },
   ];
-  const genres2 = [
-    {
-      text: "ドキュメンタリー",
-      id: "99",
-    },
-    {
-      text: "ファミリー",
-      id: "10751",
-    },
-    {
-      text: "ファンタジー",
-      id: "14",
-    },
-    {
-      text: "ホラー",
-      id: "27",
-    },
-    {
-      text: "ロマンス",
-      id: "10749",
-    },
-    {
-      text: "サイエンスフィクション",
-      id: "878",
-    },
+  const companyLists = [
+    { id: "2", text: "ディズニー" },
+    { id: "33", text: "ユニバーサル" },
+    { id: "174", text: "ワーナー・ブラザーズ" },
+    { id: "25", text: "20世紀スタジオ" },
+    { id: "4", text: "パラマウント" },
+    { id: "420", text: "MARVEL" },
+    { id: "3", text: "Pixar" },
+    { id: "882", text: "東宝" },
+    { id: "192", text: "松竹" },
   ];
 
   const toggleDrawer = (anchor, open) => (event) => {
     setState({ ...state, [anchor]: open });
   };
 
-  const handleMoreOpen = () => {
-    setOpen(!open);
+
+  const handleMoreOpenCompany = () => {
+    setOpenCompany(!openCompany);
   };
 
   return (
@@ -233,6 +218,66 @@ export const BottomNavi = () => {
               </NextLink>
             </Collapse>
             <Divider />
+            <Divider />
+            <ListItem>
+              <ListItemText>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  制作会社から探す
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            {companyLists.map(({ id, text }, i) => {
+              return i < maxListDisplay ? (
+                <NextLink
+                  key={id}
+                  href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                  passHref
+                >
+                  <MuiLink color="white" underline="none">
+                    <ListItem dense onClick={toggleDrawer("right", false)}>
+                      <ListItemButton>
+                        <ListItemText>{text}</ListItemText>
+                      </ListItemButton>
+                    </ListItem>
+                  </MuiLink>
+                </NextLink>
+              ) : null;
+            })}
+            {!openCompany ? (
+              <ListItem dense>
+                <ListItemButton onClick={handleMoreOpenCompany}>
+                  <ListItemText>すべてを表示</ListItemText>
+                  <ExpandMore />
+                </ListItemButton>
+              </ListItem>
+            ) : null}
+            <Collapse in={openCompany} timeout="auto" unmountOnExit>
+              {companyLists.map(({ id, text }, i) => {
+                return i > maxListDisplay ? (
+                  <NextLink
+                    key={id}
+                    href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                    passHref
+                  >
+                    <MuiLink color="white" underline="none">
+                      <ListItem dense onClick={toggleDrawer("right", false)}>
+                        <ListItemButton>
+                          <ListItemText>{text}</ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                    </MuiLink>
+                  </NextLink>
+                ) : null;
+              })}
+              {openCompany ? (
+                <ListItem dense>
+                  <ListItemButton onClick={handleMoreOpenCompany}>
+                    <ListItemText>折りたたむ</ListItemText>
+                    <ExpandLess />
+                  </ListItemButton>
+                </ListItem>
+              ) : null}
+            </Collapse>
             <ListItem>
               <ListItemText>
                 <Typography color="white" sx={{ fontWeight: "bold" }}>
