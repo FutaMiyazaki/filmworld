@@ -25,7 +25,7 @@ export const MoviesTopPopular: VFC = () => {
         columns={{ xs: 4, sm: 8 }}
         sx={{ mt: 2, mb: 4 }}
       >
-        <Grid item xs={4} sm={4}>
+        <Grid item xs={4} sm={3}>
           <ButtonLink
             path="/movies/popular?page=1"
             text="もっと見る"
