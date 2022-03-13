@@ -31,38 +31,34 @@ export const BottomNavi = () => {
   const [state, setState] = useState({
     right: false,
   });
+  const [openGenre, setOpenGenre] = useState(false);
   const [openCompany, setOpenCompany] = useState(false);
   const maxListDisplay = 4;
+  const rankingLists = [
     {
-      text: "人気の映画",
       path: "/movies/popular?page=1",
+      text: "人気の映画",
     },
     {
-      text: "歴代興行収入",
       path: "/movies/revenue?page=1",
+      text: "歴代興行収入",
     },
     {
-      text: "話題の映画",
       path: "/movies/topic?page=1",
+      text: "話題の映画",
     },
   ];
-  const genres1 = [
-    {
-      text: "アクション",
-      id: "28",
-    },
-    {
-      text: "アドベンチャー",
-      id: "12",
-    },
-    {
-      text: "アニメーション",
-      id: "16",
-    },
-    {
-      text: "コメディ",
-      id: "35",
-    },
+  const genreLists = [
+    { id: "28", text: "アクション" },
+    { id: "12", text: "アドベンチャー" },
+    { id: "16", text: "アニメーション" },
+    { id: "35", text: "コメディ" },
+    { id: "99", text: "ドキュメンタリー" },
+    { id: "10751", text: "ファミリー" },
+    { id: "14", text: "ファンタジー" },
+    { id: "27", text: "ホラー" },
+    { id: "10749", text: "ロマンス" },
+    { id: "878", text: "サイエンスフィクション" },
   ];
   const companyLists = [
     { id: "2", text: "ディズニー" },
@@ -80,6 +76,9 @@ export const BottomNavi = () => {
     setState({ ...state, [anchor]: open });
   };
 
+  const handleMoreOpenGenre = () => {
+    setOpenGenre(!openGenre);
+  };
 
   const handleMoreOpenCompany = () => {
     setOpenCompany(!openCompany);
@@ -151,7 +150,7 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {rankingListItems.map((listItem) => (
+            {rankingLists.map((listItem) => (
               <NextLink key={listItem.text} href={listItem.path} passHref>
                 <MuiLink underline="none" color="white">
                   <ListItem dense onClick={toggleDrawer("right", false)}>
@@ -170,43 +169,49 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {genres1.map((genre) => (
-              <NextLink
-                key={genre.id}
-                href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
-                passHref
-              >
-                <MuiLink underline="none" color="white">
-                  <ListItem dense onClick={toggleDrawer("right", false)}>
-                    <ListItemButton>
-                      <ListItemText>{genre.text}</ListItemText>
-                    </ListItemButton>
-                  </ListItem>
-                </MuiLink>
-              </NextLink>
-            ))}
-            <ListItem dense>
-              <ListItemButton onClick={handleMoreOpen}>
-                <ListItemText>さらに表示</ListItemText>
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-            </ListItem>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              {genres2.map((genre) => (
+            {genreLists.map(({ id, text }, i) => {
+              return i < maxListDisplay ? (
                 <NextLink
-                  key={genre.id}
-                  href={`/movies/genre?id=${genre.id}&sort=popularity.desc&&page=1`}
+                  key={id}
+                  href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
                   passHref
                 >
                   <MuiLink underline="none" color="white">
                     <ListItem dense onClick={toggleDrawer("right", false)}>
                       <ListItemButton>
-                        <ListItemText>{genre.text}</ListItemText>
+                        <ListItemText>{text}</ListItemText>
                       </ListItemButton>
                     </ListItem>
                   </MuiLink>
                 </NextLink>
-              ))}
+              ) : null;
+            })}
+            {!openGenre ? (
+              <ListItem dense>
+                <ListItemButton onClick={handleMoreOpenGenre}>
+                  <ListItemText>すべて表示</ListItemText>
+                  <ExpandMore />
+                </ListItemButton>
+              </ListItem>
+            ) : null}
+            <Collapse in={openGenre} timeout="auto" unmountOnExit>
+              {genreLists.map(({ id, text }, i) => {
+                return i > maxListDisplay ? (
+                  <NextLink
+                    key={id}
+                    href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                    passHref
+                  >
+                    <MuiLink underline="none" color="white">
+                      <ListItem dense onClick={toggleDrawer("right", false)}>
+                        <ListItemButton>
+                          <ListItemText>{text}</ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                    </MuiLink>
+                  </NextLink>
+                ) : null;
+              })}
               <NextLink href="/genres" passHref>
                 <MuiLink underline="none" color="white">
                   <ListItem dense onClick={toggleDrawer("right", false)}>
@@ -216,6 +221,14 @@ export const BottomNavi = () => {
                   </ListItem>
                 </MuiLink>
               </NextLink>
+              {openGenre ? (
+                <ListItem dense>
+                  <ListItemButton onClick={handleMoreOpenGenre}>
+                    <ListItemText>折りたたむ</ListItemText>
+                    <ExpandLess />
+                  </ListItemButton>
+                </ListItem>
+              ) : null}
             </Collapse>
             <Divider />
             <Divider />
