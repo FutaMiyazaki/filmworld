@@ -38,7 +38,7 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                   <CardMedia
                     alt="ポスター画像"
                     component="img"
-                    height={isMobileScreen ? "150" : "200"}
+                    height={isMobileScreen ? "100%" : "200"}
                     image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
                   />
                 </Grid>
