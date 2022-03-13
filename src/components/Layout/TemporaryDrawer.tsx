@@ -1,4 +1,4 @@
-import { KeyboardEvent, MouseEvent, useState } from "react";
+import { KeyboardEvent, MouseEvent, useState, VFC } from "react";
 import NextLink from "next/link";
 import {
   Box,
@@ -21,7 +21,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export const TemporaryDrawer = () => {
+export const TemporaryDrawer: VFC = () => {
   const [state, setState] = useState({
     left: false,
   });
