@@ -117,7 +117,7 @@ export const SideMenu: VFC = () => {
           <ListItemLink path="/genres" text="ジャンル一覧を表示" />
         </Collapse>
         <Divider />
-        <ListItem sx={{ pt: 0 }}>
+        <ListItem>
           <ListItemText>
             <Typography color="white" sx={{ fontWeight: "bold" }}>
               制作会社で探す
