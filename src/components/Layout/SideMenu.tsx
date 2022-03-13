@@ -46,9 +46,21 @@ export const SideMenu: VFC = () => {
     { id: "10749", text: "ロマンス" },
     { id: "878", text: "サイエンスフィクション" },
   ];
+  const companyLists = [
+    { id: "2", text: "ディズニー" },
+    { id: "33", text: "ユニバーサル" },
+    { id: "174", text: "ワーナー・ブラザーズ" },
+    { id: "25", text: "20世紀スタジオ" },
+    { id: "4", text: "パラマウント" },
+    { id: "420", text: "MARVEL" },
+    { id: "3", text: "Pixar" },
+    { id: "882", text: "東宝" },
+    { id: "192", text: "松竹" },
+  ];
 
-  const handleMoreOpen = () => {
-    setOpen(!open);
+
+  const handleMoreOpenCompany = () => {
+    setOpenCompany(!openCompany);
   };
 
   return (
@@ -95,9 +107,45 @@ export const SideMenu: VFC = () => {
                 path={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
                 text={text}
               />
-            );
+            ) : null;
           })}
-          <ListItemLink path="/genres" text="ジャンル一覧を表示" />
+          <ListItemLink path="/genres" text="ジャンル一覧" />
+        </Collapse>
+        <Divider />
+        <ListItem sx={{ pt: 0 }}>
+          <ListItemText>
+            <Typography color="white" sx={{ fontWeight: "bold" }}>
+              制作会社で探す
+            </Typography>
+          </ListItemText>
+        </ListItem>
+        {companyLists.map(({ id, text }, i: number) => {
+          return i < maxListDisplay ? (
+            <ListItemLink
+              key={text}
+              path={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+              text={text}
+            />
+          ) : null;
+        })}
+        <ListItem dense>
+          <ListItemButton onClick={handleMoreOpenCompany}>
+            <ListItemText>
+              {openCompany ? "折りたたむ" : "さらに表示"}
+            </ListItemText>
+            {openCompany ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+        </ListItem>
+        <Collapse in={openCompany} timeout="auto" unmountOnExit>
+          {companyLists.map(({ id, text }, i: number) => {
+            return i > maxListDisplay ? (
+              <ListItemLink
+                key={text}
+                path={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                text={text}
+              />
+            ) : null;
+          })}
         </Collapse>
         <Divider />
         <NextLink passHref href="/watchlist">
