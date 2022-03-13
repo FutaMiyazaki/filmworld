@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
+import { useCallback, useState } from "react";
 import {
   Grid,
   Select,
@@ -9,13 +9,14 @@ import {
   Typography,
   FormControl,
 } from "@mui/material";
+import { Loading } from "src/components/Layout/Loading";
 import { useGenres } from "src/hooks/useGenres";
 
 export const SearchForm = () => {
   const router = useRouter();
-  const { genres, genresError, isLoading } = useGenres();
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState([1950, 2022]);
+  const { genres, genresError, isLoading } = useGenres();
   const marks = [
     {
       value: 1950,
@@ -46,6 +47,14 @@ export const SearchForm = () => {
     },
     [genre, year]
   );
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (genresError) {
+    return <div>{genresError.message}</div>;
+  }
 
   return (
     <div>
