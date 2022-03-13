@@ -2,9 +2,10 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Grid } from "@mui/material";
-import { PageHeading } from "src/components/Layout/PageHeading";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
+import { Loading } from "src/components/Layout/Loading";
+import { PageHeading } from "src/components/Layout/PageHeading";
 import { Movies } from "src/components/Movies/index";
 import { useCast } from "src/hooks/useCast";
 import { useCastMovies } from "src/hooks/useCastMovies";
@@ -13,6 +14,14 @@ const MoviesCast: NextPage = () => {
   const router = useRouter();
   const { cast } = useCast();
   const { movies, error, isLoading } = useCastMovies();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
     <div>

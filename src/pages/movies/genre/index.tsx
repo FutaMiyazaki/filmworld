@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
+import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { Movies } from "src/components/Movies/index";
 import { useGenres } from "src/hooks/useGenres";
@@ -34,6 +35,14 @@ const MoviesGenre: NextPage = () => {
           `/movies/genre?id=${router.query.id}&sort=${router.query.sort}&`
         );
   }, [router]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
     <div>

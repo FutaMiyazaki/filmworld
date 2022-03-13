@@ -2,10 +2,11 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Grid } from "@mui/material";
-import { Movies } from "src/components/Movies/index";
-import { PageHeading } from "src/components/Layout/PageHeading";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
+import { Loading } from "src/components/Layout/Loading";
+import { PageHeading } from "src/components/Layout/PageHeading";
+import { Movies } from "src/components/Movies/index";
 import { useCompany } from "src/hooks/useCompany";
 import { useCompanyMovies } from "src/hooks/useCompanyMovies";
 
@@ -13,6 +14,14 @@ const MoviesCompany: NextPage = () => {
   const router = useRouter();
   const { company } = useCompany();
   const { movies, error, isLoading } = useCompanyMovies();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
     <div>
