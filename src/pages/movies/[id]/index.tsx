@@ -51,9 +51,7 @@ const MoviesId: NextPage = () => {
             <Card sx={{ mb: 1 }}>
               <CardMedia
                 component="img"
-                sx={{
-                  height: "30vh",
-                }}
+                height="100%"
                 image={`https://image.tmdb.org/t/p/w300${movieInfo?.poster_path}`}
                 alt="ポスター画像"
               />
