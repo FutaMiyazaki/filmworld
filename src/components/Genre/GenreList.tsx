@@ -36,6 +36,7 @@ export const GenreList: VFC = () => {
             {genres?.genres.map((genre: { id: number; name: string }) => {
               return (
                 <NextLink
+                  key={genre.id}
                   href={`/movies/genre?id=${genre.id}&sort=popularity.desc&page=1`}
                   passHref
                 >
