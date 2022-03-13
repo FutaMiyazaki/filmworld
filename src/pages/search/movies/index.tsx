@@ -4,9 +4,10 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Loading } from "src/components/Layout/Loading";
+import { PageHeading } from "src/components/Layout/PageHeading";
 import { Movies } from "src/components/Movies/index";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
-import { PageHeading } from "src/components/Layout/PageHeading";
 import { useGenres } from "src/hooks/useGenres";
 
 const SearchMovies: NextPage = () => {
@@ -31,6 +32,14 @@ const SearchMovies: NextPage = () => {
           `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`
         );
   }, [router]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
     <div>
