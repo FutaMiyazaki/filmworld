@@ -17,8 +17,10 @@ import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import { ListItemLink } from "src/components/Layout/Link/ListItemLink";
 
 export const SideMenu: VFC = () => {
-  const [open, setOpen] = useState(false);
-  const rankingListItems = [
+  const [openGenre, setOpenGenre] = useState(false);
+  const [openCompany, setOpenCompany] = useState(false);
+  const maxListDisplay = 4;
+  const rankingLists = [
     {
       path: "/movies/popular?page=1",
       text: "人気の映画",
@@ -32,13 +34,11 @@ export const SideMenu: VFC = () => {
       text: "話題の映画",
     },
   ];
-  const genres1 = [
+  const genreLists = [
     { id: "28", text: "アクション" },
     { id: "12", text: "アドベンチャー" },
     { id: "16", text: "アニメーション" },
     { id: "35", text: "コメディ" },
-  ];
-  const genres2 = [
     { id: "99", text: "ドキュメンタリー" },
     { id: "10751", text: "ファミリー" },
     { id: "14", text: "ファンタジー" },
@@ -58,6 +58,9 @@ export const SideMenu: VFC = () => {
     { id: "192", text: "松竹" },
   ];
 
+  const handleMoreOpenGenre = () => {
+    setOpenGenre(!openGenre);
+  };
 
   const handleMoreOpenCompany = () => {
     setOpenCompany(!openCompany);
@@ -73,7 +76,7 @@ export const SideMenu: VFC = () => {
             </Typography>
           </ListItemText>
         </ListItem>
-        {rankingListItems.map(({ path, text }) => {
+        {rankingLists.map(({ path, text }) => {
           return <ListItemLink key={text} path={path} text={text} />;
         })}
         <Divider />
@@ -84,26 +87,28 @@ export const SideMenu: VFC = () => {
             </Typography>
           </ListItemText>
         </ListItem>
-        {genres1.map(({ id, text }) => {
-          return (
+        {genreLists.map(({ id, text }, i: number) => {
+          return i < maxListDisplay ? (
             <ListItemLink
-              key={id}
+              key={text}
               path={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
               text={text}
             />
-          );
+          ) : null;
         })}
         <ListItem dense>
-          <ListItemButton onClick={handleMoreOpen}>
-            <ListItemText>さらに表示</ListItemText>
-            {open ? <ExpandLess /> : <ExpandMore />}
+          <ListItemButton onClick={handleMoreOpenGenre}>
+            <ListItemText>
+              {openGenre ? "折りたたむ" : "さらに表示"}
+            </ListItemText>
+            {openGenre ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          {genres2.map(({ id, text }) => {
-            return (
+        <Collapse in={openGenre} timeout="auto" unmountOnExit>
+          {genreLists.map(({ id, text }, i: number) => {
+            return i > maxListDisplay ? (
               <ListItemLink
-                key={id}
+                key={text}
                 path={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
                 text={text}
               />
