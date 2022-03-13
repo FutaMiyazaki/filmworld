@@ -53,7 +53,7 @@ export const SideMenu: VFC = () => {
 
   return (
     <div>
-      <List sx={{ pt: 0, position: "fixed" }}>
+      <List sx={{ pt: 0 }}>
         <ListItem sx={{ pt: 0 }}>
           <ListItemText>
             <Typography color="white" sx={{ fontWeight: "bold" }}>
