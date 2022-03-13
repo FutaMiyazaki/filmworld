@@ -14,11 +14,11 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import MenuIcon from "@mui/icons-material/Menu";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 export const TemporaryDrawer = () => {
