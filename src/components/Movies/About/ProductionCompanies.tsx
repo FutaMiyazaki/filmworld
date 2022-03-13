@@ -40,7 +40,9 @@ export const ProductionCompanies: VFC<ProductionCompaniesProps> = (props) => {
                       },
                     }}
                   >
-                    <Typography variant="body2">{name}</Typography>
+                    <Typography color="primary" variant="body2">
+                      {name}
+                    </Typography>
                   </Paper>
                 </MuiLink>
               </NextLink>
