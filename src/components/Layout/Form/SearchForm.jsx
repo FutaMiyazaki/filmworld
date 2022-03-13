@@ -15,12 +15,12 @@ import { useGenres } from "src/hooks/useGenres";
 export const SearchForm = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
-  const [year, setYear] = useState([1950, 2022]);
+  const [year, setYear] = useState([1980, 2022]);
   const { genres, genresError, isLoading } = useGenres();
   const marks = [
     {
-      value: 1950,
-      label: "1950年",
+      value: 1980,
+      label: "1980年",
     },
     {
       value: 2022,
@@ -92,7 +92,7 @@ export const SearchForm = () => {
           </Typography>
           <Slider
             max={2022}
-            min={1950}
+            min={1980}
             value={year}
             onChange={handleChangeYear}
             valueLabelDisplay="auto"
