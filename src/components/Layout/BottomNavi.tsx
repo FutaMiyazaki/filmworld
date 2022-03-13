@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import {
@@ -72,9 +72,10 @@ export const BottomNavi = () => {
     { id: "192", text: "松竹" },
   ];
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    setState({ ...state, [anchor]: open });
-  };
+  const toggleDrawer =
+    (anchor: "right", open: boolean) => (event: KeyboardEvent | MouseEvent) => {
+      setState({ ...state, [anchor]: open });
+    };
 
   const handleMoreOpenGenre = () => {
     setOpenGenre(!openGenre);
@@ -169,7 +170,7 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {genreLists.map(({ id, text }, i) => {
+            {genreLists.map(({ id, text }, i: number) => {
               return i < maxListDisplay ? (
                 <NextLink
                   key={id}
@@ -195,7 +196,7 @@ export const BottomNavi = () => {
               </ListItem>
             ) : null}
             <Collapse in={openGenre} timeout="auto" unmountOnExit>
-              {genreLists.map(({ id, text }, i) => {
+              {genreLists.map(({ id, text }, i: number) => {
                 return i > maxListDisplay ? (
                   <NextLink
                     key={id}
@@ -239,7 +240,7 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {companyLists.map(({ id, text }, i) => {
+            {companyLists.map(({ id, text }, i: number) => {
               return i < maxListDisplay ? (
                 <NextLink
                   key={id}
@@ -265,7 +266,7 @@ export const BottomNavi = () => {
               </ListItem>
             ) : null}
             <Collapse in={openCompany} timeout="auto" unmountOnExit>
-              {companyLists.map(({ id, text }, i) => {
+              {companyLists.map(({ id, text }, i: number) => {
                 return i > maxListDisplay ? (
                   <NextLink
                     key={id}
