@@ -6,6 +6,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head>
+        <title>FilmWorld</title>
         <link rel="icon" href="/favicons/favicon.ico" />
       </Head>
       <LayoutMain>
