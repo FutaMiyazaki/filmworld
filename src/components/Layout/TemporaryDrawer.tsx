@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from "react";
 import NextLink from "next/link";
 import {
   Box,
@@ -25,28 +25,28 @@ export const TemporaryDrawer = () => {
   const [state, setState] = useState({
     left: false,
   });
-  const [open, setOpen] = useState(false);
-  const rankingListItems = [
+  const [openGenre, setOpenGenre] = useState(false);
+  const [openCompany, setOpenCompany] = useState(false);
+  const maxListDisplay = 4;
+  const rankingLists = [
     {
-      text: "人気の映画",
       path: "/movies/popular?page=1",
+      text: "人気の映画",
     },
     {
-      text: "歴代興行収入",
       path: "/movies/revenue?page=1",
+      text: "歴代興行収入",
     },
     {
-      text: "話題の映画",
       path: "/movies/topic?page=1",
+      text: "話題の映画",
     },
   ];
-  const genres1 = [
+  const genreLists = [
     { id: "28", text: "アクション" },
     { id: "12", text: "アドベンチャー" },
     { id: "16", text: "アニメーション" },
     { id: "35", text: "コメディ" },
-  ];
-  const genres2 = [
     { id: "99", text: "ドキュメンタリー" },
     { id: "10751", text: "ファミリー" },
     { id: "14", text: "ファンタジー" },
@@ -54,26 +54,29 @@ export const TemporaryDrawer = () => {
     { id: "10749", text: "ロマンス" },
     { id: "878", text: "サイエンスフィクション" },
   ];
-  const companies = [
+  const companyLists = [
     { id: "2", text: "ディズニー" },
-    { id: "4", text: "パラマウント" },
-    { id: "5", text: "コロンビア" },
     { id: "33", text: "ユニバーサル" },
     { id: "174", text: "ワーナー・ブラザーズ" },
+    { id: "25", text: "20世紀スタジオ" },
+    { id: "4", text: "パラマウント" },
+    { id: "420", text: "MARVEL" },
+    { id: "3", text: "Pixar" },
+    { id: "882", text: "東宝" },
+    { id: "192", text: "松竹" },
   ];
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
+  const toggleDrawer =
+    (anchor: "left", open: boolean) => (event: KeyboardEvent | MouseEvent) => {
+      setState({ ...state, [anchor]: open });
+    };
+
+  const handleMoreOpenGenre = () => {
+    setOpenGenre(!openGenre);
   };
 
-  const handleMoreOpen = () => {
-    setOpen(!open);
+  const handleMoreOpenCompany = () => {
+    setOpenCompany(!openCompany);
   };
 
   return (
@@ -118,7 +121,7 @@ export const TemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {rankingListItems.map(({ path, text }) => (
+            {rankingLists.map(({ path, text }) => (
               <NextLink key={text} href={path} passHref>
                 <MuiLink color="white" underline="none">
                   <ListItem dense onClick={toggleDrawer("left", false)}>
@@ -137,8 +140,8 @@ export const TemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {genres1.map(({ id, text }) => {
-              return (
+            {genreLists.map(({ id, text }, i: number) => {
+              return i < maxListDisplay ? (
                 <NextLink
                   key={id}
                   href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
@@ -152,17 +155,19 @@ export const TemporaryDrawer = () => {
                     </ListItem>
                   </MuiLink>
                 </NextLink>
-              );
+              ) : null;
             })}
-            <ListItem dense>
-              <ListItemButton onClick={handleMoreOpen}>
-                <ListItemText>さらに表示</ListItemText>
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-            </ListItem>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              {genres2.map(({ id, text }) => {
-                return (
+            {!openGenre ? (
+              <ListItem dense>
+                <ListItemButton onClick={handleMoreOpenGenre}>
+                  <ListItemText>すべて表示</ListItemText>
+                  <ExpandMore />
+                </ListItemButton>
+              </ListItem>
+            ) : null}
+            <Collapse in={openGenre} timeout="auto" unmountOnExit>
+              {genreLists.map(({ id, text }, i: number) => {
+                return i > maxListDisplay ? (
                   <NextLink
                     key={id}
                     href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
@@ -176,7 +181,7 @@ export const TemporaryDrawer = () => {
                       </ListItem>
                     </MuiLink>
                   </NextLink>
-                );
+                ) : null;
               })}
               <NextLink href="/genres" passHref>
                 <MuiLink color="white" underline="none">
@@ -187,6 +192,14 @@ export const TemporaryDrawer = () => {
                   </ListItem>
                 </MuiLink>
               </NextLink>
+              {openGenre ? (
+                <ListItem dense>
+                  <ListItemButton onClick={handleMoreOpenGenre}>
+                    <ListItemText>折りたたむ</ListItemText>
+                    <ExpandLess />
+                  </ListItemButton>
+                </ListItem>
+              ) : null}
             </Collapse>
             <Divider />
             <ListItem>
@@ -196,8 +209,8 @@ export const TemporaryDrawer = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {companies.map(({ id, text }) => {
-              return (
+            {companyLists.map(({ id, text }, i: number) => {
+              return i < maxListDisplay ? (
                 <NextLink
                   key={id}
                   href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
@@ -211,8 +224,44 @@ export const TemporaryDrawer = () => {
                     </ListItem>
                   </MuiLink>
                 </NextLink>
-              );
+              ) : null;
             })}
+            {!openCompany ? (
+              <ListItem dense>
+                <ListItemButton onClick={handleMoreOpenCompany}>
+                  <ListItemText>すべてを表示</ListItemText>
+                  <ExpandMore />
+                </ListItemButton>
+              </ListItem>
+            ) : null}
+
+            <Collapse in={openCompany} timeout="auto" unmountOnExit>
+              {companyLists.map(({ id, text }, i: number) => {
+                return i > maxListDisplay ? (
+                  <NextLink
+                    key={id}
+                    href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                    passHref
+                  >
+                    <MuiLink color="white" underline="none">
+                      <ListItem dense onClick={toggleDrawer("left", false)}>
+                        <ListItemButton>
+                          <ListItemText>{text}</ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                    </MuiLink>
+                  </NextLink>
+                ) : null;
+              })}
+              {openCompany ? (
+                <ListItem dense>
+                  <ListItemButton onClick={handleMoreOpenCompany}>
+                    <ListItemText>折りたたむ</ListItemText>
+                    <ExpandLess />
+                  </ListItemButton>
+                </ListItem>
+              ) : null}
+            </Collapse>
             <Divider />
             <ListItem>
               <ListItemText>
