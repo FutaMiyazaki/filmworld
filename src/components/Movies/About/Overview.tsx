@@ -11,11 +11,7 @@ export const Overview: VFC<OverviewProps> = (props) => {
   return (
     <Box sx={{ mb: 2 }}>
       <InfoHeader text="あらすじ" />
-      <Paper sx={{ p: 1 }}>
-        <Typography variant="body2" color="white">
-          {overview}
-        </Typography>
-      </Paper>
+      <Typography variant="body2">{overview}</Typography>
     </Box>
   );
 };

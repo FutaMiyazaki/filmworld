@@ -32,7 +32,7 @@ export const ScreenwriterInfo: VFC<ScreenwriterProps> = (props) => {
   );
 
   return (
-    <Box sx={{ mb: 1 }}>
+    <Box sx={{ mb: 2 }}>
       <InfoHeader text="脚本" />
       {uniqueCrew?.map(({ id, job, name }) => {
         return job === "Story" ||
@@ -40,18 +40,17 @@ export const ScreenwriterInfo: VFC<ScreenwriterProps> = (props) => {
           job === "Screenplay" ||
           job === "Screenstory" ||
           job === "Original Film Writer" ? (
-          <Paper
+          <Typography
             key={id}
+            variant="body2"
             sx={{
               display: "inline-block",
-              textAlign: "center",
-              px: 1,
-              mr: 1,
+              mr: 2,
               mb: 1,
             }}
           >
-            <Typography variant="body2">{name}</Typography>
-          </Paper>
+            {name}
+          </Typography>
         ) : null;
       })}
     </Box>

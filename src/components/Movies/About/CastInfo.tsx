@@ -27,23 +27,16 @@ export const CastInfo: VFC<CastProps> = (props) => {
                 href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
                 passHref
               >
-                <MuiLink underline="none">
-                  <Paper
+                <MuiLink underline="hover" sx={{ display: "inline-block" }}>
+                  <Typography
+                    variant="body2"
                     sx={{
-                      display: "inline-block",
-                      textAlign: "center",
-                      px: 1,
-                      mr: 1,
+                      mr: 2,
                       mb: 1,
-                      "&:hover": {
-                        opacity: 0.6,
-                      },
                     }}
                   >
-                    <Typography color="primary" variant="body2">
-                      {name}
-                    </Typography>
-                  </Paper>
+                    {name}
+                  </Typography>
                 </MuiLink>
               </NextLink>
             ) : null;

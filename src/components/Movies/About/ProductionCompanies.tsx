@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { VFC } from "react";
-import { Box, Link as MuiLink, Paper, Typography } from "@mui/material";
+import { Box, Link as MuiLink, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 type CompaniesData = {
@@ -18,7 +18,7 @@ export const ProductionCompanies: VFC<ProductionCompaniesProps> = (props) => {
   return (
     <>
       {companies?.length ? (
-        <Box sx={{ mb: 1 }}>
+        <Box sx={{ mb: 2 }}>
           <InfoHeader text="制作会社" />
           {companies?.map(({ id, name }) => {
             return (
@@ -27,23 +27,16 @@ export const ProductionCompanies: VFC<ProductionCompaniesProps> = (props) => {
                 href={`/movies/company?id=${id}&sort=popularity.desc&page=1`}
                 passHref
               >
-                <MuiLink underline="none">
-                  <Paper
+                <MuiLink underline="hover" sx={{ display: "inline-block" }}>
+                  <Typography
+                    variant="body2"
                     sx={{
-                      display: "inline-block",
-                      textAlign: "center",
-                      px: 1,
-                      mr: 1,
+                      mr: 2,
                       mb: 1,
-                      "&:hover": {
-                        opacity: 0.6,
-                      },
                     }}
                   >
-                    <Typography color="primary" variant="body2">
-                      {name}
-                    </Typography>
-                  </Paper>
+                    {name}
+                  </Typography>
                 </MuiLink>
               </NextLink>
             );

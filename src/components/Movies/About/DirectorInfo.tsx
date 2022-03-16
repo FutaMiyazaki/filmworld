@@ -16,22 +16,21 @@ export const DirectorInfo: VFC<DirectorProps> = (props) => {
   const { crew } = props;
 
   return (
-    <Box sx={{ mb: 1 }}>
+    <Box sx={{ mb: 2 }}>
       <InfoHeader text="監督" />
       {crew?.map(({ id, job, name }) => {
         return job === "Director" ? (
-          <Paper
+          <Typography
             key={id}
+            variant="body2"
             sx={{
               display: "inline-block",
-              textAlign: "center",
-              px: 1,
-              mr: 1,
+              mr: 2,
               mb: 1,
             }}
           >
-            <Typography variant="body2">{name}</Typography>
-          </Paper>
+            {name}
+          </Typography>
         ) : null;
       })}
     </Box>

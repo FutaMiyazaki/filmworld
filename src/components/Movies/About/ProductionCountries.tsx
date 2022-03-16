@@ -17,22 +17,21 @@ export const ProductionCountries: VFC<ProductionCountriesProps> = (props) => {
   return (
     <>
       {countries?.length ? (
-        <Box sx={{ mb: 1 }}>
+        <Box sx={{ mb: 2 }}>
           <InfoHeader text="制作国" />
-          {countries?.map(({ name }) => {
+          {countries?.map(({ id, name }) => {
             return (
-              <Paper
-                key={name}
+              <Typography
+                key={id}
+                variant="body2"
                 sx={{
                   display: "inline-block",
-                  textAlign: "center",
-                  px: 1,
-                  mr: 1,
+                  mr: 2,
                   mb: 1,
                 }}
               >
-                <Typography variant="body2">{name}</Typography>
-              </Paper>
+                {name}
+              </Typography>
             );
           })}
         </Box>
