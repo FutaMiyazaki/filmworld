@@ -17,7 +17,7 @@ export const Revenue = ({ revenue = 0 }: { revenue: number }) => {
             興行収入
           </Typography>
           <Typography color="white" variant="body2" sx={{ display: "inline" }}>
-            {fmtRevenue}円
+            {fmtRevenue}ドル
           </Typography>
         </Box>
       ) : null}
