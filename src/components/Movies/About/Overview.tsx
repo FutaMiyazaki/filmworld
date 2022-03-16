@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 type OverviewProps = {
@@ -9,7 +9,7 @@ type OverviewProps = {
 export const Overview: VFC<OverviewProps> = (props) => {
   const { overview } = props;
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box>
       <InfoHeader text="あらすじ" />
       <Typography variant="body2">{overview}</Typography>
     </Box>
