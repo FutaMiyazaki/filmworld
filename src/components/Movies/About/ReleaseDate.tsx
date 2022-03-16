@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type ReleaseDateProps = {
   releaseDate?: string;
@@ -11,9 +11,18 @@ export const ReleaseDate: VFC<ReleaseDateProps> = (props) => {
   return (
     <>
       {releaseDate ? (
-        <Typography color="white" variant="body1" sx={{ mb: 1 }}>
-          公開日： {releaseDate}
-        </Typography>
+        <Box sx={{ mb: 1 }}>
+          <Typography
+            color="white"
+            variant="subtitle1"
+            sx={{ display: "inline", fontWeight: "bold", mr: 2 }}
+          >
+            公開日
+          </Typography>
+          <Typography color="white" variant="body2" sx={{ display: "inline" }}>
+            {releaseDate}
+          </Typography>
+        </Box>
       ) : null}
     </>
   );

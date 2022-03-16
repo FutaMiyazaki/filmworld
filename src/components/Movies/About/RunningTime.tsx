@@ -1,5 +1,5 @@
 import { VFC } from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type RunningTimeProps = {
   runtime?: number;
@@ -11,9 +11,18 @@ export const RunningTime: VFC<RunningTimeProps> = (props) => {
   return (
     <>
       {runtime ? (
-        <Typography color="white" variant="body1" sx={{ mb: 1 }}>
-          {`上映時間： ${runtime}分`}
-        </Typography>
+        <Box sx={{ mb: 1 }}>
+          <Typography
+            color="white"
+            variant="subtitle1"
+            sx={{ display: "inline", fontWeight: "bold", mr: 2 }}
+          >
+            上映時間
+          </Typography>
+          <Typography color="white" variant="body2" sx={{ display: "inline" }}>
+            {runtime}分
+          </Typography>
+        </Box>
       ) : null}
     </>
   );
