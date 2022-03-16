@@ -1,5 +1,5 @@
 import { useCallback, VFC } from "react";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 type CrewData = {

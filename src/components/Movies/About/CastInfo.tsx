@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { VFC } from "react";
-import { Box, Link as MuiLink, Paper, Typography } from "@mui/material";
+import { Box, Link as MuiLink, Typography } from "@mui/material";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 
 type CastData = {
