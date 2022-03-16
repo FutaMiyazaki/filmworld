@@ -27,7 +27,6 @@ export const ProductionCountries: VFC<ProductionCountriesProps> = (props) => {
                 sx={{
                   display: "inline-block",
                   mr: 2,
-                  mb: 1,
                 }}
               >
                 {name}

@@ -32,7 +32,6 @@ export const ProductionCompanies: VFC<ProductionCompaniesProps> = (props) => {
                     variant="body2"
                     sx={{
                       mr: 2,
-                      mb: 1,
                     }}
                   >
                     {name}
