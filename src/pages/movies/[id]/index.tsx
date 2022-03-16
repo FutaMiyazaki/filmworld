@@ -1,8 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { SyntheticEvent, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Box, Card, CardMedia, Grid, Stack } from "@mui/material";
+import { Box, Card, CardMedia, Grid, Stack, Tab, Tabs } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { CastInfo } from "src/components/Movies/About/CastInfo";
@@ -19,12 +20,18 @@ import { Revenue } from "src/components/Movies/About/Revenue";
 import { RunningTime } from "src/components/Movies/About/RunningTime";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
+import { MoviesAboutTab } from "src/components/Movies/About/Tab";
 import { UserScore } from "src/components/Movies/About/UserScore";
 import { useMovie } from "src/hooks/useMovie";
 
 const MoviesId: NextPage = () => {
-  const { movieInfo, movieCredits, error, isLoading } = useMovie();
+  const [tabValue, setTabValue] = useState(0);
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
+  const { movieInfo, movieCredits, error, isLoading } = useMovie();
+
+  const handleTabChange = (e: SyntheticEvent, newTabValue: number) => {
+    setTabValue(newTabValue);
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -89,22 +96,58 @@ const MoviesId: NextPage = () => {
         </Grid>
         <Grid item xs={3} sm={8}>
           {isMobileScreen ? null : (
-            <MovieTitle
-              title={movieInfo?.title}
-              originalTitle={movieInfo?.original_title}
-            />
+            <Box>
+              <MovieTitle
+                title={movieInfo?.title}
+                originalTitle={movieInfo?.original_title}
+              />
+              <Box>
+                <Tabs value={tabValue} onChange={handleTabChange}>
+                  <Tab label="作品情報" />
+                  <Tab label="スタッフ・出演者" />
+                </Tabs>
+              </Box>
+              <MoviesAboutTab index={0} value={tabValue}>
+                <GenresInfo genres={movieInfo?.genres} />
+                <UserScore
+                  voteAverage={movieInfo?.vote_average}
+                  voteCount={movieInfo?.vote_count}
+                  size="medium"
+                />
+                <ReleaseDate releaseDate={movieInfo?.release_date} />
+                <RunningTime runtime={movieInfo?.runtime} />
+                <Revenue revenue={movieInfo?.revenue} />
+                {movieInfo?.overview && (
+                  <Overview overview={movieInfo?.overview} />
+                )}
+              </MoviesAboutTab>
+              <MoviesAboutTab index={1} value={tabValue}>
+                {movieInfo?.production_companies && (
+                  <ProductionCompanies
+                    companies={movieInfo?.production_companies}
+                  />
+                )}
+                {movieInfo?.production_countries && (
+                  <ProductionCountries
+                    countries={movieInfo?.production_countries}
+                  />
+                )}
+                <DirectorInfo crew={movieCredits?.crew} />
+                <ScreenwriterInfo crew={movieCredits?.crew} />
+                <CastInfo cast={movieCredits?.cast} />
+              </MoviesAboutTab>
+            </Box>
           )}
-          <ReleaseDate releaseDate={movieInfo?.release_date} />
-          <RunningTime runtime={movieInfo?.runtime} />
-          <Revenue revenue={movieInfo?.revenue} />
-          <GenresInfo genres={movieInfo?.genres} />
-          {isMobileScreen && (
-            <UserScore
-              voteAverage={movieInfo?.vote_average}
-              voteCount={movieInfo?.vote_count}
-              size="small"
-            />
-          )}
+          {isMobileScreen ? (
+            <Box>
+              <GenresInfo genres={movieInfo?.genres} />
+              <UserScore
+                voteAverage={movieInfo?.vote_average}
+                voteCount={movieInfo?.vote_count}
+                size="small"
+              />
+            </Box>
+          ) : null}
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
             <FavoriteButton
               id={movieInfo?.id}
@@ -112,34 +155,39 @@ const MoviesId: NextPage = () => {
               poster_path={movieInfo?.poster_path}
             />
           </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <UserScore
-              voteAverage={movieInfo?.vote_average}
-              voteCount={movieInfo?.vote_count}
-              size="medium"
-            />
-            {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
-            {movieInfo?.production_companies && (
-              <ProductionCompanies
-                companies={movieInfo?.production_companies}
-              />
-            )}
-            {movieInfo?.production_countries && (
-              <ProductionCountries
-                countries={movieInfo?.production_countries}
-              />
-            )}
-            <DirectorInfo crew={movieCredits?.crew} />
-            <ScreenwriterInfo crew={movieCredits?.crew} />
-            <CastInfo cast={movieCredits?.cast} />
-          </Box>
         </Grid>
         <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
-          {movieInfo?.overview && <Overview overview={movieInfo?.overview} />}
-          <ProductionCompanies companies={movieInfo?.production_companies} />
-          <DirectorInfo crew={movieCredits?.crew} />
-          <ScreenwriterInfo crew={movieCredits?.crew} />
-          <CastInfo cast={movieCredits?.cast} />
+          <Box>
+            <Box>
+              <Tabs value={tabValue} onChange={handleTabChange}>
+                <Tab label="作品情報" />
+                <Tab label="スタッフ・出演者" />
+              </Tabs>
+            </Box>
+            <MoviesAboutTab index={0} value={tabValue}>
+              <ReleaseDate releaseDate={movieInfo?.release_date} />
+              <RunningTime runtime={movieInfo?.runtime} />
+              <Revenue revenue={movieInfo?.revenue} />
+              {movieInfo?.overview && (
+                <Overview overview={movieInfo?.overview} />
+              )}
+            </MoviesAboutTab>
+            <MoviesAboutTab index={1} value={tabValue}>
+              {movieInfo?.production_companies && (
+                <ProductionCompanies
+                  companies={movieInfo?.production_companies}
+                />
+              )}
+              {movieInfo?.production_countries && (
+                <ProductionCountries
+                  countries={movieInfo?.production_countries}
+                />
+              )}
+              <DirectorInfo crew={movieCredits?.crew} />
+              <ScreenwriterInfo crew={movieCredits?.crew} />
+              <CastInfo cast={movieCredits?.cast} />
+            </MoviesAboutTab>
+          </Box>
         </Grid>
       </Grid>
       <PageHeading text="似ている作品" />
