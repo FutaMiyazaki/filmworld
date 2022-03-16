@@ -292,6 +292,7 @@ export const BottomNavi = () => {
                 </ListItem>
               ) : null}
             </Collapse>
+            <Divider />
             <ListItem>
               <ListItemText>
                 <Typography color="white" sx={{ fontWeight: "bold" }}>
