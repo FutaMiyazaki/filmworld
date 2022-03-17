@@ -11,10 +11,10 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material/";
-import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
+import { SearchButton } from "src/components/Header/SearchButton";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
+import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
-import { SearchButton } from "src/components/Layout/Header/SearchButton";
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
