@@ -41,8 +41,10 @@ export const ExternalLinkDialog: VFC<ExternalLinkDialogProps> = (props) => {
           下記の外部サイトに移動してよろしいでしょうか？
         </DialogTitle>
         <DialogContent>
-          <DialogContentText sx={{ mb: 3, textAlign: "center" }}>
-            <Typography color="primary">{url}</Typography>
+          <DialogContentText sx={{ mb: 3 }}>
+            <Typography color="primary" sx={{ display: "inline" }}>
+              {url}
+            </Typography>
           </DialogContentText>
           <DialogContentText>
             ※FilmWorldは、リンク先の内容に関して、またそのウェブサイトを利用した際に生じたいかなる損害についても一切の責任を負いません。他のウェブサイトについては、お客様自身の責任において閲覧・利用するものとします。
