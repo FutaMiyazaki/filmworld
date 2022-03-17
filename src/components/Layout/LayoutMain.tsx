@@ -7,8 +7,8 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { BottomNavi } from "src/components/Layout/BottomNavi";
 import { Header } from "src/components/Header/index";
+import { BottomNavi } from "src/components/Layout/BottomNavi";
 
 type LayoutMainProps = {
   children: ReactNode;
