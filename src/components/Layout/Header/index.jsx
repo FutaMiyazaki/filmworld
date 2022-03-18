@@ -11,8 +11,8 @@ import {
   Typography,
   useScrollTrigger,
 } from "@mui/material/";
-import { SearchButton } from "src/components/Header/SearchButton";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
+import { SearchButton } from "src/components/Layout/Header/SearchButton";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
