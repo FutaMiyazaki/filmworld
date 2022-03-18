@@ -118,9 +118,7 @@ const MoviesId: NextPage = () => {
                 />
                 <WorkInfo data={`${movieInfo?.runtime}分`} text="上映時間" />
                 <Revenue revenue={movieInfo?.revenue} />
-                {movieInfo?.overview && (
-                  <Overview overview={movieInfo?.overview} />
-                )}
+                <Overview overview={movieInfo?.overview} />
               </MoviesAboutTab>
               <MoviesAboutTab index={1} value={tabValue}>
                 <ProductionSideInfo
@@ -171,9 +169,7 @@ const MoviesId: NextPage = () => {
               />
               <WorkInfo data={`${movieInfo?.runtime}分`} text="上映時間" />
               <Revenue revenue={movieInfo?.revenue} />
-              {movieInfo?.overview && (
-                <Overview overview={movieInfo?.overview} />
-              )}
+              <Overview overview={movieInfo?.overview} />
             </MoviesAboutTab>
             <MoviesAboutTab index={1} value={tabValue}>
               <ProductionSideInfo
