@@ -97,11 +97,10 @@ export const Header = (props) => {
                   </MuiLink>
                 </NextLink>
                 <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
-                  <ButtonLink
-                    path="/search"
-                    text="オススメの映画を探す"
-                    variant="text"
-                  />
+                  <ButtonLink path="/search" text="映画を探す" variant="text" />
+                </Box>
+                <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
+                  <ButtonLink path="/search" text="ランキング" variant="text" />
                 </Box>
               </Box>
               <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }} />

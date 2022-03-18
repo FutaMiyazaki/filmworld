@@ -14,8 +14,8 @@ export const SortMenu: VFC<SortMenuProps> = (props) => {
   const MenuItems = [
     { text: "人気順", value: "popularity.desc" },
     { text: "公開日順", value: "release_date.desc" },
-    { text: "興行収入が多い順", value: "revenue.desc" },
-    { text: "評価数が多い順", value: "vote_count.desc" },
+    { text: "興行収入順", value: "revenue.desc" },
+    { text: "評価数順", value: "vote_count.desc" },
   ];
 
   const handleChangeSort = useCallback(
