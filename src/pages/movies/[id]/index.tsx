@@ -13,15 +13,14 @@ import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
 import { GenresInfo } from "src/components/Movies/About/GenresInfo";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
-import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
-import { ProductionCountries } from "src/components/Movies/About/ProductionCountries";
+import { ProductionSideInfo } from "src/components/Movies/About/ProductionSideInfo";
 import { Revenue } from "src/components/Movies/About/Revenue";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { MoviesAboutTab } from "src/components/Movies/About/Tab";
 import { UserScore } from "src/components/Movies/About/UserScore";
-import { useMovie } from "src/hooks/useMovie";
 import { WorkInfo } from "src/components/Movies/About/WorkInfo";
+import { useMovie } from "src/hooks/useMovie";
 
 const MoviesId: NextPage = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -124,16 +123,15 @@ const MoviesId: NextPage = () => {
                 )}
               </MoviesAboutTab>
               <MoviesAboutTab index={1} value={tabValue}>
-                {movieInfo?.production_companies && (
-                  <ProductionCompanies
-                    companies={movieInfo?.production_companies}
-                  />
-                )}
-                {movieInfo?.production_countries && (
-                  <ProductionCountries
-                    countries={movieInfo?.production_countries}
-                  />
-                )}
+                <ProductionSideInfo
+                  data={movieInfo?.production_countries}
+                  headerText="製作国"
+                />
+                <ProductionSideInfo
+                  data={movieInfo?.production_companies}
+                  headerText="製作会社"
+                  path="/movies/company"
+                />
                 <DirectorInfo crew={movieCredits?.crew} />
                 <ScreenwriterInfo crew={movieCredits?.crew} />
                 <CastInfo cast={movieCredits?.cast} />
@@ -178,16 +176,15 @@ const MoviesId: NextPage = () => {
               )}
             </MoviesAboutTab>
             <MoviesAboutTab index={1} value={tabValue}>
-              {movieInfo?.production_companies && (
-                <ProductionCompanies
-                  companies={movieInfo?.production_companies}
-                />
-              )}
-              {movieInfo?.production_countries && (
-                <ProductionCountries
-                  countries={movieInfo?.production_countries}
-                />
-              )}
+              <ProductionSideInfo
+                data={movieInfo?.production_countries}
+                headerText="製作国"
+              />
+              <ProductionSideInfo
+                data={movieInfo?.production_companies}
+                headerText="製作会社"
+                path="/movies/company"
+              />
               <DirectorInfo crew={movieCredits?.crew} />
               <ScreenwriterInfo crew={movieCredits?.crew} />
               <CastInfo cast={movieCredits?.cast} />
