@@ -93,7 +93,21 @@ const MoviesId: NextPage = () => {
           </Box>
         </Grid>
         <Grid item xs={3} sm={8}>
-          {isMobileScreen ? null : (
+          {isMobileScreen ? (
+            <Box>
+              <GenresInfo genres={movieInfo?.genres} />
+              <UserScore
+                voteAverage={movieInfo?.vote_average}
+                voteCount={movieInfo?.vote_count}
+                size="small"
+              />
+              <FavoriteButton
+                id={movieInfo?.id}
+                title={movieInfo?.title}
+                poster_path={movieInfo?.poster_path}
+              />
+            </Box>
+          ) : (
             <Box>
               <MovieTitle
                 title={movieInfo?.title}
@@ -136,19 +150,6 @@ const MoviesId: NextPage = () => {
               </MoviesAboutTab>
             </Box>
           )}
-          <Box sx={{ display: { xs: "block", sm: "none" } }}>
-            <GenresInfo genres={movieInfo?.genres} />
-            <UserScore
-              voteAverage={movieInfo?.vote_average}
-              voteCount={movieInfo?.vote_count}
-              size="small"
-            />
-            <FavoriteButton
-              id={movieInfo?.id}
-              title={movieInfo?.title}
-              poster_path={movieInfo?.poster_path}
-            />
-          </Box>
         </Grid>
         <Grid item xs={5} sx={{ display: { xs: "block", sm: "none" } }}>
           <Box>
