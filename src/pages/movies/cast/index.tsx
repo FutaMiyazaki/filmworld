@@ -6,7 +6,7 @@ import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 import { useCast } from "src/hooks/useCast";
 import { useCastMovies } from "src/hooks/useCastMovies";
 
@@ -45,7 +45,7 @@ const MoviesCast: NextPage = () => {
           <SortMenu path={`/movies/cast?id=${router.query.id}`} />
         </Grid>
       </Grid>
-      <Movies
+      <MovieList
         movies={movies?.results}
         error={error}
         gridSm={3}

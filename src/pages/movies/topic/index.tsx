@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 import { useScoreMovies } from "src/hooks/useScoreMovies";
 
 const MoviesTopic: NextPage = () => {
@@ -48,7 +48,7 @@ const MoviesTopic: NextPage = () => {
           <FilterByYear path="/movies/topic?" />
         </Grid>
       </Grid>
-      <Movies
+      <MovieList
         movies={movies?.results}
         error={error}
         gridSm={3}

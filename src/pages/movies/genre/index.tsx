@@ -7,7 +7,7 @@ import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { SortMenu } from "src/components/Layout/Form/SortMenu";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 import { useGenres } from "src/hooks/useGenres";
 import { useGenreMovies } from "src/hooks/useGenreMovies";
 
@@ -66,7 +66,7 @@ const MoviesGenre: NextPage = () => {
           <SortMenu path={`/movies/genre?id=${router.query.id}`} />
         </Grid>
       </Grid>
-      <Movies
+      <MovieList
         movies={movies?.results}
         error={error}
         gridSm={3}

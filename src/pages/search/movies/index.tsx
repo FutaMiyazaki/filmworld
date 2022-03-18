@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 import { useSearchMovies } from "src/hooks/useSearchMovie";
 import { useGenres } from "src/hooks/useGenres";
 
@@ -72,7 +72,7 @@ const SearchMovies: NextPage = () => {
           <Grid item>一致する検索結果はありませんでした</Grid>
         </Grid>
       ) : (
-        <Movies
+        <MovieList
           movies={movies?.results}
           error={error}
           gridSm={3}

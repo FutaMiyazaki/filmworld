@@ -1,11 +1,11 @@
 import { useSimilarMovies } from "src/hooks/useSimilarMovies";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 
 export const SimilarMovies = () => {
   const { similarMovies, error, isLoading } = useSimilarMovies();
 
   return (
-    <Movies
+    <MovieList
       movies={similarMovies?.results}
       error={error}
       gridSm={3}

@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
 import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { Movies } from "src/components/Movies/index";
+import { MovieList } from "src/components/Movies/MovieList";
 import { useRevenueMovies } from "src/hooks/useRevenueMovies";
 import { useEffect, useState } from "react";
 
@@ -47,7 +47,7 @@ const MoviesRevenue: NextPage = () => {
           <FilterByYear path="/movies/revenue?" />
         </Grid>
       </Grid>
-      <Movies
+      <MovieList
         movies={movies?.results}
         error={error}
         gridSm={3}

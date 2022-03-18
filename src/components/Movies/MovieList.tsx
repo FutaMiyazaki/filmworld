@@ -13,7 +13,7 @@ type movieType = {
   vote_count: 0;
 };
 
-type moviesData = {
+type movieListData = {
   id: number;
   poster_path?: string;
   release_date?: string;
@@ -26,8 +26,8 @@ type errorData = {
   message?: string;
 };
 
-type MoviesProps = {
-  movies: moviesData;
+type MovieListProps = {
+  movies: movieListData;
   error: errorData;
   gridSm: number;
   gridXs: number;
@@ -37,7 +37,7 @@ type MoviesProps = {
   totalPages: number;
 };
 
-export const Movies: VFC<MoviesProps> = (props) => {
+export const MovieList: VFC<MovieListProps> = (props) => {
   const {
     movies,
     error,
