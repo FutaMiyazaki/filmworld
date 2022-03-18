@@ -15,14 +15,13 @@ import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionCompanies } from "src/components/Movies/About/ProductionCompanies";
 import { ProductionCountries } from "src/components/Movies/About/ProductionCountries";
-import { ReleaseDate } from "src/components/Movies/About/ReleaseDate";
 import { Revenue } from "src/components/Movies/About/Revenue";
-import { RunningTime } from "src/components/Movies/About/RunningTime";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { MoviesAboutTab } from "src/components/Movies/About/Tab";
 import { UserScore } from "src/components/Movies/About/UserScore";
 import { useMovie } from "src/hooks/useMovie";
+import { WorkInfo } from "src/components/Movies/About/WorkInfo";
 
 const MoviesId: NextPage = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -114,8 +113,11 @@ const MoviesId: NextPage = () => {
                   voteCount={movieInfo?.vote_count}
                   size="medium"
                 />
-                <ReleaseDate releaseDate={movieInfo?.release_date} />
-                <RunningTime runtime={movieInfo?.runtime} />
+                <WorkInfo
+                  data={movieInfo?.release_date?.replace(/-/g, "/")}
+                  text="公開日"
+                />
+                <WorkInfo data={`${movieInfo?.runtime}分`} text="上映時間" />
                 <Revenue revenue={movieInfo?.revenue} />
                 {movieInfo?.overview && (
                   <Overview overview={movieInfo?.overview} />
@@ -165,8 +167,11 @@ const MoviesId: NextPage = () => {
               </Tabs>
             </Box>
             <MoviesAboutTab index={0} value={tabValue}>
-              <ReleaseDate releaseDate={movieInfo?.release_date} />
-              <RunningTime runtime={movieInfo?.runtime} />
+              <WorkInfo
+                data={movieInfo?.release_date?.replace(/-/g, "/")}
+                text="公開日"
+              />
+              <WorkInfo data={`${movieInfo?.runtime}分`} text="上映時間" />
               <Revenue revenue={movieInfo?.revenue} />
               {movieInfo?.overview && (
                 <Overview overview={movieInfo?.overview} />
