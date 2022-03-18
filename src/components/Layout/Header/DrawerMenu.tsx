@@ -21,7 +21,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
-export const TemporaryDrawer: VFC = () => {
+export const DrawerMenu: VFC = () => {
   const [state, setState] = useState({
     left: false,
   });

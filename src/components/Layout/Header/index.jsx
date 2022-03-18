@@ -12,9 +12,9 @@ import {
   useScrollTrigger,
 } from "@mui/material/";
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
+import { DrawerMenu } from "src/components/Layout/Header/DrawerMenu";
 import { SearchButton } from "src/components/Layout/Header/SearchButton";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
-import { TemporaryDrawer } from "src/components/Layout/TemporaryDrawer";
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -74,7 +74,7 @@ export const Header = (props) => {
                   display: { xs: "none", sm: "flex" },
                 }}
               >
-                <TemporaryDrawer />
+                <DrawerMenu />
               </Box>
               <Box sx={{ flexGrow: 1, display: "flex" }}>
                 <NextLink href="/" passHref>
