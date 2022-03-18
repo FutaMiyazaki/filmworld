@@ -1,5 +1,5 @@
-import { KeyboardEvent, MouseEvent, useState, VFC } from "react";
 import NextLink from "next/link";
+import { KeyboardEvent, MouseEvent, useState, VFC } from "react";
 import {
   Box,
   Collapse,
@@ -234,7 +234,6 @@ export const TemporaryDrawer: VFC = () => {
                 </ListItemButton>
               </ListItem>
             ) : null}
-
             <Collapse in={openCompany} timeout="auto" unmountOnExit>
               {companyLists.map(({ id, text }, i: number) => {
                 return i > maxListDisplay ? (
