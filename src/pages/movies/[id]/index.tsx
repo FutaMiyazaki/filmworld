@@ -136,17 +136,13 @@ const MoviesId: NextPage = () => {
               </MoviesAboutTab>
             </Box>
           )}
-          {isMobileScreen ? (
-            <Box>
-              <GenresInfo genres={movieInfo?.genres} />
-              <UserScore
-                voteAverage={movieInfo?.vote_average}
-                voteCount={movieInfo?.vote_count}
-                size="small"
-              />
-            </Box>
-          ) : null}
           <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            <GenresInfo genres={movieInfo?.genres} />
+            <UserScore
+              voteAverage={movieInfo?.vote_average}
+              voteCount={movieInfo?.vote_count}
+              size="small"
+            />
             <FavoriteButton
               id={movieInfo?.id}
               title={movieInfo?.title}
