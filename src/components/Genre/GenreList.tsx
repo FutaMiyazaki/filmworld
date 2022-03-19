@@ -11,6 +11,8 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Paper,
+  Typography,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Loading } from "src/components/Layout/Loading";
@@ -61,26 +63,26 @@ export const GenreList: VFC = () => {
           </List>
         </Box>
       ) : (
-        <Grid
-          container
-          columns={{ xs: 4, sm: 6 }}
-          justifyContent="center"
-          spacing={2}
-        >
+        <Grid container columns={{ sm: 6, lg: 8 }} spacing={2}>
           {genres?.genres.map((genre: { id: number; name: string }) => {
             return (
-              <Grid item key={genre.id} xs="auto" sm={2}>
+              <Grid item key={genre.id} sm={2} lg={2}>
                 <NextLink
                   href={`/movies/genre?id=${genre.id}&sort=popularity.desc&page=1`}
                   passHref
                 >
                   <MuiLink underline="none">
-                    <Chip
-                      clickable
-                      color="primary"
-                      label={genre.name}
-                      variant="outlined"
-                    />
+                    <Paper
+                      sx={{
+                        textAlign: "center",
+                        p: 1,
+                        "&:hover": {
+                          opacity: 0.5,
+                        },
+                      }}
+                    >
+                      <Typography variant="body1">{genre.name}</Typography>
+                    </Paper>
                   </MuiLink>
                 </NextLink>
               </Grid>
