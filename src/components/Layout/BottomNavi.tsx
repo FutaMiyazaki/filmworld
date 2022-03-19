@@ -93,7 +93,7 @@ export const BottomNavi = () => {
           bottom: 0,
           left: 0,
           right: 0,
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", sm: "none", lg: "none" },
         }}
         elevation={20}
       >

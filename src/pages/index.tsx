@@ -8,11 +8,17 @@ import { MoviesTopRevenue } from "src/components/Movies/Top/Revenue";
 const Index: NextPage = () => {
   return (
     <div>
-      <Grid container spacing={1} columns={{ xs: 4, sm: 8 }}>
-        <Grid item xs={0} sm={2} sx={{ display: { xs: "none", sm: "flex" } }}>
+      <Grid container spacing={1} columns={{ xs: 4, sm: 6, lg: 8 }}>
+        <Grid
+          item
+          xs={0}
+          sm={2}
+          lg={2}
+          sx={{ display: { xs: "none", sm: "flex", lg: "flex" } }}
+        >
           <SideMenu />
         </Grid>
-        <Grid item xs={4} sm={6}>
+        <Grid item xs={4} sm={4} lg={6}>
           <PageHeading path="/movies/popular?page=1" text="人気ランキング" />
           <MoviesTopPopular />
           <PageHeading
