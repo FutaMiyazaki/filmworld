@@ -69,6 +69,7 @@ const MoviesGenre: NextPage = () => {
       <MovieList
         movies={movies?.results}
         error={error}
+        gridLg={5}
         gridSm={3}
         gridXs={1}
         isLoading={isLoading}

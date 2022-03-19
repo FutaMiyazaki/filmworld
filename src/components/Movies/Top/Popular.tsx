@@ -12,10 +12,11 @@ export const MoviesTopPopular: VFC = () => {
       <MovieList
         movies={movies?.results}
         error={error}
+        gridLg={3}
         gridSm={2}
         gridXs={1}
         isLoading={isLoading}
-        maxDisplay={8}
+        maxDisplay={12}
         path="/"
         totalPages={1}
       />
