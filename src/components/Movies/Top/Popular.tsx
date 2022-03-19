@@ -22,16 +22,18 @@ export const MoviesTopPopular: VFC = () => {
       />
       <Grid
         container
+        columns={{ xs: 4, sm: 4, lg: 8 }}
         justifyContent="center"
-        columns={{ xs: 4, sm: 8 }}
         sx={{ mt: 2, mb: 4 }}
       >
-        <Grid item xs={4} sm={3}>
-          <ButtonLink
-            path="/movies/popular?page=1"
-            text="もっと見る"
-            variant="outlined"
-          />
+        <Grid item xs={4} sm={2} lg={3}>
+          {isLoading ? null : (
+            <ButtonLink
+              path="/movies/popular?page=1"
+              text="もっと見る"
+              variant="outlined"
+            />
+          )}
         </Grid>
       </Grid>
     </>
