@@ -64,9 +64,9 @@ export const SearchForm: VFC = () => {
         alignItems="center"
         columns={{ xs: 12, sm: 12, lg: 12 }}
         spacing={2}
-        sx={{ mt: 1, mb: 4 }}
+        sx={{ mb: 4 }}
       >
-        <Grid item xs={12} sm={5} lg={4} sx={{ m: 2 }}>
+        <Grid item xs={12} sm={5} lg={4} sx={{ mx: 2 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 1 }}>
             ジャンル
           </Typography>
