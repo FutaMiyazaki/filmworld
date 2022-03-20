@@ -42,28 +42,24 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                     <CardMedia
                       alt="ポスター画像"
                       component="img"
-                      height={isMobileScreen ? "100%" : "200"}
+                      height="100%"
                       image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
                     />
                   </Grid>
                   <Grid item xs={3}>
                     <CardContent>
-                      <Typography
-                        variant={isMobileScreen ? "subtitle2" : "subtitle1"}
-                      >
-                        {movie.title}
-                      </Typography>
+                      <Typography variant="subtitle2">{movie.title}</Typography>
                       {movie.releaseDate ? (
                         <Typography
                           color="white"
-                          variant={isMobileScreen ? "subtitle2" : "subtitle1"}
+                          variant="subtitle2"
                           sx={{ display: "inline" }}
                         >
                           公開日： {movie.releaseDate?.replace(/-/g, "/")}
                         </Typography>
                       ) : null}
                       <UserScore
-                        size={isMobileScreen ? "small" : "medium"}
+                        size="small"
                         voteAverage={movie?.voteAverage}
                         voteCount={movie?.voteCount}
                       />
