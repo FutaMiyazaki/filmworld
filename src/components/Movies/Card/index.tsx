@@ -37,17 +37,17 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
           <CardActionArea>
             <NextLink passHref href={`/movies/${movie.id}`}>
               <MuiLink underline="none">
-                <CardContent>
-                  <Grid container columns={{ xs: 5 }} spacing={2}>
-                    <Grid item xs={2}>
-                      <CardMedia
-                        alt="ポスター画像"
-                        component="img"
-                        height={isMobileScreen ? "100%" : "200"}
-                        image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
-                      />
-                    </Grid>
-                    <Grid item xs={3}>
+                <Grid container columns={{ xs: 5 }}>
+                  <Grid item xs={2}>
+                    <CardMedia
+                      alt="ポスター画像"
+                      component="img"
+                      height={isMobileScreen ? "100%" : "200"}
+                      image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
+                    />
+                  </Grid>
+                  <Grid item xs={3}>
+                    <CardContent>
                       <Typography
                         variant={isMobileScreen ? "subtitle2" : "subtitle1"}
                       >
@@ -67,9 +67,9 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
                         voteAverage={movie?.voteAverage}
                         voteCount={movie?.voteCount}
                       />
-                    </Grid>
+                    </CardContent>
                   </Grid>
-                </CardContent>
+                </Grid>
               </MuiLink>
             </NextLink>
           </CardActionArea>
