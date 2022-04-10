@@ -120,7 +120,7 @@ export const CastInfo: VFC<CastProps> = (props) => {
           ) : (
             <Box>
               {cast?.map(({ id, name, profile_path }, i: number) => {
-                return i < 10 ? (
+                return i < 10 && profile_path ? (
                   <NextLink
                     key={id}
                     href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
@@ -141,17 +141,11 @@ export const CastInfo: VFC<CastProps> = (props) => {
                         }
                         placement="bottom"
                       >
-                        {profile_path ? (
-                          <Avatar
-                            alt={`${name}の画像`}
-                            src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                            sx={{ m: 2 }}
-                          />
-                        ) : (
-                          <Avatar sx={{ m: 2 }}>
-                            <PersonIcon />
-                          </Avatar>
-                        )}
+                        <Avatar
+                          alt={`${name}の画像`}
+                          src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+                          sx={{ m: 2 }}
+                        />
                       </Tooltip>
                     </MuiLink>
                   </NextLink>
@@ -169,7 +163,7 @@ export const CastInfo: VFC<CastProps> = (props) => {
               ) : null}
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
-                  return i > 10 && i < 20 ? (
+                  return i > 10 && i < 20 && profile_path ? (
                     <NextLink
                       key={id}
                       href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
@@ -193,17 +187,11 @@ export const CastInfo: VFC<CastProps> = (props) => {
                           }
                           placement="bottom"
                         >
-                          {profile_path ? (
-                            <Avatar
-                              alt={`${name}の画像`}
-                              src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                              sx={{ m: 2 }}
-                            />
-                          ) : (
-                            <Avatar sx={{ m: 2 }}>
-                              <PersonIcon />
-                            </Avatar>
-                          )}
+                          <Avatar
+                            alt={`${name}の画像`}
+                            src={`https://image.tmdb.org/t/p/w300${profile_path}`}
+                            sx={{ mx: 2 }}
+                          />
                         </Tooltip>
                       </MuiLink>
                     </NextLink>
