@@ -66,7 +66,9 @@ export const CastInfo: VFC<CastProps> = (props) => {
                           </ListItemAvatar>
                         ) : (
                           <ListItemIcon>
-                            <AccountCircleIcon />
+                            <Avatar>
+                              <PersonIcon />
+                            </Avatar>
                           </ListItemIcon>
                         )}
                         <ListItemText primary={name} />
@@ -102,7 +104,9 @@ export const CastInfo: VFC<CastProps> = (props) => {
                             </ListItemAvatar>
                           ) : (
                             <ListItemIcon>
-                              <AccountCircleIcon />
+                              <Avatar>
+                                <PersonIcon />
+                              </Avatar>
                             </ListItemIcon>
                           )}
                           <ListItemText primary={name} />
