@@ -9,6 +9,7 @@ export const SimilarMovies = () => {
       movies={similarMovies?.results}
       error={error}
       gridLg={5}
+      gridMd={4}
       gridSm={3}
       gridXs={1}
       isLoading={isLoading}

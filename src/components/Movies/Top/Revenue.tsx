@@ -12,7 +12,8 @@ export const MoviesTopRevenue: VFC = () => {
       <MovieList
         movies={movies?.results}
         error={error}
-        gridLg={3}
+        gridLg={4}
+        gridMd={3}
         gridSm={2}
         gridXs={1}
         isLoading={isLoading}
