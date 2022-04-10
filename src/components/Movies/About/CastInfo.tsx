@@ -139,7 +139,7 @@ export const CastInfo: VFC<CastProps> = (props) => {
                             {name}
                           </Typography>
                         }
-                        placement="bottom"
+                        placement="top"
                       >
                         <Avatar
                           alt={`${name}の画像`}
