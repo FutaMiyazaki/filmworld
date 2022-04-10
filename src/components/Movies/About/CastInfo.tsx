@@ -190,7 +190,7 @@ export const CastInfo: VFC<CastProps> = (props) => {
                           <Avatar
                             alt={`${name}の画像`}
                             src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                            sx={{ mx: 2 }}
+                            sx={{ m: 2 }}
                           />
                         </Tooltip>
                       </MuiLink>
