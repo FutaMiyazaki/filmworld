@@ -1,15 +1,9 @@
-import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import {
-  Button,
-  Card,
-  CardMedia,
-  Grid,
-  Link as MuiLink,
-  Typography,
-} from "@mui/material";
+import { Card, CardMedia, Grid } from "@mui/material";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import { AppLink } from "src/components/Layout/Link/AppLink";
+import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 
 export const MoviesWatchlist = () => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
@@ -24,14 +18,16 @@ export const MoviesWatchlist = () => {
   return (
     <div>
       {nowFavoMovies && nowFavoMovies.length > 0 ? (
-        <Grid container columns={{ xs: 4, sm: 8 }} spacing={1}>
+        <Grid container columns={{ xs: 2, sm: 3, md: 4, lg: 5 }} spacing={1}>
           {nowFavoMovies.map((movie) => {
             return (
               movie.id && (
                 <Grid
                   item
-                  xs={2}
-                  sm={2}
+                  xs={1}
+                  sm={1}
+                  md={1}
+                  lg={1}
                   key={movie.id}
                   sx={{
                     "&:hover": {
@@ -39,18 +35,16 @@ export const MoviesWatchlist = () => {
                     },
                   }}
                 >
-                  <NextLink href={`/movies/${movie.id}`} passHref>
-                    <MuiLink underline="none">
-                      <Card>
-                        <CardMedia
-                          component="img"
-                          height={isMobileScreen ? "250" : "400"}
-                          image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                          alt="ポスター画像"
-                        />
-                      </Card>
-                    </MuiLink>
-                  </NextLink>
+                  <AppLink path={`/movies/${movie.id}`} underline="none">
+                    <Card>
+                      <CardMedia
+                        component="img"
+                        height={isMobileScreen ? "250" : "400"}
+                        image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                        alt="ポスター画像"
+                      />
+                    </Card>
+                  </AppLink>
                 </Grid>
               )
             );
@@ -70,13 +64,11 @@ export const MoviesWatchlist = () => {
             ウォッチリストへの登録はありません
           </Grid>
           <Grid item>
-            <NextLink href="/search" passHref>
-              <MuiLink underline="none">
-                <Button variant="outlined">
-                  <Typography>次に観る映画を探す</Typography>
-                </Button>
-              </MuiLink>
-            </NextLink>
+            <ButtonLink
+              path="/search"
+              text="次に観る映画を探す"
+              variant="outlined"
+            />
           </Grid>
         </Grid>
       )}
