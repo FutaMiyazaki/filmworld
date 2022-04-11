@@ -12,11 +12,11 @@ type CrewData = {
   profile_path: string;
 }[];
 
-type DirectorProps = {
+type DirectorListProps = {
   crew: CrewData;
 };
 
-export const DirectorInfo: VFC<DirectorProps> = (props) => {
+export const DirectorList: VFC<DirectorListProps> = (props) => {
   const { crew } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 

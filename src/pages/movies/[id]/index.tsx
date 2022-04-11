@@ -7,7 +7,7 @@ import { Box, Card, CardMedia, Grid, Stack, Tab, Tabs } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { CastList } from "src/components/Movies/About/CastList";
-import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
+import { DirectorList } from "src/components/Movies/About/DirectorList";
 import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
 import { GenresInfo } from "src/components/Movies/About/GenresInfo";
@@ -144,7 +144,7 @@ const MoviesId: NextPage = () => {
                   headerText="製作会社"
                   path="/movies/company"
                 />
-                <DirectorInfo crew={movieCredits?.crew} />
+                <DirectorList crew={movieCredits?.crew} />
                 <ScreenwriterInfo crew={movieCredits?.crew} />
                 <CastList cast={movieCredits?.cast} />
               </MoviesAboutTab>
@@ -178,7 +178,7 @@ const MoviesId: NextPage = () => {
                 headerText="製作会社"
                 path="/movies/company"
               />
-              <DirectorInfo crew={movieCredits?.crew} />
+              <DirectorList crew={movieCredits?.crew} />
               <ScreenwriterInfo crew={movieCredits?.crew} />
               <CastList cast={movieCredits?.cast} />
             </MoviesAboutTab>
