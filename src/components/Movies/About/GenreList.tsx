@@ -8,11 +8,11 @@ type GenresData = {
   name?: string;
 }[];
 
-type GenresInfoProps = {
+type GenreListProps = {
   genres: GenresData;
 };
 
-export const GenresInfo: VFC<GenresInfoProps> = (props) => {
+export const GenreList: VFC<GenreListProps> = (props) => {
   const { genres } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 

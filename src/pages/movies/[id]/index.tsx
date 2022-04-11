@@ -10,7 +10,7 @@ import { CastList } from "src/components/Movies/About/CastList";
 import { DirectorList } from "src/components/Movies/About/DirectorList";
 import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
-import { GenresInfo } from "src/components/Movies/About/GenresInfo";
+import { GenreList } from "src/components/Movies/About/GenreList";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionSideInfo } from "src/components/Movies/About/ProductionSideInfo";
@@ -95,7 +95,7 @@ const MoviesId: NextPage = () => {
         <Grid item xs={3} sm={8}>
           {isMobileScreen ? (
             <Box>
-              <GenresInfo genres={movieInfo?.genres} />
+              <GenreList genres={movieInfo?.genres} />
               <UserScore
                 voteAverage={movieInfo?.vote_average}
                 voteCount={movieInfo?.vote_count}
@@ -120,7 +120,7 @@ const MoviesId: NextPage = () => {
                 </Tabs>
               </Box>
               <MoviesAboutTab index={0} value={tabValue}>
-                <GenresInfo genres={movieInfo?.genres} />
+                <GenreList genres={movieInfo?.genres} />
                 <UserScore
                   voteAverage={movieInfo?.vote_average}
                   voteCount={movieInfo?.vote_count}
