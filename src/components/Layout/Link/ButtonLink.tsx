@@ -1,6 +1,6 @@
 import { VFC } from "react";
 import { Button } from "@mui/material";
-import { AppLink } from "./AppLink";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 
 type ButtonLinkProps = {
   path: string;
