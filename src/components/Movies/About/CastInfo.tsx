@@ -1,26 +1,20 @@
-import NextLink from "next/link";
 import { useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
-  Avatar,
   Box,
   Button,
-  Chip,
   Collapse,
-  Link as MuiLink,
+  Divider,
+  Grid,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
-  Tooltip,
-  Typography,
 } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import PersonIcon from "@mui/icons-material/Person";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
+import { ListItemAvatarLink } from "src/components/Layout/Link/ListItemAvatarLink";
+import { AvatarLink } from "src/components/Layout/Link/AvatarLink";
 
 type CastData = {
   id: number;
@@ -50,31 +44,15 @@ export const CastInfo: VFC<CastProps> = (props) => {
             <List>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 8 ? (
-                  <NextLink
-                    key={id}
-                    href={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
-                    passHref
-                  >
-                    <MuiLink underline="none">
-                      <ListItem>
-                        {profile_path ? (
-                          <ListItemAvatar>
-                            <Avatar
-                              alt={`${name}の顔写真`}
-                              src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                            />
-                          </ListItemAvatar>
-                        ) : (
-                          <ListItemIcon>
-                            <Avatar>
-                              <PersonIcon />
-                            </Avatar>
-                          </ListItemIcon>
-                        )}
-                        <ListItemText primary={name} />
-                      </ListItem>
-                    </MuiLink>
-                  </NextLink>
+                  <>
+                    <ListItemAvatarLink
+                      key={id}
+                      id={id}
+                      name={name}
+                      profilePath={profile_path}
+                    />
+                    <Divider variant="inset" />
+                  </>
                 ) : null;
               })}
               {!open && cast.length > 8 ? (
@@ -88,31 +66,17 @@ export const CastInfo: VFC<CastProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 7 && i < 15 ? (
-                    <NextLink
-                      key={id}
-                      href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
-                      passHref
-                    >
-                      <MuiLink underline="none">
-                        <ListItem>
-                          {profile_path ? (
-                            <ListItemAvatar>
-                              <Avatar
-                                alt={`${name}の顔写真`}
-                                src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                              />
-                            </ListItemAvatar>
-                          ) : (
-                            <ListItemIcon>
-                              <Avatar>
-                                <PersonIcon />
-                              </Avatar>
-                            </ListItemIcon>
-                          )}
-                          <ListItemText primary={name} />
-                        </ListItem>
-                      </MuiLink>
-                    </NextLink>
+                    <>
+                      <ListItemAvatarLink
+                        key={id}
+                        id={id}
+                        name={name}
+                        profilePath={profile_path}
+                      />
+                      {i === 14 || i === cast.length ? null : (
+                        <Divider variant="inset" />
+                      )}
+                    </>
                   ) : null;
                 })}
               </Collapse>
@@ -121,34 +85,13 @@ export const CastInfo: VFC<CastProps> = (props) => {
             <Box>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 10 && profile_path ? (
-                  <NextLink
+                  <AvatarLink
                     key={id}
-                    href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
-                    passHref
-                  >
-                    <MuiLink underline="none" sx={{ display: "inline-block" }}>
-                      <Tooltip
-                        arrow
-                        disableInteractive
-                        title={
-                          <Typography
-                            color="primary"
-                            variant="subtitle1"
-                            sx={{ fontWeight: "bold" }}
-                          >
-                            {name}
-                          </Typography>
-                        }
-                        placement="top"
-                      >
-                        <Avatar
-                          alt={`${name}の画像`}
-                          src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                          sx={{ m: 2 }}
-                        />
-                      </Tooltip>
-                    </MuiLink>
-                  </NextLink>
+                    id={id}
+                    name={name}
+                    profilePath={profile_path}
+                    tipPlacement="top"
+                  />
                 ) : null;
               })}
               {!open && cast.length > 10 ? (
@@ -164,37 +107,13 @@ export const CastInfo: VFC<CastProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 10 && i < 20 && profile_path ? (
-                    <NextLink
+                    <AvatarLink
                       key={id}
-                      href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
-                      passHref
-                    >
-                      <MuiLink
-                        underline="none"
-                        sx={{ display: "inline-block" }}
-                      >
-                        <Tooltip
-                          arrow
-                          disableInteractive
-                          title={
-                            <Typography
-                              color="primary"
-                              variant="subtitle1"
-                              sx={{ fontWeight: "bold" }}
-                            >
-                              {name}
-                            </Typography>
-                          }
-                          placement="bottom"
-                        >
-                          <Avatar
-                            alt={`${name}の画像`}
-                            src={`https://image.tmdb.org/t/p/w300${profile_path}`}
-                            sx={{ m: 2 }}
-                          />
-                        </Tooltip>
-                      </MuiLink>
-                    </NextLink>
+                      id={id}
+                      name={name}
+                      profilePath={profile_path}
+                      tipPlacement="bottom"
+                    />
                   ) : null;
                 })}
               </Collapse>
