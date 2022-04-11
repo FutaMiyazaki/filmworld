@@ -24,11 +24,11 @@ type CastData = {
   profile_path: string;
 }[];
 
-type CastProps = {
+type CastListProps = {
   cast: CastData;
 };
 
-export const CastList: VFC<CastProps> = (props) => {
+export const CastList: VFC<CastListProps> = (props) => {
   const [open, setOpen] = useState(false);
   const { cast } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
