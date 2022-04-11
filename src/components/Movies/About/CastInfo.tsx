@@ -13,9 +13,10 @@ import {
   ListItemText,
 } from "@mui/material";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import { InfoHeader } from "src/components/Movies/About/InfoHeader";
-import { ListItemAvatarLink } from "src/components/Layout/Link/ListItemAvatarLink";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 import { CreditsAvatar } from "src/components/Movies/About/CreditsAvatar";
+import { InfoHeader } from "src/components/Movies/About/InfoHeader";
+import { ListItemWithAvatar } from "src/components/Layout/List/ListItemWithAvatar";
 
 type CastData = {
   id: number;
@@ -46,12 +47,16 @@ export const CastInfo: VFC<CastProps> = (props) => {
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 8 ? (
                   <>
-                    <ListItemAvatarLink
+                    <AppLink
                       key={id}
-                      id={id}
-                      name={name}
-                      profilePath={profile_path}
-                    />
+                      path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                      underline="none"
+                    >
+                      <ListItemWithAvatar
+                        name={name}
+                        profilePath={profile_path}
+                      />
+                    </AppLink>
                     <Divider variant="inset" />
                   </>
                 ) : null;
@@ -68,12 +73,16 @@ export const CastInfo: VFC<CastProps> = (props) => {
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 7 && i < 15 ? (
                     <>
-                      <ListItemAvatarLink
+                      <AppLink
                         key={id}
-                        id={id}
-                        name={name}
-                        profilePath={profile_path}
-                      />
+                        path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                        underline="none"
+                      >
+                        <ListItemWithAvatar
+                          name={name}
+                          profilePath={profile_path}
+                        />
+                      </AppLink>
                       {i === 14 || i === cast.length ? null : (
                         <Divider variant="inset" />
                       )}
