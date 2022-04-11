@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import { useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
@@ -8,10 +7,10 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Link as MuiLink,
   Paper,
   Typography,
 } from "@mui/material";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 import { UserScore } from "src/components/Movies/About/UserScore";
 
 type MoviesCardProps = {
@@ -35,39 +34,37 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
       {isMobileScreen ? (
         <Card>
           <CardActionArea>
-            <NextLink passHref href={`/movies/${movie.id}`}>
-              <MuiLink underline="none">
-                <Grid container columns={{ xs: 5 }}>
-                  <Grid item xs={2}>
-                    <CardMedia
-                      alt="ポスター画像"
-                      component="img"
-                      height="100%"
-                      image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
-                    />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <CardContent>
-                      <Typography variant="subtitle2">{movie.title}</Typography>
-                      {movie.releaseDate ? (
-                        <Typography
-                          color="white"
-                          variant="subtitle2"
-                          sx={{ display: "inline" }}
-                        >
-                          公開日： {movie.releaseDate?.replace(/-/g, "/")}
-                        </Typography>
-                      ) : null}
-                      <UserScore
-                        size="small"
-                        voteAverage={movie?.voteAverage}
-                        voteCount={movie?.voteCount}
-                      />
-                    </CardContent>
-                  </Grid>
+            <AppLink path={`/movies/${movie.id}`} underline="none">
+              <Grid container columns={{ xs: 5 }}>
+                <Grid item xs={2}>
+                  <CardMedia
+                    alt="ポスター画像"
+                    component="img"
+                    height="100%"
+                    image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
+                  />
                 </Grid>
-              </MuiLink>
-            </NextLink>
+                <Grid item xs={3}>
+                  <CardContent>
+                    <Typography variant="subtitle2">{movie.title}</Typography>
+                    {movie.releaseDate ? (
+                      <Typography
+                        color="white"
+                        variant="subtitle2"
+                        sx={{ display: "inline" }}
+                      >
+                        公開日： {movie.releaseDate?.replace(/-/g, "/")}
+                      </Typography>
+                    ) : null}
+                    <UserScore
+                      size="small"
+                      voteAverage={movie?.voteAverage}
+                      voteCount={movie?.voteCount}
+                    />
+                  </CardContent>
+                </Grid>
+              </Grid>
+            </AppLink>
           </CardActionArea>
         </Card>
       ) : (
@@ -76,52 +73,50 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
           onMouseOut={() => setShow(false)}
         >
           <CardActionArea>
-            <NextLink passHref href={`/movies/${movie.id}`}>
-              <MuiLink underline="none">
-                <Box sx={{ position: "relative" }}>
-                  {show && (
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        position: "absolute",
-                        display: "inline-block",
-                        p: 1,
-                      }}
-                    >
-                      <Typography
-                        color="primary"
-                        variant="subtitle2"
-                        sx={{ fontWeight: "bold" }}
-                      >
-                        {movie.title}
-                      </Typography>
-                    </Paper>
-                  )}
-                  <CardMedia
-                    alt="ポスター画像"
-                    component="img"
-                    height="360"
-                    image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
-                  />
-                </Box>
-                <Box sx={{ pt: 1, pl: 2 }}>
-                  {movie.releaseDate ? (
+            <AppLink path={`/movies/${movie.id}`} underline="none">
+              <Box sx={{ position: "relative" }}>
+                {show && (
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      position: "absolute",
+                      display: "inline-block",
+                      p: 1,
+                    }}
+                  >
                     <Typography
-                      color="white"
+                      color="primary"
                       variant="subtitle2"
-                      sx={{ display: "inline" }}
+                      sx={{ fontWeight: "bold" }}
                     >
-                      公開日：{movie.releaseDate?.replace(/-/g, "/")}
+                      {movie.title}
                     </Typography>
-                  ) : null}
-                  <UserScore
-                    size="small"
-                    voteAverage={movie?.voteAverage}
-                    voteCount={movie?.voteCount}
-                  />
-                </Box>
-              </MuiLink>
-            </NextLink>
+                  </Paper>
+                )}
+                <CardMedia
+                  alt="ポスター画像"
+                  component="img"
+                  height="360"
+                  image={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
+                />
+              </Box>
+              <Box sx={{ pt: 1, pl: 2 }}>
+                {movie.releaseDate ? (
+                  <Typography
+                    color="white"
+                    variant="subtitle2"
+                    sx={{ display: "inline" }}
+                  >
+                    公開日：{movie.releaseDate?.replace(/-/g, "/")}
+                  </Typography>
+                ) : null}
+                <UserScore
+                  size="small"
+                  voteAverage={movie?.voteAverage}
+                  voteCount={movie?.voteCount}
+                />
+              </Box>
+            </AppLink>
           </CardActionArea>
         </Card>
       )}

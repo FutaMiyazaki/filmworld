@@ -1,6 +1,6 @@
-import NextLink from "next/link";
 import { VFC } from "react";
-import { Link as MuiLink, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 
 type TextLinkProps = {
   path: string;
@@ -26,10 +26,8 @@ export const TextLink: VFC<TextLinkProps> = (props) => {
   const { path, text, variant } = props;
 
   return (
-    <NextLink href={path} passHref>
-      <MuiLink underline="hover">
-        <Typography variant={variant}>{text}</Typography>
-      </MuiLink>
-    </NextLink>
+    <AppLink path={path} underline="hover">
+      <Typography variant={variant}>{text}</Typography>
+    </AppLink>
   );
 };

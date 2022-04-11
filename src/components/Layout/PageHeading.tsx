@@ -15,7 +15,7 @@ export const PageHeading: VFC<PageHeadingProps> = (props) => {
       <Grid item>
         {path ? (
           <NextLink href={path} passHref>
-            <MuiLink underline="none" sx={{ color: "white" }}>
+            <MuiLink color="white" underline="none">
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 {text}
               </Typography>
