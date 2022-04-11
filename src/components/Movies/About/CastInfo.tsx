@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
@@ -5,7 +6,7 @@ import {
   Button,
   Collapse,
   Divider,
-  Grid,
+  Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
@@ -14,7 +15,7 @@ import {
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
 import { ListItemAvatarLink } from "src/components/Layout/Link/ListItemAvatarLink";
-import { AvatarLink } from "src/components/Layout/Link/AvatarLink";
+import { CreditsAvatar } from "src/components/Movies/About/CreditsAvatar";
 
 type CastData = {
   id: number;
@@ -85,13 +86,19 @@ export const CastInfo: VFC<CastProps> = (props) => {
             <Box>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 10 && profile_path ? (
-                  <AvatarLink
+                  <NextLink
                     key={id}
-                    id={id}
-                    name={name}
-                    profilePath={profile_path}
-                    tipPlacement="top"
-                  />
+                    href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
+                    passHref
+                  >
+                    <MuiLink underline="none" sx={{ display: "inline-block" }}>
+                      <CreditsAvatar
+                        name={name}
+                        profilePath={profile_path}
+                        tipPlacement="top"
+                      />
+                    </MuiLink>
+                  </NextLink>
                 ) : null;
               })}
               {!open && cast.length > 10 ? (
@@ -107,13 +114,22 @@ export const CastInfo: VFC<CastProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 10 && i < 20 && profile_path ? (
-                    <AvatarLink
+                    <NextLink
                       key={id}
-                      id={id}
-                      name={name}
-                      profilePath={profile_path}
-                      tipPlacement="bottom"
-                    />
+                      href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
+                      passHref
+                    >
+                      <MuiLink
+                        underline="none"
+                        sx={{ display: "inline-block" }}
+                      >
+                        <CreditsAvatar
+                          name={name}
+                          profilePath={profile_path}
+                          tipPlacement="bottom"
+                        />
+                      </MuiLink>
+                    </NextLink>
                   ) : null;
                 })}
               </Collapse>
