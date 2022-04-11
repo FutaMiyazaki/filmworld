@@ -28,7 +28,7 @@ export const CreditsAvatar: VFC<CreditsAvatarProps> = (props) => {
       <Avatar
         alt={`${name}の画像`}
         src={`https://image.tmdb.org/t/p/w300${profilePath}`}
-        sx={{ m: 2 }}
+        sx={{ m: 1 }}
       />
     </Tooltip>
   );
