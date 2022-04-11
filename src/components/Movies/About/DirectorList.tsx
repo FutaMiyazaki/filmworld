@@ -28,6 +28,7 @@ export const DirectorList: VFC<DirectorListProps> = (props) => {
           {crew?.map(({ id, job, name, profile_path }) => {
             return job === "Director" ? (
               <ListItemWithAvatar
+                dense={true}
                 key={id}
                 name={name}
                 profilePath={profile_path}

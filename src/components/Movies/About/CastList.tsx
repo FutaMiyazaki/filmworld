@@ -53,6 +53,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                       underline="none"
                     >
                       <ListItemWithAvatar
+                        dense={false}
                         name={name}
                         profilePath={profile_path}
                       />
@@ -79,6 +80,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                         underline="none"
                       >
                         <ListItemWithAvatar
+                          dense={false}
                           name={name}
                           profilePath={profile_path}
                         />

@@ -9,15 +9,16 @@ import {
 import PersonIcon from "@mui/icons-material/Person";
 
 type ListItemWithAvatarProps = {
+  dense: boolean;
   name: string;
   profilePath?: string;
 };
 
 export const ListItemWithAvatar: VFC<ListItemWithAvatarProps> = (props) => {
-  const { name, profilePath } = props;
+  const { dense, name, profilePath } = props;
 
   return (
-    <ListItem>
+    <ListItem dense={dense}>
       {profilePath ? (
         <ListItemAvatar>
           <Avatar
