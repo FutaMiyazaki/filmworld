@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import { Box, Card, CardMedia, Grid, Stack, Tab, Tabs } from "@mui/material";
 import { Loading } from "src/components/Layout/Loading";
 import { PageHeading } from "src/components/Layout/PageHeading";
-import { CastInfo } from "src/components/Movies/About/CastInfo";
+import { CastList } from "src/components/Movies/About/CastList";
 import { DirectorInfo } from "src/components/Movies/About/DirectorInfo";
 import { ExternalLinkDialog } from "src/components/Movies/About/ExternalLinkDialog";
 import { FavoriteButton } from "src/components/Movies/About/FavoriteButton";
@@ -146,7 +146,7 @@ const MoviesId: NextPage = () => {
                 />
                 <DirectorInfo crew={movieCredits?.crew} />
                 <ScreenwriterInfo crew={movieCredits?.crew} />
-                <CastInfo cast={movieCredits?.cast} />
+                <CastList cast={movieCredits?.cast} />
               </MoviesAboutTab>
             </Box>
           )}
@@ -180,7 +180,7 @@ const MoviesId: NextPage = () => {
               />
               <DirectorInfo crew={movieCredits?.crew} />
               <ScreenwriterInfo crew={movieCredits?.crew} />
-              <CastInfo cast={movieCredits?.cast} />
+              <CastList cast={movieCredits?.cast} />
             </MoviesAboutTab>
           </Box>
         </Grid>

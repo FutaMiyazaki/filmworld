@@ -28,7 +28,7 @@ type CastProps = {
   cast: CastData;
 };
 
-export const CastInfo: VFC<CastProps> = (props) => {
+export const CastList: VFC<CastProps> = (props) => {
   const [open, setOpen] = useState(false);
   const { cast } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
