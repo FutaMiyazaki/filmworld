@@ -1,6 +1,6 @@
-import NextLink from "next/link";
 import { VFC } from "react";
-import { Button, Link as MuiLink, Typography } from "@mui/material";
+import { Button } from "@mui/material";
+import { AppLink } from "./AppLink";
 
 type ButtonLinkProps = {
   path: string;
@@ -12,12 +12,10 @@ export const ButtonLink: VFC<ButtonLinkProps> = (props) => {
   const { path, text, variant } = props;
 
   return (
-    <NextLink href={path} passHref>
-      <MuiLink underline="none">
-        <Button fullWidth variant={variant}>
-          <Typography>{text}</Typography>
-        </Button>
-      </MuiLink>
-    </NextLink>
+    <AppLink path={path} underline="none">
+      <Button fullWidth variant={variant}>
+        {text}
+      </Button>
+    </AppLink>
   );
 };
