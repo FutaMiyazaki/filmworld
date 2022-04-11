@@ -1,8 +1,8 @@
-import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { VFC } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Box, Button, ButtonGroup, Link as MuiLink } from "@mui/material";
+import { Box, Button, ButtonGroup } from "@mui/material";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 
 type ButtonItems = {
   path: string;
@@ -36,17 +36,15 @@ export const RankingButtonLinks: VFC = () => {
       <ButtonGroup size="large" sx={{ display: "inline" }}>
         {buttonItems.map(({ path, text, mobileText }) => {
           return (
-            <NextLink key={path} href={path} passHref>
-              <MuiLink underline="none">
-                <Button
-                  disabled={`${router.pathname}?page=1` === path}
-                  variant="contained"
-                  sx={{ mr: 1, fontWeight: "bold" }}
-                >
-                  {isMobileScreen ? mobileText : text}
-                </Button>
-              </MuiLink>
-            </NextLink>
+            <AppLink key={path} path={path} underline="none">
+              <Button
+                disabled={`${router.pathname}?page=1` === path}
+                variant="contained"
+                sx={{ mr: 1, fontWeight: "bold" }}
+              >
+                {isMobileScreen ? mobileText : text}
+              </Button>
+            </AppLink>
           );
         })}
       </ButtonGroup>
