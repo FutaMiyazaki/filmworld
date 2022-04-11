@@ -28,8 +28,8 @@ export const DirectorList: VFC<DirectorListProps> = (props) => {
           {crew?.map(({ id, job, name, profile_path }) => {
             return job === "Director" ? (
               <ListItemWithAvatar
-                dense={true}
                 key={id}
+                dense={true}
                 name={name}
                 profilePath={profile_path}
               />
@@ -39,13 +39,14 @@ export const DirectorList: VFC<DirectorListProps> = (props) => {
       ) : (
         <>
           {crew?.map(({ id, job, name, profile_path }) => {
-            return job === "Director" ? (
-              <CreditsAvatar
-                key={id}
-                name={name}
-                profilePath={profile_path}
-                tipPlacement="top"
-              />
+            return job === "Director" && profile_path ? (
+              <Box key={id} sx={{ display: "inline-block" }}>
+                <CreditsAvatar
+                  name={name}
+                  profilePath={profile_path}
+                  tipPlacement="top"
+                />
+              </Box>
             ) : null;
           })}
         </>
