@@ -1,11 +1,15 @@
 import { VFC } from "react";
-import { Box, Typography } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
+import { Box, List } from "@mui/material";
+import { ListItemWithAvatar } from "src/components/Layout/List/ListItemWithAvatar";
 import { InfoHeader } from "src/components/Movies/About/InfoHeader";
+import { CreditsAvatar } from "./CreditsAvatar";
 
 type CrewData = {
   id: number;
   job: string;
   name: string;
+  profile_path: string;
 }[];
 
 type DirectorProps = {
@@ -14,24 +18,37 @@ type DirectorProps = {
 
 export const DirectorInfo: VFC<DirectorProps> = (props) => {
   const { crew } = props;
+  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
     <Box sx={{ mb: 2 }}>
       <InfoHeader text="監督" />
-      {crew?.map(({ id, job, name }) => {
-        return job === "Director" ? (
-          <Typography
-            key={id}
-            variant="body2"
-            sx={{
-              display: "inline-block",
-              mr: 2,
-            }}
-          >
-            {name}
-          </Typography>
-        ) : null;
-      })}
+      {isMobileScreen ? (
+        <List sx={{ p: 0 }}>
+          {crew?.map(({ id, job, name, profile_path }) => {
+            return job === "Director" ? (
+              <ListItemWithAvatar
+                key={id}
+                name={name}
+                profilePath={profile_path}
+              />
+            ) : null;
+          })}
+        </List>
+      ) : (
+        <>
+          {crew?.map(({ id, job, name, profile_path }) => {
+            return job === "Director" ? (
+              <CreditsAvatar
+                key={id}
+                name={name}
+                profilePath={profile_path}
+                tipPlacement="top"
+              />
+            ) : null;
+          })}
+        </>
+      )}
     </Box>
   );
 };
