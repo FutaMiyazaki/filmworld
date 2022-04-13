@@ -1,7 +1,7 @@
 import { VFC } from "react";
 import { Grid } from "@mui/material";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
-import { MovieList } from "src/components/Movies/MovieList";
+import { TopMovieList } from "src/components/Movies/Top/TopMovieList";
 import { useRevenueMovies } from "src/hooks/topMovies/useRevenueMovies";
 
 export const MoviesTopRevenue: VFC = () => {
@@ -9,7 +9,7 @@ export const MoviesTopRevenue: VFC = () => {
 
   return (
     <>
-      <MovieList
+      <TopMovieList
         movies={movies?.results}
         error={error}
         gridLg={4}
