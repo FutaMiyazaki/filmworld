@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Collapse,
-  Divider,
   Link as MuiLink,
   List,
   ListItem,
@@ -46,20 +45,17 @@ export const CastList: VFC<CastListProps> = (props) => {
             <List>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 8 ? (
-                  <>
-                    <AppLink
-                      key={id}
-                      path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
-                      underline="none"
-                    >
-                      <ListItemWithAvatar
-                        dense={false}
-                        name={name}
-                        profilePath={profile_path}
-                      />
-                    </AppLink>
-                    <Divider variant="inset" />
-                  </>
+                  <AppLink
+                    key={id}
+                    path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                    underline="none"
+                  >
+                    <ListItemWithAvatar
+                      dense={false}
+                      name={name}
+                      profilePath={profile_path}
+                    />
+                  </AppLink>
                 ) : null;
               })}
               {!open && cast.length > 8 ? (
@@ -73,22 +69,17 @@ export const CastList: VFC<CastListProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 7 && i < 15 ? (
-                    <>
-                      <AppLink
-                        key={id}
-                        path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
-                        underline="none"
-                      >
-                        <ListItemWithAvatar
-                          dense={false}
-                          name={name}
-                          profilePath={profile_path}
-                        />
-                      </AppLink>
-                      {i === 14 || i === cast.length ? null : (
-                        <Divider variant="inset" />
-                      )}
-                    </>
+                    <AppLink
+                      key={id}
+                      path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                      underline="none"
+                    >
+                      <ListItemWithAvatar
+                        dense={false}
+                        name={name}
+                        profilePath={profile_path}
+                      />
+                    </AppLink>
                   ) : null;
                 })}
               </Collapse>
