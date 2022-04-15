@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import NextImage from "next/image";
 import { SyntheticEvent, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Box, Card, CardMedia, Grid, Stack, Tab, Tabs } from "@mui/material";
@@ -66,14 +66,14 @@ const MoviesId: NextPage = () => {
             )}
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <div style={{ position: "relative", width: "100%", height: 450 }}>
-              <Image
-                src={`https://image.tmdb.org/t/p/w300${movieInfo?.poster_path}`}
+            <Box sx={{ height: "40vh", position: "relative" }}>
+              <NextImage
+                alt={`${movieInfo?.title}のポスター画像`}
                 layout="fill"
                 objectFit="contain"
-                alt="ポスター画像"
+                src={`https://image.tmdb.org/t/p/w300${movieInfo?.poster_path}`}
               />
-            </div>
+            </Box>
             <Stack
               direction="row"
               alignItems="center"
