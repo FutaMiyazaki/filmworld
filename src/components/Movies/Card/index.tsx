@@ -2,7 +2,6 @@ import NextImage from "next/image";
 import { VFC } from "react";
 import { Box, Rating, Typography } from "@mui/material";
 import { AppLink } from "src/components/Layout/Link/AppLink";
-import StarIcon from "@mui/icons-material/Star";
 
 type MoviesCardProps = {
   movie: {
@@ -61,9 +60,6 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
           }}
         >
           <Rating
-            emptyIcon={
-              <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-            }
             precision={0.1}
             readOnly
             size="small"
