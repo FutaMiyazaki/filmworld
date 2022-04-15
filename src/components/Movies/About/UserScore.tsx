@@ -22,9 +22,8 @@ export const UserScore: VFC<UserScoreProps> = (props) => {
       }}
     >
       <Rating
-        readOnly
-        name="read-only"
         precision={0.1}
+        readOnly
         size={size}
         value={shapingScore(voteAverage)}
       />
