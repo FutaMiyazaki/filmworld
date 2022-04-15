@@ -1,5 +1,4 @@
 import { VFC } from "react";
-import { useMediaQuery } from "react-responsive";
 import { Grid, Skeleton, Stack } from "@mui/material";
 import { AppPagination } from "src/components/Layout/AppPagination";
 import { MoviesCard } from "src/components/Movies/Card/index";
@@ -52,7 +51,6 @@ export const TopMovieList: VFC<TopMovieListProps> = (props) => {
     path,
     totalPages,
   } = props;
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   if (error) {
     return <div>{error.message}</div>;
@@ -68,23 +66,12 @@ export const TopMovieList: VFC<TopMovieListProps> = (props) => {
         {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((n: number, i: number) => {
           return i < maxDisplay ? (
             <Grid key={i} item xs={1} sm={1} md={1} lg={1}>
-              {isMobileScreen ? (
-                <Grid container columns={{ xs: 5 }} spacing={2}>
-                  <Grid item xs={2}>
-                    <Skeleton variant="rectangular" height="20vh" />
-                  </Grid>
-                  <Grid item xs={3}>
-                    <Skeleton variant="text" />
-                    <Skeleton variant="text" />
-                  </Grid>
-                </Grid>
-              ) : (
-                <Stack spacing={1}>
-                  <Skeleton variant="rectangular" height="20vh" />
-                  <Skeleton variant="text" />
-                  <Skeleton variant="text" width="80%" />
-                </Stack>
-              )}
+              <Stack spacing={1}>
+                <Skeleton variant="rectangular" height="30vh" />
+                <Skeleton variant="text" />
+                <Skeleton variant="text" width="60%" />
+                <Skeleton variant="text" width="70%" />
+              </Stack>
             </Grid>
           ) : null;
         })}
