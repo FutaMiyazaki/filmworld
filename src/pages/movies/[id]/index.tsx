@@ -154,11 +154,11 @@ const MoviesId: NextPage = () => {
               <MoviesAboutTab index={2} value={tabValue}>
                 <ProviderList
                   headerText="購入"
-                  providerList={movieProviders?.results.JP.buy}
+                  providerList={movieProviders?.results?.JP?.buy}
                 />
                 <ProviderList
                   headerText="レンタル"
-                  providerList={movieProviders?.results.JP.rent}
+                  providerList={movieProviders?.results?.JP?.rent}
                 />
               </MoviesAboutTab>
             </Box>
@@ -199,11 +199,11 @@ const MoviesId: NextPage = () => {
             <MoviesAboutTab index={2} value={tabValue}>
               <ProviderList
                 headerText="購入"
-                providerList={movieProviders?.results.JP.buy}
+                providerList={movieProviders?.results?.JP?.buy}
               />
               <ProviderList
                 headerText="レンタル"
-                providerList={movieProviders?.results.JP.rent}
+                providerList={movieProviders?.results?.JP?.rent}
               />
             </MoviesAboutTab>
           </Box>
