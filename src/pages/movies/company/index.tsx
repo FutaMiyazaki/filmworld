@@ -51,7 +51,7 @@ const MoviesCompany: NextPage = () => {
         gridLg={5}
         gridMd={4}
         gridSm={3}
-        gridXs={1}
+        gridXs={2}
         isLoading={isLoading}
         maxDisplay={20}
         path={`/movies/company?id=${router.query.id}&sort=${router.query.sort}&`}

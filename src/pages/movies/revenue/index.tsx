@@ -53,7 +53,7 @@ const MoviesRevenue: NextPage = () => {
         gridLg={5}
         gridMd={4}
         gridSm={3}
-        gridXs={1}
+        gridXs={2}
         isLoading={isLoading}
         maxDisplay={20}
         path={path}

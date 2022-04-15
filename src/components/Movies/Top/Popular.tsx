@@ -15,7 +15,7 @@ export const MoviesTopPopular: VFC = () => {
         gridLg={4}
         gridMd={3}
         gridSm={2}
-        gridXs={1}
+        gridXs={2}
         isLoading={isLoading}
         maxDisplay={12}
         path="/"
