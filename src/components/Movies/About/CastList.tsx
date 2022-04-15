@@ -61,7 +61,7 @@ export const CastList: VFC<CastListProps> = (props) => {
               {!open && cast.length > 8 ? (
                 <ListItem dense>
                   <ListItemButton onClick={handleOpen}>
-                    <ListItemText>もっと見る</ListItemText>
+                    <ListItemText>さらに表示</ListItemText>
                     <ExpandMore />
                   </ListItemButton>
                 </ListItem>
@@ -110,7 +110,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                   size="small"
                   sx={{ display: "block", mt: 1 }}
                 >
-                  すべて表示
+                  さらに表示
                 </Button>
               ) : null}
               <Collapse in={open} timeout="auto" unmountOnExit>
