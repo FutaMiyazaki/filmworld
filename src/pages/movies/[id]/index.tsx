@@ -14,6 +14,7 @@ import { GenreList } from "src/components/Movies/About/GenreList";
 import { MovieTitle } from "src/components/Movies/About/MovieTitle";
 import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionSideInfo } from "src/components/Movies/About/ProductionSideInfo";
+import { ProviderList } from "src/components/Movies/About/ProviderList";
 import { Revenue } from "src/components/Movies/About/Revenue";
 import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
@@ -25,7 +26,8 @@ import { useMovie } from "src/hooks/useMovie";
 const MoviesId: NextPage = () => {
   const [tabValue, setTabValue] = useState(0);
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
-  const { movieInfo, movieCredits, error, isLoading } = useMovie();
+  const { movieInfo, movieCredits, movieProviders, error, isLoading } =
+    useMovie();
 
   const handleTabChange = (e: SyntheticEvent, newTabValue: number) => {
     setTabValue(newTabValue);
@@ -117,6 +119,7 @@ const MoviesId: NextPage = () => {
                 <Tabs value={tabValue} onChange={handleTabChange}>
                   <Tab label="作品情報" />
                   <Tab label="スタッフ・出演者" />
+                  <Tab label="配信サービス" />
                 </Tabs>
               </Box>
               <MoviesAboutTab index={0} value={tabValue}>
@@ -148,6 +151,16 @@ const MoviesId: NextPage = () => {
                 <ScreenwriterInfo crew={movieCredits?.crew} />
                 <CastList cast={movieCredits?.cast} />
               </MoviesAboutTab>
+              <MoviesAboutTab index={2} value={tabValue}>
+                <ProviderList
+                  headerText="購入"
+                  providerList={movieProviders?.results.JP.buy}
+                />
+                <ProviderList
+                  headerText="レンタル"
+                  providerList={movieProviders?.results.JP.rent}
+                />
+              </MoviesAboutTab>
             </Box>
           )}
         </Grid>
@@ -157,6 +170,7 @@ const MoviesId: NextPage = () => {
               <Tabs value={tabValue} onChange={handleTabChange}>
                 <Tab label="作品情報" />
                 <Tab label="スタッフ・出演者" />
+                <Tab label="配信サービス" />
               </Tabs>
             </Box>
             <MoviesAboutTab index={0} value={tabValue}>
@@ -181,6 +195,16 @@ const MoviesId: NextPage = () => {
               <DirectorList crew={movieCredits?.crew} />
               <ScreenwriterInfo crew={movieCredits?.crew} />
               <CastList cast={movieCredits?.cast} />
+            </MoviesAboutTab>
+            <MoviesAboutTab index={2} value={tabValue}>
+              <ProviderList
+                headerText="購入"
+                providerList={movieProviders?.results.JP.buy}
+              />
+              <ProviderList
+                headerText="レンタル"
+                providerList={movieProviders?.results.JP.rent}
+              />
             </MoviesAboutTab>
           </Box>
         </Grid>
