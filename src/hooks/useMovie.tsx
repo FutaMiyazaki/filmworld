@@ -17,12 +17,24 @@ export function useMovie() {
       : null,
     fetcher
   );
+  const { data: movieProviders, error: movieProvidersError } = useSWR(
+    router.query.id
+      ? `${API_URL}/movie/${router.query.id}/watch/providers?${API_KEY}`
+      : null,
+    fetcher
+  );
 
   return {
     movieInfo,
     movieCredits,
-    error: movieInfoError || movieCreditsError,
+    movieProviders,
+    error: movieInfoError || movieCreditsError || movieProvidersError,
     isLoading:
-      !movieInfo && !movieCredits && !movieInfoError && !movieCreditsError,
+      !movieInfo &&
+      !movieCredits &&
+      !movieProviders &&
+      !movieInfoError &&
+      !movieCreditsError &&
+      !movieProvidersError,
   };
 }
