@@ -11,9 +11,9 @@ export const SimilarMovies = () => {
       gridLg={5}
       gridMd={4}
       gridSm={3}
-      gridXs={1}
+      gridXs={2}
       isLoading={isLoading}
-      maxDisplay={15}
+      maxDisplay={12}
       path="/"
       totalPages={1}
     />
