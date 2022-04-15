@@ -1,6 +1,6 @@
+import NextImage from "next/image";
 import { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import { Card, CardMedia, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import { AppLink } from "src/components/Layout/Link/AppLink";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
@@ -8,7 +8,6 @@ import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 export const MoviesWatchlist = () => {
   const [nowFavoMovies, setNowFavoMovies] = useState([]);
   const storageKey = "favoMovies";
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
   useEffect(() => {
     const storage = localStorage.getItem(storageKey);
@@ -22,28 +21,37 @@ export const MoviesWatchlist = () => {
           {nowFavoMovies.map((movie) => {
             return (
               movie.id && (
-                <Grid
-                  item
-                  xs={1}
-                  sm={1}
-                  md={1}
-                  lg={1}
-                  key={movie.id}
-                  sx={{
-                    "&:hover": {
-                      opacity: 0.6,
-                    },
-                  }}
-                >
-                  <AppLink path={`/movies/${movie.id}`} underline="none">
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        height={isMobileScreen ? "250" : "400"}
-                        image={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                        alt="ポスター画像"
+                <Grid item xs={1} sm={1} md={1} lg={1} key={movie.id}>
+                  <AppLink path={`/movies/${movie.id}`} underline="hover">
+                    <Box
+                      sx={{
+                        height: "30vh",
+                        position: "relative",
+                        "&:hover": {
+                          opacity: 0.6,
+                        },
+                      }}
+                    >
+                      <NextImage
+                        alt={`${movie.title}のポスター画像`}
+                        layout="fill"
+                        objectFit="contain"
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       />
-                    </Card>
+                    </Box>
+                    <Box sx={{ p: 1 }}>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{
+                          fontWeight: "bold",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {movie.title}
+                      </Typography>
+                    </Box>
                   </AppLink>
                 </Grid>
               )

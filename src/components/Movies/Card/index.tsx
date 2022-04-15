@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import { VFC } from "react";
-import { Box, CardActionArea, Rating, Typography } from "@mui/material";
+import { Box, Rating, Typography } from "@mui/material";
 import { AppLink } from "src/components/Layout/Link/AppLink";
 import StarIcon from "@mui/icons-material/Star";
 
@@ -22,54 +22,58 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
   };
 
   return (
-    <CardActionArea>
-      <AppLink path={`/movies/${movie.id}`} underline="none">
-        <Box sx={{ height: "30vh", position: "relative" }}>
-          <NextImage
-            alt={`${movie.title}のポスター画像`}
-            layout="fill"
-            objectFit="contain"
-            src={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
+    <AppLink path={`/movies/${movie.id}`} underline="none">
+      <Box
+        sx={{
+          height: "30vh",
+          position: "relative",
+          "&:hover": {
+            opacity: 0.6,
+          },
+        }}
+      >
+        <NextImage
+          alt={`${movie.title}のポスター画像`}
+          layout="fill"
+          objectFit="contain"
+          src={`https://image.tmdb.org/t/p/original${movie.posterPath}`}
+        />
+      </Box>
+      <Box sx={{ p: 1 }}>
+        <Typography
+          variant="subtitle2"
+          sx={{
+            fontWeight: "bold",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {movie.title}
+        </Typography>
+        {movie.releaseDate ? (
+          <Box color="white">{movie.releaseDate?.replace(/-/g, "/")} 公開</Box>
+        ) : null}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Rating
+            emptyIcon={
+              <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+            }
+            precision={0.1}
+            readOnly
+            size="small"
+            value={shapingScore(movie.voteAverage)}
           />
-        </Box>
-        <Box sx={{ p: 1 }}>
-          <Typography
-            variant="subtitle2"
-            sx={{
-              fontWeight: "bold",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {movie.title}
-          </Typography>
-          {movie.releaseDate ? (
-            <Box color="white">
-              {movie.releaseDate?.replace(/-/g, "/")} 公開
-            </Box>
-          ) : null}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Rating
-              emptyIcon={
-                <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-              }
-              precision={0.1}
-              readOnly
-              size="small"
-              value={shapingScore(movie.voteAverage)}
-            />
-            <Box color="#FBBD30" sx={{ fontWeight: "bold", ml: 1 }}>
-              {shapingScore(movie.voteAverage)}
-            </Box>
+          <Box color="#FBBD30" sx={{ fontWeight: "bold", ml: 1 }}>
+            {shapingScore(movie.voteAverage)}
           </Box>
         </Box>
-      </AppLink>
-    </CardActionArea>
+      </Box>
+    </AppLink>
   );
 };
