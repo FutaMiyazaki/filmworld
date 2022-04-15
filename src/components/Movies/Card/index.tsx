@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import { VFC } from "react";
-import { Box, CardActionArea, Rating } from "@mui/material";
+import { Box, CardActionArea, Rating, Typography } from "@mui/material";
 import { AppLink } from "src/components/Layout/Link/AppLink";
 import StarIcon from "@mui/icons-material/Star";
 
@@ -33,7 +33,8 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
           />
         </Box>
         <Box sx={{ p: 1 }}>
-          <Box
+          <Typography
+            variant="subtitle2"
             sx={{
               fontWeight: "bold",
               overflow: "hidden",
@@ -42,7 +43,7 @@ export const MoviesCard: VFC<MoviesCardProps> = (props) => {
             }}
           >
             {movie.title}
-          </Box>
+          </Typography>
           {movie.releaseDate ? (
             <Box color="white">
               {movie.releaseDate?.replace(/-/g, "/")} 公開
