@@ -33,7 +33,7 @@ export const GenreList: VFC = () => {
                   },
                 }}
               >
-                <Typography variant="body1">{genre.name}</Typography>
+                <Typography variant="body2">{genre.name}</Typography>
               </Paper>
             </AppLink>
           </Grid>
