@@ -29,19 +29,14 @@ const MoviesCompany: NextPage = () => {
         <title>{company?.name}の映画 - FilmWorld</title>
       </Head>
       <PageHeading text={`${company?.name}の映画`} />
-      <Grid
-        container
-        spacing={2}
-        justifyContent="flex-start"
-        columns={{ xs: 4, sm: 8 }}
-        sx={{ mb: 4 }}
-      >
-        <Grid item xs={4} sm={2}>
+      <Grid container justifyContent="flex-start" sx={{ mb: 4 }}>
+        <Grid item xs={5} sm={4} md={3} lg={3}>
           <FilterByYear
             path={`/movies/company?id=${router.query.id}&sort=${router.query.sort}&`}
           />
         </Grid>
-        <Grid item xs={4} sm={2}>
+        <Grid item xs={2} sm={4} md={6} lg={6} />
+        <Grid item xs={5} sm={4} md={3} lg={3}>
           <SortMenu path={`/movies/company?id=${router.query.id}`} />
         </Grid>
       </Grid>
