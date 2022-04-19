@@ -36,7 +36,6 @@ export const FilterByYear = ({ path }) => {
           onChange={handleChange}
           error={year && (year < 1950 || year > 2022) ? true : false}
           variant="outlined"
-          placeholder="公開年を入力してください"
           InputProps={{
             endAdornment: <InputAdornment position="start">年</InputAdornment>,
           }}
