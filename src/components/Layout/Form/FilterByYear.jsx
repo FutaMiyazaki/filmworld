@@ -24,7 +24,7 @@ export const FilterByYear = ({ path }) => {
   return (
     <>
       <FormHelperText sx={{ fontWeight: "bold" }}>
-        公開年で絞り込む(1950~2022年)
+        公開年 (1950~2022年)
       </FormHelperText>
       <form action="" onSubmit={handleSubmit}>
         <TextField
