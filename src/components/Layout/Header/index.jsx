@@ -1,11 +1,9 @@
 import NextImage from "next/image";
-import NextLink from "next/link";
 import { useMediaQuery } from "react-responsive";
 import {
   AppBar,
   Box,
   Container,
-  Link as MuiLink,
   Slide,
   Toolbar,
   Typography,
@@ -14,6 +12,7 @@ import {
 import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { DrawerMenu } from "src/components/Layout/Header/DrawerMenu";
 import { SearchButton } from "src/components/Layout/Header/SearchButton";
+import { AppLink } from "src/components/Layout/Link/AppLink";
 import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
 
 const HideOnScroll = (props) => {
@@ -39,25 +38,22 @@ export const Header = (props) => {
           <AppBar position="static">
             <Container>
               <Toolbar disableGutters>
-                <NextLink href="/" passHref>
-                  <MuiLink underline="none">
-                    <NextImage
-                      src="/images/header_icon.png"
-                      width={15}
-                      height={15}
-                      objectFit="contain"
-                      alt="header icon"
-                      sx={{ display: "inline" }}
-                    />
-                    <Typography
-                      noWrap
-                      variant="h6"
-                      sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
-                    >
-                      FilmWorld
-                    </Typography>
-                  </MuiLink>
-                </NextLink>
+                <AppLink path="/" underline="none">
+                  <NextImage
+                    src="/images/header_icon.png"
+                    width={15}
+                    height={15}
+                    objectFit="contain"
+                    alt="header icon"
+                    sx={{ display: "inline" }}
+                  />
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
+                  >
+                    FilmWorld
+                  </Typography>
+                </AppLink>
                 <SearchButton />
               </Toolbar>
             </Container>
@@ -77,25 +73,22 @@ export const Header = (props) => {
                 <DrawerMenu />
               </Box>
               <Box sx={{ flexGrow: 1, display: "flex" }}>
-                <NextLink href="/" passHref>
-                  <MuiLink underline="none">
-                    <NextImage
-                      src="/images/header_icon.png"
-                      width={17}
-                      height={17}
-                      objectFit="contain"
-                      alt="header icon"
-                      sx={{ display: "inline" }}
-                    />
-                    <Typography
-                      noWrap
-                      variant="h6"
-                      sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
-                    >
-                      FilmWorld
-                    </Typography>
-                  </MuiLink>
-                </NextLink>
+                <AppLink path="/" underline="none">
+                  <NextImage
+                    src="/images/header_icon.png"
+                    width={17}
+                    height={17}
+                    objectFit="contain"
+                    alt="header icon"
+                    sx={{ display: "inline" }}
+                  />
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: "bold", display: "inline", ml: 1 }}
+                  >
+                    FilmWorld
+                  </Typography>
+                </AppLink>
                 <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
                   <ButtonLink path="/search" text="映画を探す" variant="text" />
                 </Box>
