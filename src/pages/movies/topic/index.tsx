@@ -36,16 +36,13 @@ const MoviesTopic: NextPage = () => {
             : "話題の映画ランキング"
         }
       />
-      <RankingButtonLinks />
-      <Grid
-        container
-        spacing={2}
-        justifyContent="flex-start"
-        columns={{ xs: 4, sm: 8 }}
-        sx={{ mb: 4 }}
-      >
-        <Grid item xs={4} sm={2}>
+      <Grid container justifyContent="flex-start" sx={{ mb: 4 }}>
+        <Grid item xs={5} sm={4} md={3} lg={3}>
           <FilterByYear path="/movies/topic?" />
+        </Grid>
+        <Grid item xs={1} sm={3} md={5} lg={4} />
+        <Grid item xs={6} sm={5} md={4} lg={5}>
+          <RankingButtonLinks />
         </Grid>
       </Grid>
       <MovieList

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { VFC } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Box, Button, ButtonGroup } from "@mui/material";
+import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 import { AppLink } from "src/components/Layout/Link/AppLink";
 
 type ButtonItems = {
@@ -27,27 +27,42 @@ export const RankingButtonLinks: VFC = () => {
     {
       path: "/movies/topic?page=1",
       text: "話題の映画ランキング",
-      mobileText: "話題の映画",
+      mobileText: "話題",
     },
   ];
 
   return (
-    <Box sx={{ mt: 1, mb: 2 }}>
-      <ButtonGroup size="large" sx={{ display: "inline" }}>
-        {buttonItems.map(({ path, text, mobileText }) => {
-          return (
-            <AppLink key={path} path={path} underline="none">
-              <Button
-                disabled={`${router.pathname}?page=1` === path}
-                variant="contained"
-                sx={{ mr: 1, fontWeight: "bold" }}
-              >
-                {isMobileScreen ? mobileText : text}
-              </Button>
-            </AppLink>
-          );
-        })}
-      </ButtonGroup>
-    </Box>
+    <>
+      <Typography
+        color="#FFFFFFB3"
+        variant="caption"
+        sx={{ fontWeight: "bold" }}
+      >
+        並び替え：
+      </Typography>
+      <Box
+        sx={{
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <ButtonGroup size={isMobileScreen ? "small" : "medium"} variant="text">
+          {buttonItems.map(({ path, text, mobileText }) => {
+            return (
+              <AppLink key={path} path={path} underline="none">
+                <Button
+                  disabled={`${router.pathname}?page=1` === path}
+                  sx={{ mr: 1, fontWeight: "bold" }}
+                >
+                  {isMobileScreen ? mobileText : text}
+                </Button>
+              </AppLink>
+            );
+          })}
+        </ButtonGroup>
+      </Box>
+    </>
   );
 };
