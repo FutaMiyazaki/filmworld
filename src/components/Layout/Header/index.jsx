@@ -67,7 +67,6 @@ export const Header = (props) => {
                 sx={{
                   mr: 2,
                   flexGrow: 0,
-                  display: { xs: "none", sm: "flex" },
                 }}
               >
                 <DrawerMenu />
@@ -89,12 +88,12 @@ export const Header = (props) => {
                     FilmWorld
                   </Typography>
                 </AppLink>
-                <Box sx={{ ml: 3, display: { xs: "none", sm: "block" } }}>
+                <Box sx={{ ml: 3 }}>
                   <ButtonLink path="/search" text="映画を探す" variant="text" />
                 </Box>
               </Box>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }} />
-              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <Box sx={{ flexGrow: 1 }} />
+              <Box>
                 <HeaderTextField />
               </Box>
             </Toolbar>
