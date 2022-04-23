@@ -26,8 +26,8 @@ export const RankingButtonLinks: VFC = () => {
     },
     {
       path: "/movies/topic?page=1",
-      text: "話題の映画ランキング",
-      mobileText: "話題",
+      text: "レビュー数ランキング",
+      mobileText: "レビュー数",
     },
   ];
 

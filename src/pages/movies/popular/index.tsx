@@ -40,8 +40,8 @@ const MoviesPopular: NextPage = () => {
         <Grid item xs={5} sm={4} md={3} lg={3}>
           <FilterByYear path="/movies/popular?" />
         </Grid>
-        <Grid item xs={1} sm={3} md={5} lg={4} />
-        <Grid item xs={6} sm={5} md={4} lg={5}>
+        <Grid item xs={1} sm={1} md={3} lg={4} />
+        <Grid item xs={6} sm={7} md={6} lg={5}>
           <RankingButtonLinks />
         </Grid>
       </Grid>
