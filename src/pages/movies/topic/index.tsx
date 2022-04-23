@@ -2,12 +2,10 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Grid } from "@mui/material";
-import { FilterByYear } from "src/components/Layout/Form/FilterByYear";
-import { RankingButtonLinks } from "src/components/Layout/Link/RankingButtonLinks";
 import { PageHeading } from "src/components/Layout/PageHeading";
 import { MovieList } from "src/components/Movies/MovieList";
 import { useScoreMovies } from "src/hooks/useScoreMovies";
+import { SortSection } from "src/components/Layout/SortSection";
 
 const MoviesTopic: NextPage = () => {
   const router = useRouter();
@@ -36,15 +34,7 @@ const MoviesTopic: NextPage = () => {
             : "レビュー数ランキング"
         }
       />
-      <Grid container justifyContent="flex-start" sx={{ mb: 4 }}>
-        <Grid item xs={5} sm={4} md={3} lg={3}>
-          <FilterByYear path="/movies/topic?" />
-        </Grid>
-        <Grid item xs={1} sm={1} md={3} lg={4} />
-        <Grid item xs={6} sm={7} md={6} lg={5}>
-          <RankingButtonLinks />
-        </Grid>
-      </Grid>
+      <SortSection path="topic" />
       <MovieList
         movies={movies?.results}
         error={error}
