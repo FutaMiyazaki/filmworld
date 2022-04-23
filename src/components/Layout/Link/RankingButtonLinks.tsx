@@ -42,10 +42,8 @@ export const RankingButtonLinks: VFC = () => {
       </Typography>
       <Box
         sx={{
-          alignItems: "center",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-end",
         }}
       >
         <ButtonGroup size={isMobileScreen ? "small" : "medium"} variant="text">
