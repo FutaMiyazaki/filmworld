@@ -37,7 +37,7 @@ export const BottomNavi = () => {
   const rankingLists = [
     {
       path: "/movies/popular?page=1",
-      text: "人気の映画",
+      text: "人気",
     },
     {
       path: "/movies/revenue?page=1",
@@ -45,7 +45,7 @@ export const BottomNavi = () => {
     },
     {
       path: "/movies/topic?page=1",
-      text: "話題の映画",
+      text: "レビュー数",
     },
   ];
   const genreLists = [

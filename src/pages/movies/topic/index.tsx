@@ -25,15 +25,15 @@ const MoviesTopic: NextPage = () => {
       <Head>
         <title>
           {router.query.year
-            ? `${router.query.year}年公開で話題の映画ランキング - FilmWorld`
-            : "話題の映画ランキング - FilmWorld"}
+            ? `${router.query.year}年公開のレビュー数ランキング - FilmWorld`
+            : "レビュー数ランキング - FilmWorld"}
         </title>
       </Head>
       <PageHeading
         text={
           router.query.year
-            ? `${router.query.year}年公開で話題の映画ランキング`
-            : "話題の映画ランキング"
+            ? `${router.query.year}年公開のレビュー数ランキング`
+            : "レビュー数ランキング"
         }
       />
       <Grid container justifyContent="flex-start" sx={{ mb: 4 }}>
