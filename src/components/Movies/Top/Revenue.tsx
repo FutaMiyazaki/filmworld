@@ -12,12 +12,12 @@ export const MoviesTopRevenue: VFC = () => {
       <TopMovieList
         movies={movies?.results}
         error={error}
-        gridLg={4}
-        gridMd={3}
-        gridSm={2}
+        gridLg={5}
+        gridMd={4}
+        gridSm={3}
         gridXs={2}
         isLoading={isLoading}
-        maxDisplay={12}
+        maxDisplay={10}
         path="/"
         totalPages={1}
       />
