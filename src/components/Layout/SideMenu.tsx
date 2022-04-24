@@ -1,19 +1,15 @@
-import NextLink from "next/link";
 import { useState, VFC } from "react";
 import {
   Collapse,
   Divider,
-  Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Typography,
 } from "@mui/material";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import { ListItemLink } from "src/components/Layout/Link/ListItemLink";
 
 export const SideMenu: VFC = () => {
@@ -168,19 +164,6 @@ export const SideMenu: VFC = () => {
             </ListItem>
           ) : null}
         </Collapse>
-        <Divider />
-        <NextLink passHref href="/watchlist">
-          <MuiLink color="white" underline="none">
-            <ListItem dense>
-              <ListItemButton>
-                <ListItemIcon>
-                  <VideoLibraryIcon />
-                </ListItemIcon>
-                <ListItemText>ウォッチリスト</ListItemText>
-              </ListItemButton>
-            </ListItem>
-          </MuiLink>
-        </NextLink>
       </List>
     </div>
   );
