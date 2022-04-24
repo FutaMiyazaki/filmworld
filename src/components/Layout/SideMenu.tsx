@@ -31,7 +31,7 @@ export const SideMenu: VFC = () => {
     },
     {
       path: "/movies/topic?page=1",
-      text: "話題の映画",
+      text: "レビュー数",
     },
   ];
   const genreLists = [
