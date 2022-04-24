@@ -14,7 +14,7 @@ export const HeadingLink: VFC<HeadingLinkProps> = (props) => {
   return (
     <Box sx={{ mb: 2 }}>
       <AppLink path={path} underline={underline}>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h6" sx={{ display: "inline", fontWeight: "bold" }}>
           {text}
         </Typography>
       </AppLink>

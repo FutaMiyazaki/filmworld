@@ -19,11 +19,11 @@ export const SideMenu: VFC = () => {
   const rankingLists = [
     {
       path: "/movies/popular?page=1",
-      text: "人気の映画",
+      text: "人気",
     },
     {
       path: "/movies/revenue?page=1",
-      text: "歴代興行収入",
+      text: "興行収入",
     },
     {
       path: "/movies/topic?page=1",
