@@ -2,6 +2,7 @@ import NextImage from "next/image";
 import { useMediaQuery } from "react-responsive";
 import {
   AppBar,
+  Button,
   Box,
   Container,
   Slide,
@@ -13,7 +14,8 @@ import { HeaderTextField } from "src/components/Layout/Form/HeaderTextField";
 import { DrawerMenu } from "src/components/Layout/Header/DrawerMenu";
 import { SearchButton } from "src/components/Layout/Header/SearchButton";
 import { AppLink } from "src/components/Layout/Link/AppLink";
-import { ButtonLink } from "src/components/Layout/Link/ButtonLink";
+import SearchIcon from "@mui/icons-material/Search";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -89,7 +91,24 @@ export const Header = (props) => {
                   </Typography>
                 </AppLink>
                 <Box sx={{ ml: 3 }}>
-                  <ButtonLink path="/search" text="映画を探す" variant="text" />
+                  <AppLink path="/search" underline="none">
+                    <Button
+                      startIcon={<SearchIcon />}
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      探す
+                    </Button>
+                  </AppLink>
+                </Box>
+                <Box sx={{ ml: 2 }}>
+                  <AppLink path="/watchlist" underline="none">
+                    <Button
+                      startIcon={<VideoLibraryIcon />}
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      ウォッチリスト
+                    </Button>
+                  </AppLink>
                 </Box>
               </Box>
               <Box sx={{ flexGrow: 1 }} />
