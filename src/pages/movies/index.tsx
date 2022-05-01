@@ -18,8 +18,6 @@ const MoviesIndex: NextPage = () => {
       : setPath(`/movies/popular?`);
   }, [router]);
 
-  console.log(movieListData);
-
   return (
     <div>
       <Head>
