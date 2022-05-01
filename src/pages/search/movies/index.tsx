@@ -13,7 +13,6 @@ import { useGenres } from "src/hooks/useGenres";
 const SearchMovies: NextPage = () => {
   const router = useRouter();
   const [genre, setGenre] = useState("");
-  const [path, setPath] = useState("");
   const { genres } = useGenres();
   const { movies, error, isLoading, isEmpty } = useSearchMovies();
 
@@ -24,14 +23,6 @@ const SearchMovies: NextPage = () => {
       }
     }
   }, [genres?.genres, router.query.genre]);
-
-  useEffect(() => {
-    router.query.keyword
-      ? setPath(`/search/movies?keyword=${router.query.keyword}&`)
-      : setPath(
-          `/search/movies?genre=${router.query.genre}&year_start=${router.query.year_start}&year_end=${router.query.year_end}&`
-        );
-  }, [router]);
 
   if (isLoading) {
     return <Loading />;
@@ -81,7 +72,7 @@ const SearchMovies: NextPage = () => {
           gridXs={2}
           isLoading={isLoading}
           maxDisplay={20}
-          path={path}
+          path="/search/movies"
           totalPages={movies?.total_pages}
         />
       )}
