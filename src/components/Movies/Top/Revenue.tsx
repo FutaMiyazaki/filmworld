@@ -30,7 +30,7 @@ export const MoviesTopRevenue: VFC = () => {
         <Grid item xs={4} sm={2} lg={3}>
           {isLoading ? null : (
             <ButtonLink
-              path="/movies/revenue?page=1"
+              path="/movies?page=1&sort_type=revenue.desc"
               text="もっと見る"
               variant="outlined"
             />

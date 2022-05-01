@@ -30,7 +30,7 @@ export const MoviesTopPopular: VFC = () => {
         <Grid item xs={4} sm={2} lg={3}>
           {isLoading ? null : (
             <ButtonLink
-              path="/movies/popular?page=1"
+              path="/movies?page=1&sort_type=popularity.desc"
               text="もっと見る"
               variant="outlined"
             />
