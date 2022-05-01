@@ -47,7 +47,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                 return i < 8 ? (
                   <AppLink
                     key={id}
-                    path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                    path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                     underline="none"
                   >
                     <ListItemWithAvatar
@@ -71,7 +71,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                   return i > 7 && i < 15 ? (
                     <AppLink
                       key={id}
-                      path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                      path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                       underline="none"
                     >
                       <ListItemWithAvatar
@@ -90,7 +90,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                 return i < 10 && profile_path ? (
                   <NextLink
                     key={id}
-                    href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
+                    href={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                     passHref
                   >
                     <MuiLink underline="none" sx={{ display: "inline-block" }}>
@@ -118,7 +118,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                   return i > 10 && i < 20 && profile_path ? (
                     <NextLink
                       key={id}
-                      href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
+                      href={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                       passHref
                     >
                       <MuiLink
