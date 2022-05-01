@@ -63,7 +63,7 @@ export const TopMovieList: VFC<TopMovieListProps> = (props) => {
         columns={{ xs: gridXs, sm: gridSm, md: gridMd, lg: gridLg }}
         spacing={2}
       >
-        {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((n: number, i: number) => {
+        {[0, 0, 0, 0, 0, 0, 0, 0].map((n: number, i: number) => {
           return i < maxDisplay ? (
             <Grid key={i} item xs={1} sm={1} md={1} lg={1}>
               <Stack spacing={1}>
