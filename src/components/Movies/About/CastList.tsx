@@ -1,11 +1,9 @@
-import NextLink from "next/link";
 import { useCallback, useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   Box,
   Button,
   Collapse,
-  Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
@@ -88,19 +86,13 @@ export const CastList: VFC<CastListProps> = (props) => {
             <Box>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 10 && profile_path ? (
-                  <NextLink
+                  <AppLink
                     key={id}
-                    href={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
-                    passHref
+                    path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
+                    underline="hover"
                   >
-                    <MuiLink underline="none" sx={{ display: "inline-block" }}>
-                      <CreditsAvatar
-                        name={name}
-                        profilePath={profile_path}
-                        tipPlacement="top"
-                      />
-                    </MuiLink>
-                  </NextLink>
+                    <CreditsAvatar name={name} profilePath={profile_path} />
+                  </AppLink>
                 ) : null;
               })}
               {!open && cast.length > 10 ? (
@@ -116,22 +108,13 @@ export const CastList: VFC<CastListProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 10 && i < 20 && profile_path ? (
-                    <NextLink
+                    <AppLink
                       key={id}
-                      href={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
-                      passHref
+                      path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
+                      underline="hover"
                     >
-                      <MuiLink
-                        underline="none"
-                        sx={{ display: "inline-block" }}
-                      >
-                        <CreditsAvatar
-                          name={name}
-                          profilePath={profile_path}
-                          tipPlacement="bottom"
-                        />
-                      </MuiLink>
-                    </NextLink>
+                      <CreditsAvatar name={name} profilePath={profile_path} />
+                    </AppLink>
                   ) : null;
                 })}
               </Collapse>

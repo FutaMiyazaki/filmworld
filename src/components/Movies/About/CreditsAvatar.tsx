@@ -1,35 +1,29 @@
 import { VFC } from "react";
-import { Avatar, Tooltip, Typography } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 
 type CreditsAvatarProps = {
   name: string;
   profilePath?: string;
-  tipPlacement: "top" | "bottom";
 };
 
 export const CreditsAvatar: VFC<CreditsAvatarProps> = (props) => {
-  const { name, profilePath, tipPlacement } = props;
+  const { name, profilePath } = props;
 
   return (
-    <Tooltip
-      arrow
-      disableInteractive
-      title={
-        <Typography
-          color="primary"
-          variant="subtitle1"
-          sx={{ fontWeight: "bold" }}
-        >
-          {name}
-        </Typography>
-      }
-      placement={tipPlacement}
+    <Box
+      sx={{
+        alignContent: "center",
+        alignItems: "center",
+        display: "inline-flex",
+        m: 1,
+      }}
     >
       <Avatar
         alt={`${name}の画像`}
         src={`https://image.tmdb.org/t/p/w300${profilePath}`}
-        sx={{ m: 1 }}
+        sx={{ mr: 1 }}
       />
-    </Tooltip>
+      <Typography variant="body2">{name}</Typography>
+    </Box>
   );
 };
