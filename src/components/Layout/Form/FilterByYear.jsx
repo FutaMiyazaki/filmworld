@@ -22,9 +22,9 @@ export const FilterByYear = () => {
           page: 1,
           sort_type: router.query.sort_type,
           year: year,
-          with_companies: router.query.company_id,
-          with_genres: router.query.genre_id,
-          with_people: router.query.cast_id,
+          company_id: router.query.company_id,
+          genre_id: router.query.genre_id,
+          cast_id: router.query.cast_id,
         },
       });
     },
