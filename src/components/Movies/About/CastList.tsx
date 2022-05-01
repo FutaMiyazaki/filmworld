@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { useState, VFC } from "react";
+import { useCallback, useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   Box,
@@ -32,9 +32,9 @@ export const CastList: VFC<CastListProps> = (props) => {
   const { cast } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
-  const handleOpen = () => {
+  const handleClick = useCallback(() => {
     setOpen(!open);
-  };
+  }, []);
 
   return (
     <>
@@ -60,7 +60,7 @@ export const CastList: VFC<CastListProps> = (props) => {
               })}
               {!open && cast.length > 8 ? (
                 <ListItem dense>
-                  <ListItemButton onClick={handleOpen}>
+                  <ListItemButton onClick={handleClick}>
                     <ListItemText>さらに表示</ListItemText>
                     <ExpandMore />
                   </ListItemButton>
@@ -106,7 +106,7 @@ export const CastList: VFC<CastListProps> = (props) => {
               {!open && cast.length > 10 ? (
                 <Button
                   fullWidth
-                  onClick={handleOpen}
+                  onClick={handleClick}
                   size="small"
                   sx={{ display: "block", mt: 1 }}
                 >
