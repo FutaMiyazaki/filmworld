@@ -21,7 +21,7 @@ export const GenreList: VFC = () => {
         return (
           <Grid item key={genre.id} sm={1} md={1} lg={1}>
             <AppLink
-              path={`/movies/genre?id=${genre.id}&sort=popularity.desc&page=1`}
+              path={`/movies?page=1&sort_type=popularity.desc&genre_id=${genre.id}`}
               underline="none"
             >
               <Paper

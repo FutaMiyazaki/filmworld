@@ -22,7 +22,7 @@ export const GenreList: VFC<GenreListProps> = (props) => {
         return (
           <NextLink
             key={genre.id}
-            href={`/movies/genre?id=${genre.id}&sort=popularity.desc&page=1`}
+            href={`/movies?page=1&sort_type=popularity.desc&genre_id=${genre.id}`}
             passHref
           >
             <Chip
