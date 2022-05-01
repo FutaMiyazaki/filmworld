@@ -6,8 +6,8 @@ import { fetcher } from "src/utils/fetcher";
 export const useCast = () => {
   const router = useRouter();
   const { data: cast, error: castError } = useSWR(
-    router.query.id
-      ? `${API_URL}/person/${router.query.id}?${API_KEY}&language=ja-JP`
+    router.query.cast_id
+      ? `${API_URL}/person/${router.query.cast_id}?${API_KEY}&language=ja-JP`
       : null,
     fetcher
   );
