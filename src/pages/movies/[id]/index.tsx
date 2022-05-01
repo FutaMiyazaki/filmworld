@@ -145,7 +145,7 @@ const MoviesId: NextPage = () => {
                 <ProductionSideInfo
                   data={movieInfo?.production_companies}
                   headerText="製作会社"
-                  path="/movies/company"
+                  pathType="company"
                 />
                 <DirectorList crew={movieCredits?.crew} />
                 <ScreenwriterInfo crew={movieCredits?.crew} />
@@ -190,7 +190,7 @@ const MoviesId: NextPage = () => {
               <ProductionSideInfo
                 data={movieInfo?.production_companies}
                 headerText="製作会社"
-                path="/movies/company"
+                pathType="company"
               />
               <DirectorList crew={movieCredits?.crew} />
               <ScreenwriterInfo crew={movieCredits?.crew} />
