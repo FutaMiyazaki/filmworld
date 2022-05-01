@@ -1,36 +1,28 @@
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { KeyboardEvent, MouseEvent, useState, VFC } from "react";
 import {
   Box,
   Button,
   Divider,
   Drawer,
+  IconButton,
+  Link as MuiLink,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   Typography,
 } from "@mui/material";
 import SortIcon from "@mui/icons-material/Sort";
-import { ListItemLink } from "./Link/ListItemLink";
+import CheckIcon from "@mui/icons-material/Check";
+import { SORT_TYPES } from "src/utils/const";
 
 export const SortBottomMenu: VFC = () => {
+  const router = useRouter();
   const [state, setState] = useState({
     bottom: false,
   });
-
-  const rankingLists = [
-    {
-      path: "/movies/popular?page=1",
-      text: "人気ランキング",
-    },
-    {
-      path: "/movies/revenue?page=1",
-      text: "興行収入ランキング",
-    },
-    {
-      path: "/movies/topic?page=1",
-      text: "レビュー数ランキング",
-    },
-  ];
 
   const toggleDrawer =
     (anchor: "bottom", open: boolean) =>
@@ -60,8 +52,40 @@ export const SortBottomMenu: VFC = () => {
               </ListItemText>
             </ListItem>
             <Divider sx={{ mb: 1 }} />
-            {rankingLists.map(({ path, text }) => (
-              <ListItemLink key={text} path={path} text={text} />
+            {SORT_TYPES.map(({ sort, text }) => (
+              <NextLink
+                key={sort}
+                href={{
+                  pathname: "/movies",
+                  query: {
+                    page: 1,
+                    sort_type: sort,
+                    year: router.query.year,
+                    with_companies: router.query.company_id,
+                    with_genres: router.query.genre_id,
+                    with_people: router.query.cast_id,
+                  },
+                }}
+                passHref
+              >
+                <MuiLink color="white" underline="none">
+                  <ListItem
+                    dense
+                    onClick={toggleDrawer("bottom", false)}
+                    secondaryAction={
+                      router.query.sort_type === sort ? (
+                        <IconButton edge="end">
+                          <CheckIcon />
+                        </IconButton>
+                      ) : null
+                    }
+                  >
+                    <ListItemButton>
+                      <ListItemText>{text}</ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </NextLink>
             ))}
           </List>
           <Button
