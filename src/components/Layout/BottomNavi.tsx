@@ -24,6 +24,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import { COMPANY_LIST, GENRE_LIST, SORT_TYPES } from "src/utils/const";
 
 export const BottomNavi = () => {
   const router = useRouter();
@@ -34,43 +35,6 @@ export const BottomNavi = () => {
   const [openGenre, setOpenGenre] = useState(false);
   const [openCompany, setOpenCompany] = useState(false);
   const maxListDisplay = 4;
-  const rankingLists = [
-    {
-      path: "/movies/popular?page=1",
-      text: "人気",
-    },
-    {
-      path: "/movies/revenue?page=1",
-      text: "歴代興行収入",
-    },
-    {
-      path: "/movies/topic?page=1",
-      text: "レビュー数",
-    },
-  ];
-  const genreLists = [
-    { id: "28", text: "アクション" },
-    { id: "12", text: "アドベンチャー" },
-    { id: "16", text: "アニメーション" },
-    { id: "35", text: "コメディ" },
-    { id: "99", text: "ドキュメンタリー" },
-    { id: "10751", text: "ファミリー" },
-    { id: "14", text: "ファンタジー" },
-    { id: "27", text: "ホラー" },
-    { id: "10749", text: "ロマンス" },
-    { id: "878", text: "サイエンスフィクション" },
-  ];
-  const companyLists = [
-    { id: "2", text: "ディズニー" },
-    { id: "33", text: "ユニバーサル" },
-    { id: "174", text: "ワーナー・ブラザーズ" },
-    { id: "25", text: "20世紀スタジオ" },
-    { id: "4", text: "パラマウント" },
-    { id: "420", text: "MARVEL" },
-    { id: "3", text: "Pixar" },
-    { id: "882", text: "東宝" },
-    { id: "192", text: "松竹" },
-  ];
 
   const toggleDrawer =
     (anchor: "right", open: boolean) => (event: KeyboardEvent | MouseEvent) => {
@@ -151,12 +115,16 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {rankingLists.map((listItem) => (
-              <NextLink key={listItem.text} href={listItem.path} passHref>
+            {SORT_TYPES.map(({ sort, text }) => (
+              <NextLink
+                key={sort}
+                href={`/movies?page=1&sort_type=${sort}`}
+                passHref
+              >
                 <MuiLink underline="none" color="white">
                   <ListItem dense onClick={toggleDrawer("right", false)}>
                     <ListItemButton>
-                      <ListItemText>{listItem.text}</ListItemText>
+                      <ListItemText>{text}</ListItemText>
                     </ListItemButton>
                   </ListItem>
                 </MuiLink>
@@ -170,11 +138,11 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {genreLists.map(({ id, text }, i: number) => {
+            {GENRE_LIST.map(({ id, text }, i: number) => {
               return i < maxListDisplay ? (
                 <NextLink
                   key={id}
-                  href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                  href={`/movies?page=1&sort_type=popularity.desc&genre_id=${id}`}
                   passHref
                 >
                   <MuiLink underline="none" color="white">
@@ -196,11 +164,11 @@ export const BottomNavi = () => {
               </ListItem>
             ) : null}
             <Collapse in={openGenre} timeout="auto" unmountOnExit>
-              {genreLists.map(({ id, text }, i: number) => {
+              {GENRE_LIST.map(({ id, text }, i: number) => {
                 return i > maxListDisplay ? (
                   <NextLink
                     key={id}
-                    href={`/movies/genre?id=${id}&sort=popularity.desc&&page=1`}
+                    href={`/movies?page=1&sort_type=popularity.desc&genre_id=${id}`}
                     passHref
                   >
                     <MuiLink underline="none" color="white">
@@ -240,11 +208,11 @@ export const BottomNavi = () => {
                 </Typography>
               </ListItemText>
             </ListItem>
-            {companyLists.map(({ id, text }, i: number) => {
+            {COMPANY_LIST.map(({ id, text }, i: number) => {
               return i < maxListDisplay ? (
                 <NextLink
                   key={id}
-                  href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                  href={`/movies?page=1&sort_type=popularity.desc&company_id=${id}`}
                   passHref
                 >
                   <MuiLink color="white" underline="none">
@@ -266,11 +234,11 @@ export const BottomNavi = () => {
               </ListItem>
             ) : null}
             <Collapse in={openCompany} timeout="auto" unmountOnExit>
-              {companyLists.map(({ id, text }, i: number) => {
+              {COMPANY_LIST.map(({ id, text }, i: number) => {
                 return i > maxListDisplay ? (
                   <NextLink
                     key={id}
-                    href={`/movies/company?id=${id}&sort=popularity.desc&&page=1`}
+                    href={`/movies?page=1&sort_type=popularity.desc&company_id=${id}`}
                     passHref
                   >
                     <MuiLink color="white" underline="none">

@@ -17,7 +17,18 @@ export const AppPagination: VFC<AppPaginationProps> = (props) => {
 
   const handlePage = (e: {}, clickPage: number) => {
     setPage(clickPage);
-    router.push(`${path}page=${clickPage}`);
+    router.push({
+      pathname: path,
+      query: {
+        page: clickPage,
+        sort_type: router.query.sort_type,
+        year: router.query.year,
+        company_id: router.query.company_id,
+        genre_id: router.query.genre_id,
+        cast_id: router.query.cast_id,
+        keyword: router.query.keyword,
+      },
+    });
   };
 
   useEffect(() => {

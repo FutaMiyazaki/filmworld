@@ -16,7 +16,6 @@ import { Overview } from "src/components/Movies/About/Overview";
 import { ProductionSideInfo } from "src/components/Movies/About/ProductionSideInfo";
 import { ProviderList } from "src/components/Movies/About/ProviderList";
 import { Revenue } from "src/components/Movies/About/Revenue";
-import { ScreenwriterInfo } from "src/components/Movies/About/ScreenwriterInfo";
 import { SimilarMovies } from "src/components/Movies/About/SimilarMovies";
 import { MoviesAboutTab } from "src/components/Movies/About/Tab";
 import { UserScore } from "src/components/Movies/About/UserScore";
@@ -145,10 +144,9 @@ const MoviesId: NextPage = () => {
                 <ProductionSideInfo
                   data={movieInfo?.production_companies}
                   headerText="製作会社"
-                  path="/movies/company"
+                  pathType="company"
                 />
                 <DirectorList crew={movieCredits?.crew} />
-                <ScreenwriterInfo crew={movieCredits?.crew} />
                 <CastList cast={movieCredits?.cast} />
               </MoviesAboutTab>
               <MoviesAboutTab index={2} value={tabValue}>
@@ -190,10 +188,9 @@ const MoviesId: NextPage = () => {
               <ProductionSideInfo
                 data={movieInfo?.production_companies}
                 headerText="製作会社"
-                path="/movies/company"
+                pathType="company"
               />
               <DirectorList crew={movieCredits?.crew} />
-              <ScreenwriterInfo crew={movieCredits?.crew} />
               <CastList cast={movieCredits?.cast} />
             </MoviesAboutTab>
             <MoviesAboutTab index={2} value={tabValue}>

@@ -1,11 +1,9 @@
-import NextLink from "next/link";
-import { useState, VFC } from "react";
+import { useCallback, useState, VFC } from "react";
 import { useMediaQuery } from "react-responsive";
 import {
   Box,
   Button,
   Collapse,
-  Link as MuiLink,
   List,
   ListItem,
   ListItemButton,
@@ -32,9 +30,9 @@ export const CastList: VFC<CastListProps> = (props) => {
   const { cast } = props;
   const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
 
-  const handleOpen = () => {
+  const handleClick = useCallback(() => {
     setOpen(!open);
-  };
+  }, []);
 
   return (
     <>
@@ -47,7 +45,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                 return i < 8 ? (
                   <AppLink
                     key={id}
-                    path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                    path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                     underline="none"
                   >
                     <ListItemWithAvatar
@@ -60,7 +58,7 @@ export const CastList: VFC<CastListProps> = (props) => {
               })}
               {!open && cast.length > 8 ? (
                 <ListItem dense>
-                  <ListItemButton onClick={handleOpen}>
+                  <ListItemButton onClick={handleClick}>
                     <ListItemText>さらに表示</ListItemText>
                     <ExpandMore />
                   </ListItemButton>
@@ -71,7 +69,7 @@ export const CastList: VFC<CastListProps> = (props) => {
                   return i > 7 && i < 15 ? (
                     <AppLink
                       key={id}
-                      path={`/movies/cast?id=${id}&sort=popularity.desc&&page=1`}
+                      path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
                       underline="none"
                     >
                       <ListItemWithAvatar
@@ -88,25 +86,19 @@ export const CastList: VFC<CastListProps> = (props) => {
             <Box>
               {cast?.map(({ id, name, profile_path }, i: number) => {
                 return i < 10 && profile_path ? (
-                  <NextLink
+                  <AppLink
                     key={id}
-                    href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
-                    passHref
+                    path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
+                    underline="hover"
                   >
-                    <MuiLink underline="none" sx={{ display: "inline-block" }}>
-                      <CreditsAvatar
-                        name={name}
-                        profilePath={profile_path}
-                        tipPlacement="top"
-                      />
-                    </MuiLink>
-                  </NextLink>
+                    <CreditsAvatar name={name} profilePath={profile_path} />
+                  </AppLink>
                 ) : null;
               })}
               {!open && cast.length > 10 ? (
                 <Button
                   fullWidth
-                  onClick={handleOpen}
+                  onClick={handleClick}
                   size="small"
                   sx={{ display: "block", mt: 1 }}
                 >
@@ -116,22 +108,13 @@ export const CastList: VFC<CastListProps> = (props) => {
               <Collapse in={open} timeout="auto" unmountOnExit>
                 {cast?.map(({ id, name, profile_path }, i: number) => {
                   return i > 10 && i < 20 && profile_path ? (
-                    <NextLink
+                    <AppLink
                       key={id}
-                      href={`/movies/cast?id=${id}&sort=popularity.desc&page=1`}
-                      passHref
+                      path={`/movies?page=1&sort_type=popularity.desc&cast_id=${id}`}
+                      underline="hover"
                     >
-                      <MuiLink
-                        underline="none"
-                        sx={{ display: "inline-block" }}
-                      >
-                        <CreditsAvatar
-                          name={name}
-                          profilePath={profile_path}
-                          tipPlacement="bottom"
-                        />
-                      </MuiLink>
-                    </NextLink>
+                      <CreditsAvatar name={name} profilePath={profile_path} />
+                    </AppLink>
                   ) : null;
                 })}
               </Collapse>

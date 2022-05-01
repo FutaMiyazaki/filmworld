@@ -11,11 +11,11 @@ type ProductionSideData = {
 type ProductionSideInfoProps = {
   data: ProductionSideData;
   headerText: string;
-  path?: string;
+  pathType?: string;
 };
 
 export const ProductionSideInfo: VFC<ProductionSideInfoProps> = (props) => {
-  const { data, headerText, path } = props;
+  const { data, headerText, pathType } = props;
 
   return (
     <>
@@ -23,10 +23,10 @@ export const ProductionSideInfo: VFC<ProductionSideInfoProps> = (props) => {
         <Box sx={{ mb: 2 }}>
           <InfoHeader text={headerText} />
           {data?.map(({ id, name }) => {
-            return path ? (
+            return pathType ? (
               <NextLink
                 key={name}
-                href={`${path}?id=${id}&sort=popularity.desc&page=1`}
+                href={`/movies?page=1&sort_type=popularity.desc&${pathType}_id=${id}`}
                 passHref
               >
                 <MuiLink underline="hover" sx={{ display: "inline-block" }}>

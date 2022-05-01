@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { FormHelperText, InputAdornment, TextField } from "@mui/material";
 
-export const FilterByYear = ({ path }) => {
+export const FilterByYear = () => {
   const router = useRouter();
   const [year, setYear] = useState("");
 
@@ -16,7 +16,17 @@ export const FilterByYear = ({ path }) => {
       if (year < 1950 || year > 2022) {
         return;
       }
-      router.push(`${path}year=${year}&page=1`);
+      router.push({
+        pathname: "/movies",
+        query: {
+          page: 1,
+          sort_type: router.query.sort_type,
+          year: year,
+          company_id: router.query.company_id,
+          genre_id: router.query.genre_id,
+          cast_id: router.query.cast_id,
+        },
+      });
     },
     [year]
   );

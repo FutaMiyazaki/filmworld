@@ -1,7 +1,6 @@
 import { VFC } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Skeleton, Stack } from "@mui/material";
 import { AppPagination } from "src/components/Layout/AppPagination";
-import { Loading } from "src/components/Layout/Loading";
 import { MoviesCard } from "src/components/Movies/Card/index";
 
 type movieType = {
@@ -58,7 +57,26 @@ export const MovieList: VFC<MovieListProps> = (props) => {
   }
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <Grid
+        container
+        columns={{ xs: gridXs, sm: gridSm, md: gridMd, lg: gridLg }}
+        spacing={2}
+      >
+        {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((n: number, i: number) => {
+          return i < maxDisplay ? (
+            <Grid key={i} item xs={1} sm={1} md={1} lg={1}>
+              <Stack spacing={1}>
+                <Skeleton variant="rectangular" height="30vh" />
+                <Skeleton variant="text" />
+                <Skeleton variant="text" width="60%" />
+                <Skeleton variant="text" width="70%" />
+              </Stack>
+            </Grid>
+          ) : null;
+        })}
+      </Grid>
+    );
   }
 
   return (
