@@ -19,13 +19,13 @@ const Index: NextPage = () => {
       </Grid>
       <Grid item xs={12} sm={7} md={8} lg={9}>
         <HeadingLink
-          path="/movies/popular?page=1"
+          path="/movies?page=1&sort_type=popularity.desc"
           text="人気ランキング"
           underline="hover"
         />
         <MoviesTopPopular />
         <HeadingLink
-          path="/movies/revenue?page=1"
+          path="/movies?page=1&sort_type=revenue.desc"
           text="興行収入ランキング"
           underline="hover"
         />
