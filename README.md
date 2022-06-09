@@ -6,13 +6,13 @@
 
 ## トップページ
 
-![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/157682943-0c297de3-2c6e-4da3-80ff-3b1bc57ab000.png)
+![filmworld_top_pc](https://user-images.githubusercontent.com/74496398/172860308-42234827-2f06-493c-8731-7cbb6750e0e9.png)
 
 <br>
 
 ## レスポンシブ対応
 
-![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/157683539-756da445-1c81-4f5e-bbe5-9693fe4ab0d3.png)
+![filmworld_top_mobile](https://user-images.githubusercontent.com/74496398/172860951-3ea020f1-5efb-43c3-abb5-576df804e687.png)
 
 <br>
 
