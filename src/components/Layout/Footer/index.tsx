@@ -27,7 +27,7 @@ export const Footer: VFC = () => {
           </MuiLink>
         </Typography>
         <Typography variant="body2" align="center">
-          This product uses TMDb API, but isn't endorsed or certified by TMDb.
+          This product uses TMDb API, but is not endorsed or certified by TMDb.
         </Typography>
       </Container>
     </Box>
