@@ -297,6 +297,25 @@ export const BottomNavi = () => {
               </ListItem>
             </MuiLink>
           </List>
+          <Divider />
+          <Box sx={{ my: 3 }}>
+            <Typography variant="body2" align="center" sx={{ mb: 1 }}>
+              powered by:
+              <MuiLink
+                href="https://www.themoviedb.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
+                sx={{ pl: 1 }}
+              >
+                themoviedb.org
+              </MuiLink>
+            </Typography>
+            <Typography variant="body2" align="center">
+              This product uses TMDb API, but is not endorsed or certified by
+              TMDb.
+            </Typography>
+          </Box>
         </Box>
       </Drawer>
     </div>
